@@ -1,29 +1,20 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 
 import { ThemeProvider } from '@material-ui/core/styles'
+
 import TMTheme from './atoms/TMTheme'
+import TMButton from './atoms/TMButton'
 
-import { makeStyles } from '@material-ui/core/styles'
-import { Paper } from '@material-ui/core';
+import LanguageIcon from './assets/icons/Language.js';
 
-const useStyles = makeStyles({
-  root: {
-    padding: '4px 8px',
-    borderRadius: 8
-  }
-})
+import { Paper, SvgIcon, Button } from '@material-ui/core';
 
 function App() {
-  const classes = useStyles()
-
   return (
     <ThemeProvider theme={TMTheme}>
       <Paper>
 
-        <Button className={classes.root} variant="contained" color="primary">Primary</Button> <br></br>
-        <Button className={classes.root} variant="contained" color="secondary">Secondary</Button> <br></br>
-
+        <TMButton size="small" disabled>Hey there</TMButton>
       </Paper>
     </ThemeProvider>
   );
