@@ -40,11 +40,7 @@ const useStyles = makeStyles(theme => ({
   leadingIcon: {
     "& .MuiSvgIcon-root": {
       fontSize: 16
-    },
-    // ".childrenContainer": {
-    //   width: '100%',
-    //   color: 'red'
-    // }
+    }
   },
   iconSizeSmall: {
     marginRight: 8,
@@ -53,6 +49,9 @@ const useStyles = makeStyles(theme => ({
   iconSizeLarge: {
     marginRight: 12,
     marginLeft: 0
+  },
+  childrenContainter: {
+    width: '100%'
   }
 }))
 
@@ -82,13 +81,7 @@ function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, hre
       href={href}
       disableElevation
     >
-      <div
-        className='childrenContainer'
-        styles={{
-          backgroundColor: 'red',
-          width: '100%'
-        }}
-      >
+      <div className={classes.childrenContainter}>
         {children}
       </div>
     </Button>
