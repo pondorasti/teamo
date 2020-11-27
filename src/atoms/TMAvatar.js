@@ -42,10 +42,10 @@ const useStyles = makeStyles((theme) => ({
   smallStatusOverlay: {
     backgroundColor: '#141414',
     position: 'absolute',
-    top: '88px',
-    left: '88px',
+    top: '16px',
+    left: '16px',
     zIndex: 1,
-    padding: '8px',
+    padding: '2px',
     borderRadius: '50%',
   },
   smallGreenDot: {
@@ -65,6 +65,18 @@ function TMAvatar({ alt, src, size, status }) {
     // [classes.status]: status === 'online',
   });
 
+  const large = (
+    <div className={classes.largeStatusOverlay}>
+      <div className={classes.largeGreenDot}></div>
+    </div>
+  );
+
+  const small = (
+    <div className={classes.smallStatusOverlay}>
+      <div className={classes.smallGreenDot}></div>
+    </div>
+  );
+
   const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />;
 
   const withStatus = (
@@ -75,9 +87,7 @@ function TMAvatar({ alt, src, size, status }) {
         src={src}
         // status={status}
       />
-      <div className={classes.largeStatusOverlay}>
-        <div className={classes.largeGreenDot}></div>
-      </div>
+      {size === 'large' ? large : small}
     </div>
   );
 
