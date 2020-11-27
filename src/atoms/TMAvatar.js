@@ -79,6 +79,8 @@ function TMAvatar({ alt, src, size, status }) {
 
   const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />;
 
+  const largeOrSmall = <div> {size === 'large' ? large : small} </div>;
+
   const withStatus = (
     <div className={classes.avatarDiv}>
       <Avatar
@@ -87,7 +89,8 @@ function TMAvatar({ alt, src, size, status }) {
         src={src}
         // status={status}
       />
-      {size === 'large' ? large : small}
+
+      {size === 'medium' ? '' : largeOrSmall}
     </div>
   );
 
