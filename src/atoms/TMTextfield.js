@@ -3,14 +3,32 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete, {
   createFilterOptions,
 } from '@material-ui/lab/Autocomplete';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& label.Mui-focused': {
+      color: theme.palette.secondary.main,
+    },
+    '& .MuiOutlinedInput-root': {
+      borderRadius: 12,
+      '&.Mui-focused fieldset': {
+        borderColor: theme.palette.secondary.main,
+        borderRadius: 12,
+      },
+    },
+  },
+}));
 
 const filter = createFilterOptions();
 
-function TMTextfield() {
+function TMTextfield({ label }) {
+  const classes = useStyles();
   const [value, setValue] = React.useState(null);
 
   return (
     <Autocomplete
+      className={classes.root}
       size="small"
       value={value}
       onChange={(event, newValue) => {
@@ -61,11 +79,7 @@ function TMTextfield() {
       style={{ width: 300 }}
       freeSolo
       renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Free solo with text demo"
-          variant="outlined"
-        />
+        <TextField {...params} label={label} variant="outlined" />
       )}
     />
   );
