@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
+  avatarDiv: {
+    // backgroundColor: 'currentColor',
+    position: 'relative',
+  },
   sizeSmall: {
     width: '24px',
     height: '24px',
@@ -20,6 +24,36 @@ const useStyles = makeStyles((theme) => ({
     height: '120px',
     borderRadius: '16px',
   },
+  largeStatusOverlay: {
+    backgroundColor: '#1E1E1E',
+    position: 'absolute',
+    top: '88px',
+    left: '88px',
+    zIndex: 1,
+    padding: '8px',
+    borderRadius: '50%',
+  },
+  largeGreenDot: {
+    height: '24px',
+    width: '24px',
+    backgroundColor: '#23E036',
+    borderRadius: '50%',
+  },
+  smallStatusOverlay: {
+    backgroundColor: '#141414',
+    position: 'absolute',
+    top: '88px',
+    left: '88px',
+    zIndex: 1,
+    padding: '8px',
+    borderRadius: '50%',
+  },
+  smallGreenDot: {
+    height: '6px',
+    width: '6px',
+    backgroundColor: '#23E036',
+    borderRadius: '50%',
+  },
 }));
 
 function TMAvatar({ alt, src, size, status }) {
@@ -28,12 +62,26 @@ function TMAvatar({ alt, src, size, status }) {
     [classes.sizeSmall]: size === 'small',
     [classes.sizeMedium]: size === 'medium',
     [classes.sizeLarge]: size === 'large',
-    [classes.status]: status === 'online',
+    // [classes.status]: status === 'online',
   });
 
-  return (
-    <Avatar classes={{ root: className }} alt={alt} src={src} status={status} />
+  const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />;
+
+  const withStatus = (
+    <div className={classes.avatarDiv}>
+      <Avatar
+        classes={{ root: className }}
+        alt={alt}
+        src={src}
+        // status={status}
+      />
+      <div className={classes.largeStatusOverlay}>
+        <div className={classes.largeGreenDot}></div>
+      </div>
+    </div>
   );
+
+  return <div>{status === 'online' ? withStatus : noStatus}</div>;
 }
 
 TMAvatar.propTypes = {
