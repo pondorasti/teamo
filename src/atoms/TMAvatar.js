@@ -28,7 +28,7 @@ function TMAvatar({ alt, src, size, status }) {
     [classes.sizeSmall]: size === 'small',
     [classes.sizeMedium]: size === 'medium',
     [classes.sizeLarge]: size === 'large',
-    // [classes.status]: status === 'online',
+    [classes.status]: status === 'online',
   });
 
   return (
