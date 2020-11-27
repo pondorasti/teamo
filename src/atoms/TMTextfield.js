@@ -11,6 +11,7 @@ function TMTextfield() {
 
   return (
     <Autocomplete
+      size="small"
       value={value}
       onChange={(event, newValue) => {
         if (typeof newValue === 'string') {
