@@ -1,12 +1,13 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { fade, darken } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(theme => ({
   root: {
     textTransform: 'none',
+    color: theme.palette.text.primary,
   },
   sizeSmall: {
     padding: '4px 8px',
@@ -16,6 +17,12 @@ const useStyles = makeStyles(theme => ({
     padding: '8px 24px',
     borderRadius: 8
   },
+  contained: {
+    backgroundColor: theme.palette.primary.main,
+    '&:hover': {
+      backgroundColor: darken(theme.palette.primary.main, 0.075),
+    }
+  },
   outlinedSizeSmall: {
     padding: '3px 7px',
   },
@@ -23,7 +30,6 @@ const useStyles = makeStyles(theme => ({
     padding: '7px 23px',
   },
   outlined: {
-    color: theme.palette.text.primary,
     backgroundColor: theme.palette.error.light,
     borderColor: theme.palette.error.main,
     '&:hover': {
@@ -50,7 +56,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, href}) {
+function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, href }) {
 
   const classes = useStyles()
 
@@ -60,6 +66,7 @@ function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, hre
         root: classes.root,
         sizeSmall: classes.sizeSmall,
         sizeLarge: classes.sizeLarge,
+        contained: classes.contained,
         outlinedSizeSmall: classes.outlinedSizeSmall,
         outlinedSizeLarge: classes.outlinedSizeLarge,
         outlined: classes.outlined,
@@ -68,7 +75,6 @@ function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, hre
         iconSizeLarge: classes.iconSizeLarge
       }}
       startIcon={leadingIcon}
-      color='primary'
       size={size}
       variant={style}
       disabled={disabled}
@@ -76,13 +82,13 @@ function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, hre
       href={href}
       disableElevation
     >
-      <div 
+      <div
         className='childrenContainer'
         styles={{
           backgroundColor: 'red',
           width: '100%'
         }}
-        >
+      >
         {children}
       </div>
     </Button>
