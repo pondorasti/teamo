@@ -1,10 +1,10 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   sizeSmall: {
     padding: '4px 8px',
     borderRadius: 8
@@ -12,22 +12,38 @@ const useStyles = makeStyles({
   sizeLarge: {
     padding: '8px 24px',
     borderRadius: 8
+  },
+  outlinedSizeSmall: {
+    padding: '3px 7px',
+  },
+  outlinedSizeLarge: {
+    padding: '7px 23px',
+  },
+  outlined: {
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.error.light,
+    borderColor: theme.palette.error.main,
+    '&:hover': {
+      backgroundColor: fade(theme.palette.error.light, theme.palette.action.hoverOpacity),
+      borderColor: theme.palette.error.main,
+    },
   }
-})
+}))
 
 
 function TMButton({ children, color, size, style, disabled, fullWidth, href}) {
+  
   const classes = useStyles()
-  const className = classNames(
-    {
-    [classes.sizeSmall]: size === 'small',
-    [classes.sizeLarge]: size === 'large'
-    }
-  )
 
   return (
     <Button
-      className={className}
+      classes={{
+        sizeSmall: classes.sizeSmall,
+        sizeLarge: classes.sizeLarge,
+        outlinedSizeSmall: classes.outlinedSizeSmall,
+        outlinedSizeLarge: classes.outlinedSizeLarge,
+        outlined: classes.outlined
+      }}
       color="primary"
       size={size}
       variant={style}

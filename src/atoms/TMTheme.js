@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 const TMTheme = createMuiTheme({
   palette: {
-    primary: { // error
+    primary: { // primary
       main: '#7800D7',
       dark: '#7800D7'
     },
@@ -29,6 +29,14 @@ const TMTheme = createMuiTheme({
       secondary: "#FFFFFF66", // secondary label
       disabled: "#FFFFFF40", // tertiary label
       hint: "#FFFFFF40", // tertiary label
+    },
+
+    background: {
+
+    },
+
+    action: {
+      hoverOpacity: 0.2
     },
 
     divider: '#FFFFFF26', // separator
