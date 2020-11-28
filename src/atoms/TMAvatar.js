@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '16px',
   },
   largeStatusOverlay: {
-    backgroundColor: '#1E1E1E',
+    // backgroundColor: theme.palette.grey[800],
     position: 'absolute',
     top: '88px',
     left: '88px',
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
   },
   smallStatusOverlay: {
-    backgroundColor: '#141414',
+    // backgroundColor: '#141414',
     position: 'absolute',
     top: '16px',
     left: '16px',
@@ -56,17 +56,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TMAvatar({ alt, src, size, status }) {
+function TMAvatar({ alt, src, size, status, BGColor }) {
   const classes = useStyles();
   const className = classNames({
     [classes.sizeSmall]: size === 'small',
     [classes.sizeMedium]: size === 'medium',
     [classes.sizeLarge]: size === 'large',
-    // [classes.status]: status === 'online',
   });
 
   const large = (
-    <div className={classes.largeStatusOverlay}>
+    <div
+      className={classes.largeStatusOverlay}
+      style={{ backgroundColor: { BGColor } }}
+    >
       <div className={classes.largeGreenDot}></div>
     </div>
   );
@@ -83,12 +85,7 @@ function TMAvatar({ alt, src, size, status }) {
 
   const withStatus = (
     <div className={classes.avatarDiv}>
-      <Avatar
-        classes={{ root: className }}
-        alt={alt}
-        src={src}
-        // status={status}
-      />
+      <Avatar classes={{ root: className }} alt={alt} src={src} />
       {size === 'medium' ? '' : largeOrSmall}
     </div>
   );
@@ -104,7 +101,7 @@ TMAvatar.propTypes = {
 };
 
 TMAvatar.defaultProps = {
-  size: 'large',
+  size: 'medium',
   status: 'none',
 };
 

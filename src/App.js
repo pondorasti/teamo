@@ -15,9 +15,11 @@ function App() {
       <Paper style={{ padding: 40 }}>
         <TMAvatar
           src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-          size="small"
+          size="large"
           // status="offline"
           status="online"
+          BGColor="#141414"
+          alt="avatar"
         />
       </Paper>
     </ThemeProvider>
