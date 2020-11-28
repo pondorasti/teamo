@@ -32,13 +32,13 @@ const TMTheme = createMuiTheme({
       primary: '#FFFFFFE6', // label
       secondary: '#FFFFFF66', // secondary label
       disabled: '#FFFFFF40', // tertiary label
-      hint: 'FFFFFF40', // tertiary label
+      hint: '#FFFFFF40', // tertiary label
     },
 
     grey: {
       600: '#464646', // quaternary background
       700: '#2F2F30', // tertiary background
-      800: '1E1E1E', // secondary background
+      800: '#1E1E1E', // secondary background
       900: '#141414' // background
     },
 
