@@ -21,10 +21,13 @@ const TMTheme = createMuiTheme({
     info: { // blue
       main: '#0A84FF',
       dark: '#0A84FF',
+<<<<<<< HEAD
     },
     success: { // green
       main: '#23E036',
       dark: '#23E036'
+=======
+>>>>>>> atom-textfield
     },
 
     text: {
@@ -32,6 +35,7 @@ const TMTheme = createMuiTheme({
       secondary: '#FFFFFF66',
       disabled: '#FFFFFF40',
       hint: '#FFFFFF40',
+<<<<<<< HEAD
     },
 
     grey: {
@@ -43,6 +47,8 @@ const TMTheme = createMuiTheme({
 
     action: {
       hoverOpacity: 0.2
+=======
+>>>>>>> atom-textfield
     },
 
     divider: '#FFFFFF26', // separator
