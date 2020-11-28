@@ -49,7 +49,64 @@ const TMTheme = createMuiTheme({
 
     type: 'dark'
   },
-  shadows: ['none']
+  shadows: ['none'],
+  typography: {
+    h1: { // H1
+      fontWeight: '500',
+      fontSize: '2.25rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    h2: { // H2
+      fontWeight: '500',
+      fontSize: '1.5rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    h4: { // headline 1
+      fontWeight: '400',
+      fontSize: '1.375rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    h5: { // headline 1
+      fontWeight: '500',
+      fontSize: '1.0625rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    h6: { // headline 2
+      fontWeight: '500',
+      fontSize: '0.9375rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    body1: { // body
+      fontWeight: '400',
+      fontSize: '0.9375rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    body2: { // body
+      fontWeight: '400',
+      fontSize: '0.9375rem',
+      lineHeight: '100%',
+      letterSpacing: '0.009375rem'
+    },
+    button: { // button
+      textTransform: 'none',
+      fontWeight: '700',
+      fontSize: '0.9375rem',
+      lineHeight: '100%',
+      letterSpacing: '0rem'
+    },
+    caption: { // caption
+      fontWeight: '400',
+      fontSize: '0.75rem',
+      lineHeight: '1rem',
+      letterSpacing: '0.025rem'
+    }
+  }
 })
 
 export default TMTheme

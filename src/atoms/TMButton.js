@@ -11,11 +11,13 @@ const useStyles = makeStyles(theme => ({
   },
   sizeSmall: {
     padding: '4px 8px',
-    borderRadius: 8
+    borderRadius: 8,
+    fontSize: '0.875rem'
   },
   sizeLarge: {
     padding: '8px 24px',
-    borderRadius: 8
+    borderRadius: 8,
+    fontSize: theme.typography.button.fontSize
   },
   contained: {
     backgroundColor: theme.palette.primary.main,
