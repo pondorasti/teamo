@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   largeGreenDot: {
     height: '24px',
     width: '24px',
-    backgroundColor: '#23E036',
+    backgroundColor: theme.palette.success.main,
     borderRadius: '50%',
   },
   smallStatusOverlay: {
