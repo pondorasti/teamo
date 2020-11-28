@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={TMTheme}>
       <Paper style={{ padding: 40 }}>
-        <TMTextfield label="hello" />
+        <TMTextfield label="Games" />
       </Paper>
     </ThemeProvider>
   );
