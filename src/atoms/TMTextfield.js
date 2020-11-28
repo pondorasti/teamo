@@ -62,7 +62,7 @@ function TMTextfield({ label }) {
       clearOnBlur
       handleHomeEndKeys
       id="free-solo-with-text-demo"
-      options={top100Films}
+      options={gameTitles}
       getOptionLabel={(option) => {
         // Value selected with enter, right from the input
         if (typeof option === 'string') {
@@ -85,10 +85,10 @@ function TMTextfield({ label }) {
   );
 }
 
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
+const gameTitles = [
+  { title: 'Minecraft', year: 1994 },
+  { title: 'League of Legends', year: 1972 },
+  { title: 'Fall Guys', year: 1974 },
 ];
 
 export default TMTextfield;
