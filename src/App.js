@@ -1,11 +1,22 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+
+import { ThemeProvider } from '@material-ui/core/styles'
+
+import TMTheme from './atoms/TMTheme'
+import TMButton from './atoms/TMButton'
+
+import LanguageIcon from './assets/icons/Language.js';
+
+import { Paper, SvgIcon, Button } from '@material-ui/core';
 
 function App() {
   return (
-    <Button variant="contained" color="primary">
-      Teamo
-    </Button>
+    <ThemeProvider theme={TMTheme}>
+      <Paper>
+
+        <TMButton size="small" disabled>Hey there</TMButton>
+      </Paper>
+    </ThemeProvider>
   );
 }
 
