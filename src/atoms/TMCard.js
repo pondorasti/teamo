@@ -8,16 +8,17 @@ import TMCardStats from './TMCardStats'
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
-    width: 300,
+    width: 290,
     height: 150,
     padding: '15px 15px',
+    cursor: 'pointer',
     backgroundColor: theme.palette.grey[700],
     borderRadius: 16,
     transition: '70ms',
-    '&:hover': {
-      transform: 'translate(-3px, -3px)',
-      boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.2)',
-    },
+    // '&:hover': {
+    //   transform: 'translate(-3px, -3px)',
+    //   boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.2)',
+    // },
   },
   gameImg: {
     display: 'flex',
@@ -27,9 +28,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: 'cover',
   },
   cardTopSection: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: 14,
+    marginBottom: 20,
   },
   cardMiddleSection: {
     marginBottom: 22,
@@ -39,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   userNameTypography: {
+    paddingTop: 4,
     fontWeight: theme.typography.body1.fontWeight,
     fontSize: theme.typography.body1.fontSize,
     lineHeight: theme.typography.body1.lineHeight,
@@ -46,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   descriptionTypography: {
-    fontWeight: theme.typography.h4.fontWeight,
-    fontSize: theme.typography.h4.fontSize,
-    lineHeight: theme.typography.h4.lineHeight,
-    letterSpacing: theme.typography.h4.letterSpacing,
+    fontWeight: theme.typography.h5.fontWeight,
+    fontSize: theme.typography.h5.fontSize,
+    lineHeight: theme.typography.h5.lineHeight,
+    letterSpacing: theme.typography.h5.letterSpacing,
   },
 }))
 
