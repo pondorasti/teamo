@@ -10,7 +10,9 @@ function App() {
   return (
     <ThemeProvider theme={TMTheme}>
       <Paper style={{ padding: 40 }}>
-        <TMTextfield label="Games" />
+        {/* <TMTextfield label="Games" /> */}
+        <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
+        <TMTextfield label="Games" defaultValue="jello" type="number"/>
       </Paper>
     </ThemeProvider>
   );

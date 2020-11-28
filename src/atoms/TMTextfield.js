@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows }) {
+function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows, type }) {
   const classes = useStyles();
 
   return (
@@ -32,24 +32,42 @@ function TMTextfield({ label, defaultValue, helperText, error, disabled, multili
       disabled={disabled}
       multiline={multiline}
       rows={rows}
+      type={type}
     />
   )
 }
 
 TMTextfield.propTypes = {
+  /** The label content. */
   label: PropTypes.string.isRequired,
+
+  /** The default input value. */
   defaultValue: PropTypes.string,
+
+  /** Text that is displayed under the Textfield */
   helperText: PropTypes.string,
+
+  /** If `true`, the input will indicate an error. */
   error: PropTypes.bool,
+
+  /** If `true`, the input will be disabled. */
   disabled: PropTypes.bool,
+
+  /** If `true`, a textarea element will be rendered. */
   multiline: PropTypes.bool,
-  rows: PropTypes.number
+
+  /** Number of rows to display when multiline option is set to true. */
+  rows: PropTypes.number,
+
+  /** Type of the input element. It should be a valid HTML5 input type. */
+  type: PropTypes.string
 }
 
 TMTextfield.defaultProps = {
   error: false,
   disabled: false,
-  multiline: false
+  multiline: false,
+  type: 'text'
 }
 
 export default TMTextfield;
