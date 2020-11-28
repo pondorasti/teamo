@@ -12,10 +12,9 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 12,
       '&.Mui-focused fieldset': {
         borderColor: theme.palette.secondary.main,
-        borderRadius: 12,
-      },
-    },
-  },
+      }
+    }
+  }
 }));
 
 function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows, type }) {
@@ -23,7 +22,9 @@ function TMTextfield({ label, defaultValue, helperText, error, disabled, multili
 
   return (
     <TextField
-      classes={{ root: classes.root }}
+      classes={{ 
+        root: classes.root
+      }}
       variant="outlined"
       label={label}
       defaultValue={defaultValue}
