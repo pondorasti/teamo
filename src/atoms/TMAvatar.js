@@ -1,8 +1,8 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 const useStyles = makeStyles((theme) => ({
   avatarDiv: {
@@ -54,15 +54,15 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#23E036',
     borderRadius: '50%',
   },
-}));
+}))
 
 function TMAvatar({ alt, src, size, status, BGColor }) {
-  const classes = useStyles();
+  const classes = useStyles()
   const className = classNames({
     [classes.sizeSmall]: size === 'small',
     [classes.sizeMedium]: size === 'medium',
     [classes.sizeLarge]: size === 'large',
-  });
+  })
 
   const large = (
     <div
@@ -71,26 +71,26 @@ function TMAvatar({ alt, src, size, status, BGColor }) {
     >
       <div className={classes.largeGreenDot}></div>
     </div>
-  );
+  )
 
   const small = (
     <div className={classes.smallStatusOverlay}>
       <div className={classes.smallGreenDot}></div>
     </div>
-  );
+  )
 
-  const largeOrSmall = <div> {size === 'large' ? large : small} </div>;
+  const largeOrSmall = <div> {size === 'large' ? large : small} </div>
 
-  const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />;
+  const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />
 
   const withStatus = (
     <div className={classes.avatarDiv}>
       <Avatar classes={{ root: className }} alt={alt} src={src} />
       {size === 'medium' ? '' : largeOrSmall}
     </div>
-  );
+  )
 
-  return <div>{status === 'online' ? withStatus : noStatus}</div>;
+  return <div>{status === 'online' ? withStatus : noStatus}</div>
 }
 
 TMAvatar.propTypes = {
@@ -98,11 +98,11 @@ TMAvatar.propTypes = {
   src: PropTypes.string.isRequired,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   status: PropTypes.oneOf(['none', 'online']),
-};
+}
 
 TMAvatar.defaultProps = {
   size: 'medium',
   status: 'none',
-};
+}
 
-export default TMAvatar;
+export default TMAvatar
