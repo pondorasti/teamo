@@ -6,7 +6,6 @@ import classNames from 'classnames'
 
 const useStyles = makeStyles((theme) => ({
   avatarDiv: {
-    // backgroundColor: 'currentColor',
     position: 'relative',
   },
   sizeSmall: {
@@ -25,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '16px',
   },
   largeStatusOverlay: {
-    // backgroundColor: theme.palette.grey[800],
     position: 'absolute',
     top: '88px',
     left: '88px',
@@ -40,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
   },
   smallStatusOverlay: {
-    // backgroundColor: '#141414',
     position: 'absolute',
     top: '16px',
     left: '16px',
@@ -57,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function TMAvatar({ alt, src, size, status, BGColor }) {
+  console.log(BGColor)
   const classes = useStyles()
   const className = classNames({
     [classes.sizeSmall]: size === 'small',
@@ -67,14 +65,17 @@ function TMAvatar({ alt, src, size, status, BGColor }) {
   const large = (
     <div
       className={classes.largeStatusOverlay}
-      style={{ backgroundColor: { BGColor } }}
+      style={{ backgroundColor: `${BGColor}` }}
     >
       <div className={classes.largeGreenDot}></div>
     </div>
   )
 
   const small = (
-    <div className={classes.smallStatusOverlay}>
+    <div
+      className={classes.smallStatusOverlay}
+      style={{ backgroundColor: `${BGColor}` }}
+    >
       <div className={classes.smallGreenDot}></div>
     </div>
   )
