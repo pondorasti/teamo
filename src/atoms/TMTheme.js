@@ -23,6 +23,10 @@ const TMTheme = createMuiTheme({
       main: '#0A84FF',
       dark: '#0A84FF'
     },
+    success: { // green
+      main: '#23E036',
+      dark: '#23E036'
+    },
 
     text: {
       primary: '#FFFFFFE6', // label
