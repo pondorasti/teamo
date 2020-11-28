@@ -1,8 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete, {
-  createFilterOptions,
-} from '@material-ui/lab/Autocomplete';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,75 +18,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const filter = createFilterOptions();
-
-function TMTextfield({ label }) {
+function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(null);
 
   return (
-    <Autocomplete
-      className={classes.root}
-      size="small"
-      value={value}
-      onChange={(event, newValue) => {
-        if (typeof newValue === 'string') {
-          setValue({
-            title: newValue,
-          });
-        } else if (newValue && newValue.inputValue) {
-          // Create a new value from the user input
-          setValue({
-            title: newValue.inputValue,
-          });
-        } else {
-          setValue(newValue);
-        }
-      }}
-      filterOptions={(options, params) => {
-        const filtered = filter(options, params);
-
-        // Suggest the creation of a new value
-        if (params.inputValue !== '') {
-          filtered.push({
-            inputValue: params.inputValue,
-            title: `Add "${params.inputValue}"`,
-          });
-        }
-
-        return filtered;
-      }}
-      selectOnFocus
-      clearOnBlur
-      handleHomeEndKeys
-      id="free-solo-with-text-demo"
-      options={gameTitles}
-      getOptionLabel={(option) => {
-        // Value selected with enter, right from the input
-        if (typeof option === 'string') {
-          return option;
-        }
-        // Add "xxx" option created dynamically
-        if (option.inputValue) {
-          return option.inputValue;
-        }
-        // Regular option
-        return option.title;
-      }}
-      renderOption={(option) => option.title}
-      style={{ width: 300 }}
-      freeSolo
-      renderInput={(params) => (
-        <TextField {...params} label={label} variant="outlined" />
-      )}
+    <TextField
+      classes={{ root: classes.root }}
+      variant="outlined"
+      label={label}
+      defaultValue={defaultValue}
+      helperText={helperText}
+      error={error}
+      disabled={disabled}
+      multiline={multiline}
+      rows={rows}
     />
-  );
+  )
 }
 
-const gameTitles = [
-  { title: 'Minecraft', year: 1994 },
-  { title: 'League of Legends', year: 1972 },
-  { title: 'Fall Guys', year: 1974 },
-];
+TMTextfield.propTypes = {
+  label: PropTypes.string.isRequired,
+  defaultValue: PropTypes.string,
+  helperText: PropTypes.string,
+  error: PropTypes.bool,
+  disabled: PropTypes.bool,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number
+}
+
+TMTextfield.defaultProps = {
+  error: false,
+  disabled: false,
+  multiline: false
+}
 
 export default TMTextfield;
