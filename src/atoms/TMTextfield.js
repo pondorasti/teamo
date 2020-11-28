@@ -1,7 +1,7 @@
-import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import TextField from '@material-ui/core/TextField'
+import PropTypes from 'prop-types'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
       }
     }
   }
-}));
+}))
 
 function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows, type }) {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <TextField
@@ -26,6 +26,7 @@ function TMTextfield({ label, defaultValue, helperText, error, disabled, multili
         root: classes.root
       }}
       variant="outlined"
+      size="small"
       label={label}
       defaultValue={defaultValue}
       helperText={helperText}
@@ -71,4 +72,4 @@ TMTextfield.defaultProps = {
   type: 'text'
 }
 
-export default TMTextfield;
+export default TMTextfield
