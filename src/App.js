@@ -2,17 +2,18 @@ import React from 'react'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import { Paper } from '@material-ui/core';
-import TMTheme from './atoms/TMTheme';
-import TMTextfield from './atoms/TMTextfield';
+import TMTheme from './atoms/TMTheme'
+import TMButton from './atoms/TMButton'
+import TMCard from './atoms/TMCard'
+import LanguageIcon from './assets/icons/Language.js'
+
+import { Paper, SvgIcon, Button } from '@material-ui/core'
 
 function App() {
   return (
     <ThemeProvider theme={TMTheme}>
-      <Paper style={{ padding: 40 }}>
-        {/* <TMTextfield label="Games" /> */}
-        <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
-        <TMTextfield label="Games" defaultValue="jello" type="number"/>
+      <Paper>
+        <TMCard />
       </Paper>
     </ThemeProvider>
   )
