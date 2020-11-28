@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function TMTextfield({ label, defaultValue, helperText, error, disabled, multiline, rows, type }) {
+function TMTextfield({ label, defaultValue, helperText, error, disabled, fullWidth, multiline, rows, type, style }) {
+  
   const classes = useStyles()
 
   return (
@@ -32,9 +33,11 @@ function TMTextfield({ label, defaultValue, helperText, error, disabled, multili
       helperText={helperText}
       error={error}
       disabled={disabled}
+      fullWidth={fullWidth}
       multiline={multiline}
       rows={rows}
       type={type}
+      style={style}
     />
   )
 }
@@ -55,6 +58,9 @@ TMTextfield.propTypes = {
   /** If `true`, the input will be disabled. */
   disabled: PropTypes.bool,
 
+  /** If `true`, the input will take up the full width of its container. */
+  fullWidth: PropTypes.bool,
+
   /** If `true`, a textarea element will be rendered. */
   multiline: PropTypes.bool,
 
@@ -62,12 +68,16 @@ TMTextfield.propTypes = {
   rows: PropTypes.number,
 
   /** Type of the input element. It should be a valid HTML5 input type. */
-  type: PropTypes.string
+  type: PropTypes.string,
+
+  /** Override or extend the styles applied to the component. */
+  style: PropTypes.func
 }
 
 TMTextfield.defaultProps = {
   error: false,
   disabled: false,
+  fullWidth: false,
   multiline: false,
   type: 'text'
 }
