@@ -13,26 +13,31 @@ const useStyles = makeStyles((theme) => ({
   platformOption: {
     display: 'flex',
     borderRight: '1px solid',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'start',
     // backgroundColor: 'blue',
   },
   micOption: {
     display: 'flex',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
   },
   playersOption: {
     display: 'flex',
     borderLeft: '1px solid',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'flex-end',
     // backgroundColor: 'green',
-    paddingRight: 2,
   },
   iconMargin: {
     marginRight: 4,
+  },
+  statTypography: {
+    fontWeight: theme.typography.caption.fontWeight,
+    fontSize: theme.typography.caption.fontSize,
+    lineHeight: theme.typography.caption.lineHeight,
+    letterSpacing: theme.typography.caption.letterSpacing,
   },
 }))
 
@@ -43,17 +48,17 @@ function TMCardStats() {
     <Grid container className={classes.statContainerStyles}>
       <Grid item xs={4} className={classes.platformOption}>
         <Dpad className={classes.iconMargin} />
-        <Typography variant="subtitle2">Xbox 1</Typography>
+        <Typography className={classes.statTypography}>Xbox 1</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.micOption}>
         <Mic className={classes.iconMargin} />
-        <Typography variant="subtitle2">Mic</Typography>
+        <Typography className={classes.statTypography}>Mic</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.playersOption}>
         <People className={classes.iconMargin} />
-        <Typography variant="subtitle2">3/4</Typography>
+        <Typography className={classes.statTypography}>3/4</Typography>
       </Grid>
     </Grid>
   )

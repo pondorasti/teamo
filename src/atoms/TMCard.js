@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
   gameImg: {
     display: 'flex',
     justifyContent: 'flex-end',
+    width: 84,
+    height: 24,
+    objectFit: 'cover',
   },
   cardTopSection: {
     display: 'flex',
@@ -29,12 +32,20 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 14,
   },
   cardMiddleSection: {
-    marginBottom: 18,
+    marginBottom: 22,
   },
   cardBtoomSection: {
-    marginBottom: 8,
+    marginBottom: 0,
   },
-  customTypography: {
+
+  userNameTypography: {
+    fontWeight: theme.typography.body1.fontWeight,
+    fontSize: theme.typography.body1.fontSize,
+    lineHeight: theme.typography.body1.lineHeight,
+    letterSpacing: theme.typography.body1.letterSpacing,
+    color: theme.palette.text.secondary,
+  },
+  descriptionTypography: {
     fontWeight: theme.typography.h4.fontWeight,
     fontSize: theme.typography.h4.fontSize,
     lineHeight: theme.typography.h4.lineHeight,
@@ -49,13 +60,19 @@ function TMCard() {
     <Card className={classes.lobbyCard} variant="outlined">
       <Grid container justify="space-between">
         <Grid item xs={6} className={classes.cardTopSection}>
-          <Typography variant="subtitle1">Pic + UserName123</Typography>
+          <Typography className={classes.userNameTypography}>
+            Pic + UserName123
+          </Typography>
         </Grid>
         <Grid item xs={6} className={classes.gameImg}>
-          <Typography variant="subtitle1">Game Img</Typography>
+          <img
+            className={classes.gameImg}
+            src="https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png"
+            alt="gameImg"
+          />
         </Grid>
         <Grid item xs={12} className={classes.cardMiddleSection}>
-          <Typography variant="h6" className={classes.customTypography}>
+          <Typography className={classes.descriptionTypography}>
             This is my room decription, this should be no more than three lines
             long...
           </Typography>
