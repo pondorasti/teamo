@@ -11,7 +11,9 @@ import TMAvatar from './TMAvatar'
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
+    // width: '100%',
     width: 284,
+    // maxWidth: 334,
     // minWidth: 284,
     padding: 12,
     borderRadius: 16,
