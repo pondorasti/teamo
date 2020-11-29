@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react"
 
-import { ThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from "@material-ui/core/styles"
 
-import { CssBaseline } from '@material-ui/core'
-import { TMTheme, TMTextfield, TMAutocomplete } from 'atoms' // absolute based on a predefined global path
-import AppBar from './screens/TMAppBar'
+import { CssBaseline } from "@material-ui/core"
+import { TMTheme, TMTextfield, TMAutocomplete } from "atoms"
+import AppBar from "./screens/TMAppBar"
 
 function App() {
 
-  const games = ['Minecraft', 'League of Legends', 'Among Us']
+  const games = ["Minecraft", "League of Legends", "Among Us"]
 
   return (
     <ThemeProvider theme={TMTheme}>

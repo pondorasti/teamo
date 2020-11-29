@@ -1,40 +1,40 @@
-import React from 'react'
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-import { fade, darken } from '@material-ui/core/styles/colorManipulator';
-import { makeStyles } from '@material-ui/core/styles'
+import React from "react"
+import Button from "@material-ui/core/Button"
+import PropTypes from "prop-types"
+import { fade, darken } from "@material-ui/core/styles/colorManipulator"
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    textTransform: 'none',
+    textTransform: "none",
     color: theme.palette.text.primary,
   },
   sizeSmall: {
-    padding: '4px 8px',
+    padding: "4px 8px",
     borderRadius: 8,
-    fontSize: '0.875rem'
+    fontSize: "0.875rem"
   },
   sizeLarge: {
-    padding: '8px 24px',
+    padding: "8px 24px",
     borderRadius: 8,
     fontSize: theme.typography.button.fontSize
   },
   contained: {
     backgroundColor: theme.palette.primary.main,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: darken(theme.palette.primary.main, 0.075),
     }
   },
   outlinedSizeSmall: {
-    padding: '3px 7px',
+    padding: "3px 7px",
   },
   outlinedSizeLarge: {
-    padding: '7px 23px',
+    padding: "7px 23px",
   },
   outlined: {
     backgroundColor: theme.palette.error.light,
     borderColor: theme.palette.error.main,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: fade(theme.palette.error.light, theme.palette.action.hoverOpacity),
       borderColor: theme.palette.error.main,
     },
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 0
   },
   childrenContainter: {
-    width: '100%'
+    width: "100%"
   }
 }))
 
@@ -100,10 +100,10 @@ TMButton.propTypes = {
   leadingIcon: PropTypes.node,
 
   /** The size of the button. */
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(["small", "large"]),
 
   /** The variant to use. */
-  variant: PropTypes.oneOf(['contained', 'outlined']),
+  variant: PropTypes.oneOf(["contained", "outlined"]),
 
   /** If `true`, the button will be disabled. */
   disabled: PropTypes.bool,
@@ -125,8 +125,8 @@ TMButton.propTypes = {
 }
 
 TMButton.defaultProps = {
-  size: 'large',
-  variant: 'contained',
+  size: "large",
+  variant: "contained",
   disabled: false,
   fullWidth: false
 }
