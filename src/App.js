@@ -3,16 +3,16 @@ import React from 'react'
 import { ThemeProvider } from '@material-ui/core/styles'
 
 import TMTheme from './atoms/TMTheme'
-import TMButton from './atoms/TMButton'
 import TMCard from './atoms/TMCard'
-import LanguageIcon from './assets/icons/Language.js'
+import { CssBaseline } from '@material-ui/core'
 
 import { Paper, SvgIcon, Button } from '@material-ui/core'
 
 function App() {
   return (
     <ThemeProvider theme={TMTheme}>
-      <Paper>
+      <CssBaseline />
+      <Paper style={{ padding: 40 }}>
         <TMCard />
       </Paper>
     </ThemeProvider>
