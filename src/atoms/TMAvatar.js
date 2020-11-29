@@ -7,54 +7,51 @@ import classNames from 'classnames'
 const useStyles = makeStyles((theme) => ({
   avatarDiv: {
     position: 'relative',
+    display: 'inline-block'
   },
   sizeSmall: {
     width: '24px',
     height: '24px',
-    borderRadius: '4px',
+    borderRadius: '13.4%',
   },
   sizeMedium: {
     width: '36px',
     height: '36px',
-    borderRadius: '6px',
+    borderRadius: '13.4%',
   },
   sizeLarge: {
     width: '120px',
     height: '120px',
-    borderRadius: '16px',
+    borderRadius: '13.4%',
   },
-  largeStatusOverlay: {
+  onlineStatusOverlay: {
     position: 'absolute',
-    top: '88px',
-    left: '88px',
     zIndex: 1,
-    padding: '8px',
-    borderRadius: '50%',
-  },
-  largeGreenDot: {
-    height: '24px',
-    width: '24px',
+    bottom: '0%',
+    right: '0%',
+
+    width: '20%',
+    height: '20%',
+    borderRadius: '100%',
+
     backgroundColor: theme.palette.success.main,
-    borderRadius: '50%',
+
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  smallStatusOverlay: {
-    position: 'absolute',
-    top: '16px',
-    left: '16px',
-    zIndex: 1,
-    padding: '2px',
-    borderRadius: '50%',
-  },
-  smallGreenDot: {
-    height: '6px',
-    width: '6px',
-    backgroundColor: '#23E036',
-    borderRadius: '50%',
+
+  backgroundStatusOverlay: {
+    width: '166%',
+    height: '166%',
+    borderRadius: '100%',
+
+    flexShrink: 0
   },
 }))
 
-function TMAvatar({ alt, src, size, status, BGColor }) {
-  console.log(BGColor)
+function TMAvatar({ alt, src, size, status, backgroundColor }) {
+
   const classes = useStyles()
   const className = classNames({
     [classes.sizeSmall]: size === 'small',
@@ -62,36 +59,13 @@ function TMAvatar({ alt, src, size, status, BGColor }) {
     [classes.sizeLarge]: size === 'large',
   })
 
-  const large = (
-    <div
-      className={classes.largeStatusOverlay}
-      style={{ backgroundColor: `${BGColor}` }}
-    >
-      <div className={classes.largeGreenDot}></div>
+  return <div className={classes.avatarDiv}>
+    <Avatar classes={{ root: className }} alt={alt} src={src} />
+    <div className={classes.onlineStatusOverlay}>
+      <div className={classes.backgroundStatusOverlay} style={{ backgroundColor: `${backgroundColor}` }}></div>
     </div>
-  )
-
-  const small = (
-    <div
-      className={classes.smallStatusOverlay}
-      style={{ backgroundColor: `${BGColor}` }}
-    >
-      <div className={classes.smallGreenDot}></div>
-    </div>
-  )
-
-  const largeOrSmall = <div> {size === 'large' ? large : small} </div>
-
-  const noStatus = <Avatar classes={{ root: className }} alt={alt} src={src} />
-
-  const withStatus = (
-    <div className={classes.avatarDiv}>
-      <Avatar classes={{ root: className }} alt={alt} src={src} />
-      {size === 'medium' ? '' : largeOrSmall}
-    </div>
-  )
-
-  return <div>{status === 'online' ? withStatus : noStatus}</div>
+    <div className={classes.onlineStatusOverlay}></div>
+  </div>
 }
 
 TMAvatar.propTypes = {
