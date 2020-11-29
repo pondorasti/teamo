@@ -19,8 +19,8 @@ function TMLobbies({ lobbies }) {
       container
       justify="center"
       spacing={1}
-      alignContent="center"
-      alignItems="center"
+      // alignContent="center"
+      // alignItems="center"
       classes={{ root: classes.container }}
     >
       {lobbies.map((lobby) => (
