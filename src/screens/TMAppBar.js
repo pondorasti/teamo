@@ -23,13 +23,21 @@ function TMAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl);
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleClose = () => { setAnchorEl(null) }
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleProfileButton = (event) => { 
+    // if user logged in show menu
+    setAnchorEl(event.currentTarget) 
+    // else
+    // open sign in modal
+  }
+  
+  const handleShowProfile = () => {
+    handleClose()
+  }
+  const handleSignOut = () => {
+    handleClose()
+  }
 
   return <>
     <AppBar
@@ -38,7 +46,11 @@ function TMAppBar() {
       elevation={0}
     >
       <Toolbar classes={{ root: classes.toolbarRoot }}>
-        <img src={TeamoBanner} alt='Teamo Banner' />
+        <img
+          src={TeamoBanner}
+          alt='Teamo Banner'
+          style={{ maxHeight: 38 }}
+        />
 
         <div className={classes.divSpacer} />
 
@@ -50,7 +62,7 @@ function TMAppBar() {
           aria-label="account of current user"
           aria-controls="menu-appbar"
           aria-haspopup="true"
-          onClick={handleMenu}
+          onClick={handleProfileButton}
           style={{ marginLeft: '4px' }}
         >
           <TMAvatar
@@ -67,8 +79,8 @@ function TMAppBar() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>My Profile</MenuItem>
-          <MenuItem onClick={handleClose}>Sign out</MenuItem>
+          <MenuItem onClick={handleShowProfile}>My Profile</MenuItem>
+          <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
         </Menu>
 
       </Toolbar>
