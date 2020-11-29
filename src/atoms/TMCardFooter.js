@@ -58,14 +58,14 @@ function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
 }
 
 TMCardFooter.propTypes = {
-  /** The room master's name  */
-  userName: PropTypes.string,
+  /** PC or console selection */
+  gamePlatform: PropTypes.string,
 
-  /** The small game logo  */
-  gameLogo: PropTypes.string,
+  /** mic Selection  */
+  micChoice: PropTypes.string,
 
-  /** The description of room*/
-  decsription: PropTypes.string,
+  /** Room Size and status */
+  roomSize: PropTypes.string,
 }
 
 export default TMCardFooter
