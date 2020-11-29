@@ -1,26 +1,18 @@
 import React from 'react'
 
-import { ThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/core/styles';
 
-import TMTheme from './atoms/TMTheme'
-import TMAvatar from './atoms/TMAvatar'
-
-// import LanguageIcon from './assets/icons/Language.js';
-
-import { Paper, SvgIcon, Button } from '@material-ui/core'
+import { Paper } from '@material-ui/core';
+import TMTheme from './atoms/TMTheme';
+import TMTextfield from './atoms/TMTextfield';
 
 function App() {
   return (
     <ThemeProvider theme={TMTheme}>
-      <Paper style={{ padding: 20 }}>
-        <TMAvatar
-          src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-          size="large"
-          // status="offline"
-          status="online"
-          BGColor={TMTheme.palette.grey[800]}
-          alt="avatar"
-        />
+      <Paper style={{ padding: 40 }}>
+        {/* <TMTextfield label="Games" /> */}
+        <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
+        <TMTextfield label="Games" defaultValue="jello" type="number"/>
       </Paper>
     </ThemeProvider>
   )

@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, href }) {
+function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, href, style }) {
 
   const classes = useStyles()
 
@@ -77,11 +77,12 @@ function TMButton({ children, leadingIcon, size, style, disabled, fullWidth, hre
       }}
       startIcon={leadingIcon}
       size={size}
-      variant={style}
+      variant={variant}
       disabled={disabled}
       fullWidth={fullWidth}
       href={href}
       disableElevation
+      style={style}
     >
       <div className={classes.childrenContainter}>
         {children}
@@ -101,7 +102,7 @@ TMButton.propTypes = {
   size: PropTypes.oneOf(['small', 'large']),
 
   /** The variant to use. */
-  style: PropTypes.oneOf(['contained', 'outlined']),
+  variant: PropTypes.oneOf(['contained', 'outlined']),
 
   /** If `true`, the button will be disabled. */
   disabled: PropTypes.bool,
@@ -113,12 +114,15 @@ TMButton.propTypes = {
    * The URL to link to when the button is clicked.
    * If defined, an `a` element will be used as the root node.
    */
-  href: PropTypes.string
+  href: PropTypes.string,
+
+  /** Override or extend the styles applied to the component. */
+  style: PropTypes.func
 }
 
 TMButton.defaultProps = {
   size: 'large',
-  style: 'contained',
+  variant: 'contained',
   disabled: false,
   fullWidth: false
 }
