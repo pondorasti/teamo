@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     // minWidth: 284,
     padding: 12,
     borderRadius: 16,
-    transition: '50ms',
+    // transition: '50ms',
     cursor: 'pointer',
     backgroundColor: theme.palette.grey[700],
     '&:hover': {
