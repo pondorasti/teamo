@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const useStyles = makeStyles((theme) => ({
-  avatarDiv: {
+  container: {
     position: 'relative',
-    display: 'inline-block'
+    display: 'inline-block',
   },
   sizeExtraSmall: {
     width: '24px',
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     height: '166%',
     borderRadius: '100%',
 
-    flexShrink: 0
+    flexShrink: 0,
   },
 }))
 
@@ -65,7 +65,10 @@ function TMAvatar({ alt, src, size, status, backgroundColor }) {
     [classes.sizeLarge]: size === 'large',
   })
 
-  return <div className={classes.avatarDiv}
+  if (status === 'none') {
+    return <Avatar classes={{ root: className }} alt={alt} src={src} />
+  } else {
+    return <div className={classes.container}
   >
     <Avatar classes={{ root: className }} alt={alt} src={src} />
     <div className={classes.onlineStatusOverlay}>
@@ -73,6 +76,7 @@ function TMAvatar({ alt, src, size, status, backgroundColor }) {
     </div>
     <div className={classes.onlineStatusOverlay}></div>
   </div>
+  }
 }
 
 TMAvatar.propTypes = {
