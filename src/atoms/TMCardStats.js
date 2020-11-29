@@ -30,15 +30,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     // backgroundColor: 'green',
   },
-  iconMargin: {
+  iconStyle: {
     marginRight: 4,
-  },
-  statTypography: {
-    fontWeight: theme.typography.caption.fontWeight,
-    fontSize: theme.typography.caption.fontSize,
-    lineHeight: theme.typography.caption.lineHeight,
-    letterSpacing: theme.typography.caption.letterSpacing,
-  },
+    fontSize: 16
+  }
 }))
 
 function TMCardStats() {
@@ -47,18 +42,18 @@ function TMCardStats() {
   return (
     <Grid container className={classes.statContainerStyles}>
       <Grid item xs={4} className={classes.platformOption}>
-        <Dpad className={classes.iconMargin} />
-        <Typography className={classes.statTypography}>Xbox 1</Typography>
+        <Dpad className={classes.iconStyle} />
+        <Typography variant='caption'>Xbox 1</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.micOption}>
-        <Mic className={classes.iconMargin} />
-        <Typography className={classes.statTypography}>Mic</Typography>
+        <Mic className={classes.iconStyle} />
+        <Typography variant='caption'>Mic</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.playersOption}>
-        <People className={classes.iconMargin} />
-        <Typography className={classes.statTypography}>3/4</Typography>
+        <People className={classes.iconStyle} />
+        <Typography variant='caption'>3/4</Typography>
       </Grid>
     </Grid>
   )

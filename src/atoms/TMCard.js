@@ -9,7 +9,8 @@ import TMCardStats from './TMCardStats'
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
     width: 290,
-    height: 150,
+    // minWidth: 286,
+    // height: 150,
     padding: '15px 15px',
     cursor: 'pointer',
     backgroundColor: theme.palette.grey[700],
@@ -39,18 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
   userNameTypography: {
     paddingTop: 4,
-    fontWeight: theme.typography.body1.fontWeight,
-    fontSize: theme.typography.body1.fontSize,
-    lineHeight: theme.typography.body1.lineHeight,
-    letterSpacing: theme.typography.body1.letterSpacing,
     color: theme.palette.text.secondary,
-  },
-  descriptionTypography: {
-    fontWeight: theme.typography.h5.fontWeight,
-    fontSize: theme.typography.h5.fontSize,
-    lineHeight: theme.typography.h5.lineHeight,
-    letterSpacing: theme.typography.h5.letterSpacing,
-  },
+  }
 }))
 
 function TMCard() {
@@ -60,8 +51,8 @@ function TMCard() {
     <Card className={classes.lobbyCard} variant="outlined">
       <Grid container justify="space-between">
         <Grid item xs={6} className={classes.cardTopSection}>
-          <Typography className={classes.userNameTypography}>
-            Pic + UserName123
+          <Typography variant='body1' classes={{ root: classes.userNameTypography }}>
+            Pic UserName123
           </Typography>
         </Grid>
         <Grid item xs={6} className={classes.gameImg}>
@@ -72,7 +63,7 @@ function TMCard() {
           />
         </Grid>
         <Grid item xs={12} className={classes.cardMiddleSection}>
-          <Typography className={classes.descriptionTypography}>
+          <Typography variant='h5'>
             This is my room decription, this should be no more than three lines
             long...
           </Typography>
