@@ -59,9 +59,9 @@ function TMAppBar() {
         </TMButton>
 
         <IconButton
-          aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
+          aria-label='account of current user'
+          aria-controls='menu-appbar'
+          aria-haspopup='true'
           onClick={handleProfileButton}
           style={{ marginLeft: '4px' }}
         >
@@ -73,8 +73,8 @@ function TMAppBar() {
         </IconButton>
         <Menu
           anchorEl={anchorEl}
-          anchorOrigin={{ vertical: "top", horizontal: "left" }}
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
           keepMounted
           open={open}
           onClose={handleClose}
@@ -85,7 +85,7 @@ function TMAppBar() {
 
       </Toolbar>
     </AppBar>
-    <Toolbar />
+    <Toolbar /> {/* An extra toolbar for shifting the content of the page under the app bar */}
   </>
 }
 
