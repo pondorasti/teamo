@@ -67,7 +67,7 @@ const TMTheme = createMuiTheme({
       lineHeight: '100%',
       letterSpacing: '0.009375rem'
     },
-    h4: { // headline 1
+    h4: { // title
       fontWeight: '400',
       fontSize: '1.375rem',
       lineHeight: '100%',
@@ -76,7 +76,7 @@ const TMTheme = createMuiTheme({
     h5: { // headline 1
       fontWeight: '500',
       fontSize: '1.0625rem',
-      lineHeight: '100%',
+      lineHeight: '1.24375rem',
       letterSpacing: '0.009375rem'
     },
     h6: { // headline 2
