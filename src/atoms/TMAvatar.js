@@ -9,14 +9,19 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     display: 'inline-block'
   },
-  sizeSmall: {
+  sizeExtraSmall: {
     width: '24px',
     height: '24px',
     borderRadius: '13.4%',
   },
-  sizeMedium: {
+  sizeSmall: {
     width: '36px',
     height: '36px',
+    borderRadius: '13.4%',
+  },
+  sizeMedium: {
+    width: '56px',
+    height: '56px',
     borderRadius: '13.4%',
   },
   sizeLarge: {
@@ -54,12 +59,14 @@ function TMAvatar({ alt, src, size, status, backgroundColor }) {
 
   const classes = useStyles()
   const className = classNames({
+    [classes.sizeExtraSmall]: size === 'extraSmall',
     [classes.sizeSmall]: size === 'small',
     [classes.sizeMedium]: size === 'medium',
     [classes.sizeLarge]: size === 'large',
   })
 
-  return <div className={classes.avatarDiv}>
+  return <div className={classes.avatarDiv}
+  >
     <Avatar classes={{ root: className }} alt={alt} src={src} />
     <div className={classes.onlineStatusOverlay}>
       <div className={classes.backgroundStatusOverlay} style={{ backgroundColor: `${backgroundColor}` }}></div>
@@ -69,9 +76,16 @@ function TMAvatar({ alt, src, size, status, backgroundColor }) {
 }
 
 TMAvatar.propTypes = {
+  /** Provides an alt attribute for the rendered `img` element. */
   alt: PropTypes.string.isRequired,
+
+  /** The `src` attribute for the `img` element. */
   src: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+
+  /** The size of the avatar. */
+  size: PropTypes.oneOf(['extraSmall', 'small', 'medium', 'large']),
+
+  /** An optional badge for the avatar */
   status: PropTypes.oneOf(['none', 'online']),
 }
 
