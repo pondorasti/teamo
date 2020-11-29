@@ -1,6 +1,7 @@
 import React from 'react'
 import { Divider, Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 
 import People from '../assets/icons/People'
 import Dpad from '../assets/icons/Dpad'
@@ -15,48 +16,56 @@ const useStyles = makeStyles((theme) => ({
     borderRight: '1px solid',
     alignItems: 'center',
     justifyContent: 'start',
-    // backgroundColor: 'blue',
   },
   micOption: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'red',
   },
   playersOption: {
     display: 'flex',
     borderLeft: '1px solid',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    // backgroundColor: 'green',
   },
   iconStyle: {
     marginRight: 4,
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 }))
 
-function TMCardStats() {
+function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
   const classes = useStyles()
 
   return (
     <Grid container className={classes.statContainerStyles}>
       <Grid item xs={4} className={classes.platformOption}>
         <Dpad className={classes.iconStyle} />
-        <Typography variant='caption'>Xbox 1</Typography>
+        <Typography variant="caption">{gamePlatform}</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.micOption}>
         <Mic className={classes.iconStyle} />
-        <Typography variant='caption'>Mic</Typography>
+        <Typography variant="caption">{micChoice}</Typography>
       </Grid>
 
       <Grid item xs={4} className={classes.playersOption}>
         <People className={classes.iconStyle} />
-        <Typography variant='caption'>3/4</Typography>
+        <Typography variant="caption">{roomSize}</Typography>
       </Grid>
     </Grid>
   )
 }
 
-export default TMCardStats
+TMCardFooter.propTypes = {
+  /** The room master's name  */
+  userName: PropTypes.string,
+
+  /** The small game logo  */
+  gameLogo: PropTypes.string,
+
+  /** The description of room*/
+  decsription: PropTypes.string,
+}
+
+export default TMCardFooter
