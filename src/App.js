@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -15,7 +15,7 @@ function App() {
         <TMTextfield label="Games" defaultValue="jello" type="number"/>
       </Paper>
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
+export default App

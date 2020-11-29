@@ -1,18 +1,18 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
 
 const TMTheme = createMuiTheme({
   palette: {
     primary: { // primary
       main: '#7800D7',
-      dark: '#7800D7'
+      dark: '#7800D7',
     },
     secondary: { // secondary
       main: '#AAA3EB',
-      dark: '#AAA3EB'
+      dark: '#AAA3EB',
     },
     warning: { // tertiary
       main: '#4D287C',
-      dark: '#4D287C'
+      dark: '#4D287C',
     },
     error: { // error
       main: '#FF453A99',
@@ -21,7 +21,7 @@ const TMTheme = createMuiTheme({
     },
     info: { // blue
       main: '#0A84FF',
-      dark: '#0A84FF'
+      dark: '#0A84FF',
     },
     success: { // green
       main: '#23E036',
@@ -51,7 +51,7 @@ const TMTheme = createMuiTheme({
     tonalOffset: 0,
     contrastThreshold: 0,
 
-    type: 'dark'
+    type: 'dark',
   },
   shadows: ['none'],
   typography: {
@@ -113,4 +113,4 @@ const TMTheme = createMuiTheme({
   }
 })
 
-export default TMTheme
+export default TMTheme;
