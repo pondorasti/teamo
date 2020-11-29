@@ -4,8 +4,10 @@ import Card from '@material-ui/core/Card'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@material-ui/core'
 import PropTypes from 'prop-types'
+import { darken } from '@material-ui/core/styles/colorManipulator'
 
 import TMCardFooter from './TMCardFooter'
+import TMAvatar from './TMAvatar'
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
@@ -13,13 +15,14 @@ const useStyles = makeStyles((theme) => ({
     // minWidth: 284,
     padding: 12,
     borderRadius: 16,
-    transition: '70ms',
+    transition: '50ms',
     cursor: 'pointer',
     backgroundColor: theme.palette.grey[700],
-    // '&:hover': {
-    //   transform: 'translate(-3px, -3px)',
-    //   boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.2)',
-    // },
+    '&:hover': {
+      // transform: 'translate(-3px, -3px)',
+      // boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.6)',
+      backgroundColor: darken(theme.palette.grey[700], 0.1),
+    },
   },
   topDiv: {
     display: 'flex',
@@ -39,8 +42,13 @@ const useStyles = makeStyles((theme) => ({
   cardMiddleSection: {
     marginBottom: 20,
   },
-  userNameTypography: {
+  lobbyMasterInfo: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  lobbyMasterName: {
     color: theme.palette.text.secondary,
+    marginLeft: 4,
   },
 }))
 // https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png
@@ -51,10 +59,14 @@ function TMCard({ userName, gameLogo, decsription }) {
     <Card classes={{ root: classes.lobbyCard }} variant="outlined">
       <Grid container justify="space-between">
         <div className={classes.topDiv}>
-          <Grid item xs={6}>
+          <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>
+            <TMAvatar
+              size="extraSmall"
+              src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+            />
             <Typography
               variant="body1"
-              classes={{ root: classes.userNameTypography }}
+              classes={{ root: classes.lobbyMasterName }}
             >
               {userName}
             </Typography>

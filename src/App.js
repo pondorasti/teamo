@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles'
 
 import TMTheme from './atoms/TMTheme'
 import TMCard from './atoms/TMCard'
@@ -12,8 +12,12 @@ function App() {
   return (
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
-      <Paper style={{ padding: 40 }}>
-        <TMCard />
+      <Paper style={{ padding: 5 }}>
+        <TMCard
+          userName="Pondorasti"
+          gameLogo="https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png"
+          decsription="This is my room decription, this should be no more than three lines long..."
+        />
       </Paper>
     </ThemeProvider>
   )
