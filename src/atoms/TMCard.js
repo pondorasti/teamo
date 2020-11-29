@@ -64,7 +64,7 @@ function TMCard({ userName, gameLogo, decsription }) {
           <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>
             <TMAvatar
               size="extraSmall"
-              src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+              src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
             />
             <Typography
               variant="body1"
