@@ -55,7 +55,7 @@ TMAutocomplete.propTypes = {
   getOptionLabel: PropTypes.func.isRequired,
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.func
+  style: PropTypes.object
 }
 
 export default TMAutocomplete
