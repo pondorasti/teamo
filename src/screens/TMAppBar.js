@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Toolbar, IconButton } from '@material-ui/core/'
+import { AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core/'
 import TMButton from '../atoms/TMButton'
 import TMAvatar from '../atoms/TMAvatar'
 import { makeStyles } from '@material-ui/styles'
@@ -20,6 +20,16 @@ const useStyles = makeStyles(theme => ({
 function TMAppBar() {
 
   const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return <>
     <AppBar
@@ -28,7 +38,7 @@ function TMAppBar() {
       elevation={0}
     >
       <Toolbar classes={{ root: classes.toolbarRoot }}>
-        <img src={TeamoBanner} />
+        <img src={TeamoBanner} alt='Teamo Banner' />
 
         <div className={classes.divSpacer} />
 
@@ -40,8 +50,7 @@ function TMAppBar() {
           aria-label="account of current user"
           aria-controls="menu-appbar"
           aria-haspopup="true"
-          // onClick={handleMenu}
-          color="inherit"
+          onClick={handleMenu}
           style={{ marginLeft: '4px' }}
         >
           <TMAvatar
@@ -50,6 +59,17 @@ function TMAppBar() {
             src='https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4'
           />
         </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{ vertical: "top", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          keepMounted
+          open={open}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>My Profile</MenuItem>
+          <MenuItem onClick={handleClose}>Sign out</MenuItem>
+        </Menu>
 
       </Toolbar>
     </AppBar>

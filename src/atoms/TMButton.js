@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, href, style }) {
+function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, href, style, onClick }) {
 
   const classes = useStyles()
 
@@ -83,6 +83,7 @@ function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, h
       href={href}
       disableElevation
       style={style}
+      onClick={onClick}
     >
       <div className={classes.childrenContainter}>
         {children}
@@ -117,7 +118,10 @@ TMButton.propTypes = {
   href: PropTypes.string,
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.object
+  style: PropTypes.object,
+
+  /** An optional function that is called when the button is pressed */
+  onClick: PropTypes.func,
 }
 
 TMButton.defaultProps = {
