@@ -1,22 +1,28 @@
-import React from 'react'
+import React from "react"
 
-import { ThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from "@material-ui/core/styles"
 
-import TMTheme from './atoms/TMTheme'
-import TMLobbies from './screens/home-screen/molecules/LobbyGrid'
-import { CssBaseline } from '@material-ui/core'
+import { CssBaseline } from "@material-ui/core"
+import { TMTheme, TMTextfield, TMAutocomplete } from "./atoms"
+import LobbyGrid from "./screens/home-screen/molecules/LobbyGrid"
+import data from "./screens/lobbiesDumyData"
 
-import { Paper, SvgIcon, Button } from '@material-ui/core'
-
-import { data } from './screens/lobbiesDumyData'
+import AppBar from "./screens/TMAppBar"
 
 function App() {
+
+  const games = ["Minecraft", "League of Legends", "Among Us"]
+
   return (
     <ThemeProvider theme={TMTheme}>
+      <AppBar />
       <CssBaseline />
-      <Paper style={{ padding: 32 }}>
-        <TMLobbies lobbies={data} />
-      </Paper>
+      <div style={{ padding: 40 }}>
+        <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
+        <TMTextfield label="Games" defaultValue="jello" type="number"/>
+        <TMAutocomplete options={games} getOptionLabel={(game) => game}></TMAutocomplete>
+      </div>
+      <LobbyGrid lobbies={data} />
     </ThemeProvider>
   )
 }

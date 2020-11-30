@@ -1,32 +1,32 @@
-import React from 'react'
-import { Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import PropTypes from 'prop-types'
+import React from "react"
+import { Grid, Typography } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import PropTypes from "prop-types"
 
-import People from '../../../assets/icons/People'
-import Dpad from '../../../assets/icons/Dpad'
-import Mic from '../../../assets/icons/Mic'
+import People from "../../../assets/icons/People"
+import Dpad from "../../../assets/icons/Dpad"
+import Mic from "../../../assets/icons/Mic"
 
 const useStyles = makeStyles((theme) => ({
   statContainerStyles: {
     color: theme.palette.secondary.main,
   },
   platformOption: {
-    display: 'flex',
-    alignItems: 'center',
-    borderRight: '1px solid',
-    justifyContent: 'start',
+    display: "flex",
+    alignItems: "center",
+    borderRight: "1px solid",
+    justifyContent: "start",
   },
   micOption: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   playersOption: {
-    display: 'flex',
-    alignItems: 'center',
-    borderLeft: '1px solid',
-    justifyContent: 'flex-end',
+    display: "flex",
+    alignItems: "center",
+    borderLeft: "1px solid",
+    justifyContent: "flex-end",
   },
   iconStyle: {
     marginRight: 4,

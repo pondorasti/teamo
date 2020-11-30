@@ -1,13 +1,13 @@
-import React from 'react'
-import Typography from '@material-ui/core/Typography'
-import Card from '@material-ui/core/Card'
-import { makeStyles } from '@material-ui/core/styles'
-import { Grid } from '@material-ui/core'
-import PropTypes from 'prop-types'
-import { darken } from '@material-ui/core/styles/colorManipulator'
+import React from "react"
+import Typography from "@material-ui/core/Typography"
+import Card from "@material-ui/core/Card"
+import { makeStyles } from "@material-ui/core/styles"
+import { Grid } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { darken } from "@material-ui/core/styles/colorManipulator"
 
-import LobbyCardFooter from './LobbyCardFooter'
-import TMAvatar from '../../../atoms/TMAvatar'
+import LobbyCardFooter from "./LobbyCardFooter"
+import TMAvatar from "../../../atoms/TMAvatar"
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
@@ -18,35 +18,35 @@ const useStyles = makeStyles((theme) => ({
     padding: 12,
     borderRadius: 16,
     // transition: '50ms',
-    cursor: 'pointer',
+    cursor: "pointer",
     backgroundColor: theme.palette.grey[700],
-    '&:hover': {
+    "&:hover": {
       // transform: 'translate(-3px, -3px)',
       // boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.6)',
       backgroundColor: darken(theme.palette.grey[700], 0.1),
     },
   },
   topDiv: {
-    display: 'flex',
-    width: '100%',
-    alignItems: 'center',
+    display: "flex",
+    width: "100%",
+    alignItems: "center",
     marginBottom: 14,
   },
   gameImgGrid: {
-    display: 'flex',
-    justifyContent: 'flex-end',
+    display: "flex",
+    justifyContent: "flex-end",
   },
   gameImg: {
     width: 84,
     height: 24,
-    objectFit: 'cover',
+    objectFit: "cover",
   },
   cardMiddleSection: {
     marginBottom: 20,
   },
   lobbyMasterInfo: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   lobbyMasterName: {
     color: theme.palette.text.secondary,
@@ -54,12 +54,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyCard({ userName, gameLogo, decsription, style }) {
+function LobbyCard({ userName, gameLogo, decsription }) {
   
   const classes = useStyles()
 
   return (
-    <Card elevation={0} classes={{ root: classes.lobbyCard }} variant="outlined" style={style}>
+    <Card elevation={0} classes={{ root: classes.lobbyCard }} variant="outlined">
       <Grid container justify="space-between">
         <div className={classes.topDiv}>
           <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>

@@ -1,16 +1,16 @@
-import React from 'react'
-import TextField from '@material-ui/core/TextField'
-import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles'
+import React from "react"
+import TextField from "@material-ui/core/TextField"
+import PropTypes from "prop-types"
+import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& label.Mui-focused': {
+    "& label.Mui-focused": {
       color: theme.palette.secondary.main,
     },
-    '& .MuiOutlinedInput-root': {
+    "& .MuiOutlinedInput-root": {
       borderRadius: 12,
-      '&.Mui-focused fieldset': {
+      "&.Mui-focused fieldset": {
         borderColor: theme.palette.secondary.main,
       }
     }
@@ -71,7 +71,7 @@ TMTextfield.propTypes = {
   type: PropTypes.string,
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.func
+  style: PropTypes.object
 }
 
 TMTextfield.defaultProps = {
@@ -79,7 +79,7 @@ TMTextfield.defaultProps = {
   disabled: false,
   fullWidth: false,
   multiline: false,
-  type: 'text'
+  type: "text"
 }
 
 export default TMTextfield
