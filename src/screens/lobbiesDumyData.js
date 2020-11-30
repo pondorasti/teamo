@@ -119,3 +119,5 @@ export const data = [
       "This is my room decription, this should be no more than three lines long...",
   },
 ]
+
+export default data
