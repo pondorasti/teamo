@@ -65,18 +65,26 @@ function TMSelectedGameInfo({
 
       <div className={classes.divSpacer} />
 
-      <div className={classes.selections}>
-        <TMAutocomplete
-          label="Game"
-          options={games}
-          getOptionLabel={(game) => game}
-        ></TMAutocomplete>
-        <TMAutocomplete
-          label="Platform"
-          options={platforms}
-          getOptionLabel={(platform) => platform}
-        ></TMAutocomplete>
-      </div>
+      {/* <div className={classes.selections}> */}
+      <TMAutocomplete
+        label="Game"
+        options={games}
+        getOptionLabel={(game) => game}
+        style={{ 
+          width: 176
+        }}
+      />
+
+      <TMAutocomplete
+        label="Platform"
+        options={platforms}
+        getOptionLabel={(platform) => platform}
+        style={{ 
+          marginLeft: 16,
+          width: 176
+        }}
+      />
+      {/* </div> */}
     </div>
   )
 }
