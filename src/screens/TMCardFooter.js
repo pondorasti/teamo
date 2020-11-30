@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider, Grid, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 
@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   platformOption: {
     display: 'flex',
-    borderRight: '1px solid',
     alignItems: 'center',
+    borderRight: '1px solid',
     justifyContent: 'start',
   },
   micOption: {
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
   playersOption: {
     display: 'flex',
-    borderLeft: '1px solid',
     alignItems: 'center',
+    borderLeft: '1px solid',
     justifyContent: 'flex-end',
   },
   iconStyle: {
@@ -35,22 +35,23 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
+
   const classes = useStyles()
 
   return (
-    <Grid container className={classes.statContainerStyles}>
-      <Grid item xs={4} className={classes.platformOption}>
-        <Dpad className={classes.iconStyle} />
+    <Grid container classes={{ root: classes.statContainerStyles }}>
+      <Grid item xs={4} classes={{ root: classes.platformOption }}>
+        <Dpad classes={{ root: classes.iconStyle }} />
         <Typography variant="caption">{gamePlatform}</Typography>
       </Grid>
 
-      <Grid item xs={4} className={classes.micOption}>
-        <Mic className={classes.iconStyle} />
+      <Grid item xs={4} classes={{ root: classes.micOption }}>
+        <Mic classes={classes.iconStyle} />
         <Typography variant="caption">{micChoice}</Typography>
       </Grid>
 
-      <Grid item xs={4} className={classes.playersOption}>
-        <People className={classes.iconStyle} />
+      <Grid item xs={4} classes={{ root: classes.playersOption }}>
+        <People classes={{ root: classes.iconStyle }} />
         <Typography variant="caption">{roomSize}</Typography>
       </Grid>
     </Grid>

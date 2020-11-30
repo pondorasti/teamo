@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { darken } from '@material-ui/core/styles/colorManipulator'
 
 import TMCardFooter from './TMCardFooter'
-import TMAvatar from './TMAvatar'
+import TMAvatar from '../atoms/TMAvatar'
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {

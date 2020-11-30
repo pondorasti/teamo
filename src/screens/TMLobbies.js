@@ -2,17 +2,20 @@ import { Grid } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import TMCard from '../atoms/TMCard'
+import TMCard from './TMCard'
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    // flexGrow: 1,
-    // justifyContent: 'center',
+  divContainer: {
+    display: 'flex',
+      justifyContent: 'center'
+  },
+  gridContainer: {
     maxWidth: 1920
   },
-  card: {
+  gridItem: {
+    display: 'flex',
+    justifyContent: 'center',
     maxWidth: 336,
-    minWidth: 288,
   }
 }))
 
@@ -20,10 +23,7 @@ function TMLobbies({ lobbies }) {
   const classes = useStyles()
 
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center'
-    }}>
+    <div classes={{ root: classes.divContainer }}>
       <Grid
         container
         spacing={2}
@@ -34,11 +34,7 @@ function TMLobbies({ lobbies }) {
           <Grid
             item
             xs={12} sm={6} md={4} lg={3} xl={2}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              maxWidth: 336,
-            }}
+            classes={{ root: classes.gridItem }}
           >
             <TMCard
               userName={lobby.userName}
