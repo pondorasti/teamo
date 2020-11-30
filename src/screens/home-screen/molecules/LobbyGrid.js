@@ -7,16 +7,16 @@ import LobbyCard from "./LobbyCard"
 const useStyles = makeStyles({
   divContainer: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   gridContainer: {
-    maxWidth: 1920
+    maxWidth: 1920,
   },
   gridItem: {
     display: "flex",
     justifyContent: "center",
     maxWidth: 336,
-  }
+  },
 })
 
 function LobbyGrid({ lobbies }) {
@@ -34,7 +34,11 @@ function LobbyGrid({ lobbies }) {
           <Grid
             key={0}
             item
-            xs={12} sm={6} md={4} lg={3} xl={2}
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            xl={2}
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
