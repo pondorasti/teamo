@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { fade, darken } from "@material-ui/core/styles/colorManipulator"
 import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     textTransform: "none",
     color: theme.palette.text.primary,
@@ -12,18 +12,18 @@ const useStyles = makeStyles(theme => ({
   sizeSmall: {
     padding: "4px 8px",
     borderRadius: 8,
-    fontSize: "0.875rem"
+    fontSize: "0.875rem",
   },
   sizeLarge: {
     padding: "8px 24px",
     borderRadius: 8,
-    fontSize: theme.typography.button.fontSize
+    fontSize: theme.typography.button.fontSize,
   },
   contained: {
     backgroundColor: theme.palette.primary.main,
     "&:hover": {
       backgroundColor: darken(theme.palette.primary.main, 0.075),
-    }
+    },
   },
   outlinedSizeSmall: {
     padding: "3px 7px",
@@ -35,30 +35,42 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.error.light,
     borderColor: theme.palette.error.main,
     "&:hover": {
-      backgroundColor: fade(theme.palette.error.light, theme.palette.action.hoverOpacity),
+      backgroundColor: fade(
+        theme.palette.error.light,
+        theme.palette.action.hoverOpacity
+      ),
       borderColor: theme.palette.error.main,
     },
   },
   leadingIcon: {
     "& .MuiSvgIcon-root": {
-      fontSize: 16
-    }
+      fontSize: 16,
+    },
   },
   iconSizeSmall: {
     marginRight: 8,
-    marginLeft: 0
+    marginLeft: 0,
   },
   iconSizeLarge: {
     marginRight: 12,
-    marginLeft: 0
+    marginLeft: 0,
   },
   childrenContainter: {
-    width: "100%"
-  }
+    width: "100%",
+  },
 }))
 
-function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, href, style, onClick }) {
-
+function TMButton({
+  children,
+  leadingIcon,
+  size,
+  variant,
+  disabled,
+  fullWidth,
+  href,
+  style,
+  onClick,
+}) {
   const classes = useStyles()
 
   return (
@@ -73,7 +85,7 @@ function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, h
         outlined: classes.outlined,
         startIcon: classes.leadingIcon,
         iconSizeSmall: classes.iconSizeSmall,
-        iconSizeLarge: classes.iconSizeLarge
+        iconSizeLarge: classes.iconSizeLarge,
       }}
       startIcon={leadingIcon}
       size={size}
@@ -85,9 +97,7 @@ function TMButton({ children, leadingIcon, size, variant, disabled, fullWidth, h
       style={style}
       onClick={onClick}
     >
-      <div className={classes.childrenContainter}>
-        {children}
-      </div>
+      <div className={classes.childrenContainter}>{children}</div>
     </Button>
   )
 }
@@ -128,7 +138,7 @@ TMButton.defaultProps = {
   size: "large",
   variant: "contained",
   disabled: false,
-  fullWidth: false
+  fullWidth: false,
 }
 
 export default TMButton

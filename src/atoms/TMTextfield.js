@@ -12,19 +12,29 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 12,
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.secondary.main,
-      }
-    }
-  }
+      },
+    },
+  },
 }))
 
-function TMTextfield({ label, defaultValue, helperText, error, disabled, fullWidth, multiline, rows, type, style }) {
-  
+function TMTextfield({
+  label,
+  defaultValue,
+  helperText,
+  error,
+  disabled,
+  fullWidth,
+  multiline,
+  rows,
+  type,
+  style,
+}) {
   const classes = useStyles()
 
   return (
     <TextField
-      classes={{ 
-        root: classes.root
+      classes={{
+        root: classes.root,
       }}
       variant="outlined"
       size="small"
@@ -71,7 +81,7 @@ TMTextfield.propTypes = {
   type: PropTypes.string,
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.object
+  style: PropTypes.object,
 }
 
 TMTextfield.defaultProps = {
@@ -79,7 +89,7 @@ TMTextfield.defaultProps = {
   disabled: false,
   fullWidth: false,
   multiline: false,
-  type: "text"
+  type: "text",
 }
 
 export default TMTextfield

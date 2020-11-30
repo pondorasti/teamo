@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function LobbyCardFooter({ gamePlatform, micChoice, roomSize }) {
-  
   const classes = useStyles()
 
   return (
