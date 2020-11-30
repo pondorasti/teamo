@@ -30,9 +30,9 @@ function LobbyGrid({ lobbies }) {
         justify="center"
         classes={{ root: classes.gridContainer }}
       >
-        {lobbies.map((lobby) => (
+        {lobbies.map((lobby, index) => (
           <Grid
-            key={0}
+            key={index}
             item
             xs={12}
             sm={6}

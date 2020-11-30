@@ -15,10 +15,6 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
   },
   lobbyCard: {
-    // width: '100%',
-    // width: 284,
-    // maxWidth: 400,
-    // minWidth: 284,
     padding: 12,
     borderRadius: 16,
     // transition: "50ms",
@@ -117,6 +113,7 @@ function LobbyCard({ userName, gameLogo, decsription }) {
               <TMAvatar
                 size="extraSmall"
                 src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+                alt="user avatar"
               />
               <Typography
                 variant="body1"
