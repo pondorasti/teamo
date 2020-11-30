@@ -28,7 +28,7 @@ function LobbyGrid({ lobbies }) {
         container
         spacing={2}
         justify="center"
-        classes={{ root: classes.container }}
+        classes={{ root: classes.gridContainer }}
       >
         {lobbies.map((lobby) => (
           <Grid

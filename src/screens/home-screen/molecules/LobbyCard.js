@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 // https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png
-function TMCard({ userName, gameLogo, decsription }) {
+function LobbyCard({ userName, gameLogo, decsription }) {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -162,7 +162,7 @@ function TMCard({ userName, gameLogo, decsription }) {
   )
 }
 
-TMCard.propTypes = {
+LobbyCard.propTypes = {
   /** The room master's name  */
   userName: PropTypes.string,
 
@@ -173,4 +173,4 @@ TMCard.propTypes = {
   decsription: PropTypes.string,
 }
 
-export default TMCard
+export default LobbyCard
