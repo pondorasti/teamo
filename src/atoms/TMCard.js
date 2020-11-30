@@ -12,8 +12,8 @@ import TMAvatar from './TMAvatar'
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
     // width: '100%',
-    width: 284,
-    // maxWidth: 334,
+    // width: 284,
+    // maxWidth: 400,
     // minWidth: 284,
     padding: 12,
     borderRadius: 16,
@@ -54,16 +54,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 // https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png
-function TMCard({ userName, gameLogo, decsription }) {
+function TMCard({ userName, gameLogo, decsription, style }) {
   const classes = useStyles()
 
   return (
-    <Card classes={{ root: classes.lobbyCard }} variant="outlined">
+    <Card elevation={0} classes={{ root: classes.lobbyCard }} variant="outlined" style={style}>
       <Grid container justify="space-between">
         <div className={classes.topDiv}>
           <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>
             <TMAvatar
               size="extraSmall"
+              alt="Username"
               src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
             />
             <Typography

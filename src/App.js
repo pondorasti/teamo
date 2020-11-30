@@ -14,7 +14,7 @@ function App() {
   return (
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
-      <Paper style={{ padding: 5 }}>
+      <Paper style={{ padding: 32 }}>
         <TMLobbies lobbies={data} />
       </Paper>
     </ThemeProvider>
