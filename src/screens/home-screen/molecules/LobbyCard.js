@@ -6,8 +6,8 @@ import { Grid } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import { darken } from '@material-ui/core/styles/colorManipulator'
 
-import TMCardFooter from './TMCardFooter'
-import TMAvatar from '../atoms/TMAvatar'
+import LobbyCardFooter from './LobbyCardFooter'
+import TMAvatar from '../../../atoms/TMAvatar'
 
 const useStyles = makeStyles((theme) => ({
   lobbyCard: {
@@ -53,8 +53,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 4,
   },
 }))
-// https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png
-function TMCard({ userName, gameLogo, decsription, style }) {
+
+function LobbyCard({ userName, gameLogo, decsription, style }) {
+  
   const classes = useStyles()
 
   return (
@@ -82,14 +83,14 @@ function TMCard({ userName, gameLogo, decsription, style }) {
           <Typography variant="h5">{decsription}</Typography>
         </Grid>
         <Grid item xs={12}>
-          <TMCardFooter gamePlatform="PC" micChoice="Mic" roomSize="3/5" />
+          <LobbyCardFooter gamePlatform="PC" micChoice="Mic" roomSize="3/5" />
         </Grid>
       </Grid>
     </Card>
   )
 }
 
-TMCard.propTypes = {
+LobbyCard.propTypes = {
   /** The room master's name  */
   userName: PropTypes.string,
 
@@ -100,4 +101,4 @@ TMCard.propTypes = {
   decsription: PropTypes.string,
 }
 
-export default TMCard
+export default LobbyCard

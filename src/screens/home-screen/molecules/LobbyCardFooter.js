@@ -3,9 +3,9 @@ import { Grid, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 
-import People from '../assets/icons/People'
-import Dpad from '../assets/icons/Dpad'
-import Mic from '../assets/icons/Mic'
+import People from '../../../assets/icons/People'
+import Dpad from '../../../assets/icons/Dpad'
+import Mic from '../../../assets/icons/Mic'
 
 const useStyles = makeStyles((theme) => ({
   statContainerStyles: {
@@ -34,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
-
+function LobbyCardFooter({ gamePlatform, micChoice, roomSize }) {
+  
   const classes = useStyles()
 
   return (
@@ -46,7 +46,7 @@ function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
       </Grid>
 
       <Grid item xs={4} classes={{ root: classes.micOption }}>
-        <Mic classes={classes.iconStyle} />
+        <Mic classes={{ root: classes.iconStyle }} />
         <Typography variant="caption">{micChoice}</Typography>
       </Grid>
 
@@ -58,7 +58,7 @@ function TMCardFooter({ gamePlatform, micChoice, roomSize }) {
   )
 }
 
-TMCardFooter.propTypes = {
+LobbyCardFooter.propTypes = {
   /** PC or console selection */
   gamePlatform: PropTypes.string,
 
@@ -69,4 +69,4 @@ TMCardFooter.propTypes = {
   roomSize: PropTypes.string,
 }
 
-export default TMCardFooter
+export default LobbyCardFooter

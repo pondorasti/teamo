@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core'
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import TMCard from './TMCard'
+import LobbyCard from './LobbyCard'
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function TMLobbies({ lobbies }) {
+function LobbyGrid({ lobbies }) {
   const classes = useStyles()
 
   return (
@@ -36,7 +36,7 @@ function TMLobbies({ lobbies }) {
             xs={12} sm={6} md={4} lg={3} xl={2}
             classes={{ root: classes.gridItem }}
           >
-            <TMCard
+            <LobbyCard
               userName={lobby.userName}
               gameLogo={lobby.gameLogo}
               decsription={lobby.decsription}
@@ -48,4 +48,4 @@ function TMLobbies({ lobbies }) {
   )
 }
 
-export default TMLobbies
+export default LobbyGrid
