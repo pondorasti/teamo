@@ -10,7 +10,6 @@ import data from "./screens/lobbiesDumyData"
 import AppBar from "./screens/TMAppBar"
 
 function App() {
-
   const games = ["Minecraft", "League of Legends", "Among Us"]
 
   return (
@@ -18,9 +17,18 @@ function App() {
       <AppBar />
       <CssBaseline />
       <div style={{ padding: 40 }}>
-        <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
-        <TMTextfield label="Games" defaultValue="jello" type="number"/>
-        <TMAutocomplete options={games} getOptionLabel={(game) => game}></TMAutocomplete>
+        <TMTextfield
+          label="Games"
+          defaultValue="jello"
+          helperText="hello"
+          rows={4}
+          multiline
+        />
+        <TMTextfield label="Games" defaultValue="jello" type="number" />
+        <TMAutocomplete
+          options={games}
+          getOptionLabel={(game) => game}
+        ></TMAutocomplete>
       </div>
       <LobbyGrid lobbies={data} />
     </ThemeProvider>
