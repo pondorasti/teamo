@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
     },
     "&:hover + $optionsIcon": {
       opacity: 1,
+      top: "-7%",
+      right: "-4%",
     },
   },
   topDiv: {
@@ -68,12 +70,14 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: darken(theme.palette.grey[700], 0.1),
       opacity: 1,
+      top: "-7%",
+      right: "-4%",
     },
 
     position: "absolute",
     zIndex: 1,
-    top: "-7%",
-    right: "-4%",
+    top: "0",
+    right: "0",
   },
   optionIconStyle: {
     fontSize: 16,
