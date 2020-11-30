@@ -1,30 +1,27 @@
-import React from 'react'
+import React from "react"
 
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from "@material-ui/core/styles"
 
-import { Paper, CssBaseline } from '@material-ui/core';
-import TMTheme from './atoms/TMTheme';
-import TMTextfield from './atoms/TMTextfield';
-import TMAutocomplete from './atoms/TMAutocomplete';
-import AppBar from './screens/TMAppBar'
+import { CssBaseline } from "@material-ui/core"
+import { TMTheme, TMTextfield, TMAutocomplete } from "./atoms"
+
+import AppBar from "./screens/TMAppBar"
 
 function App() {
 
-  const games = ['Minecraft', 'League of Legends', 'Among Us']
+  const games = ["Minecraft", "League of Legends", "Among Us"]
 
   return (
     <ThemeProvider theme={TMTheme}>
       <AppBar />
       <CssBaseline />
-      <Paper style={{ padding: 40 }}>
+      <div style={{ padding: 40 }}>
         <TMTextfield label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
         <TMTextfield label="Games" defaultValue="jello" type="number"/>
         <TMAutocomplete options={games} getOptionLabel={(game) => game}></TMAutocomplete>
-      </Paper>
+      </div>
     </ThemeProvider>
   )
 }
-
-
 
 export default App

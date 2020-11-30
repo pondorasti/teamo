@@ -1,16 +1,16 @@
-import React from 'react'
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core/'
-import TMButton from '../atoms/TMButton'
-import TMAvatar from '../atoms/TMAvatar'
-import { makeStyles } from '@material-ui/styles'
-import TeamoBanner from '../assets/images/TeamoBanner.png'
+import React from "react"
+import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core/"
+import TMButton from "../atoms/TMButton"
+import TMAvatar from "../atoms/TMAvatar"
+import { makeStyles } from "@material-ui/styles"
+import TeamoBanner from "../assets/images/TeamoBanner.png"
 
 const useStyles = makeStyles(theme => ({
   appBarRoot: {
     backgroundColor: theme.palette.grey[900],
   },
   toolbarRoot: {
-    padding: '0 32px 0 32px',
+    padding: "0 32px 0 32px",
   },
   divSpacer: {
     flexGrow: 1,
@@ -21,7 +21,7 @@ function TMAppBar() {
 
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
-  const open = Boolean(anchorEl);
+  const open = Boolean(anchorEl)
 
   const handleClose = () => { setAnchorEl(null) }
 
@@ -55,7 +55,7 @@ function TMAppBar() {
         <div className={classes.divSpacer} />
 
         <TMButton size='small'>
-          Create Lobby
+          Create Teamo
         </TMButton>
 
         <IconButton
@@ -63,7 +63,7 @@ function TMAppBar() {
           aria-controls='menu-appbar'
           aria-haspopup='true'
           onClick={handleProfileButton}
-          style={{ marginLeft: '4px' }}
+          style={{ marginLeft: "4px" }}
         >
           <TMAvatar
             size='extraSmall'
@@ -73,8 +73,8 @@ function TMAppBar() {
         </IconButton>
         <Menu
           anchorEl={anchorEl}
-          anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+          anchorOrigin={{ vertical: "top", horizontal: "left" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
           keepMounted
           open={open}
           onClose={handleClose}
