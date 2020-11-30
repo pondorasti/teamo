@@ -55,7 +55,7 @@ function TMAppBar() {
         <div className={classes.divSpacer} />
 
         <TMButton size='small'>
-          Create Lobby
+          Create Teamo
         </TMButton>
 
         <IconButton
