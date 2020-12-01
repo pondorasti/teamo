@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   lobbyCard: {
     padding: 12,
     borderRadius: 16,
+    borderColor: theme.palette.grey[500],
     // transition: "50ms",
     cursor: "pointer",
     backgroundColor: theme.palette.grey[700],
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   optionsIcon: {
     opacity: 0,
-    border: "1px solid #505050",
+    border: `1px solid ${theme.palette.grey[500]}`,
     backgroundColor: theme.palette.grey[700],
     borderRadius: 6,
     height: 24,

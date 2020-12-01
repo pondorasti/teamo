@@ -42,6 +42,7 @@ const TMTheme = createMuiTheme({
     },
 
     grey: {
+      500: "#505050", // border color
       600: "#464646", // quaternary background
       700: "#2F2F30", // tertiary background
       800: "#1E1E1E", // secondary background

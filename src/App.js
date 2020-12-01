@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import { CssBaseline } from "@material-ui/core"
 import { TMTheme, TMTextfield, TMAutocomplete } from "./atoms"
 import LobbyGrid from "./screens/home-screen/molecules/LobbyGrid"
-import data from "./screens/lobbiesDumyData"
+import data from "./lobbiesDumyData"
 
 import AppBar from "./screens/TMAppBar"
 
