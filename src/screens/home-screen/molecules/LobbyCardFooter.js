@@ -3,9 +3,7 @@ import { Grid, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
 
-import People from "../../../assets/icons/People"
-import Dpad from "../../../assets/icons/Dpad"
-import Mic from "../../../assets/icons/Mic"
+import { People, Dpad, Mic, MicSlash } from "../../../assets/icons"
 
 const useStyles = makeStyles((theme) => ({
   statContainerStyles: {
@@ -31,38 +29,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyCardFooter({ gamePlatform, micChoice, roomSize }) {
+function LobbyCardFooter({ platform, usesMic, sizeStatus }) {
   const classes = useStyles()
 
   return (
     <Grid container classes={{ root: classes.statContainerStyles }}>
       <Grid item xs={4} classes={{ root: classes.platformOption }}>
         <Dpad classes={{ root: classes.iconStyle }} />
-        <Typography variant="caption">{gamePlatform}</Typography>
+        <Typography variant="caption">{platform}</Typography>
       </Grid>
 
       <Grid item xs={4} classes={{ root: classes.micOption }}>
-        <Mic classes={{ root: classes.iconStyle }} />
-        <Typography variant="caption">{micChoice}</Typography>
+        {usesMic ? <Mic classes={{ root: classes.iconStyle }} /> : <MicSlash classes={{ root: classes.iconStyle }} />}
+
+        <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography>
       </Grid>
 
       <Grid item xs={4} classes={{ root: classes.playersOption }}>
         <People classes={{ root: classes.iconStyle }} />
-        <Typography variant="caption">{roomSize}</Typography>
+        <Typography variant="caption">{sizeStatus}</Typography>
       </Grid>
     </Grid>
   )
 }
 
 LobbyCardFooter.propTypes = {
-  /** PC or console selection */
-  gamePlatform: PropTypes.string,
+  /** The game platform of the lobby. */
+  platform: PropTypes.string.isRequired,
 
-  /** mic Selection  */
-  micChoice: PropTypes.string,
+  /** The mic status for the lobby. */
+  usesMic: PropTypes.bool.isRequired,
 
-  /** Room Size and status */
-  roomSize: PropTypes.string,
+  /** The size status of the lobby. */
+  sizeStatus: PropTypes.string.isRequired,
 }
 
 export default LobbyCardFooter

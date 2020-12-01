@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "100%",
     alignItems: "center",
-    marginBottom: 14,
+    marginBottom: 16,
   },
   gameImgGrid: {
     display: "flex",
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
   },
   cardMiddleSection: {
-    marginBottom: 20,
+    marginBottom: 16,
   },
   lobbyMasterInfo: {
     display: "flex",
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyCard({ username, gameLogo, decsription }) {
+function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus }) {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -91,10 +91,7 @@ function LobbyCard({ username, gameLogo, decsription }) {
   }
 
   const handleOptionsButton = (event) => {
-    // if user logged in show menu
     setAnchorEl(event.currentTarget)
-    // else
-    // open sign in modal
   }
 
   const handleAddToWatchList = () => {
@@ -112,35 +109,34 @@ function LobbyCard({ username, gameLogo, decsription }) {
             <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>
               <TMAvatar
                 size="extraSmall"
-                src="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-                alt="user avatar"
+                src={hostPicture}
+                alt={hostUsername}
               />
               <Typography
                 variant="body1"
                 classes={{ root: classes.lobbyMasterName }}
               >
-                {username}
+                {hostUsername}
               </Typography>
             </Grid>
             <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
-              <img className={classes.gameImg} src={gameLogo} alt="gameImg" />
+              <img className={classes.gameImg} src={gameLogo} alt={gameName} />
             </Grid>
           </div>
           <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
-            <Typography variant="h5">{decsription}</Typography>
+            <Typography variant="h5">{description}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <LobbyCardFooter gamePlatform="PC" micChoice="Mic" roomSize="3/5" />
+            <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
           </Grid>
         </Grid>
       </Card>
       <IconButton
         classes={{ root: classes.optionsIcon }}
         aria-label="lobby options"
-        aria-controls="menu-appbar"
+        aria-controls="lobby-menu"
         aria-haspopup="true"
         onClick={handleOptionsButton}
-        style={{ marginLeft: "4px" }}
       >
         <ThreeDots className={classes.optionIconStyle} />
       </IconButton>
@@ -160,14 +156,29 @@ function LobbyCard({ username, gameLogo, decsription }) {
 }
 
 LobbyCard.propTypes = {
-  /** The room master's name  */
-  username: PropTypes.string,
+  /** The username of the lobby host. */
+  hostUsername: PropTypes.string.isRequired,
 
-  /** The small game logo  */
-  gameLogo: PropTypes.string,
+  /** The `src` attribute for the profile picture of the lobby host. */
+  hostPicture: PropTypes.string.isRequired,
 
-  /** The description of room*/
-  decsription: PropTypes.string,
+  /** The name of game. */
+  gameName: PropTypes.string.isRequired,
+
+  /** The `src` attribute for the game logo. */
+  gameLogo: PropTypes.string.isRequired,
+
+  /** The description of lobby. */
+  description: PropTypes.string.isRequired,
+
+  /** The game platform of the lobby. */
+  platform: PropTypes.string.isRequired,
+
+  /** The mic status for the lobby. */
+  usesMic: PropTypes.string.isRequired,
+
+  /** The size status of the lobby. */
+  sizeStatus: PropTypes.string.isRequired,
 }
 
 export default LobbyCard

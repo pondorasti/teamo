@@ -42,9 +42,14 @@ function LobbyGrid({ lobbies }) {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              username={lobby.userName}
+              hostUsername={lobby.username}
+              hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
               gameLogo={lobby.gameLogo}
-              decsription={lobby.decsription}
+              gameName="Minecraft"
+              description={lobby.description}
+              platform="PS5"
+              usesMic={false}
+              sizeStatus="3/5"
             />
           </Grid>
         ))}
