@@ -176,7 +176,7 @@ LobbyCard.propTypes = {
   platform: PropTypes.string.isRequired,
 
   /** The mic status for the lobby. */
-  usesMic: PropTypes.string.isRequired,
+  usesMic: PropTypes.bool.isRequired,
 
   /** The size status of the lobby. */
   sizeStatus: PropTypes.string.isRequired,

@@ -60,7 +60,7 @@ const TMTheme = createMuiTheme({
 
     type: "dark",
   },
-  shadows: ["none"],
+  shadows: Array(25).fill("none"),
   typography: {
     h1: {
       // H1
