@@ -16,7 +16,7 @@ function App() {
     <ThemeProvider theme={TMTheme}>
       <AppBar />
       <CssBaseline />
-      <div style={{ padding: 40 }}>
+      <div style={{ padding: 32 }}>
         <TMTextfield
           label="Games"
           defaultValue="jello"
@@ -30,7 +30,9 @@ function App() {
           getOptionLabel={(game) => game}
         ></TMAutocomplete>
       </div>
-      <LobbyGrid lobbies={data} />
+      <div style={{ padding: 32 }}>
+        <LobbyGrid lobbies={data} />
+      </div>
     </ThemeProvider>
   )
 }

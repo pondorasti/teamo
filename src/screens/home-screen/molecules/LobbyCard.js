@@ -80,8 +80,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 16,
   },
 }))
-// https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png
-function LobbyCard({ userName, gameLogo, decsription }) {
+
+function LobbyCard({ username, gameLogo, decsription }) {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
@@ -119,7 +119,7 @@ function LobbyCard({ userName, gameLogo, decsription }) {
                 variant="body1"
                 classes={{ root: classes.lobbyMasterName }}
               >
-                {userName}
+                {username}
               </Typography>
             </Grid>
             <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
@@ -161,7 +161,7 @@ function LobbyCard({ userName, gameLogo, decsription }) {
 
 LobbyCard.propTypes = {
   /** The room master's name  */
-  userName: PropTypes.string,
+  username: PropTypes.string,
 
   /** The small game logo  */
   gameLogo: PropTypes.string,

@@ -13,20 +13,17 @@ const useStyles = makeStyles((theme) => ({
   },
   platformOption: {
     display: "flex",
-    alignItems: "center",
-    borderRight: "1px solid",
     justifyContent: "start",
+    borderRight: "1px solid",
   },
   micOption: {
     display: "flex",
-    alignItems: "center",
     justifyContent: "center",
   },
   playersOption: {
     display: "flex",
-    alignItems: "center",
-    borderLeft: "1px solid",
     justifyContent: "flex-end",
+    borderLeft: "1px solid",
   },
   iconStyle: {
     marginRight: 4,

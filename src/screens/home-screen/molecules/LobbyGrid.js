@@ -42,7 +42,7 @@ function LobbyGrid({ lobbies }) {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              userName={lobby.userName}
+              username={lobby.userName}
               gameLogo={lobby.gameLogo}
               decsription={lobby.decsription}
             />
