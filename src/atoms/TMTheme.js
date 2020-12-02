@@ -127,6 +127,13 @@ const TMTheme = createMuiTheme({
       letterSpacing: "0.025rem",
     },
   },
+  transitions: {
+    duration: {
+      shortest: 250, // IconButton 
+      shorter: 200,
+      short: 250, // CardActionArea
+    }
+  }
 })
 
 export default TMTheme

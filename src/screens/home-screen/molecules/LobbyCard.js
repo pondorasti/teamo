@@ -12,19 +12,19 @@ const useStyles = makeStyles((theme) => ({
   card: {
     borderRadius: 16,
     border: `1px solid ${theme.palette.grey[500]}`,
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)", // fixes safari overflow bug
 
-    transition: theme.transitions.create("background-color", {
-      duration: theme.transitions.duration.short,
-    }),
-
+    pointerEvents: "fill", // don't accidently trigger options menu by hovering over the border
     backgroundColor: theme.palette.grey[700],
-    "&:hover + $optionsIcon": {
+    "&:hover + $optionsButtonContainer": {
       opacity: 1,
-      top: -12,
-      right: -12,
+      pointerEvents: "auto",
     },
   },
-  cardActionArea: { padding: 12 },
+  cardActionArea: {
+    padding: 12,
+  },
+  cardActionAreaFocusHighlight: {},
   topDiv: {
     display: "flex",
     width: "100%",
@@ -51,28 +51,36 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     marginLeft: 4,
   },
-  optionsIcon: {
-    opacity: 0,
+  optionsButtonContainer: {
     border: `1px solid ${theme.palette.grey[500]}`,
     backgroundColor: theme.palette.grey[700],
     borderRadius: 6,
-    height: 24,
-    width: 24,
 
+    overflow: "hidden",
     position: "absolute",
     zIndex: 1,
-    top: 0, // remove the button from the corner
-    right: 0, // in order to avoid reveals by mistake
 
-    transition: theme.transitions.create("background-color", {
+    top: -12,
+    right: -12,
+
+    opacity: 0,
+
+    // do not reveal options menu before hovering the card
+    pointerEvents: "none", 
+
+    transition: theme.transitions.create("opacity",  {
       duration: theme.transitions.duration.short,
     }),
 
     "&:hover": {
+      pointerEvents: "auto",
       opacity: 1,
-      top: -12,
-      right: -12,
     },
+  },
+  optionsIcon: {
+    borderRadius: 0,
+    height: 24,
+    width: 24,
   },
   optionIconStyle: { fontSize: 16 },
 }))
@@ -100,7 +108,7 @@ function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description,
   return (
     <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
-        <CardActionArea classes={{ root: classes.cardActionArea }}>
+        <CardActionArea className={classes.cardActionArea}>
           <Grid container justify="space-between">
             <div className={classes.topDiv}>
               <Grid item xs={6} classes={{ root: classes.hostInfo }}>
@@ -130,26 +138,28 @@ function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description,
         </CardActionArea>
       </Card>
 
-      <IconButton
-        classes={{ root: classes.optionsIcon }}
-        aria-label="lobby options"
-        aria-controls="lobby-menu"
-        aria-haspopup="true"
-        onClick={handleOptionsButton}
-      >
-        <ThreeDots className={classes.optionIconStyle} />
-      </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        keepMounted
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleAddToWatchList}>Add to Watch List</MenuItem>
-        <MenuItem onClick={handleReportLobby}>Report Lobby</MenuItem>
-      </Menu>
+      <div className={classes.optionsButtonContainer}>
+        <IconButton
+          classes={{ root: classes.optionsIcon }}
+          aria-label="lobby options"
+          aria-controls="lobby-menu"
+          aria-haspopup="true"
+          onClick={handleOptionsButton}
+        >
+          <ThreeDots className={classes.optionIconStyle} />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          keepMounted
+          open={open}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleAddToWatchList}>Add to Watch List</MenuItem>
+          <MenuItem onClick={handleReportLobby}>Report Lobby</MenuItem>
+        </Menu>
+      </div>
     </div>
   )
 }
