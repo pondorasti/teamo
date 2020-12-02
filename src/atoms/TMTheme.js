@@ -2,30 +2,36 @@ import { createMuiTheme } from "@material-ui/core/styles"
 
 const TMTheme = createMuiTheme({
   palette: {
-    primary: { // primary
+    primary: {
+      // primary
       main: "#7800D7",
       dark: "#7800D7",
     },
-    secondary: { // secondary
+    secondary: {
+      // secondary
       main: "#AAA3EB",
       dark: "#AAA3EB",
     },
-    warning: { // tertiary
+    warning: {
+      // tertiary
       main: "#4D287C",
       dark: "#4D287C",
     },
-    error: { // error
+    error: {
+      // error
       main: "#FF453A99",
       dark: "#FF453A99",
-      light: "#FF453A1A" // error background 
+      light: "#FF453A1A", // error background
     },
-    info: { // blue
+    info: {
+      // blue
       main: "#0A84FF",
       dark: "#0A84FF",
     },
-    success: { // green
+    success: {
+      // green
       main: "#23E036",
-      dark: "#23E036"
+      dark: "#23E036",
     },
 
     text: {
@@ -36,14 +42,15 @@ const TMTheme = createMuiTheme({
     },
 
     grey: {
+      500: "#505050", // border color
       600: "#464646", // quaternary background
       700: "#2F2F30", // tertiary background
       800: "#1E1E1E", // secondary background
-      900: "#141414" // background
+      900: "#141414", // background
     },
 
     action: {
-      hoverOpacity: 0.2
+      hoverOpacity: 0.2,
     },
 
     divider: "#FFFFFF26", // separator
@@ -53,62 +60,78 @@ const TMTheme = createMuiTheme({
 
     type: "dark",
   },
-  shadows: ["none"],
+  shadows: Array(25).fill("none"),
   typography: {
-    h1: { // H1
+    h1: {
+      // H1
       fontWeight: "500",
       fontSize: "2.25rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    h2: { // H2
+    h2: {
+      // H2
       fontWeight: "500",
       fontSize: "1.5rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    h4: { // headline 1
+    h4: {
+      // headline 1
       fontWeight: "400",
       fontSize: "1.375rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    h5: { // headline 1
+    h5: {
+      // headline 1
       fontWeight: "500",
       fontSize: "1.0625rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    h6: { // headline 2
+    h6: {
+      // headline 2
       fontWeight: "500",
       fontSize: "0.9375rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    body1: { // body
+    body1: {
+      // body
       fontWeight: "400",
       fontSize: "0.9375rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    body2: { // body
+    body2: {
+      // body
       fontWeight: "400",
       fontSize: "0.9375rem",
       lineHeight: "100%",
-      letterSpacing: "0.009375rem"
+      letterSpacing: "0.009375rem",
     },
-    button: { // button
+    button: {
+      // button
       textTransform: "none",
       fontWeight: "700",
       fontSize: "0.9375rem",
       lineHeight: "100%",
-      letterSpacing: "0rem"
+      letterSpacing: "0rem",
     },
-    caption: { // caption
+    caption: {
+      // caption
       fontWeight: "400",
       fontSize: "0.75rem",
       lineHeight: "1rem",
-      letterSpacing: "0.025rem"
+      letterSpacing: "0.025rem",
+    },
+  },
+  transitions: {
+    duration: {
+      shortest: 250, // IconButton 
+      shorter: 200,
+      short: 250, // CardActionArea
     }
   }
 })

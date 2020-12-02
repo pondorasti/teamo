@@ -14,26 +14,27 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 12,
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.secondary.main,
-      }
-    }
-  }
+      },
+    },
+  },
 }))
 
 function TMAutocomplete({ label, options, getOptionLabel, style }) {
-
   const classes = useStyles()
 
   return (
     <Autocomplete
-      classes={{root: classes.root}}
+      classes={{ root: classes.root }}
       options={options}
       getOptionLabel={getOptionLabel}
       style={style}
       popupIcon={<ArrowDown />}
-      size='small'
+      size="small"
       autoHighlight
       autoSelect
-      renderInput={(params) => <TextField {...params} variant='outlined' label={label}/>}
+      renderInput={(params) => (
+        <TextField {...params} variant="outlined" label={label} />
+      )}
     />
   )
 }
@@ -55,7 +56,7 @@ TMAutocomplete.propTypes = {
   getOptionLabel: PropTypes.func.isRequired,
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.object
+  style: PropTypes.object,
 }
 
 export default TMAutocomplete

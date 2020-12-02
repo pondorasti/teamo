@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
-
   const classes = useStyles()
   const className = classNames({
     [classes.sizeExtraSmall]: size === "extraSmall",
@@ -66,16 +65,27 @@ function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
   })
 
   if (status === "none") {
-    return <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
-  } else {
-    return <div className={classes.container}
-    >
+    return (
       <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
-      <div className={classes.onlineStatusOverlay}>
-        <div className={classes.backgroundStatusOverlay} style={{ backgroundColor: `${backgroundColor}` }}></div>
+    )
+  } else {
+    return (
+      <div className={classes.container}>
+        <Avatar
+          classes={{ root: className }}
+          alt={alt}
+          src={src}
+          style={style}
+        />
+        <div className={classes.onlineStatusOverlay}>
+          <div
+            className={classes.backgroundStatusOverlay}
+            style={{ backgroundColor: `${backgroundColor}` }}
+          ></div>
+        </div>
+        <div className={classes.onlineStatusOverlay}></div>
       </div>
-      <div className={classes.onlineStatusOverlay}></div>
-    </div>
+    )
   }
 }
 
@@ -93,7 +103,7 @@ TMAvatar.propTypes = {
   status: PropTypes.oneOf(["none", "online"]),
 
   /** Override or extend the styles applied to the component. */
-  style: PropTypes.object
+  style: PropTypes.object,
 }
 
 TMAvatar.defaultProps = {
