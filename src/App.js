@@ -13,20 +13,24 @@ function App() {
 
   return (
     <ThemeProvider theme={TMTheme}>
-      <AppBar />
       <CssBaseline />
-      <div style={{ padding: 32 }}>
-        <TMTextfield
-          label="Games"
-          defaultValue="jello"
-          helperText="hello"
-          rows={4}
-          multiline
-        />
-        <TMTextfield label="Games" defaultValue="jello" type="number" />
-      </div>
-      <div style={{ padding: 32 }}>
-        <LobbyGrid lobbies={data} />
+
+      <AppBar />
+
+      <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
+        <div style={{ padding: 32 }}>
+          <TMTextfield
+            label="Games"
+            defaultValue="jello"
+            helperText="hello"
+            rows={4}
+            multiline
+          />
+          <TMTextfield label="Games" defaultValue="jello" type="number" />
+        </div>
+        <div style={{ padding: 32 }}>
+          <LobbyGrid lobbies={data} />
+        </div>
       </div>
     </ThemeProvider>
   )
