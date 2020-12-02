@@ -1,37 +1,30 @@
 import React from "react"
-import Typography from "@material-ui/core/Typography"
-import Card from "@material-ui/core/Card"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, IconButton, Menu, MenuItem } from "@material-ui/core"
+import { Grid, IconButton, Menu, MenuItem, Card, CardActionArea, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
-import { darken } from "@material-ui/core/styles/colorManipulator"
 
 import LobbyCardFooter from "./LobbyCardFooter"
 import TMAvatar from "../../../atoms/TMAvatar"
 import ThreeDots from "../../../assets/icons/ThreeDots"
 
 const useStyles = makeStyles((theme) => ({
-  cardContainer: {
-    position: "relative",
-  },
-  lobbyCard: {
-    padding: 12,
+  cardContainer: { position: "relative" },
+  card: {
     borderRadius: 16,
-    borderColor: theme.palette.grey[500],
-    // transition: "50ms",
-    cursor: "pointer",
+    border: `1px solid ${theme.palette.grey[500]}`,
+
+    transition: theme.transitions.create("background-color", {
+      duration: theme.transitions.duration.short,
+    }),
+
     backgroundColor: theme.palette.grey[700],
-    "&:hover": {
-      // transform: 'translate(-3px, -3px)',
-      // boxShadow: '0px 8px 20px 1px rgba(56, 56, 56, 0.6)',
-      backgroundColor: darken(theme.palette.grey[700], 0.1),
-    },
     "&:hover + $optionsIcon": {
       opacity: 1,
-      top: "-7%",
-      right: "-4%",
+      top: -12,
+      right: -12,
     },
   },
+  cardActionArea: { padding: 12 },
   topDiv: {
     display: "flex",
     width: "100%",
@@ -50,11 +43,11 @@ const useStyles = makeStyles((theme) => ({
   cardMiddleSection: {
     marginBottom: 16,
   },
-  lobbyMasterInfo: {
+  hostInfo: {
     display: "flex",
     alignItems: "center",
   },
-  lobbyMasterName: {
+  hostUsername: {
     color: theme.palette.text.secondary,
     marginLeft: 4,
   },
@@ -65,21 +58,23 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 6,
     height: 24,
     width: 24,
-    "&:hover": {
-      backgroundColor: darken(theme.palette.grey[700], 0.1),
-      opacity: 1,
-      top: "-7%",
-      right: "-4%",
-    },
 
     position: "absolute",
     zIndex: 1,
-    top: "0",
-    right: "0",
+    top: 0, // remove the button from the corner
+    right: 0, // in order to avoid reveals by mistake
+
+    transition: theme.transitions.create("background-color", {
+      duration: theme.transitions.duration.short,
+    }),
+
+    "&:hover": {
+      opacity: 1,
+      top: -12,
+      right: -12,
+    },
   },
-  optionIconStyle: {
-    fontSize: 16,
-  },
+  optionIconStyle: { fontSize: 16 },
 }))
 
 function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus }) {
@@ -104,34 +99,37 @@ function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description,
 
   return (
     <div className={classes.cardContainer}>
-      <Card classes={{ root: classes.lobbyCard }} variant="outlined">
-        <Grid container justify="space-between">
-          <div className={classes.topDiv}>
-            <Grid item xs={6} classes={{ root: classes.lobbyMasterInfo }}>
-              <TMAvatar
-                size="extraSmall"
-                src={hostPicture}
-                alt={hostUsername}
-              />
-              <Typography
-                variant="body1"
-                classes={{ root: classes.lobbyMasterName }}
-              >
-                {hostUsername}
-              </Typography>
+      <Card classes={{ root: classes.card }}>
+        <CardActionArea classes={{ root: classes.cardActionArea }}>
+          <Grid container justify="space-between">
+            <div className={classes.topDiv}>
+              <Grid item xs={6} classes={{ root: classes.hostInfo }}>
+                <TMAvatar
+                  size="extraSmall"
+                  src={hostPicture}
+                  alt={hostUsername}
+                />
+                <Typography
+                  variant="body1"
+                  classes={{ root: classes.hostUsername }}
+                >
+                  {hostUsername}
+                </Typography>
+              </Grid>
+              <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
+                <img className={classes.gameImg} src={gameLogo} alt={gameName} />
+              </Grid>
+            </div>
+            <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
+              <Typography variant="h5">{description}</Typography>
             </Grid>
-            <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
-              <img className={classes.gameImg} src={gameLogo} alt={gameName} />
+            <Grid item xs={12}>
+              <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
             </Grid>
-          </div>
-          <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
-            <Typography variant="h5">{description}</Typography>
           </Grid>
-          <Grid item xs={12}>
-            <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
-          </Grid>
-        </Grid>
+        </CardActionArea>
       </Card>
+
       <IconButton
         classes={{ root: classes.optionsIcon }}
         aria-label="lobby options"
