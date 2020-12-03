@@ -16,7 +16,7 @@ function App() {
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
       <AppBar />
-      <Paper style={{ padding: 40 }}>
+      <Paper style={{ padding: 32 }}>
         <TMTextfield
           label="Games"
           defaultValue="jello"
@@ -31,11 +31,7 @@ function App() {
           getOptionLabel={(game) => game}
         ></TMAutocomplete>
 
-        <TMSelectedGameInfo
-          selectGameImg="https://cdn.vox-cdn.com/thumbor/2D0fSxmi24Zw7aaB3M_TViUavrc=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15957232/0fe20042_0bb8_4781_82f4_7130f928b021.jpg"
-          selectGameName="Minecraft"
-          selectGameStats="150 Players,  43 Lobbies"
-        />
+        <TMSelectedGameInfo />
       </Paper>
     </ThemeProvider>
   )

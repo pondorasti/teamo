@@ -7,12 +7,13 @@ const games = ["Minecraft", "League of Legends", "Among Us"]
 const platforms = ["PC", "Play Station", "XBOX", "VR"]
 
 const useStyles = makeStyles((theme) => ({
-  selectGameDiv: {
+  container: {
     alignItems: "center",
-    backgroundColor: theme.palette.grey[800],
+    // backgroundColor: theme.palette.grey[800],
 
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      alignItems: "flex-start",
     },
 
     // Handmade flex-gap
@@ -30,11 +31,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
-    [theme.breakpoints.down("sm")]: {
-      // marginBottom: 16,
-    },
   },
-
   rightGridMain: {
     display: "flex",
     [theme.breakpoints.down("xs")]: {
@@ -44,11 +41,16 @@ const useStyles = makeStyles((theme) => ({
   gameImg: {
     width: 176,
     height: 72,
+    borderRadius: 8,
     objectFit: "cover",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+      height: "auto"
+    },
   },
   gameInfo: {
     flexDirection: "column",
-    marginLeft: 10,
+    marginLeft: 8,
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
       marginTop: 8,
@@ -65,26 +67,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMSelectedGameInfo({
-  selectGameImg,
-  selectGameName,
-  selectGameStats,
-}) {
+function TMSelectedGameInfo() {
   const classes = useStyles()
 
+  const gameImg = "https://cdn.vox-cdn.com/thumbor/2D0fSxmi24Zw7aaB3M_TViUavrc=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15957232/0fe20042_0bb8_4781_82f4_7130f928b021.jpg"
+  const gameName = "Minecraft"
+  const gameStats = "150 Players,  43 Lobbies"
+
   return (
-    <Grid container justify="space-between" className={classes.selectGameDiv}>
+    <Grid container justify="space-between" className={classes.container}>
       <Grid item className={classes.leftGridMain}>
         <img
-          src={selectGameImg}
-          alt="selected game"
+          src={gameImg}
+          alt={gameName}
           className={classes.gameImg}
         />
 
         <div className={classes.gameInfo}>
-          <Typography variant="h4">{selectGameName}</Typography>
+          <Typography variant="h4">{gameName}</Typography>
           <Typography variant="body1" classes={{ root: classes.gameStats }}>
-            {selectGameStats}
+            {gameStats}
           </Typography>
         </div>
       </Grid>
