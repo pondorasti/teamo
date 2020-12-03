@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
-const TMTheme = createMuiTheme({
+const defaultTheme = {
   palette: {
     primary: {
       // primary
@@ -129,11 +129,44 @@ const TMTheme = createMuiTheme({
   },
   transitions: {
     duration: {
-      shortest: 250, // IconButton 
+      shortest: 250, // IconButton
       shorter: 200,
       short: 250, // CardActionArea
-    }
-  }
+    },
+  },
+}
+
+const TMTheme = createMuiTheme({
+  ...defaultTheme,
+  overrides: {
+    MuiDialog: {
+      paper: {
+        backgroundColor: defaultTheme.palette.grey[800],
+        borderRadius: 24,
+        padding: 16,
+      },
+    },
+    MuiDialogTitle: {
+      root: {
+        // display: "flex",
+        // alignItems: "center",
+        // justifyContent: "center",
+        textAlign: "center",
+        fontWeight: defaultTheme.typography.h4.fontWeight,
+        fontSize: defaultTheme.typography.h4.fontSize,
+        lineHeight: defaultTheme.typography.h4.lineHeight,
+        letterSpacing: defaultTheme.typography.h4.letterSpacing,
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+    },
+  },
 })
 
 export default TMTheme
