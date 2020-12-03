@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
 import LobbyCard from "./LobbyCard"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   divContainer: {
     display: "flex",
     justifyContent: "center",
@@ -16,8 +16,12 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     maxWidth: 336,
+
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: "100%",
+    },
   },
-})
+}))
 
 function LobbyGrid({ lobbies }) {
   const classes = useStyles()
