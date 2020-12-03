@@ -11,7 +11,6 @@ import TMTheme from "../../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {
-    // width: "50%",
     marginTop: 16,
   },
   buttonMargin: {
@@ -19,13 +18,13 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-function LoginDialog({ open, close }) {
+function LoginDialog({ open, onClose }) {
   const classes = useStyles()
 
   return (
     <Dialog
       open={open}
-      onClose={close}
+      onClose={onClose}
       aria-labelledby="Login-Modal"
       classes={{ root: classes.dialogBody }}
     >
@@ -66,11 +65,11 @@ function LoginDialog({ open, close }) {
 }
 
 LoginDialog.propTypes = {
-  /** */
+  /** If `true`, the modal is presented */
   open: PropTypes.bool.isRequired,
 
-  /** */
-  close: PropTypes.func.isRequired,
+  /** A function that is called when the modal needs to be closed. */
+  onClose: PropTypes.func.isRequired,
 }
 LoginDialog.defaultProps = {
   open: false,

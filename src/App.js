@@ -35,7 +35,7 @@ function App() {
         />
         <TMTextfield label="Games" defaultValue="jello" type="number" />
         <TMButton onClick={handleLoginOpen}>Login</TMButton>
-        <LoginDialog open={openLogin} close={handleLoginClose} />
+        <LoginDialog open={openLogin} onClose={handleLoginClose} />
       </div>
       <div style={{ padding: 32 }}>
         <LobbyGrid lobbies={data} />
