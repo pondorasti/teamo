@@ -143,15 +143,14 @@ const TMTheme = createMuiTheme({
       paper: {
         backgroundColor: defaultTheme.palette.grey[800],
         borderRadius: 24,
-        padding: 16,
+        padding: "32px 24px",
       },
     },
     MuiDialogTitle: {
       root: {
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "center",
-        textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        padding: 0,
         fontWeight: defaultTheme.typography.h4.fontWeight,
         fontSize: defaultTheme.typography.h4.fontSize,
         lineHeight: defaultTheme.typography.h4.lineHeight,
@@ -160,7 +159,7 @@ const TMTheme = createMuiTheme({
     },
     MuiDialogContent: {
       root: {
-        textAlign: "center",
+        padding: "0px 16px 24px 16px ",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

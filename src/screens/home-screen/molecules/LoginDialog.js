@@ -6,13 +6,14 @@ import { makeStyles } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
+import Apple from "../../../assets/icons/Apple"
+import Google from "../../../assets/icons/Google"
 
 const useStyles = makeStyles(() => ({
   slogan: {
-    width: 100,
+    // width: "50%",
+    marginTop: 16,
   },
-  // alignItems: "center",
-  // justifyContent: "center",
   buttonMargin: {
     marginBottom: 16,
   },
@@ -38,21 +39,23 @@ function LoginDialog({ open, close }) {
       </DialogContent>
 
       <TMButton
+        leadingIcon={<Google />}
         onClick={close}
         style={{
-          marginBottom: 8,
+          marginBottom: 16,
           color: "#000000",
           backgroundColor: "#FFFFFF",
         }}
       >
-        Continue with Apple
+        Continue with Google
       </TMButton>
       <TMButton
+        leadingIcon={<Apple />}
         onClick={close}
         color="primary"
         style={{ color: "#000000", backgroundColor: "#FFFFFF" }}
       >
-        Continue with Google
+        Continue with Apple
       </TMButton>
     </Dialog>
   )
