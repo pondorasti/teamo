@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
   card: {
     borderRadius: 16,
     border: `1px solid ${theme.palette.grey[500]}`,
-    
+
     // fixes safari overflow bug
-    WebkitMaskImage: "-webkit-radial-gradient(white, black)", 
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
 
     // don't accidently trigger options menu by hovering over the border
-    pointerEvents: "fill", 
+    pointerEvents: "fill",
     backgroundColor: theme.palette.grey[700],
     "&:hover + $optionsButtonContainer": {
       opacity: 1,
@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   cardActionArea: { padding: 12 },
-  cardActionAreaFocusHighlight: {},
   topDiv: {
     display: "flex",
     width: "100%",

@@ -1,5 +1,5 @@
 import React from "react"
-import { AppBar, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core/"
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core/"
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
@@ -14,6 +14,11 @@ const useStyles = makeStyles((theme) => ({
   },
   divSpacer: {
     flexGrow: 1,
+  },
+  divider: {
+    position: "absolute",
+    width: "100%",
+    bottom: "0%",
   },
 }))
 
@@ -79,9 +84,13 @@ function TMAppBar() {
             <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
           </Menu>
         </Toolbar>
+
+        <Divider classes={{root: classes.divider}} />
+
       </AppBar>
-      <Toolbar />{" "}
+      
       {/* An extra toolbar for shifting the content of the page under the app bar */}
+      <Toolbar />
     </>
   )
 }
