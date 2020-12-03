@@ -5,17 +5,14 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   root: {
+    "& label.Mui-focused": {
+      color: theme.palette.secondary.main,
+    },
     "& .MuiOutlinedInput-root": {
       borderRadius: 12,
       "&.Mui-focused fieldset": {
         borderColor: theme.palette.secondary.main,
       },
-    },
-    "&:hover label": {
-      color: "white",
-    },
-    "& label.Mui-focused": {
-      color: theme.palette.secondary.main,
     },
   },
 }))
