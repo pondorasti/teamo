@@ -9,12 +9,21 @@ const platforms = ["PC", "Play Station", "XBOX", "VR"]
 const useStyles = makeStyles((theme) => ({
   selectGameDiv: {
     alignItems: "center",
-    margin: "20px 0px",
-    padding: "20px 0px",
     backgroundColor: theme.palette.grey[800],
+
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
+
+    // Handmade flex-gap
+    // Source: https://coryrylan.com/blog/css-gap-space-with-flexbox
+    "& > *": {
+      margin: "16px 0 0 16px",
+    },
+
+    margin: "0 0 0 -16px",
+    padding: "8px 0 24px 0",
+    width: "calc(100% + 16px)",    
   },
   leftGridMain: {
     display: "flex",
@@ -22,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
     },
     [theme.breakpoints.down("sm")]: {
-      marginBottom: 16,
+      // marginBottom: 16,
     },
   },
 
