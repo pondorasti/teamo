@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.grey[800],
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
-      // justifyContent: "center",
-      // alignItems: "center",
     },
   },
   leftGridMain: {
