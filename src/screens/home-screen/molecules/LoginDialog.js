@@ -6,8 +6,8 @@ import { makeStyles } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
-import Apple from "../../../assets/icons/Apple"
-import Google from "../../../assets/icons/Google"
+import { Apple, Google } from "../../../assets/icons"
+import TMTheme from "../../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {
@@ -26,44 +26,51 @@ function LoginDialog({ open, close }) {
     <Dialog
       open={open}
       onClose={close}
-      aria-labelledby="form-dialog-title"
+      aria-labelledby="Login-Modal"
       classes={{ root: classes.dialogBody }}
     >
-      <DialogTitle id="form-dialog-title" disableTypography>
-        Teamo
-      </DialogTitle>
-      <DialogContent>
+      <DialogTitle id="Login-Modal-Title" disableTypography>
+        <Typography variant="h4">Teamo</Typography>
         <Typography variant="h5" classes={{ root: classes.slogan }}>
           Good Team, Good Game.
         </Typography>
+      </DialogTitle>
+      <DialogContent>
+        <TMButton
+          leadingIcon={<Google />}
+          onClick={close}
+          fullWidth
+          style={{
+            marginBottom: 16,
+            color: TMTheme.palette.common.black,
+            backgroundColor: TMTheme.palette.text.primary,
+          }}
+        >
+          Continue with Google
+        </TMButton>
+        <TMButton
+          leadingIcon={<Apple />}
+          onClick={close}
+          fullWidth
+          color="primary"
+          style={{
+            color: TMTheme.palette.common.black,
+            backgroundColor: TMTheme.palette.text.primary,
+          }}
+        >
+          Continue with Apple
+        </TMButton>
       </DialogContent>
-
-      <TMButton
-        leadingIcon={<Google />}
-        onClick={close}
-        style={{
-          marginBottom: 16,
-          color: "#000000",
-          backgroundColor: "#FFFFFF",
-        }}
-      >
-        Continue with Google
-      </TMButton>
-      <TMButton
-        leadingIcon={<Apple />}
-        onClick={close}
-        color="primary"
-        style={{ color: "#000000", backgroundColor: "#FFFFFF" }}
-      >
-        Continue with Apple
-      </TMButton>
     </Dialog>
   )
 }
 
 LoginDialog.propTypes = {
-  open: PropTypes.bool,
-  close: PropTypes.func,
+  /** */
+  open: PropTypes.bool.isRequired,
+
+  /** */
+  close: PropTypes.func.isRequired,
 }
 LoginDialog.defaultProps = {
   open: false,

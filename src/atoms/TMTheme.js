@@ -143,26 +143,24 @@ const TMTheme = createMuiTheme({
       paper: {
         backgroundColor: defaultTheme.palette.grey[800],
         borderRadius: 24,
-        padding: "32px 24px",
+        padding: "32px",
       },
     },
     MuiDialogTitle: {
       root: {
         display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
         justifyContent: "center",
+        marginBottom: 40,
         padding: 0,
-        fontWeight: defaultTheme.typography.h4.fontWeight,
-        fontSize: defaultTheme.typography.h4.fontSize,
-        lineHeight: defaultTheme.typography.h4.lineHeight,
-        letterSpacing: defaultTheme.typography.h4.letterSpacing,
       },
     },
     MuiDialogContent: {
       root: {
-        padding: "0px 16px 24px 16px ",
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "column",
+        padding: 0,
       },
     },
   },
