@@ -130,7 +130,7 @@ TMButton.propTypes = {
   /** Override or extend the styles applied to the component. */
   style: PropTypes.object,
 
-  /** An optional function that is called when the button is pressed */
+  /** An optional function that is called when the button is pressed. */
   onClick: PropTypes.func,
 }
 

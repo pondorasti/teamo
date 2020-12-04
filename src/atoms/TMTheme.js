@@ -1,6 +1,6 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
-const TMTheme = createMuiTheme({
+const defaultTheme = {
   palette: {
     primary: {
       // primary
@@ -51,6 +51,9 @@ const TMTheme = createMuiTheme({
 
     action: {
       hoverOpacity: 0.2,
+
+      // custom props
+      backgroundShadow: "rgba(0, 0, 0, 0.80)",
     },
 
     divider: "#FFFFFF26", // separator
@@ -77,38 +80,38 @@ const TMTheme = createMuiTheme({
       letterSpacing: "0.009375rem",
     },
     h4: {
-      // headline 1
+      // Title
       fontWeight: "400",
       fontSize: "1.375rem",
-      lineHeight: "100%",
+      lineHeight: "1.6125rem",
       letterSpacing: "0.009375rem",
     },
     h5: {
       // headline 1
       fontWeight: "500",
       fontSize: "1.0625rem",
-      lineHeight: "100%",
+      lineHeight: "1.24375rem",
       letterSpacing: "0.009375rem",
     },
     h6: {
       // headline 2
       fontWeight: "500",
       fontSize: "0.9375rem",
-      lineHeight: "100%",
+      lineHeight: "1.1rem",
       letterSpacing: "0.009375rem",
     },
     body1: {
       // body
       fontWeight: "400",
       fontSize: "0.9375rem",
-      lineHeight: "100%",
+      lineHeight: "1.1rem",
       letterSpacing: "0.009375rem",
     },
     body2: {
       // body
       fontWeight: "400",
       fontSize: "0.9375rem",
-      lineHeight: "100%",
+      lineHeight: "1.1rem",
       letterSpacing: "0.009375rem",
     },
     button: {
@@ -116,7 +119,7 @@ const TMTheme = createMuiTheme({
       textTransform: "none",
       fontWeight: "700",
       fontSize: "0.9375rem",
-      lineHeight: "100%",
+      lineHeight: "1.1rem",
       letterSpacing: "0rem",
     },
     caption: {
@@ -129,11 +132,44 @@ const TMTheme = createMuiTheme({
   },
   transitions: {
     duration: {
-      shortest: 250, // IconButton 
+      shortest: 250, // IconButton
       shorter: 200,
       short: 250, // CardActionArea
-    }
-  }
+    },
+  },
+}
+
+const TMTheme = createMuiTheme({
+  ...defaultTheme,
+  overrides: {
+    MuiDialog: {
+      container: {
+        background: defaultTheme.palette.action.backgroundShadow,
+      },
+      paper: {
+        backgroundColor: defaultTheme.palette.grey[800],
+        borderRadius: 24,
+        padding: "32px",
+      },
+    },
+    MuiDialogTitle: {
+      root: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 40,
+        padding: 0,
+      },
+    },
+    MuiDialogContent: {
+      root: {
+        display: "flex",
+        flexDirection: "column",
+        padding: 0,
+      },
+    },
+  },
 })
 
 export default TMTheme
