@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
   },
   gridContainer: {
-    maxWidth: 1920,
+    maxWidth: 1008, // 336 * 3
   },
   gridItem: {
     display: "flex",
@@ -27,7 +27,7 @@ function LobbyGrid({ lobbies }) {
   const classes = useStyles()
 
   return (
-    <div classes={{ root: classes.divContainer }}>
+    <div className={classes.divContainer}>
       <Grid
         container
         spacing={2}
@@ -41,8 +41,8 @@ function LobbyGrid({ lobbies }) {
             xs={12}
             sm={6}
             md={4}
-            lg={3}
-            xl={2}
+            lg={4}
+            xl={4}
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
@@ -63,7 +63,7 @@ function LobbyGrid({ lobbies }) {
 }
 
 LobbyGrid.propTypes = {
-  /**  */
+  /** An array of lobbies */
   lobbies: PropTypes.array,
 }
 

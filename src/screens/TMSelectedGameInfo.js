@@ -7,9 +7,19 @@ const games = ["Minecraft", "League of Legends", "Among Us"]
 const platforms = ["PC", "Play Station", "XBOX", "VR"]
 
 const useStyles = makeStyles((theme) => ({
-  container: {
+  divContainer: {
+    margin: "auto",
+
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: 656
+    },
+
+    [theme.breakpoints.up("md")]: {
+      maxWidth: 992,
+    },
+  },
+  gridContainer: {
     alignItems: "center",
-    // backgroundColor: theme.palette.grey[800],
 
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
@@ -22,17 +32,17 @@ const useStyles = makeStyles((theme) => ({
       margin: "16px 0 0 16px",
     },
 
-    margin: "0 0 0 -16px",
-    padding: "8px 0 24px 0",
-    width: "calc(100% + 16px)",    
+    margin: "-16px 0 0 -16px",
+    padding: "24px 0 24px 0",
+    width: "calc(100% + 16px)",
   },
-  leftGridMain: {
+  leftGrid: {
     display: "flex",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
   },
-  rightGridMain: {
+  rightGrid: {
     display: "flex",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
@@ -43,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     height: 72,
     borderRadius: 8,
     objectFit: "cover",
+
     [theme.breakpoints.down("xs")]: {
       width: "100%",
       height: "auto"
@@ -56,9 +67,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 8,
     },
   },
-  gameStats: {
-    marginTop: 4,
-  },
+  gameStats: { marginTop: 4 },
   autoCompleteSpacing: {
     [theme.breakpoints.down("xs")]: {
       marginLeft: -16,
@@ -75,44 +84,46 @@ function TMSelectedGameInfo() {
   const gameStats = "150 Players,  43 Lobbies"
 
   return (
-    <Grid container justify="space-between" className={classes.container}>
-      <Grid item className={classes.leftGridMain}>
-        <img
-          src={gameImg}
-          alt={gameName}
-          className={classes.gameImg}
-        />
+    <div className={classes.divContainer}>
+      <Grid container justify="space-between" className={classes.gridContainer}>
+        <Grid item className={classes.leftGrid}>
+          <img
+            src={gameImg}
+            alt={gameName}
+            className={classes.gameImg}
+          />
 
-        <div className={classes.gameInfo}>
-          <Typography variant="h4">{gameName}</Typography>
-          <Typography variant="body1" classes={{ root: classes.gameStats }}>
-            {gameStats}
-          </Typography>
-        </div>
-      </Grid>
+          <div className={classes.gameInfo}>
+            <Typography variant="h4">{gameName}</Typography>
+            <Typography variant="body1" classes={{ root: classes.gameStats }}>
+              {gameStats}
+            </Typography>
+          </div>
+        </Grid>
 
-      <Grid item className={classes.rightGridMain}>
-        <TMAutocomplete
-          label="Game"
-          options={games}
-          getOptionLabel={(game) => game}
-          style={{
-            width: 176,
-          }}
-        />
-        <div className={classes.autoCompleteSpacing}>
+        <Grid item className={classes.rightGrid}>
           <TMAutocomplete
-            label="Platform"
-            options={platforms}
-            getOptionLabel={(platform) => platform}
+            label="Game"
+            options={games}
+            getOptionLabel={(game) => game}
             style={{
-              marginLeft: 16,
               width: 176,
             }}
           />
-        </div>
+          <div className={classes.autoCompleteSpacing}>
+            <TMAutocomplete
+              label="Platform"
+              options={platforms}
+              getOptionLabel={(platform) => platform}
+              style={{
+                marginLeft: 16,
+                width: 176,
+              }}
+            />
+          </div>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   )
 }
 
