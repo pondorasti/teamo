@@ -11,45 +11,23 @@ import ListItemIcon from "@material-ui/core/ListItemIcon"
 
 import TMButton from "../../../atoms/TMButton"
 import TMTextField from "../../../atoms/TMTextfield"
-import {
-  Controller,
-  Dpad,
-  Mic,
-  People,
-  Description,
-} from "../../../assets/icons"
-import TMAutocomplete from "../../../atoms/TMAutocomplete"
-
-// import TMTheme from "../../../atoms/TMTheme"
-
-const games = ["League of Legends", "Minecraft", "Fall Guys", "Among Us"]
-const platforms = ["PC", "Xbox", "Play Station", "Switch", "Other"]
-const mic = ["Mandatory", "Preferred", "No Mic"]
-const size = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+import { Person, Description } from "../../../assets/icons"
 
 const useStyles = makeStyles(() => ({
   header: {
     marginBottom: "-6px",
   },
-  middleContent: {
-    marginTop: 8,
-  },
   listInput: {
     padding: 0,
     marginTop: 6,
   },
-  autoComplete: {
-    width: "100%",
-  },
-  lastInput: {
-    marginBottom: 40,
-  },
+
   descriptionIcon: {
-    marginTop: "-40px",
+    marginTop: "-44px",
   },
 }))
 
-function CreateTeamoDialog({ open, onClose }) {
+function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
 
   return (
@@ -61,7 +39,7 @@ function CreateTeamoDialog({ open, onClose }) {
     >
       <DialogTitle id="create-teamo-modal-title" disableTypography>
         <Typography variant="h4" classes={{ root: classes.header }}>
-          Create Teamo
+          User Profile
         </Typography>
       </DialogTitle>
 
@@ -69,46 +47,9 @@ function CreateTeamoDialog({ open, onClose }) {
         <List disablePadding>
           <ListItem classes={{ root: classes.listInput }}>
             <ListItemIcon>
-              <Controller />
+              <Person />
             </ListItemIcon>
-            <TMAutocomplete
-              label="Game"
-              style={{ width: "100%" }}
-              options={games}
-            />
-          </ListItem>
-
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Dpad />
-            </ListItemIcon>
-            <TMAutocomplete
-              label="Platform"
-              style={{ width: "100%" }}
-              options={platforms}
-            />
-          </ListItem>
-
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Mic />
-            </ListItemIcon>
-            <TMAutocomplete
-              label="Microphone"
-              style={{ width: "100%" }}
-              options={mic}
-            />
-          </ListItem>
-
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <People />
-            </ListItemIcon>
-            <TMAutocomplete
-              label="Size"
-              style={{ width: "100%" }}
-              options={size}
-            />
+            <TMTextField label="Username" />
           </ListItem>
 
           <ListItem classes={{ root: classes.listInput }}>
@@ -116,9 +57,9 @@ function CreateTeamoDialog({ open, onClose }) {
               <Description className={classes.descriptionIcon} />
             </ListItemIcon>
             <TMTextField
-              label="Description"
-              helperText="Max 150 characters"
-              rows={3}
+              label="Bio"
+              helperText="Max 62 characters"
+              rows={2}
               multiline
               fullWidth
               style={{ marginBottom: 24 }}
@@ -136,7 +77,7 @@ function CreateTeamoDialog({ open, onClose }) {
   )
 }
 
-CreateTeamoDialog.propTypes = {
+CreateProfileDialog.propTypes = {
   /** If `true`, the modal is presented. */
   open: PropTypes.bool.isRequired,
 
@@ -144,8 +85,8 @@ CreateTeamoDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
 }
 
-CreateTeamoDialog.defaultProps = {
+CreateProfileDialog.defaultProps = {
   open: false,
 }
 
-export default CreateTeamoDialog
+export default CreateProfileDialog
