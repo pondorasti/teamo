@@ -2,9 +2,8 @@ import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Grid, Typography } from "@material-ui/core"
 import TMAutocomplete from "../../../atoms/TMAutocomplete"
-
-const games = ["Minecraft", "League of Legends", "Among Us"]
-const platforms = ["PC", "Play Station", "XBOX", "VR"]
+import Platforms from "../../../api/Platforms"
+import Games from "../../../api/Games"
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
@@ -41,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rightGrid: {
     display: "flex",
+    alignItems: "center",
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -65,10 +65,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameStats: { marginTop: 4 },
-  autoCompleteSpacing: {
+  rightAutocompleteSpacing: {
     [theme.breakpoints.down("xs")]: {
       marginLeft: -16,
-      marginTop: 8,
+      marginTop: 16,
     },
   },
 }))
@@ -100,17 +100,17 @@ function TMSelectedGameInfo() {
 
         <Grid item className={classes.rightGrid}>
           <TMAutocomplete
-            label="Game"
-            options={games}
+            label={Games.label}
+            options={Games.options}
             getOptionLabel={(game) => game}
             style={{
               width: 176,
             }}
           />
-          <div className={classes.autoCompleteSpacing}>
+          <div className={classes.rightAutocompleteSpacing}>
             <TMAutocomplete
-              label="Platform"
-              options={platforms}
+              label={Platforms.label}
+              options={Platforms.options}
               getOptionLabel={(platform) => platform}
               style={{
                 marginLeft: 16,
