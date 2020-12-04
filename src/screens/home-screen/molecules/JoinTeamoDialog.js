@@ -5,7 +5,6 @@ import DialogActions from "@material-ui/core/DialogActions"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
-import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 
@@ -17,15 +16,13 @@ import { Controller } from "../../../assets/icons"
 const useStyles = makeStyles(() => ({
   middleContent: {
     marginTop: 8,
+    marginBottom: "-6px",
   },
-  buttonMargin: {
-    marginBottom: 16,
-  },
+
   listTextField: {
     padding: 0,
-  },
-  iconStyle: {
-    margin: 0,
+    marginTop: 6,
+    marginBottom: 40,
   },
 }))
 
@@ -47,14 +44,12 @@ function JoinTeamoDialog({ open, onClose }) {
       </DialogTitle>
 
       <DialogContent>
-        <List disablePadding>
-          <ListItem classes={{ root: classes.listTextField }}>
-            <ListItemIcon>
-              <Controller classes={{ root: classes.iconStyle }} />
-            </ListItemIcon>
-            <TMTextField label="Gamer Tag" />
-          </ListItem>
-        </List>
+        <ListItem classes={{ root: classes.listTextField }}>
+          <ListItemIcon>
+            <Controller />
+          </ListItemIcon>
+          <TMTextField label="Gamer Tag" />
+        </ListItem>
       </DialogContent>
 
       <DialogActions>

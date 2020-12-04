@@ -172,11 +172,12 @@ const TMTheme = createMuiTheme({
     MuiDialogActions: {
       root: {
         padding: 0,
+        justifyContent: "center",
       },
     },
     MuiListItem: {
       root: {
-        marginBottom: 40,
+        marginBottom: 16,
       },
     },
     MuiListItemIcon: {
