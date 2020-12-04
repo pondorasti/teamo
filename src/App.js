@@ -8,8 +8,17 @@ import LobbyGrid from "./screens/home-screen/molecules/LobbyGrid"
 import data from "./lobbiesDumyData"
 
 import AppBar from "./screens/TMAppBar"
+import LoginDialog from "./screens/home-screen/molecules/LoginDialog"
+import TMButton from "./atoms/TMButton"
 
 function App() {
+  const [openLogin, setOpenLogin] = React.useState(false)
+  const handleLoginOpen = () => {
+    setOpenLogin(true)
+  }
+  const handleLoginClose = () => {
+    setOpenLogin(false)
+  }
 
   return (
     <ThemeProvider theme={TMTheme}>
@@ -27,6 +36,8 @@ function App() {
             multiline
           />
           <TMTextfield label="Games" defaultValue="jello" type="number" />
+          <LoginDialog open={openLogin} onClose={handleLoginClose} />
+          <TMButton onClick={handleLoginOpen}>Login</TMButton>
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
