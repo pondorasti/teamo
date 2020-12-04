@@ -169,6 +169,24 @@ const TMTheme = createMuiTheme({
         padding: 0,
       },
     },
+    MuiDialogActions: {
+      root: {
+        padding: 0,
+      },
+    },
+    MuiListItem: {
+      root: {
+        marginBottom: 40,
+      },
+    },
+    MuiListItemIcon: {
+      root: {
+        marginRight: 16,
+        width: 24,
+        minWidth: 24,
+        color: defaultTheme.palette.secondary.main,
+      },
+    },
   },
 })
 

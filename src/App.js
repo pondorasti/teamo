@@ -9,15 +9,23 @@ import data from "./lobbiesDumyData"
 
 import AppBar from "./screens/TMAppBar"
 import LoginDialog from "./screens/home-screen/molecules/LoginDialog"
+import JoinTeamoDialog from "./screens/home-screen/molecules/JoinTeamoDialog"
 import TMButton from "./atoms/TMButton"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
+  const [openJoinTeamo, setOpenJoinTeamo] = React.useState(false)
   const handleLoginOpen = () => {
     setOpenLogin(true)
   }
   const handleLoginClose = () => {
     setOpenLogin(false)
+  }
+  const handleJoinOpen = () => {
+    setOpenJoinTeamo(true)
+  }
+  const handleJoinClose = () => {
+    setOpenJoinTeamo(false)
   }
 
   return (
@@ -37,7 +45,9 @@ function App() {
           />
           <TMTextfield label="Games" defaultValue="jello" type="number" />
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
+          <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
           <TMButton onClick={handleLoginOpen}>Login</TMButton>
+          <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
