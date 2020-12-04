@@ -24,21 +24,22 @@ function App() {
     <ThemeProvider theme={TMTheme}>
       <AppBar />
       <CssBaseline />
-      <div style={{ padding: 32 }}>
-        <TMTextfield
-          label="Games"
-          defaultValue="jello"
-          helperText="hello"
-          rows={4}
-          multiline
-          color="#5e5e5e"
-        />
-        <TMTextfield label="Games" defaultValue="jello" type="number" />
-        <TMButton onClick={handleLoginOpen}>Login</TMButton>
-        <LoginDialog open={openLogin} onClose={handleLoginClose} />
-      </div>
-      <div style={{ padding: 32 }}>
-        <LobbyGrid lobbies={data} />
+      <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
+
+        <div style={{ padding: 32 }}>
+          <TMTextfield
+            label="Games"
+            defaultValue="jello"
+            helperText="hello"
+            rows={4}
+            multiline
+            color="#5e5e5e"
+          />
+          <TMTextfield label="Games" defaultValue="jello" type="number" />
+          <TMButton onClick={handleLoginOpen}>Login</TMButton>
+          <LoginDialog open={openLogin} onClose={handleLoginClose} />
+          <LobbyGrid lobbies={data} />
+        </div>
       </div>
     </ThemeProvider>
   )

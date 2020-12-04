@@ -51,6 +51,9 @@ const defaultTheme = {
 
     action: {
       hoverOpacity: 0.2,
+
+      // custom props
+      backgroundShadow: "rgba(0, 0, 0, 0.80)",
     },
 
     divider: "#FFFFFF26", // separator
@@ -140,6 +143,9 @@ const TMTheme = createMuiTheme({
   ...defaultTheme,
   overrides: {
     MuiDialog: {
+      container: {
+        background: defaultTheme.palette.action.backgroundShadow,
+      },
       paper: {
         backgroundColor: defaultTheme.palette.grey[800],
         borderRadius: 24,

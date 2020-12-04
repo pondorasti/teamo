@@ -37,7 +37,7 @@ function LoginDialog({ open, onClose }) {
       <DialogContent>
         <TMButton
           leadingIcon={<Google />}
-          onClick={close}
+          onClick={onClose}
           fullWidth
           style={{
             marginBottom: 16,
@@ -49,7 +49,7 @@ function LoginDialog({ open, onClose }) {
         </TMButton>
         <TMButton
           leadingIcon={<Apple />}
-          onClick={close}
+          onClick={onClose}
           fullWidth
           color="primary"
           style={{
@@ -65,12 +65,13 @@ function LoginDialog({ open, onClose }) {
 }
 
 LoginDialog.propTypes = {
-  /** If `true`, the modal is presented */
+  /** If `true`, the modal is presented. */
   open: PropTypes.bool.isRequired,
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
 }
+
 LoginDialog.defaultProps = {
   open: false,
 }
