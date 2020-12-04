@@ -2,20 +2,25 @@ import { Grid } from "@material-ui/core"
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
-import LobbyCard from "./LobbyCard"
+import LobbyCard from "./molecules/LobbyCard"
+import SelectedGameInfo from "./molecules/SelectedGameInfo"
 
 const useStyles = makeStyles(theme => ({
-  divContainer: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  gridContainer: {
-    maxWidth: 1008, // 336 * 3
+  container: {
+    margin: "auto",
+
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: 672 // 336 * 2
+    },
+
+    [theme.breakpoints.up("md")]: {
+      maxWidth: 1008, // 336 * 3
+    },
   },
   gridItem: {
-    display: "flex",
-    justifyContent: "center",
-    maxWidth: 336,
+    // Do not change this value without updating `maxWidth` for
+    // LobbyGrid - `container` and SelectedGameInfo - `divContainer`
+    maxWidth: 336, 
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "100%",
@@ -27,12 +32,13 @@ function LobbyGrid({ lobbies }) {
   const classes = useStyles()
 
   return (
-    <div className={classes.divContainer}>
+    <div className={classes.container}>
+      <SelectedGameInfo />
+
       <Grid
         container
         spacing={2}
         justify="center"
-        classes={{ root: classes.gridContainer }}
       >
         {lobbies.map((lobby, index) => (
           <Grid

@@ -4,12 +4,11 @@ import { ThemeProvider } from "@material-ui/core/styles"
 
 import { CssBaseline } from "@material-ui/core"
 import { TMTheme, TMTextfield } from "./atoms"
-import LobbyGrid from "./screens/home-screen/molecules/LobbyGrid"
+import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
-import TMSelectedGameInfo from "./screens/TMSelectedGameInfo"
 
 import AppBar from "./screens/TMAppBar"
-import LoginDialog from "./screens/home-screen/molecules/LoginDialog"
+import LoginDialog from "./screens/home-screen/LoginDialog"
 import TMButton from "./atoms/TMButton"
 
 function App() {
@@ -41,7 +40,6 @@ function App() {
           <TMButton onClick={handleLoginOpen}>Login</TMButton>
         </div>
         <div style={{ padding: 32 }}>
-          <TMSelectedGameInfo />
           <LobbyGrid lobbies={data} />
         </div>
       </div>

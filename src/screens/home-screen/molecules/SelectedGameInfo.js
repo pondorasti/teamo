@@ -1,26 +1,24 @@
 import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Grid, Typography } from "@material-ui/core"
-import TMAutocomplete from "../atoms/TMAutocomplete"
+import TMAutocomplete from "../../../atoms/TMAutocomplete"
 
 const games = ["Minecraft", "League of Legends", "Among Us"]
 const platforms = ["PC", "Play Station", "XBOX", "VR"]
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
+    padding: "24px 0",
     margin: "auto",
-
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 656
+      maxWidth: 656 // 336 * 2 - 16 (side padding)
     },
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 992,
+      maxWidth: 992, // 336 * 3 - 16 (side padding)
     },
   },
   gridContainer: {
-    alignItems: "center",
-
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
       alignItems: "flex-start",
@@ -33,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     },
 
     margin: "-16px 0 0 -16px",
-    padding: "24px 0 24px 0",
     width: "calc(100% + 16px)",
   },
   leftGrid: {
