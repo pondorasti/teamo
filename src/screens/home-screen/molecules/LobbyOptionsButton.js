@@ -78,7 +78,6 @@ function LobbyOptionsButton({className}) {
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
-        keepMounted
         open={open}
         onClose={handleClose}
       >
