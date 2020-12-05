@@ -8,10 +8,10 @@ import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
 
 import AppBar from "./screens/TMAppBar"
-import LoginDialog from "./screens/home-screen/molecules/LoginDialog"
-import JoinTeamoDialog from "./screens/home-screen/molecules/JoinTeamoDialog"
-import CreateTeamoDialog from "./screens/home-screen/molecules/CreateTeamoDialog"
-import CreateProfileDialog from "./screens/home-screen/molecules/CreateProfileDialog"
+import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
+import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
+import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
+import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import TMButton from "./atoms/TMButton"
 
 function App() {
