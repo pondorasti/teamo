@@ -5,9 +5,9 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 
-import TMButton from "../../../atoms/TMButton"
-import { Apple, Google } from "../../../assets/icons"
-import TMTheme from "../../../atoms/TMTheme"
+import TMButton from "../../atoms/TMButton"
+import { Apple, Google } from "../../assets/icons"
+import TMTheme from "../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {

@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 
 import { CssBaseline } from "@material-ui/core"
 import { TMTheme, TMTextfield } from "./atoms"
-import LobbyGrid from "./screens/home-screen/molecules/LobbyGrid"
+import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
 
 import AppBar from "./screens/TMAppBar"
@@ -81,6 +81,7 @@ function App() {
           <LobbyGrid lobbies={data} />
         </div>
       </div>
+        
     </ThemeProvider>
   )
 }
