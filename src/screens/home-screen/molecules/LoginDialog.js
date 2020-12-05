@@ -11,10 +11,7 @@ import TMTheme from "../../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {
-    marginTop: 16,
-  },
-  buttonMargin: {
-    marginBottom: 16,
+    marginTop: 8,
   },
 }))
 
@@ -28,7 +25,7 @@ function LoginDialog({ open, onClose }) {
       aria-labelledby="login-modal"
       classes={{ root: classes.dialogBody }}
     >
-      <DialogTitle id="login-modal-title" disableTypography>
+      <DialogTitle id="login-modal-title">
         <Typography variant="h4">Teamo</Typography>
         <Typography variant="h5" classes={{ root: classes.slogan }}>
           Good Team, Good Game.
