@@ -145,12 +145,6 @@ const TMTheme = createMuiTheme({
     MuiDialogTitle: {
       disableTypography: true,
     },
-    MuiList: {
-      disablePadding: true,
-    },
-    MuiListItem: {
-      disableGutters: true,
-    }
   },
   overrides: {
     MuiDialog: {
@@ -160,7 +154,7 @@ const TMTheme = createMuiTheme({
       paper: {
         backgroundColor: defaultTheme.palette.grey[800],
         borderRadius: 24,
-        padding: "32px",
+        padding: 32,
       },
     },
     MuiDialogTitle: {
@@ -178,6 +172,16 @@ const TMTheme = createMuiTheme({
         display: "flex",
         flexDirection: "column",
         padding: 0,
+        "& > .MuiList-padding": {
+          padding: 0
+        },
+        "& .MuiListItem-gutters": { // disable gutters
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
+        "& + .MuiDialogActions-root": {
+          marginTop: 32 // // 40 - 8 (MuiListItem paddingBottom)
+        },
       },
     },
     MuiDialogActions: {
@@ -190,16 +194,13 @@ const TMTheme = createMuiTheme({
       root: {
         paddingTop: 8,
         paddingBottom: 8,
-        "&:last-child": {
-          marginBottom: 32, // 40 - 8 (paddingBottom)
-        }
       },
     },
     MuiListItemIcon: {
       root: {
         marginRight: 16,
         width: 24,
-        minWidth: 24,
+        minWidth: 24, // Default value is 56
         color: defaultTheme.palette.secondary.main,
       },
     },
