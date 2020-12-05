@@ -1,4 +1,4 @@
-const Games = {
+const Game = {
   "label"   : "Games",
   "options" : [
     "Minecraft",
@@ -7,4 +7,4 @@ const Games = {
   ]
 }
 
-export default Games
+export default Game

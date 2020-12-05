@@ -7,6 +7,8 @@ import TMButton from "../../../atoms/TMButton"
 import TMTextField from "../../../atoms/TMTextfield"
 import TMAutocomplete from "../../../atoms/TMAutocomplete"
 
+import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
+
 import {
   Controller,
   Dpad,
@@ -14,12 +16,6 @@ import {
   People,
   Description,
 } from "../../../assets/icons"
-
-
-const games = ["League of Legends", "Minecraft", "Fall Guys", "Among Us"]
-const platforms = ["PC", "Xbox", "Play Station", "Switch", "Other"]
-const mic = ["Mandatory", "Preferred", "No Mic"]
-const size = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -50,36 +46,36 @@ function CreateTeamoDialog({ open, onClose }) {
           <ListItem>
             <ListItemIcon> <Controller /> </ListItemIcon>
             <TMAutocomplete
-              label="Game"
+              label={Game.label}
+              options={Game.options}
               style={{ width: "100%" }}
-              options={games}
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <Dpad /> </ListItemIcon>
             <TMAutocomplete
-              label="Platform"
+              label={Platform.label}
+              options={Platform.options}
               style={{ width: "100%" }}
-              options={platforms}
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <Mic /> </ListItemIcon>
             <TMAutocomplete
-              label="Microphone"
+              label={Microphone.label}
+              options={Microphone.options}
               style={{ width: "100%" }}
-              options={mic}
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <People /> </ListItemIcon>
             <TMAutocomplete
-              label="Size"
+              label={Size.label}
+              options={Size.options}
               style={{ width: "100%" }}
-              options={size}
             />
           </ListItem>
 
