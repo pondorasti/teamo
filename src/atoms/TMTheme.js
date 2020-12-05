@@ -186,7 +186,10 @@ const TMTheme = createMuiTheme({
     MuiListItem: {
       root: {
         paddingTop: 8,
-        paddingBottom: 8
+        paddingBottom: 8,
+        "&:last-child": {
+          marginBottom: 32, // 40 - 8 (paddingBottom)
+        }
       },
     },
     MuiListItemIcon: {

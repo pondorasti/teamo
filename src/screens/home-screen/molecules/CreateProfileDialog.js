@@ -14,16 +14,10 @@ import TMTextField from "../../../atoms/TMTextfield"
 import { Person, Description } from "../../../assets/icons"
 
 const useStyles = makeStyles(() => ({
-  header: {
-    marginBottom: "-6px",
-  },
-  listInput: {
-    padding: 0,
-    marginTop: 6,
-  },
-
-  descriptionIcon: {
-    marginTop: "-44px",
+  descriptionIconItem: {
+    display: "flex",
+    alignSelf: "flex-start",
+    marginTop: 7, // WARNING: Hard-coded value.
   },
 }))
 
@@ -37,32 +31,27 @@ function CreateProfileDialog({ open, onClose }) {
       aria-labelledby="create-teamo-modal"
       classes={{ root: classes.dialogBody }}
     >
-      <DialogTitle id="create-teamo-modal-title" disableTypography>
-        <Typography variant="h4" classes={{ root: classes.header }}>
+      <DialogTitle id="create-teamo-modal-title">
+        <Typography variant="h4">
           User Profile
         </Typography>
       </DialogTitle>
 
       <DialogContent>
-        <List disablePadding>
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Person />
-            </ListItemIcon>
+        <List>
+          <ListItem>
+            <ListItemIcon> <Person /> </ListItemIcon>
             <TMTextField label="Username" />
           </ListItem>
 
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Description className={classes.descriptionIcon} />
-            </ListItemIcon>
+          <ListItem>
+            <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
             <TMTextField
               label="Bio"
               helperText="Max 62 characters"
               rows={2}
               multiline
               fullWidth
-              style={{ marginBottom: 24 }}
             />
           </ListItem>
         </List>

@@ -26,9 +26,6 @@ const mic = ["Mandatory", "Preferred", "No Mic"]
 const size = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
 
 const useStyles = makeStyles(() => ({
-  lastInput: {
-    marginBottom: 32, // 40 - 8 (paddingBottom)
-  },
   descriptionIconItem: {
     display: "flex",
     alignSelf: "flex-start",
@@ -46,7 +43,7 @@ function CreateTeamoDialog({ open, onClose }) {
       aria-labelledby="create-teamo-modal"
       classes={{ root: classes.dialogBody }}
     >
-      <DialogTitle id="create-teamo-modal-title" disableTypography>
+      <DialogTitle id="create-teamo-modal-title">
         <Typography variant="h4">
           Create Teamo
         </Typography>
@@ -90,7 +87,7 @@ function CreateTeamoDialog({ open, onClose }) {
             />
           </ListItem>
 
-          <ListItem classes={{ root: classes.lastInput }}> 
+          <ListItem> 
             <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
             <TMTextField
               label="Description"
