@@ -142,8 +142,11 @@ const defaultTheme = {
 const TMTheme = createMuiTheme({
   ...defaultTheme,
   props: {
+    MuiList: {
+      disablePadding: true,
+    },
     MuiListItem: {
-      disableGutters: true
+      disableGutters: true,
     }
   },
   overrides: {
