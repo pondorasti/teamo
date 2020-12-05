@@ -1,16 +1,12 @@
 import React from "react"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
-import DialogActions from "@material-ui/core/DialogActions"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { DialogTitle, Typography } from "@material-ui/core"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
+import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
 import TMTextField from "../../../atoms/TMTextfield"
+import TMAutocomplete from "../../../atoms/TMAutocomplete"
+
 import {
   Controller,
   Dpad,
@@ -18,7 +14,7 @@ import {
   People,
   Description,
 } from "../../../assets/icons"
-import TMAutocomplete from "../../../atoms/TMAutocomplete"
+
 
 const games = ["League of Legends", "Minecraft", "Fall Guys", "Among Us"]
 const platforms = ["PC", "Xbox", "Play Station", "Switch", "Other"]

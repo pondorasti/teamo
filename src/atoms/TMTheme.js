@@ -142,6 +142,9 @@ const defaultTheme = {
 const TMTheme = createMuiTheme({
   ...defaultTheme,
   props: {
+    MuiDialogTitle: {
+      disableTypography: true,
+    },
     MuiList: {
       disablePadding: true,
     },
