@@ -20,8 +20,6 @@ import {
 } from "../../../assets/icons"
 import TMAutocomplete from "../../../atoms/TMAutocomplete"
 
-// import TMTheme from "../../../atoms/TMTheme"
-
 const games = ["League of Legends", "Minecraft", "Fall Guys", "Among Us"]
 const platforms = ["PC", "Xbox", "Play Station", "Switch", "Other"]
 const mic = ["Mandatory", "Preferred", "No Mic"]
@@ -34,18 +32,13 @@ const useStyles = makeStyles(() => ({
   middleContent: {
     marginTop: 8,
   },
-  listInput: {
-    padding: 0,
-    marginTop: 6,
-  },
-  autoComplete: {
-    width: "100%",
-  },
   lastInput: {
     marginBottom: 40,
   },
   descriptionIcon: {
-    marginTop: "-40px",
+    display: "flex",
+    alignSelf: "flex-start",
+    marginTop: 7, // WARNING: Hard-coded value.
   },
 }))
 
@@ -67,10 +60,8 @@ function CreateTeamoDialog({ open, onClose }) {
 
       <DialogContent>
         <List disablePadding>
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Controller />
-            </ListItemIcon>
+          <ListItem>
+            <ListItemIcon> <Controller /> </ListItemIcon>
             <TMAutocomplete
               label="Game"
               style={{ width: "100%" }}
@@ -78,10 +69,8 @@ function CreateTeamoDialog({ open, onClose }) {
             />
           </ListItem>
 
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Dpad />
-            </ListItemIcon>
+          <ListItem>
+            <ListItemIcon> <Dpad /> </ListItemIcon>
             <TMAutocomplete
               label="Platform"
               style={{ width: "100%" }}
@@ -89,10 +78,8 @@ function CreateTeamoDialog({ open, onClose }) {
             />
           </ListItem>
 
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Mic />
-            </ListItemIcon>
+          <ListItem>
+            <ListItemIcon> <Mic /> </ListItemIcon>
             <TMAutocomplete
               label="Microphone"
               style={{ width: "100%" }}
@@ -100,10 +87,8 @@ function CreateTeamoDialog({ open, onClose }) {
             />
           </ListItem>
 
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <People />
-            </ListItemIcon>
+          <ListItem>
+            <ListItemIcon> <People /> </ListItemIcon>
             <TMAutocomplete
               label="Size"
               style={{ width: "100%" }}
@@ -111,17 +96,14 @@ function CreateTeamoDialog({ open, onClose }) {
             />
           </ListItem>
 
-          <ListItem classes={{ root: classes.listInput }}>
-            <ListItemIcon>
-              <Description className={classes.descriptionIcon} />
-            </ListItemIcon>
+          <ListItem style={{ marginBottom: 32 }}> 
+            <ListItemIcon className={classes.descriptionIcon}> <Description /> </ListItemIcon>
             <TMTextField
               label="Description"
               helperText="Max 150 characters"
               rows={3}
               multiline
               fullWidth
-              style={{ marginBottom: 24 }}
             />
           </ListItem>
         </List>

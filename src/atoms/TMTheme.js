@@ -141,6 +141,11 @@ const defaultTheme = {
 
 const TMTheme = createMuiTheme({
   ...defaultTheme,
+  props: {
+    MuiListItem: {
+      disableGutters: true
+    }
+  },
   overrides: {
     MuiDialog: {
       container: {
@@ -177,7 +182,8 @@ const TMTheme = createMuiTheme({
     },
     MuiListItem: {
       root: {
-        marginBottom: 16,
+        paddingTop: 8,
+        paddingBottom: 8
       },
     },
     MuiListItemIcon: {
