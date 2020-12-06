@@ -1,9 +1,10 @@
 import React from "react"
 
 import { ThemeProvider } from "@material-ui/core/styles"
+import { TextField } from "@material-ui/core"
 
 import { CssBaseline } from "@material-ui/core"
-import { TMTheme, TMTextfield } from "./atoms"
+import { TMTheme } from "./atoms"
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
 
@@ -54,14 +55,14 @@ function App() {
 
       <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
         <div style={{ padding: 32 }}>
-          <TMTextfield
+          <TextField
             label="Games"
             defaultValue="jello"
             helperText="hello"
             rows={4}
             multiline
           />
-          <TMTextfield label="Games" defaultValue="jello" type="number" />
+          <TextField label="Games" defaultValue="jello" type="number" />
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
           <CreateTeamoDialog

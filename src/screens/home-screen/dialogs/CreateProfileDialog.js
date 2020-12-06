@@ -1,10 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon } from "@material-ui/core"
+import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon, TextField } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
-import TMTextField from "../../../atoms/TMTextfield"
 import { Person, Description } from "../../../assets/icons"
 
 const useStyles = makeStyles(() => ({
@@ -35,12 +34,12 @@ function CreateProfileDialog({ open, onClose }) {
         <List>
           <ListItem>
             <ListItemIcon> <Person /> </ListItemIcon>
-            <TMTextField label="Username" />
+            <TextField label="Username" />
           </ListItem>
 
           <ListItem>
             <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
-            <TMTextField
+            <TextField
               label="Bio"
               helperText="Max 62 characters"
               rows={2}

@@ -1,10 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon } from "@material-ui/core"
+import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon, TextField } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
-import TMTextField from "../../../atoms/TMTextfield"
 import TMAutocomplete from "../../../atoms/TMAutocomplete"
 
 import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
@@ -81,7 +80,7 @@ function CreateTeamoDialog({ open, onClose }) {
 
           <ListItem> 
             <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
-            <TMTextField
+            <TextField
               label="Description"
               helperText="Max 150 characters"
               rows={3}
