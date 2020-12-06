@@ -1,4 +1,6 @@
+import React from "react"
 import { createMuiTheme } from "@material-ui/core/styles"
+import { ArrowDown } from "../assets/icons"
 
 const defaultTheme = {
   palette: {
@@ -147,8 +149,9 @@ const TMTheme = createMuiTheme({
       size: "small",
     },
     MuiAutocomplete: {
-      openOnFocus: true,
+      popupIcon: <ArrowDown />,
       size: "small",
+      openOnFocus: true,
       autoHighlight: true,
     },
     MuiDialogTitle: {
