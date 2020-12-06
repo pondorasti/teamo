@@ -72,7 +72,7 @@ function LobbyOptionsButton({className}) {
         aria-haspopup="true"
         onClick={handleOptionsButton}
       >
-        <ThreeDots className={classes.iconStyle} />
+        <ThreeDots classes={{ root: classes.iconStyle }} />
       </IconButton>
       <Menu
         anchorEl={anchorEl}

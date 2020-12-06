@@ -2,12 +2,11 @@ import React from "react"
 import Dialog from "@material-ui/core/Dialog"
 import DialogContent from "@material-ui/core/DialogContent"
 import PropTypes from "prop-types"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
 import { Apple, Google } from "../../../assets/icons"
-import TMTheme from "../../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {
@@ -17,6 +16,7 @@ const useStyles = makeStyles(() => ({
 
 function LoginDialog({ open, onClose }) {
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
     <Dialog
@@ -38,8 +38,8 @@ function LoginDialog({ open, onClose }) {
           fullWidth
           style={{
             marginBottom: 16,
-            color: TMTheme.palette.common.black,
-            backgroundColor: TMTheme.palette.text.primary,
+            color: theme.palette.common.black,
+            backgroundColor: theme.palette.text.primary,
           }}
         >
           Continue with Google
@@ -49,8 +49,8 @@ function LoginDialog({ open, onClose }) {
           onClick={onClose}
           fullWidth
           style={{
-            color: TMTheme.palette.common.black,
-            backgroundColor: TMTheme.palette.text.primary,
+            color: theme.palette.common.black,
+            backgroundColor: theme.palette.text.primary,
           }}
         >
           Continue with Apple
