@@ -70,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameStats: { marginTop: 4 },
-
   leftAutocomplete: {
     width: 176,
 

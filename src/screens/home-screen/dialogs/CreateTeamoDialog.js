@@ -47,7 +47,7 @@ function CreateTeamoDialog({ open, onClose }) {
             <Autocomplete
               renderInput={(params) => <TextField {...params} label={Game.label} />}
               options={Game.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
@@ -56,7 +56,7 @@ function CreateTeamoDialog({ open, onClose }) {
             <Autocomplete
               renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
@@ -65,7 +65,7 @@ function CreateTeamoDialog({ open, onClose }) {
             <Autocomplete
               renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
@@ -74,7 +74,7 @@ function CreateTeamoDialog({ open, onClose }) {
             <Autocomplete
               renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
