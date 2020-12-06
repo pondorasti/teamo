@@ -146,6 +146,11 @@ const TMTheme = createMuiTheme({
       variant: "outlined",
       size: "small",
     },
+    MuiAutocomplete: {
+      openOnFocus: true,
+      size: "small",
+      autoHighlight: true,
+    },
     MuiDialogTitle: {
       disableTypography: true,
     },
