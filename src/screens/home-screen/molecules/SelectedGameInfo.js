@@ -40,8 +40,14 @@ const useStyles = makeStyles((theme) => ({
   rightGrid: {
     display: "flex",
     alignItems: "center",
+    
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
+      paddingRight: 16, // It has something to do with the Handmade flex-gap
     },
   },
   gameImg: {
@@ -64,9 +70,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameStats: { marginTop: 4 },
-  rightAutocompleteSpacing: {
+
+  leftAutocomplete: {
+    width: 176,
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+  },
+  rightAutocomplete: {
+    width: 176,
+    marginLeft: 16,
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
+
     [theme.breakpoints.down("xs")]: {
-      marginLeft: -16,
+      marginLeft: 0,
       marginTop: 16,
     },
   },
@@ -81,8 +102,8 @@ function TMSelectedGameInfo() {
 
   return (
     <div className={classes.divContainer}>
-      <Grid container justify="space-between" className={classes.gridContainer}>
-        <Grid item className={classes.leftGrid}>
+      <Grid container justify="space-between" classes={{ root: classes.gridContainer }}>
+        <Grid item classes={{ root: classes.leftGrid }}>
           <img
             src={gameImg}
             alt={gameName}
@@ -97,24 +118,18 @@ function TMSelectedGameInfo() {
           </div>
         </Grid>
 
-        <Grid item className={classes.rightGrid}>
+        <Grid item classes={{ root: classes.rightGrid }}>
           <Autocomplete
+            classes={{ root: classes.leftAutocomplete }}
             renderInput={(params) => <TextField {...params} label={Game.label} />}
             options={Game.options}
-            style={{
-              width: 176,
-            }}
+            fullWidth
           />
-          <div className={classes.rightAutocompleteSpacing}>
-            <Autocomplete
-              renderInput={(params) => <TextField {...params} label={Platform.label} />}
-              options={Platform.options}
-              style={{
-                marginLeft: 16,
-                width: 176,
-              }}
-            />
-          </div>
+          <Autocomplete
+            classes={{ root: classes.rightAutocomplete }}
+            renderInput={(params) => <TextField {...params} label={Platform.label} />}
+            options={Platform.options}
+          />
         </Grid>
       </Grid>
     </div>
