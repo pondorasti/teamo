@@ -141,6 +141,11 @@ const defaultTheme = {
 
 const TMTheme = createMuiTheme({
   ...defaultTheme,
+  props: {
+    MuiDialogTitle: {
+      disableTypography: true,
+    },
+  },
   overrides: {
     MuiDialog: {
       container: {
@@ -149,7 +154,7 @@ const TMTheme = createMuiTheme({
       paper: {
         backgroundColor: defaultTheme.palette.grey[800],
         borderRadius: 24,
-        padding: "32px",
+        padding: 32,
       },
     },
     MuiDialogTitle: {
@@ -167,6 +172,36 @@ const TMTheme = createMuiTheme({
         display: "flex",
         flexDirection: "column",
         padding: 0,
+        "& > .MuiList-padding": {
+          padding: 0
+        },
+        "& .MuiListItem-gutters": { // disable gutters
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
+        "& + .MuiDialogActions-root": {
+          marginTop: 32 // // 40 - 8 (MuiListItem paddingBottom)
+        },
+      },
+    },
+    MuiDialogActions: {
+      root: {
+        padding: 0,
+        justifyContent: "center",
+      },
+    },
+    MuiListItem: {
+      root: {
+        paddingTop: 8,
+        paddingBottom: 8,
+      },
+    },
+    MuiListItemIcon: {
+      root: {
+        marginRight: 16,
+        width: 24,
+        minWidth: 24, // Default value is 56
+        color: defaultTheme.palette.secondary.main,
       },
     },
   },

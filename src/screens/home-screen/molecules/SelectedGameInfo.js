@@ -2,8 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Grid, Typography } from "@material-ui/core"
 import TMAutocomplete from "../../../atoms/TMAutocomplete"
-import Platforms from "../../../api/Platforms"
-import Games from "../../../api/Games"
+import { Platform, Game } from "../../../api/lobby-template/"
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
@@ -100,8 +99,8 @@ function TMSelectedGameInfo() {
 
         <Grid item className={classes.rightGrid}>
           <TMAutocomplete
-            label={Games.label}
-            options={Games.options}
+            label={Game.label}
+            options={Game.options}
             getOptionLabel={(game) => game}
             style={{
               width: 176,
@@ -109,8 +108,8 @@ function TMSelectedGameInfo() {
           />
           <div className={classes.rightAutocompleteSpacing}>
             <TMAutocomplete
-              label={Platforms.label}
-              options={Platforms.options}
+              label={Platform.label}
+              options={Platform.options}
               getOptionLabel={(platform) => platform}
               style={{
                 marginLeft: 16,

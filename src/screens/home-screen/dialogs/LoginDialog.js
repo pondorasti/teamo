@@ -5,16 +5,13 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 
-import TMButton from "../../atoms/TMButton"
-import { Apple, Google } from "../../assets/icons"
-import TMTheme from "../../atoms/TMTheme"
+import TMButton from "../../../atoms/TMButton"
+import { Apple, Google } from "../../../assets/icons"
+import TMTheme from "../../../atoms/TMTheme"
 
 const useStyles = makeStyles(() => ({
   slogan: {
-    marginTop: 16,
-  },
-  buttonMargin: {
-    marginBottom: 16,
+    marginTop: 8,
   },
 }))
 
@@ -25,10 +22,10 @@ function LoginDialog({ open, onClose }) {
     <Dialog
       open={open}
       onClose={onClose}
-      aria-labelledby="Login-Modal"
+      aria-labelledby="login-modal"
       classes={{ root: classes.dialogBody }}
     >
-      <DialogTitle id="Login-Modal-Title" disableTypography>
+      <DialogTitle id="login-modal-title">
         <Typography variant="h4">Teamo</Typography>
         <Typography variant="h5" classes={{ root: classes.slogan }}>
           Good Team, Good Game.
@@ -51,7 +48,6 @@ function LoginDialog({ open, onClose }) {
           leadingIcon={<Apple />}
           onClick={onClose}
           fullWidth
-          color="primary"
           style={{
             color: TMTheme.palette.common.black,
             backgroundColor: TMTheme.palette.text.primary,
