@@ -1,11 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon } from "@material-ui/core"
+import Autocomplete from "@material-ui/lab/Autocomplete"
+import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon, TextField } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
-import TMTextField from "../../../atoms/TMTextfield"
-import TMAutocomplete from "../../../atoms/TMAutocomplete"
 
 import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
 
@@ -45,43 +44,43 @@ function CreateTeamoDialog({ open, onClose }) {
         <List>
           <ListItem>
             <ListItemIcon> <Controller /> </ListItemIcon>
-            <TMAutocomplete
-              label={Game.label}
+            <Autocomplete
+              renderInput={(params) => <TextField {...params} label={Game.label} />}
               options={Game.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <Dpad /> </ListItemIcon>
-            <TMAutocomplete
-              label={Platform.label}
+            <Autocomplete
+              renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <Mic /> </ListItemIcon>
-            <TMAutocomplete
-              label={Microphone.label}
+            <Autocomplete
+              renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
           <ListItem>
             <ListItemIcon> <People /> </ListItemIcon>
-            <TMAutocomplete
-              label={Size.label}
+            <Autocomplete
+              renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
-              style={{ width: "100%" }}
+              fullWidth
             />
           </ListItem>
 
           <ListItem> 
             <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
-            <TMTextField
+            <TextField
               label="Description"
               helperText="Max 150 characters"
               rows={3}

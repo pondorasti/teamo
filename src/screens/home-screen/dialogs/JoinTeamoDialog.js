@@ -1,10 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, ListItem, ListItemIcon } from "@material-ui/core"
+import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, ListItem, ListItemIcon, TextField } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
-import TMTextField from "../../../atoms/TMTextfield"
 import { Controller } from "../../../assets/icons"
 
 const useStyles = makeStyles(() => ({
@@ -33,7 +32,7 @@ function JoinTeamoDialog({ open, onClose }) {
       <DialogContent>
         <ListItem>
           <ListItemIcon> <Controller /> </ListItemIcon>
-          <TMTextField label="Gamer Tag" />
+          <TextField label="Gamer Tag" />
         </ListItem>
       </DialogContent>
 

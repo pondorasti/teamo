@@ -1,4 +1,6 @@
+import React from "react"
 import { createMuiTheme } from "@material-ui/core/styles"
+import { ArrowDown } from "../assets/icons"
 
 const defaultTheme = {
   palette: {
@@ -142,11 +144,37 @@ const defaultTheme = {
 const TMTheme = createMuiTheme({
   ...defaultTheme,
   props: {
+    MuiTextField: {
+      variant: "outlined",
+      size: "small",
+    },
+    MuiAutocomplete: {
+      popupIcon: <ArrowDown />,
+      size: "small",
+      openOnFocus: true,
+      autoHighlight: true,
+    },
     MuiDialogTitle: {
       disableTypography: true,
     },
   },
   overrides: {
+    // Textfield
+    MuiTextField: {
+      root: {
+        "& label.Mui-focused": {
+          color: defaultTheme.palette.secondary.main,
+        },
+        "& .MuiOutlinedInput-root": {
+          borderRadius: 12,
+          "&.Mui-focused fieldset": {
+            borderColor: defaultTheme.palette.secondary.main,
+          },
+        },
+      },
+    },
+
+    // Dialog
     MuiDialog: {
       container: {
         background: defaultTheme.palette.action.backgroundShadow,
@@ -190,6 +218,8 @@ const TMTheme = createMuiTheme({
         justifyContent: "center",
       },
     },
+
+    // List
     MuiListItem: {
       root: {
         paddingTop: 8,
