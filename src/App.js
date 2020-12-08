@@ -78,7 +78,7 @@ function App() {
           <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
           <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
           <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
-          <PlayerCard />
+          <PlayerCard username="Pondorasti" />
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
