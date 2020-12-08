@@ -84,11 +84,12 @@ function App() {
           <ProfileDialog
             open={openProfile}
             onClose={handleProfileClose}
+            backgroundColor="#1E1E1E"
             userName="ShiroTheCat"
             status="online"
-            bio="Hello! Hmu if u wanna see a cat play videogames"
+            bio="Hello, my name Shiro, i look like dog, but i am cat."
             profileImg="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-            // gamesPlayed={gamesPlayed}
+            gamesPlayed={gamesPlayed}
           />
           <TMButton onClick={handleLoginOpen}>Login</TMButton>
           <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
@@ -106,42 +107,18 @@ function App() {
 
 export default App
 
-// const userData = {
-//   userName: "ShiroTheCat",
-//   status: "online",
-//   bio: "Hello! Hmu if u wanna see a cat play videogames",
-//   profileImg:
-//     "https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c",
-//   gamesPlayed: [
-//     {
-//       name: "League of Legends",
-//       gameImg:
-//         "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
-//     },
-//     {
-//       name: "Minecraft",
-//       gameImg:
-//         "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
-//     },
-//     {
-//       name: "Fall Guys",
-//       gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
-//     },
-//   ],
-// }
-
-// const gamesPlayed = [
-//   {
-//     name: "League of Legends",
-//     gameImg:
-//       "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
-//   },
-//   {
-//     name: "Minecraft",
-//     gameImg: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
-//   },
-//   {
-//     name: "Fall Guys",
-//     gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
-//   },
-// ]
+const gamesPlayed = [
+  {
+    gameTitle: "League of Legends",
+    gameImg:
+      "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+  },
+  {
+    gameTitle: "Minecraft",
+    gameImg: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+  },
+  {
+    gameTitle: "Fall Guys",
+    gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
+  },
+]
