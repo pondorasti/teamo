@@ -13,6 +13,7 @@ import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
+import PlayerCard from "./screens/lobby-screen/PlayerCard"
 import TMButton from "./atoms/TMButton"
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
           <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
           <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
           <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
+          <PlayerCard />
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
