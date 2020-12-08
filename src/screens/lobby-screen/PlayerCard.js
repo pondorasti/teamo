@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Typography } from "@material-ui/core"
+import { Grid, Typography, Tooltip } from "@material-ui/core"
 import { Copy } from "../../assets/icons"
 import { TMAvatar, TMButton } from "../../atoms/"
 
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     display: "inline-flex",
     alignItems: "center",
     marginRight: "auto",
-    
+
     cursor: "pointer",
     "&:hover": {
       textDecoration: "underline",
@@ -52,12 +52,15 @@ function PlayerCard({ username }) {
           <Typography variant="h5">
             Pondorasti
           </Typography>
-          <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
-            <Typography variant="body">
-              u/{username}
-            </Typography>
-            <Copy style={{ marginLeft: 4, width: 12, height: 12 }} />
-          </div>
+
+          <Tooltip title="Copy" arrow placement="right">
+            <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
+              <Typography variant="body">
+                u/{username}
+              </Typography>
+              <Copy style={{ marginLeft: 4, width: 12, height: 12 }} />
+            </div>
+          </Tooltip>
         </Grid>
 
       </Grid>
