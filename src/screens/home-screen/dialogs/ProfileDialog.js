@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
   },
   userImgDiv: {
-    marginBottom: 40,
+    marginBottom: 24,
   },
   userInfoContainer: {
     marginLeft: 16,
@@ -38,9 +38,8 @@ const useStyles = makeStyles(theme => ({
     width: "60%",
   },
   gamesContainer: {
-    padding: "8px 24px ",
+    padding: "8px 24px 24px",
     backgroundColor: theme.palette.grey[700],
-    zIndex: 1000,
   },
 }))
 
