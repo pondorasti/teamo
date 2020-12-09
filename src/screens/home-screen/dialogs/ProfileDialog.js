@@ -14,15 +14,19 @@ const useStyles = makeStyles(theme => ({
   dialogContainer: {
     height: "100%",
     overflow: "hidden",
+    "&:first-child": {
+      // dialog without title, overriding MUI default 20px
+      paddingTop: 24,
+    },
   },
   paddingContainer: {
-    padding: 24,
+    padding: "0px 24px",
   },
   paper: {
     padding: 0,
   },
   userImgDiv: {
-    marginBottom: 24,
+    marginBottom: 32,
   },
   userInfoContainer: {
     marginLeft: 16,
