@@ -31,15 +31,17 @@ const useStyles = makeStyles(theme => ({
   userInfoContainer: {
     marginLeft: 16,
   },
-  userNameAddFriend: {
+  userNameBio: {
     display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: 34,
-    width: "100%",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "60%",
+    [theme.breakpoints.down("xs")]: {
+      width: "100%",
+    },
   },
   bio: {
-    width: "60%",
+    margin: "4px 0px",
   },
   gamesContainer: {
     padding: "8px 24px 24px",
@@ -60,7 +62,7 @@ function ProfileDialog({
   const classes = useStyles()
 
   const listGames = gamesPlayed.map(game => (
-    <Grid item xs={4} key={game.gameTitle}>
+    <Grid item xs={12} sm={6} md={4} key={game.gameTitle}>
       <ProfileGameCard gameImg={game.gameImg} gameTitle={game.gameTitle} />
     </Grid>
   ))
@@ -91,17 +93,20 @@ function ProfileDialog({
             <Grid
               container
               item
-              direction="column"
+              direction="row"
+              justify="space-between"
               classes={{ root: classes.userInfoContainer }}
             >
-              <Grid item classes={{ root: classes.userNameAddFriend }}>
+              <Grid item classes={{ root: classes.userNameBio }}>
                 <Typography variant="h2">ShiroTheCat</Typography>
+                <Typography variant="body1" classes={{ root: classes.bio }}>
+                  {bio}
+                </Typography>
+              </Grid>
+              <Grid item classes={{ root: classes.addFriend }}>
                 <TMButton onClick={onClose} color="primary">
                   Add Friend
                 </TMButton>
-              </Grid>
-              <Grid item classes={{ root: classes.bio }}>
-                <Typography variant="body1">{bio}</Typography>
               </Grid>
             </Grid>
           </Grid>
