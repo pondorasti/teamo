@@ -16,17 +16,20 @@ const useStyles = makeStyles(theme => ({
     overflow: "hidden",
     "&:first-child": {
       // dialog without title, overriding MUI default 20px
-      paddingTop: 24,
+      paddingTop: 32,
+    },
+    [theme.breakpoints.down("xs")]: {
+      overflowY: "visible",
     },
   },
   paddingContainer: {
-    padding: "0px 24px",
+    padding: "0px 32px",
   },
   paper: {
     padding: 0,
   },
   userImgDiv: {
-    marginBottom: 32,
+    marginBottom: 40,
   },
   userInfoContainer: {
     marginLeft: 16,
@@ -44,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     margin: "4px 0px",
   },
   gamesContainer: {
-    padding: "8px 24px 24px",
+    padding: "8px 32px 32px",
     backgroundColor: theme.palette.grey[700],
   },
 }))
@@ -103,13 +106,14 @@ function ProfileDialog({
                   {bio}
                 </Typography>
               </Grid>
-              <Grid item classes={{ root: classes.addFriend }}>
+              <Grid item>
                 <TMButton onClick={onClose} color="primary">
                   Add Friend
                 </TMButton>
               </Grid>
             </Grid>
           </Grid>
+
           <Grid
             container
             spacing={2}
