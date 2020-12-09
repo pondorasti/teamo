@@ -9,7 +9,6 @@ import PropTypes from "prop-types"
 
 const useStyles = makeStyles({
   root: {
-    width: 153,
     borderRadius: 8,
   },
   media: {
