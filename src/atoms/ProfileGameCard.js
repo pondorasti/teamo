@@ -10,6 +10,9 @@ import PropTypes from "prop-types"
 const useStyles = makeStyles({
   root: {
     borderRadius: 8,
+    
+    // fixes safari overflow bug
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
   },
   media: {
     height: 73,

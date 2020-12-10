@@ -1,9 +1,9 @@
 import React from "react"
 import Dialog from "@material-ui/core/Dialog"
-// import DialogContent from "@material-ui/core/DialogContent"
+import DialogContent from "@material-ui/core/DialogContent"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { DialogContent, Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core"
 import { Grid } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
@@ -11,43 +11,17 @@ import TMAvatar from "../../../atoms/TMAvatar"
 import ProfileGameCard from "../../../atoms/ProfileGameCard"
 
 const useStyles = makeStyles(theme => ({
-  dialogContainer: {
-    height: "100%",
-    overflow: "hidden",
-    "&:first-child": {
-      // dialog without title, overriding MUI default 20px
-      paddingTop: 32,
-    },
-    [theme.breakpoints.down("xs")]: {
-      overflowY: "visible",
-    },
-  },
-  paddingContainer: {
-    padding: "0px 32px",
-  },
-  paper: {
-    padding: 0,
-  },
-  userImgDiv: {
-    marginBottom: 40,
-  },
-  userInfoContainer: {
-    marginLeft: 16,
-  },
-  userNameBio: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
+  userInfoGridContainer: {
     width: "60%",
     [theme.breakpoints.down("xs")]: {
       width: "100%",
     },
   },
-  bio: {
+  bioText: {
     margin: "4px 0px",
   },
-  gamesContainer: {
-    padding: "8px 32px 32px",
+  gamesGridContainer: {
+    paddingTop: 16,
     backgroundColor: theme.palette.grey[700],
   },
 }))
@@ -75,15 +49,13 @@ function ProfileDialog({
       open={open}
       onClose={onClose}
       aria-labelledby="profile-modal"
-      classes={{ paper: classes.paper }}
     >
-      <DialogContent classes={{ root: classes.dialogContainer }}>
+      <DialogContent>
         <Grid container>
           <Grid
             container
             item
             wrap="nowrap"
-            className={classes.userImgDiv}
             classes={{ root: classes.paddingContainer }}
           >
             <TMAvatar
@@ -98,37 +70,35 @@ function ProfileDialog({
               item
               direction="row"
               justify="space-between"
-              classes={{ root: classes.userInfoContainer }}
+              style={{ marginLeft: 16 }}
             >
-              <Grid item classes={{ root: classes.userNameBio }}>
+              <Grid item classes={{ root: classes.userInfoGridContainer }}>
                 <Typography variant="h2">ShiroTheCat</Typography>
-                <Typography variant="body1" classes={{ root: classes.bio }}>
+                <Typography variant="body1" classes={{ root: classes.bioText }}>
                   {bio}
                 </Typography>
               </Grid>
               <Grid item>
-                <TMButton onClick={onClose} color="primary">
+                <TMButton onClick={onClose}>
                   Add Friend
                 </TMButton>
               </Grid>
             </Grid>
           </Grid>
-
-          <Grid
-            container
-            spacing={2}
-            classes={{ root: classes.gamesContainer }}
-          >
-            <Grid item xs={12}>
-              <Typography variant="h5" align="center">
-                Games
-              </Typography>
-            </Grid>
-            {listGames}
-          </Grid>
         </Grid>
       </DialogContent>
-    </Dialog>
+
+      <DialogContent classes={{ root: classes.gamesGridContainer }}>
+        <Grid container spacing={2} >
+          <Grid item xs={12}>
+            <Typography variant="h5" align="center">
+              Games
+            </Typography>
+          </Grid>
+          {listGames}
+        </Grid>
+      </DialogContent>
+    </Dialog >
   )
 }
 

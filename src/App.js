@@ -122,7 +122,7 @@ const gamesPlayed = [
     gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
   },
   {
-    gameTitle: "Fall Guys",
+    gameTitle: "Fall Guysss",
     gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
   },
 ]
