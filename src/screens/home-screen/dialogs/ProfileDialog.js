@@ -1,13 +1,9 @@
 import React from "react"
-import Dialog from "@material-ui/core/Dialog"
-import DialogContent from "@material-ui/core/DialogContent"
 import PropTypes from "prop-types"
-import { makeStyles } from "@material-ui/core/styles"
-import { Typography } from "@material-ui/core"
-import { Grid } from "@material-ui/core"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { Dialog, DialogContent, Typography, Grid } from "@material-ui/core"
 
-import TMButton from "../../../atoms/TMButton"
-import TMAvatar from "../../../atoms/TMAvatar"
+import { TMButton, TMAvatar } from "../../../atoms/"
 import ProfileGameCard from "../../../atoms/ProfileGameCard"
 
 const useStyles = makeStyles(theme => ({
@@ -29,14 +25,14 @@ const useStyles = makeStyles(theme => ({
 function ProfileDialog({
   open,
   onClose,
-  backgroundColor,
-  userName,
+  username,
   status,
   bio,
-  profileImg,
+  avatarUrl,
   gamesPlayed,
 }) {
   const classes = useStyles()
+  const theme = useTheme()
 
   const listGames = gamesPlayed.map(game => (
     <Grid item xs={12} sm={6} md={4} key={game.gameTitle}>
@@ -59,9 +55,9 @@ function ProfileDialog({
             classes={{ root: classes.paddingContainer }}
           >
             <TMAvatar
-              backgroundColor={backgroundColor}
-              src={profileImg}
-              alt={userName}
+              backgroundColor={theme.palette.grey[800]}
+              src={avatarUrl}
+              alt={username}
               status={status}
               size="large"
             />
@@ -73,7 +69,7 @@ function ProfileDialog({
               style={{ marginLeft: 16 }}
             >
               <Grid item classes={{ root: classes.userInfoGridContainer }}>
-                <Typography variant="h2">ShiroTheCat</Typography>
+                <Typography variant="h2">{username}</Typography>
                 <Typography variant="body1" classes={{ root: classes.bioText }}>
                   {bio}
                 </Typography>
@@ -108,16 +104,17 @@ ProfileDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
-  userName: PropTypes.any,
-  status: PropTypes.any,
-  bio: PropTypes.any,
-  profileImg: PropTypes.any,
-  gamesPlayed: PropTypes.any,
-  backgroundColor: PropTypes.any,
-}
 
-ProfileDialog.defaultProps = {
-  open: false,
+  username: PropTypes.string.isRequired,
+
+  /** An optional badge for the avatar */
+  status: PropTypes.oneOf(["none", "online"]),
+
+  bio: PropTypes.string.isRequired,
+
+  avatarUrl: PropTypes.any,
+
+  gamesPlayed: PropTypes.any,
 }
 
 export default ProfileDialog

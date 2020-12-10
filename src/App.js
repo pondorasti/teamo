@@ -85,10 +85,10 @@ function App() {
             open={openProfile}
             onClose={handleProfileClose}
             backgroundColor="#1E1E1E"
-            userName="ShiroTheCat"
+            username="ShiroTheCat"
             status="online"
             bio="Hello, my name Shiro, i look like dog, but i am cat."
-            profileImg="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+            avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
             gamesPlayed={gamesPlayed}
           />
           <TMButton onClick={handleLoginOpen}>Login</TMButton>
@@ -110,8 +110,7 @@ export default App
 const gamesPlayed = [
   {
     gameTitle: "League of Legends",
-    gameImg:
-      "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+    gameImg: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
   },
   {
     gameTitle: "Minecraft",
