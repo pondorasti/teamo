@@ -234,6 +234,16 @@ const TMTheme = createMuiTheme({
         color: defaultTheme.palette.secondary.main,
       },
     },
+
+    // Tooltip
+    MuiTooltip: {
+      tooltip: {
+        backgroundColor: defaultTheme.palette.grey[600],
+      },
+      arrow: {
+        color: defaultTheme.palette.grey[600],
+      }
+    },
   },
 })
 

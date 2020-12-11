@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Grid, Typography, Tooltip, IconButton, Menu, MenuItem, Collapse } from "@material-ui/core"
-import { useTheme } from "@material-ui/styles"
 import { Copy, ThreeDots, Exit, Headset, Crown } from "../../assets/icons"
 import { TMAvatar, TMButton } from "../../atoms/"
 
@@ -13,9 +12,7 @@ const useStyles = makeStyles(theme => ({
     padding: 16,
     transition: theme.transitions.create("background-color"),
   },
-  headerGrid: {
-    marginBottom: 8,
-  },
+  headerGrid: { marginBottom: 8 },
   containerGamerTag: {
     color: theme.palette.info.main,
 
@@ -38,14 +35,18 @@ const useStyles = makeStyles(theme => ({
     width: 12, 
     height: 12,
   },
+  threeDotsIconButton: {
+    width: 24,
+    height: 24,
+  },
   buttonsGrid: { marginTop: 16 }
 }))
 
-function PlayerCard({ username, gamerTag, avatarUrl, bio }) {
+function PlayerCard({ username, gamerTag, avatarUrl, bio, isHost, isAccepted }) {
   const classes = useStyles()
   const theme = useTheme()
 
-  const [acceptedPlayer, setAcceptedPlayer] = useState(false)
+  const [acceptedPlayer, setAcceptedPlayer] = useState(isAccepted)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
@@ -74,7 +75,8 @@ function PlayerCard({ username, gamerTag, avatarUrl, bio }) {
         <Grid container item direction="column" classes={{ root: classes.usernameGrid }}>
           <Grid container item>
             <Typography variant="h5"> {username} </Typography>
-            <Crown classes={{ root: classes.crownIcon }} />
+            {isHost && <Crown classes={{ root: classes.crownIcon }} />}
+            
           </Grid>
           <Tooltip title="Copy" arrow placement="right">
             <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
@@ -84,7 +86,7 @@ function PlayerCard({ username, gamerTag, avatarUrl, bio }) {
           </Tooltip>
         </Grid>
 
-        <IconButton style={{ width: 24, height: 24 }} onClick={handleOptionsButton}>
+        <IconButton classes={{ root: classes.threeDotsIconButton }} onClick={handleOptionsButton}>
           <ThreeDots size="inherit" />
         </IconButton>
         <Menu
@@ -131,6 +133,13 @@ PlayerCard.propTypes = {
   gamerTag: PropTypes.string.isRequired,
   avatarUrl: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
+  isHost: PropTypes.bool,
+  isAccepted: PropTypes.bool,
+}
+
+PlayerCard.defaultProps = {
+  isHost: false,
+  isAccepted: false,
 }
 
 export default PlayerCard
