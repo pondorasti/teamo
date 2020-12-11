@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import { TextField } from "@material-ui/core"
 
 import { CssBaseline } from "@material-ui/core"
-import { TMTheme } from "./atoms"
+import { TMTheme, TMButton, LobbyHeader } from "./atoms"
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
 
@@ -14,7 +14,6 @@ import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
-import TMButton from "./atoms/TMButton"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
@@ -71,6 +70,7 @@ function App() {
             multiline
           />
           <TextField label="Games" defaultValue="jello" type="number" />
+
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
           <CreateTeamoDialog
@@ -96,6 +96,15 @@ function App() {
           <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
           <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
           <TMButton onClick={handleProfileOpen}>Profile</TMButton>
+          <LobbyHeader
+            lobbyHost="Pondorasti"
+            gameName="Minecraft"
+            gameLogo="https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png"
+            lobbyDesc="This is my room decription, this should be no more than three lines long..."
+            platform="PC"
+            mic="Microphone"
+            players="4/4 Players, 1 waiting"
+          />
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
@@ -110,11 +119,13 @@ export default App
 const gamesPlayed = [
   {
     title: "League of Legends",
-    imageUrl: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+    imageUrl:
+      "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
   },
   {
     title: "Minecraft",
-    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+    imageUrl:
+      "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
   },
   {
     title: "Fall Guys",
