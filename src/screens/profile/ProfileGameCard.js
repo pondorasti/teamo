@@ -7,16 +7,21 @@ import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
 import PropTypes from "prop-types"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: 8,
     
     // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
   },
-  media: { height: 73 },
+  media: { 
+    height: 72,
+    [theme.breakpoints.down("xs")]: {
+      height: 144 ,
+    },
+  },
   cardContent: { padding: 8 },
-})
+}))
 
 function ProfileGameCard({ imageUrl, title }) {
   const classes = useStyles()
