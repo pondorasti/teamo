@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   containerGamerTag: {
     color: theme.palette.info.main,
 
-    display: "inline-flex",
+    display: "flex",
     alignItems: "center",
     marginRight: "auto",
 
@@ -28,12 +28,20 @@ const useStyles = makeStyles(theme => ({
       textDecoration: "underline",
     },
   },
-  buttonsGrid: {
-    marginTop: 16,
-  }
+  crownIcon: {
+    fontSize: 16,
+    marginLeft: 4,
+  },
+  usernameGrid: { marginLeft: 8 },
+  copyIcon: {
+    marginLeft: 4, 
+    width: 12, 
+    height: 12,
+  },
+  buttonsGrid: { marginTop: 16 }
 }))
 
-function PlayerCard({ username }) {
+function PlayerCard({ username, gamerTag, avatarUrl, bio }) {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -46,7 +54,7 @@ function PlayerCard({ username }) {
   function handledAcceptButton() { setAcceptedPlayer(true) }
 
   function copyGamerTagToClipboard() {
-    navigator.clipboard.writeText(username)
+    navigator.clipboard.writeText(gamerTag)
   }
 
   return (
@@ -60,21 +68,18 @@ function PlayerCard({ username }) {
         <TMAvatar
           size="medium"
           alt={username}
-          src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+          src={avatarUrl}
         />
 
-        <Grid container item direction="column" style={{ marginLeft: 8 }} >
-          <Typography variant="h5">
-            Pondorasti
-            <Crown />
-          </Typography>
-
+        <Grid container item direction="column" classes={{ root: classes.usernameGrid }}>
+          <Grid container item>
+            <Typography variant="h5"> {username} </Typography>
+            <Crown classes={{ root: classes.crownIcon }} />
+          </Grid>
           <Tooltip title="Copy" arrow placement="right">
             <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
-              <Typography variant="body1">
-                u/{username}
-              </Typography>
-              <Copy style={{ marginLeft: 4, width: 12, height: 12 }} />
+              <Typography variant="body1"> u/{gamerTag} </Typography>
+              <Copy classes={{ root: classes.copyIcon }} />
             </div>
           </Tooltip>
         </Grid>
@@ -92,12 +97,9 @@ function PlayerCard({ username }) {
           <MenuItem>Profile</MenuItem>
           <MenuItem>Kick</MenuItem>
         </Menu>
-
       </Grid>
 
-      <Typography variant="body1">
-        we only allow this many characters? 52 chars, let&apos;s make it 62
-      </Typography>
+      <Typography variant="body1"> {bio} </Typography>
 
       <Collapse in={!acceptedPlayer}>
         <Grid container item wrap="nowrap" classes={{ root: classes.buttonsGrid }}>
@@ -125,7 +127,10 @@ function PlayerCard({ username }) {
 }
 
 PlayerCard.propTypes = {
-  username: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired,
+  gamerTag: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
 }
 
 export default PlayerCard
