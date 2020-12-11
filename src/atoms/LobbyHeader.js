@@ -111,7 +111,7 @@ function LobbyHeader({
             )}
             options={LobbyStatusOptions}
             fullWidth
-            onChange={(event, newValue) => {
+            onChange={(_, newValue) => {
               setRoomStatus(newValue)
             }}
           />
