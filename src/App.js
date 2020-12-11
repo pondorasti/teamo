@@ -13,6 +13,7 @@ import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
+import ProfileDialog from "./screens/profile/ProfileDialog"
 import PlayerCard from "./screens/lobby-screen/PlayerCard"
 import TMButton from "./atoms/TMButton"
 
@@ -21,6 +22,7 @@ function App() {
   const [openJoinTeamo, setOpenJoinTeamo] = React.useState(false)
   const [openCreateTeamo, setOpenCreateTeamo] = React.useState(false)
   const [openCreateProfile, setOpenCreateProfile] = React.useState(false)
+  const [openProfile, setOpenProfile] = React.useState(false)
   const handleLoginOpen = () => {
     setOpenLogin(true)
   }
@@ -46,6 +48,12 @@ function App() {
   }
   const handleCreateProfileClose = () => {
     setOpenCreateProfile(false)
+  }
+  const handleProfileOpen = () => {
+    setOpenProfile(true)
+  }
+  const handleProfileClose = () => {
+    setOpenProfile(false)
   }
 
   return (
@@ -74,10 +82,21 @@ function App() {
             open={openCreateProfile}
             onClose={handleCreateProfileClose}
           />
+          <ProfileDialog
+            open={openProfile}
+            onClose={handleProfileClose}
+            backgroundColor="#1E1E1E"
+            username="ShiroTheCat"
+            status="online"
+            bio="Hello, my name Shiro, i look like dog, but i am cat."
+            avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+            gamesPlayed={gamesPlayed}
+          />
           <TMButton onClick={handleLoginOpen}>Login</TMButton>
           <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
           <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
           <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
+          <TMButton onClick={handleProfileOpen}>Profile</TMButton>
 
           <PlayerCard
             username="Pondorasti"
@@ -104,3 +123,22 @@ function App() {
 }
 
 export default App
+
+const gamesPlayed = [
+  {
+    title: "League of Legends",
+    imageUrl: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+  },
+  {
+    title: "Minecraft",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+  },
+  {
+    title: "Fall Guys",
+    imageUrl: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
+  },
+  {
+    title: "Fall Guysss",
+    imageUrl: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
+  },
+]
