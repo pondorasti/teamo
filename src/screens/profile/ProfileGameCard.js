@@ -14,15 +14,11 @@ const useStyles = makeStyles({
     // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
   },
-  media: {
-    height: 73,
-  },
-  cardContent: {
-    padding: 8,
-  },
+  media: { height: 73 },
+  cardContent: { padding: 8 },
 })
 
-function ProfileGameCard({ gameImg, gameTitle }) {
+function ProfileGameCard({ imageUrl, title }) {
   const classes = useStyles()
 
   return (
@@ -30,11 +26,11 @@ function ProfileGameCard({ gameImg, gameTitle }) {
       <CardActionArea>
         <CardMedia
           classes={{ root: classes.media }}
-          image={gameImg}
-          title={gameTitle}
+          image={imageUrl}
+          title={title}
         />
         <CardContent classes={{ root: classes.cardContent }}>
-          <Typography variant="h6">{gameTitle}</Typography>
+          <Typography variant="h6">{title}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
@@ -42,8 +38,8 @@ function ProfileGameCard({ gameImg, gameTitle }) {
 }
 
 ProfileGameCard.propTypes = {
-  gameImg: PropTypes.string.isRequired,
-  gameTitle: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default ProfileGameCard

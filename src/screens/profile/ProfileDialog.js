@@ -2,9 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Dialog, DialogContent, Typography, Grid } from "@material-ui/core"
-
-import { TMButton, TMAvatar } from "../../../atoms/"
-import ProfileGameCard from "../../../atoms/ProfileGameCard"
+import { TMButton, TMAvatar } from "../../atoms"
+import ProfileGameCard from "./ProfileGameCard"
 
 const useStyles = makeStyles(theme => ({
   userInfoGridContainer: {
@@ -36,7 +35,7 @@ function ProfileDialog({
 
   const listGames = gamesPlayed.map(game => (
     <Grid item xs={12} sm={6} md={4} key={game.gameTitle}>
-      <ProfileGameCard gameImg={game.gameImg} gameTitle={game.gameTitle} />
+      <ProfileGameCard imageUrl={game.imageUrl} title={game.title} />
     </Grid>
   ))
 
@@ -108,13 +107,11 @@ ProfileDialog.propTypes = {
   username: PropTypes.string.isRequired,
 
   /** An optional badge for the avatar */
-  status: PropTypes.oneOf(["none", "online"]),
+  status: PropTypes.oneOf(["none", "online"]).isRequired,
 
   bio: PropTypes.string.isRequired,
-
-  avatarUrl: PropTypes.any,
-
-  gamesPlayed: PropTypes.any,
+  avatarUrl: PropTypes.any.isRequired,
+  gamesPlayed: PropTypes.any.isRequired,
 }
 
 export default ProfileDialog

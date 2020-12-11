@@ -13,7 +13,7 @@ import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
-import ProfileDialog from "./screens/home-screen/dialogs/ProfileDialog"
+import ProfileDialog from "./screens/profile/ProfileDialog"
 import TMButton from "./atoms/TMButton"
 
 function App() {
@@ -109,19 +109,19 @@ export default App
 
 const gamesPlayed = [
   {
-    gameTitle: "League of Legends",
-    gameImg: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+    title: "League of Legends",
+    imageUrl: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
   },
   {
-    gameTitle: "Minecraft",
-    gameImg: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+    title: "Minecraft",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
   },
   {
-    gameTitle: "Fall Guys",
-    gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
+    title: "Fall Guys",
+    imageUrl: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
   },
   {
-    gameTitle: "Fall Guysss",
-    gameImg: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
+    title: "Fall Guysss",
+    imageUrl: "https://i.ytimg.com/vi/z6UrdUAZ7wM/maxresdefault.jpg",
   },
 ]
