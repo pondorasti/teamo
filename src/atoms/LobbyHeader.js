@@ -5,6 +5,8 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import PropTypes from "prop-types"
 
+const LobbyStatusOptions = ["Open", "Closed"]
+
 import {
   Description,
   Dpad,
@@ -12,6 +14,7 @@ import {
   MicSlash,
   People,
   Lock,
+  LockOpen,
   Gear,
   Headset,
   Exit,
@@ -27,6 +30,7 @@ const useStyles = makeStyles({
   lobbyTitleDiv: {
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     marginTop: 16,
     marginBottom: 12,
   },
@@ -63,12 +67,13 @@ function LobbyHeader({
   players,
 }) {
   const classes = useStyles()
+  const [roomStatus, setRoomStatus] = React.useState(LobbyStatusOptions[0])
 
   return (
     <div className={classes.container}>
       <List component="nav" aria-label="main mailbox folders">
         <ListItem className={classes.lobbyTitleDiv}>
-          <Typography variant="h4">{`${lobbyHost}'s Teamo`}</Typography>
+          <Typography variant="h5">{`${lobbyHost}'s Teamo`}</Typography>
           <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
         </ListItem>
         <ListItem classes={{ root: classes.lobbyDescription }}>
@@ -98,15 +103,17 @@ function LobbyHeader({
 
         <ListItem classes={{ root: classes.autocomplete }}>
           <ListItemIcon>
-            {" "}
-            <Lock />{" "}
+            {roomStatus === "Open" ? <LockOpen /> : <Lock />}
           </ListItemIcon>
           <Autocomplete
             renderInput={params => (
               <TextField {...params} label="Lobby Status" />
             )}
-            options={["Locked", "Open"]}
+            options={LobbyStatusOptions}
             fullWidth
+            onChange={(event, newValue) => {
+              setRoomStatus(newValue)
+            }}
           />
         </ListItem>
 
@@ -146,7 +153,7 @@ LobbyHeader.propTypes = {
   platform: PropTypes.string.isRequired,
 
   /** The variant to use. */
-  mic: PropTypes.oneOf(["mic", "noMic"]),
+  mic: PropTypes.oneOf(["Microphone", "No Microphone"]),
 
   /** If `true`, the button will take up the full width of its container. */
   players: PropTypes.string.isRequired,
