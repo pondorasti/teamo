@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import { TextField } from "@material-ui/core"
 
 import { CssBaseline } from "@material-ui/core"
-import { TMTheme, TMButton, LobbyHeader } from "./atoms"
+import { TMTheme, TMButton } from "./atoms"
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import data from "./lobbiesDumyData"
 
@@ -14,6 +14,7 @@ import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
+import LobbyHeader from "./screens/lobby-screen/LobbyHeader"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
