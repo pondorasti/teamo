@@ -47,10 +47,6 @@ const useStyles = makeStyles({
     marginTop: 12,
     marginBottom: 12,
   },
-  buttons: {
-    marginTop: 4,
-    marginBottom: 4,
-  },
   descriptionIconItem: {
     display: "flex",
     alignSelf: "flex-start",
@@ -75,7 +71,7 @@ function LobbyHeader({
       aria-label="main mailbox folders"
       classes={{ root: classes.container }}
     >
-      <ListItem className={classes.lobbyTitleDiv}>
+      <ListItem classes={{ root: classes.lobbyTitleDiv }}>
         <Typography variant="h5">{`${lobbyHost}'s Teamo`}</Typography>
         <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
       </ListItem>
@@ -138,24 +134,25 @@ function LobbyHeader({
 }
 
 LobbyHeader.propTypes = {
-  /** The content of the button. */
+  /** Room creater */
   lobbyHost: PropTypes.string.isRequired,
 
-  /** An optional leading icon for the button */
+  /** Used as alt for the game Logo img */
   gameName: PropTypes.string.isRequired,
 
-  /** The size of the button. */
+  /** Game Logo */
   gameLogo: PropTypes.string.isRequired,
 
-  /** If `true`, the button will be disabled. */
+  /** Description of lobby */
   lobbyDesc: PropTypes.string.isRequired,
 
+  /** platform preference*/
   platform: PropTypes.string.isRequired,
 
-  /** The variant to use. */
+  /** Mic preference */
   mic: PropTypes.oneOf(["Microphone", "No Microphone"]),
 
-  /** If `true`, the button will take up the full width of its container. */
+  /** Current room occupancy status */
   players: PropTypes.string.isRequired,
 }
 
