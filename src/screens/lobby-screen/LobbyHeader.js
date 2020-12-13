@@ -1,12 +1,7 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
 import PropTypes from "prop-types"
-
-const LobbyStatusOptions = ["Open", "Closed"]
-
+import { makeStyles } from "@material-ui/core/styles"
+import { List, ListItem, ListItemIcon, TextField, Typography } from "@material-ui/core"
 import {
   Description,
   Dpad,
@@ -19,7 +14,7 @@ import {
   Headset,
   Exit,
 } from "../../assets/icons"
-import { TextField, Typography } from "@material-ui/core"
+import { Status, Microphone } from "../../api/lobby-template/"
 import Autocomplete from "@material-ui/lab/Autocomplete"
 import TMButton from "../../atoms/TMButton"
 
@@ -53,17 +48,13 @@ const useStyles = makeStyles({
   },
 })
 
-function LobbyHeader({
-  lobbyHost,
-  gameName,
-  gameLogo,
-  lobbyDesc,
-  platform,
-  mic,
-  players,
-}) {
+function LobbyHeader({ lobbyHost, gameName, gameLogo, lobbyDesc, platform, mic, players }) {
   const classes = useStyles()
-  const [roomStatus, setRoomStatus] = React.useState(LobbyStatusOptions[0])
+  const [lobbyStatus, setLobbyStatus] = React.useState(Status.options[0])
+
+  function handleLobbyStatus(_, newValue) {
+    setLobbyStatus(newValue)
+  }
 
   return (
     <List
@@ -72,7 +63,7 @@ function LobbyHeader({
       classes={{ root: classes.container }}
     >
       <ListItem classes={{ root: classes.lobbyTitleDiv }}>
-        <Typography variant="h5">{`${lobbyHost}'s Teamo`}</Typography>
+        <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
         <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
       </ListItem>
       <ListItem classes={{ root: classes.lobbyDescription }}>
@@ -102,15 +93,15 @@ function LobbyHeader({
 
       <ListItem classes={{ root: classes.autocomplete }}>
         <ListItemIcon>
-          {roomStatus === "Open" ? <LockOpen /> : <Lock />}
+          {lobbyStatus === Status.options[0] ? <LockOpen /> : <Lock />}
         </ListItemIcon>
         <Autocomplete
-          renderInput={params => <TextField {...params} label="Lobby Status" />}
-          options={LobbyStatusOptions}
+          renderInput={params => <TextField {...params} label={Status.label} />}
+          options={Status.options}
           fullWidth
-          onChange={(_, newValue) => {
-            setRoomStatus(newValue)
-          }}
+          disableClearable
+          value={lobbyStatus}
+          onChange={handleLobbyStatus}
         />
       </ListItem>
 
@@ -150,7 +141,7 @@ LobbyHeader.propTypes = {
   platform: PropTypes.string.isRequired,
 
   /** Mic preference */
-  mic: PropTypes.oneOf(["Microphone", "No Microphone"]),
+  mic: PropTypes.oneOf(Microphone.options),
 
   /** Current room occupancy status */
   players: PropTypes.string.isRequired,
