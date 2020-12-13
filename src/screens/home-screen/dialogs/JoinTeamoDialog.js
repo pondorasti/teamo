@@ -7,6 +7,7 @@ import {
   DialogActions,
   DialogTitle,
   Typography,
+  List,
   ListItem,
   ListItemIcon,
   TextField,
@@ -80,12 +81,14 @@ function JoinTeamoDialog({ open, onClose }) {
         />
       </DialogTitle>
       <DialogContent>
-        <ListItem>
-          <ListItemIcon>
-            <Controller />
-          </ListItemIcon>
-          <TextField label="Gamer Tag" />
-        </ListItem>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <Controller />
+            </ListItemIcon>
+            <TextField label="Gamer Tag" />
+          </ListItem>
+        </List>
       </DialogContent>
 
       <DialogActions>

@@ -211,7 +211,9 @@ const TMTheme = createMuiTheme({
 
         // List edge cases
         "& > .MuiList-padding": {
-          padding: 0
+          padding: 0,
+          // Do not change this value without updating MuiListItem padding
+          margin: "-8px 0", 
         },
         "& .MuiListItem-gutters": { // disable gutters
           paddingLeft: 0,
@@ -232,8 +234,8 @@ const TMTheme = createMuiTheme({
     // List
     MuiListItem: {
       root: {
-        paddingTop: 8,
-        paddingBottom: 8,
+        // Do not change this value without updating MuiDialogContent List Edge case
+        padding: "8px 0", 
       },
     },
     MuiListItemIcon: {
