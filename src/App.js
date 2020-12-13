@@ -15,6 +15,7 @@ import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
 import PlayerCard from "./screens/lobby-screen/PlayerCard"
+import SendMessage from "./screens/lobby-screen/SendMessage"
 import TMButton from "./atoms/TMButton"
 import Message from "./screens/lobby-screen/Message"
 
@@ -65,24 +66,12 @@ function App() {
 
       <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
         <div style={{ padding: 32 }}>
-          <TextField
-            label="Games"
-            defaultValue="jello"
-            helperText="hello"
-            rows={4}
-            multiline
-          />
+          <TextField label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
           <TextField label="Games" defaultValue="jello" type="number" />
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateTeamoDialog
-            open={openCreateTeamo}
-            onClose={handleCreateClose}
-          />
-          <CreateProfileDialog
-            open={openCreateProfile}
-            onClose={handleCreateProfileClose}
-          />
+          <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
+          <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
           <ProfileDialog
             open={openProfile}
             onClose={handleProfileClose}
@@ -119,12 +108,12 @@ function App() {
             timestamp="Today at 17:42"
             message="Hello! how are you?"
           />
+          <SendMessage />
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
         </div>
       </div>
-
     </ThemeProvider>
   )
 }
@@ -134,7 +123,8 @@ export default App
 const gamesPlayed = [
   {
     title: "League of Legends",
-    imageUrl: "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
+    imageUrl:
+      "https://lh3.googleusercontent.com/WebglHOYlW-2P7ADP9oUSSrgy12PHyAE6GP_jmJkQOZZ1XH7Pa_7216EK2qS7iJFvncqOaDjg40BrYdzPbB9qNwn",
   },
   {
     title: "Minecraft",
