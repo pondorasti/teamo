@@ -19,7 +19,7 @@ import TMButton from "../../../atoms/TMButton"
 import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
 
 import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
-import couchBuddies from "../../../assets/images/CouchBuddies.png"
+import { CouchBuddies } from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -39,7 +39,7 @@ function CreateTeamoDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title">
-        <img src={couchBuddies} className={classes.illustration} />
+        <img src={CouchBuddies} className={classes.illustration} />
         <Typography variant="h4">Create Teamo</Typography>
       </DialogTitle>
 

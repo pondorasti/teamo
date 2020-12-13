@@ -1,8 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, ListItem, ListItemIcon, TextField } from "@material-ui/core"
-
+import {
+  Dialog,
+  DialogContent,
+  DialogActions,
+  DialogTitle,
+  Typography,
+  ListItem,
+  ListItemIcon,
+  TextField,
+} from "@material-ui/core"
 import TMButton from "../../../atoms/TMButton"
 import { Controller } from "../../../assets/icons"
 
@@ -23,7 +31,9 @@ function JoinTeamoDialog({ open, onClose }) {
       classes={{ root: classes.dialogBody }}
     >
       <DialogTitle id="join-teamo-modal-title">
-        <Typography variant="h4">Join Teamo</Typography>
+        <div>
+          <Typography variant="h4">Join Teamo</Typography>
+        </div>
         <Typography variant="body1" classes={{ root: classes.subtitleSpacing }}>
           What is your Gamer Tag?
         </Typography>
@@ -31,7 +41,10 @@ function JoinTeamoDialog({ open, onClose }) {
 
       <DialogContent>
         <ListItem>
-          <ListItemIcon> <Controller /> </ListItemIcon>
+          <ListItemIcon>
+            {" "}
+            <Controller />{" "}
+          </ListItemIcon>
           <TextField label="Gamer Tag" />
         </ListItem>
       </DialogContent>
@@ -40,12 +53,7 @@ function JoinTeamoDialog({ open, onClose }) {
         <TMButton onClick={onClose} fullWidth variant="outlined">
           Cancel
         </TMButton>
-        <TMButton
-          onClick={onClose}
-          fullWidth
-          color="primary"
-          style={{ marginLeft: 24 }}
-        >
+        <TMButton onClick={onClose} fullWidth color="primary" style={{ marginLeft: 24 }}>
           Join
         </TMButton>
       </DialogActions>

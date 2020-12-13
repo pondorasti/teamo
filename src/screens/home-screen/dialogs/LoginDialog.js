@@ -7,7 +7,7 @@ import { DialogTitle, Typography } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
 import { Apple, Google } from "../../../assets/icons"
-import couchBuddies from "../../../assets/images/CouchBuddies.png"
+import { CouchBuddies } from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
   slogan: {
@@ -26,7 +26,7 @@ function LoginDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="login-modal">
       <DialogTitle id="login-modal-title">
-        <img src={couchBuddies} className={classes.illustration} />
+        <img src={CouchBuddies} className={classes.illustration} />
         <Typography variant="h4">Teamo</Typography>
         <Typography variant="h5" classes={{ root: classes.slogan }}>
           Good Team, Good Game.
