@@ -157,6 +157,9 @@ const TMTheme = createMuiTheme({
     MuiDialogTitle: {
       disableTypography: true,
     },
+    MuiListItem: {
+      disableGutters: true,
+    }
   },
   overrides: {
     // Textfield
@@ -203,7 +206,7 @@ const TMTheme = createMuiTheme({
       root: {
         display: "flex",
         flexDirection: "column",
-        
+
         padding: "0px 32px 32px 32px",
         "&:first-child": {
           paddingTop: 32,
@@ -211,11 +214,7 @@ const TMTheme = createMuiTheme({
 
         // List edge cases
         "& > .MuiList-padding": {
-          padding: 0
-        },
-        "& .MuiListItem-gutters": { // disable gutters
-          paddingLeft: 0,
-          paddingRight: 0,
+          padding: 0,
         },
       },
     },
