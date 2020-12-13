@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 16,
       // "&.Mui-focused fieldset": {
       //   //borders set to none to disable border highlight on hover and focus
-      //   border: "none",
       //   // borderColor: theme.palette.grey[700],
       // },
       "& fieldset": {
@@ -23,7 +22,6 @@ const useStyles = makeStyles(theme => ({
         // borderColor: theme.palette.grey[700],
       },
       // "&:hover fieldset": {
-      //   border: "none",
       //   // borderColor: theme.palette.grey[700],
       // },
     },
