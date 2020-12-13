@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -13,15 +13,56 @@ import {
 } from "@material-ui/core"
 import TMButton from "../../../atoms/TMButton"
 import { Controller } from "../../../assets/icons"
+import {
+  Shroomie,
+  StandingDumpling,
+  StandingLion,
+  StandingOcto,
+  StandingRacoon,
+  TallShroomie,
+} from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
   subtitleSpacing: {
     marginTop: 8,
   },
+  illustration: {
+    maxWidth: 176,
+  },
 }))
+
+const imgArray = [
+  Shroomie,
+  StandingDumpling,
+  StandingLion,
+  StandingOcto,
+  StandingRacoon,
+  TallShroomie,
+]
+
+function Illustration() {
+  const randomImg = imgArray[Math.floor(Math.random() * imgArray.length)]
+  const classes = useStyles()
+
+  return (
+    <img
+      src={randomImg}
+      className={classes.illustration}
+      // style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
+    />
+  )
+}
 
 function JoinTeamoDialog({ open, onClose }) {
   const classes = useStyles()
+  const MemoizedIllustration = memo(Illustration)
+
+  // const [randomImg, setRandomImg] = useState("null")
+  // useEffect(() => {
+  //   setRandomImg(imgArray[Math.floor(Math.random() * imgArray.length)])
+  // }, [])
+
+  // const isImgFlipped = Math.random() < 0.5
 
   return (
     <Dialog
@@ -37,13 +78,12 @@ function JoinTeamoDialog({ open, onClose }) {
         <Typography variant="body1" classes={{ root: classes.subtitleSpacing }}>
           What is your Gamer Tag?
         </Typography>
+        <MemoizedIllustration />
       </DialogTitle>
-
       <DialogContent>
         <ListItem>
           <ListItemIcon>
-            {" "}
-            <Controller />{" "}
+            <Controller />
           </ListItemIcon>
           <TextField label="Gamer Tag" />
         </ListItem>

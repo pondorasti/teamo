@@ -64,24 +64,12 @@ function App() {
 
       <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
         <div style={{ padding: 32 }}>
-          <TextField
-            label="Games"
-            defaultValue="jello"
-            helperText="hello"
-            rows={4}
-            multiline
-          />
+          <TextField label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
           <TextField label="Games" defaultValue="jello" type="number" />
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateTeamoDialog
-            open={openCreateTeamo}
-            onClose={handleCreateClose}
-          />
-          <CreateProfileDialog
-            open={openCreateProfile}
-            onClose={handleCreateProfileClose}
-          />
+          <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
+          <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
           <ProfileDialog
             open={openProfile}
             onClose={handleProfileClose}
@@ -131,8 +119,7 @@ const gamesPlayed = [
   },
   {
     title: "Minecraft",
-    imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
   },
   {
     title: "Fall Guys",
