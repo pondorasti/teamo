@@ -16,6 +16,7 @@ import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDial
 import ProfileDialog from "./screens/profile/ProfileDialog"
 import PlayerCard from "./screens/lobby-screen/PlayerCard"
 import TMButton from "./atoms/TMButton"
+import Message from "./screens/lobby-screen/Message"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
@@ -111,6 +112,12 @@ function App() {
             bio="we only allow this many characters? 52 chars, let's make it 62"
             isHost
             isAccepted
+          />
+          <Message
+            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+            username="Pondorasti"
+            timestamp="Today at 17:42"
+            message="Hello! how are you?"
           />
         </div>
         <div style={{ padding: 32 }}>
