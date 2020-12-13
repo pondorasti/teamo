@@ -24,17 +24,17 @@ const useStyles = makeStyles({
     height: 24,
     objectFit: "cover",
   },
-  lobbyDescription: {
-    // paddingTop: 4,
-    // paddingBottom: 4,
-  },
-  autocomplete: {
-    marginTop: 12,
-    marginBottom: 12,
-  },
   descriptionIconItem: {
     display: "flex",
     alignSelf: "flex-start",
+  },
+  lobbyInfoGridContainer: { 
+    // 2px custom spacing
+    width: "calc(100% + 4px)",
+    margin: "-2px",
+    "& > .MuiGrid-item": {
+      padding: 2  
+    }
   },
 })
 
@@ -53,7 +53,7 @@ function LobbyHeader({ lobbyHost, gameName, gameLogo, lobbyDesc, platform, mic, 
         <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
       </Grid>
 
-      <Grid container item spacing={1} >
+      <Grid container item classes={{ root: classes.lobbyInfoGridContainer }}>
         <Grid container item alignItems="center" wrap="nowrap">
           <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
             <Description />
