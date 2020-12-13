@@ -16,6 +16,7 @@ import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDial
 import ProfileDialog from "./screens/profile/ProfileDialog"
 import PlayerCard from "./screens/lobby-screen/PlayerCard"
 import TMButton from "./atoms/TMButton"
+import Message from "./screens/lobby-screen/Message"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
@@ -112,6 +113,8 @@ function App() {
             isHost
             isAccepted
           />
+
+          <Message></Message>
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
