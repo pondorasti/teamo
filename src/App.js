@@ -113,12 +113,11 @@ function App() {
             isHost
             isAccepted
           />
-
           <Message
             avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
             username="Pondorasti"
             timestamp="Today at 17:42"
-            message="We can allow a one player queue, so that if someone get kicked, there is one more instant option, but this is extra feature, maybe not in mvp"
+            message="Hello! how are you?"
           />
         </div>
         <div style={{ padding: 32 }}>
