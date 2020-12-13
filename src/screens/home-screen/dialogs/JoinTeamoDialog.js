@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -40,29 +40,24 @@ const imgArray = [
   TallShroomie,
 ]
 
-function Illustration() {
-  const randomImg = imgArray[Math.floor(Math.random() * imgArray.length)]
-  const classes = useStyles()
-
-  return (
-    <img
-      src={randomImg}
-      className={classes.illustration}
-      // style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
-    />
-  )
-}
-
 function JoinTeamoDialog({ open, onClose }) {
   const classes = useStyles()
-  const MemoizedIllustration = memo(Illustration)
 
-  // const [randomImg, setRandomImg] = useState("null")
-  // useEffect(() => {
-  //   setRandomImg(imgArray[Math.floor(Math.random() * imgArray.length)])
-  // }, [])
+  const [randomImg, setRandomImg] = useState(null)
+  const [isImgFlipped, setImgFlipped] = useState(false)
+  const [isLoaded, setLoaded] = useState(false)
 
-  // const isImgFlipped = Math.random() < 0.5
+  function handleImgRefresh() {
+    setRandomImg(imgArray[Math.floor(Math.random() * imgArray.length)])
+    setImgFlipped(Math.random() < 0.5)
+  }
+
+  if (open && !isLoaded) {
+    handleImgRefresh()
+    setLoaded(true)
+  } else if (!open && isLoaded) {
+    setLoaded(false)
+  }
 
   return (
     <Dialog
@@ -78,7 +73,11 @@ function JoinTeamoDialog({ open, onClose }) {
         <Typography variant="body1" classes={{ root: classes.subtitleSpacing }}>
           What is your Gamer Tag?
         </Typography>
-        <MemoizedIllustration />
+        <img
+          src={randomImg}
+          className={classes.illustration}
+          style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
+        />
       </DialogTitle>
       <DialogContent>
         <ListItem>
