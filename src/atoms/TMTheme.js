@@ -157,6 +157,9 @@ const TMTheme = createMuiTheme({
     MuiDialogTitle: {
       disableTypography: true,
     },
+    MuiListItem: {
+      disableGutters: true,
+    }
   },
   overrides: {
     // Textfield
@@ -212,11 +215,6 @@ const TMTheme = createMuiTheme({
         // List edge cases
         "& > .MuiList-padding": {
           padding: 0,
-        },
-        "& .MuiListItem-gutters": {
-          // disable gutters
-          paddingLeft: 0,
-          paddingRight: 0,
         },
       },
     },
