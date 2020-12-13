@@ -2,19 +2,24 @@ import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import Autocomplete from "@material-ui/lab/Autocomplete"
-import { Dialog, DialogContent, DialogActions, DialogTitle, Typography, List, ListItem, ListItemIcon, TextField } from "@material-ui/core"
+import {
+  Dialog,
+  DialogContent,
+  DialogActions,
+  DialogTitle,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  TextField,
+} from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
 
 import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
 
-import {
-  Controller,
-  Dpad,
-  Mic,
-  People,
-  Description,
-} from "../../../assets/icons"
+import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
+import couchBuddies from "../../../assets/images/CouchBuddies.png"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -22,64 +27,72 @@ const useStyles = makeStyles(() => ({
     alignSelf: "flex-start",
     marginTop: 7, // WARNING: Hard-coded value.
   },
+  illustration: {
+    maxWidth: 300,
+    marginBottom: 8,
+  },
 }))
 
 function CreateTeamoDialog({ open, onClose }) {
   const classes = useStyles()
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      aria-labelledby="create-teamo-modal"
-      classes={{ root: classes.dialogBody }}
-    >
+    <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title">
-        <Typography variant="h4">
-          Create Teamo
-        </Typography>
+        <img src={couchBuddies} className={classes.illustration} />
+        <Typography variant="h4">Create Teamo</Typography>
       </DialogTitle>
 
       <DialogContent>
         <List>
           <ListItem>
-            <ListItemIcon> <Controller /> </ListItemIcon>
+            <ListItemIcon>
+              <Controller />
+            </ListItemIcon>
             <Autocomplete
-              renderInput={(params) => <TextField {...params} label={Game.label} />}
+              renderInput={params => <TextField {...params} label={Game.label} />}
               options={Game.options}
               fullWidth
             />
           </ListItem>
 
           <ListItem>
-            <ListItemIcon> <Dpad /> </ListItemIcon>
+            <ListItemIcon>
+              <Dpad />
+            </ListItemIcon>
             <Autocomplete
-              renderInput={(params) => <TextField {...params} label={Platform.label} />}
+              renderInput={params => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
               fullWidth
             />
           </ListItem>
 
           <ListItem>
-            <ListItemIcon> <Mic /> </ListItemIcon>
+            <ListItemIcon>
+              <Mic />
+            </ListItemIcon>
             <Autocomplete
-              renderInput={(params) => <TextField {...params} label={Microphone.label} />}
+              renderInput={params => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
               fullWidth
             />
           </ListItem>
 
           <ListItem>
-            <ListItemIcon> <People /> </ListItemIcon>
+            <ListItemIcon>
+              <People />
+            </ListItemIcon>
             <Autocomplete
-              renderInput={(params) => <TextField {...params} label={Size.label} />}
+              renderInput={params => <TextField {...params} label={Size.label} />}
               options={Size.options}
               fullWidth
             />
           </ListItem>
 
-          <ListItem> 
-            <ListItemIcon classes={{ root: classes.descriptionIconItem }}> <Description /> </ListItemIcon>
+          <ListItem>
+            <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
+              <Description />
+            </ListItemIcon>
             <TextField
               label="Description"
               helperText="Max 150 characters"
