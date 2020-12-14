@@ -10,20 +10,21 @@ const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
     padding: horizontalPadding,
-    flexDirection: "column",
-    justifyContent: "flex-end",
     backgroundColor: theme.palette.grey[700],
-    height: "100vh",
+    height: "100%",
   },
   mainGrid: {
-    marginBottom: 54,
+    "&:last-child": {
+      paddingBottom: 76,
+      marginBottom: 76,
+    },
   },
   sendMessageContainer: {
     position: "fixed",
     bottom: 0,
     paddingBottom: 24,
     backgroundColor: theme.palette.grey[700],
-    width: `calc(100% - ${horizontalPadding * 2}px)`,
+    width: "96%",
     display: "flex",
   },
 }))
@@ -43,12 +44,14 @@ function ChatWindow() {
   ))
 
   return (
-    <div className={classes.container}>
+    <Grid container className={classes.container}>
       <Grid
+        item
         container
         justify="flex-end"
         direction="column"
         spacing={2}
+        wrap="nowrap"
         classes={{ root: classes.mainGrid }}
       >
         {messages}
@@ -57,7 +60,7 @@ function ChatWindow() {
       <div className={classes.sendMessageContainer}>
         <SendMessage />
       </div>
-    </div>
+    </Grid>
   )
 }
 
