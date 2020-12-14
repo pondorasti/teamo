@@ -17,14 +17,14 @@ import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDial
 import ProfileDialog from "./screens/profile/ProfileDialog"
 import LobbySidebar from "./screens/lobby-screen/LobbySidebar"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: { display: "flex" },
   content: {
     flexGrow: 1,
     padding: 32,
-    backgroundColor: `${theme.palette.grey[900]}`
+    backgroundColor: `${TMTheme.palette.grey[800]}`
   }
-}))
+})
 
 function App() {
   const classes = useStyles()

@@ -28,12 +28,12 @@ const useStyles = makeStyles({
     display: "flex",
     alignSelf: "flex-start",
   },
-  lobbyInfoGridContainer: { 
+  lobbyInfoGridContainer: {
     // 2px custom spacing
     width: "calc(100% + 4px)",
     margin: "-2px",
     "& > .MuiGrid-item": {
-      padding: 2  
+      padding: 2,
     }
   },
 })
@@ -46,73 +46,73 @@ function LobbyHeader({ lobbyHost, gameName, gameLogo, lobbyDesc, platform, mic, 
     setLobbyStatus(newValue)
   }
 
-  return (
-    <Grid container item spacing={3}>
-      <Grid container item alignItems="center" justify="space-between">
-        <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
-        <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
-      </Grid>
+  return (<>
+    <Grid container item alignItems="center" justify="space-between">
+      <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
+      <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
+    </Grid>
 
-      <Grid container item classes={{ root: classes.lobbyInfoGridContainer }}>
-        <Grid container item alignItems="center" wrap="nowrap">
-          <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
-            <Description />
-          </ListItemIcon>
-          <Typography variant="body1">{lobbyDesc}</Typography>
-        </Grid>
-        <Grid container item alignItems="center" wrap="nowrap">
-          <ListItemIcon>
-            <Dpad />
-          </ListItemIcon>
-          <Typography variant="body1">{platform}</Typography>
-        </Grid>
-        <Grid container item alignItems="center" wrap="nowrap">
-          <ListItemIcon>
-            {mic === "Microphone" ? <Mic /> : <MicSlash />}
-          </ListItemIcon>
-          <Typography variant="body1">{mic}</Typography>
-        </Grid>
-        <Grid container item alignItems="center" wrap="nowrap">
-          <ListItemIcon> <People /> </ListItemIcon>
-          <Typography variant="body1">{players}</Typography>
-        </Grid>
+    <Grid container item classes={{ root: classes.lobbyInfoGridContainer }}>
+      <Grid container item alignItems="center" wrap="nowrap">
+        <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
+          <Description />
+        </ListItemIcon>
+        <Typography variant="body1">{lobbyDesc}</Typography>
       </Grid>
-
       <Grid container item alignItems="center" wrap="nowrap">
         <ListItemIcon>
-          {lobbyStatus === Status.options[0] ? <LockOpen /> : <Lock />}
+          <Dpad />
         </ListItemIcon>
-        <Autocomplete
-          renderInput={params => <TextField {...params} label={Status.label} />}
-          options={Status.options}
-          fullWidth
-          disableClearable
-          value={lobbyStatus}
-          onChange={handleLobbyStatus}
-        />
+        <Typography variant="body1">{platform}</Typography>
       </Grid>
-
-      <Grid container item spacing={1} direction="column">
-        <Grid item>
-          <TMButton leadingIcon={<Gear />} fullWidth>
-            Edit Teamo
-          </TMButton>
-        </Grid>
-        <Grid item>
-          <TMButton leadingIcon={<Headset />} fullWidth>
-            Join Voice
-          </TMButton>
-        </Grid>
-        <Grid item>
-          <TMButton leadingIcon={<Exit />} fullWidth variant="outlined">
-            Delete Lobby
-          </TMButton>
-        </Grid>
+      <Grid container item alignItems="center" wrap="nowrap">
+        <ListItemIcon>
+          {mic === "Microphone" ? <Mic /> : <MicSlash />}
+        </ListItemIcon>
+        <Typography variant="body1">{mic}</Typography>
+      </Grid>
+      <Grid container item alignItems="center" wrap="nowrap">
+        <ListItemIcon> <People /> </ListItemIcon>
+        <Typography variant="body1">{players}</Typography>
       </Grid>
     </Grid>
+
+    <Grid container item alignItems="center" wrap="nowrap">
+      <ListItemIcon>
+        {lobbyStatus === Status.options[0] ? <LockOpen /> : <Lock />}
+      </ListItemIcon>
+      <Autocomplete
+        renderInput={params => <TextField {...params} label={Status.label} />}
+        options={Status.options}
+        fullWidth
+        disableClearable
+        value={lobbyStatus}
+        onChange={handleLobbyStatus}
+      />
+    </Grid>
+
+    <Grid container item spacing={1} direction="column">
+      <Grid item>
+        <TMButton leadingIcon={<Gear />} fullWidth>
+          Edit Teamo
+        </TMButton>
+      </Grid>
+      <Grid item>
+        <TMButton leadingIcon={<Headset />} fullWidth>
+          Join Voice
+        </TMButton>
+      </Grid>
+      <Grid item>
+        <TMButton leadingIcon={<Exit />} fullWidth variant="outlined">
+          Delete Lobby
+        </TMButton>
+      </Grid>
+    </Grid>
+  </>
   )
 }
 
+// <Grid container item spacing={3}>
 LobbyHeader.propTypes = {
   /** Room creater */
   lobbyHost: PropTypes.string.isRequired,
