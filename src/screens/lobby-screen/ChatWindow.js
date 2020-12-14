@@ -5,26 +5,26 @@ import messageData from "./messageData"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 
-const horizontalPadding = 24
+const padding = 24
 const useStyles = makeStyles(theme => ({
-  container: {
-    display: "flex",
-    padding: horizontalPadding,
+  containerGrid: {
+    padding: `${padding}px`,
+    paddingBottom: 0,
+    height: "calc(100vh - 64px)",
     backgroundColor: theme.palette.grey[700],
-    height: "100%",
   },
   mainGrid: {
-    "&:last-child": {
-      paddingBottom: 76,
+    "& > *:last-child": {
       marginBottom: 76,
     },
+    marginBottom: 0,
   },
   sendMessageContainer: {
     position: "fixed",
     bottom: 0,
-    paddingBottom: 24,
+    paddingBottom: padding,
     backgroundColor: theme.palette.grey[700],
-    width: "96%",
+    width: `calc(100% - ${2 * padding}px)`,
     display: "flex",
   },
 }))
@@ -44,7 +44,7 @@ function ChatWindow() {
   ))
 
   return (
-    <Grid container className={classes.container}>
+    <Grid container classes={{ root: classes.containerGrid }}>
       <Grid
         item
         container
