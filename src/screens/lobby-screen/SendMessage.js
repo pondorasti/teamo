@@ -1,11 +1,7 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import IconButton from "@material-ui/core/IconButton"
-import InputAdornment from "@material-ui/core/InputAdornment"
-
+import { IconButton, InputAdornment, TextField }  from "@material-ui/core/"
 import { Airplane } from "../../assets/icons"
-
-import TextField from "@material-ui/core/TextField"
 
 const useStyles = makeStyles(theme => ({
   textField: {
@@ -19,7 +15,11 @@ const useStyles = makeStyles(theme => ({
       },
     },
   },
-  airplane: {
+  iconButton: {
+    width: 32, 
+    height: 32,
+  },
+  airplaneIcon: {
     fontSize: 16,
   },
 }))
@@ -38,10 +38,10 @@ function SendMessage() {
         endAdornment: (
           <InputAdornment position="start">
             <IconButton
-              aria-label="toggle password visibility"
+              aria-label="send-message"
               onClick={handleSubmit}
               edge="end"
-              style={{ width: 32, height: 32 }}
+              classes={{ root: classes.iconButton }}
             >
               <Airplane classes={{ root: classes.airplane }} />
             </IconButton>
