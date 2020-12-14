@@ -1,24 +1,34 @@
 import React from "react"
 
-import { ThemeProvider } from "@material-ui/core/styles"
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles"
 import { TextField } from "@material-ui/core"
 
 import { CssBaseline } from "@material-ui/core"
 import { TMTheme, TMButton } from "./atoms"
-import LobbyGrid from "./screens/home-screen/LobbyGrid"
+
 import data from "./lobbiesDumyData"
 
+import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
-import PlayerCard from "./screens/lobby-screen/PlayerCard"
-import LobbyHeader from "./screens/lobby-screen/LobbyHeader"
+import LobbySidebar from "./screens/lobby-screen/LobbySidebar"
 
+const useStyles = makeStyles({
+  root: { display: "flex" },
+  content: {
+    flexGrow: 1,
+    padding: 32,
+    backgroundColor: `${TMTheme.palette.grey[800]}`
+  }
+})
 
 function App() {
+  const classes = useStyles()
+
   const [openLogin, setOpenLogin] = React.useState(false)
   const [openJoinTeamo, setOpenJoinTeamo] = React.useState(false)
   const [openCreateTeamo, setOpenCreateTeamo] = React.useState(false)
@@ -58,14 +68,19 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={TMTheme}>
-      <CssBaseline />
-
-      <AppBar />
-
-      <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
-        <div style={{ padding: 32 }}>
-          <TextField label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
+    <ThemeProvider theme={TMTheme} >
+      <div className={classes.root}>
+        <CssBaseline />
+        <LobbySidebar />
+        <main className={classes.content}>
+          <AppBar />
+          <TextField
+            label="Games"
+            defaultValue="jello"
+            helperText="hello"
+            rows={4}
+            multiline
+          />
           <TextField label="Games" defaultValue="jello" type="number" />
 
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
@@ -87,34 +102,8 @@ function App() {
           <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
           <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
           <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-          <LobbyHeader
-            lobbyHost="Pondorasti"
-            gameName="Minecraft"
-            gameLogo="https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png"
-            lobbyDesc="This is my room decription, this should be no more than three lines long..."
-            platform="PC"
-            mic="Microphone"
-            players="4/4 Players, 1 waiting"
-          />
-
-          <PlayerCard
-            username="Pondorasti"
-            gamerTag="Lascorpy"
-            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            bio="we only allow this many characters? 52 chars, let's make it 62"
-          />
-          <PlayerCard
-            username="Pondorasti"
-            gamerTag="Lascorpy"
-            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            bio="we only allow this many characters? 52 chars, let's make it 62"
-            isHost
-            isAccepted
-          />
-        </div>
-        <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
-        </div>
+        </main>
       </div>
     </ThemeProvider>
   )

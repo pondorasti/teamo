@@ -7,7 +7,6 @@ import { TMAvatar, TMButton } from "../../atoms/"
 
 const useStyles = makeStyles(theme => ({
   containerGrid: {
-    width: 304,
     borderRadius: 16,
     padding: 16,
     transition: theme.transitions.create("background-color"),
@@ -31,8 +30,8 @@ const useStyles = makeStyles(theme => ({
   },
   usernameGrid: { marginLeft: 8 },
   copyIcon: {
-    marginLeft: 4, 
-    width: 12, 
+    marginLeft: 4,
+    width: 12,
     height: 12,
   },
   threeDotsIconButton: {
@@ -59,71 +58,75 @@ function PlayerCard({ username, gamerTag, avatarUrl, bio, isHost, isAccepted }) 
   }
 
   return (
-    <Grid
-      container
-      direction="column"
-      classes={{ root: classes.containerGrid }}
-      style={{ backgroundColor: `${acceptedPlayer ? theme.palette.warning.main : theme.palette.grey[700]}` }}
-    >
-      <Grid container item wrap="nowrap" classes={{ root: classes.headerGrid }}>
-        <TMAvatar
-          size="medium"
-          alt={username}
-          src={avatarUrl}
-        />
+    <Grid container item>
+      <Grid
+        container
+        item
+        direction="column"
+        classes={{ root: classes.containerGrid }}
+        style={{ backgroundColor: `${acceptedPlayer ? theme.palette.warning.main : theme.palette.grey[700]}` }}
+      >
 
-        <Grid container item direction="column" classes={{ root: classes.usernameGrid }}>
-          <Grid container item>
-            <Typography variant="h5"> {username} </Typography>
-            {isHost && <Crown classes={{ root: classes.crownIcon }} />}
-            
+        <Grid container item wrap="nowrap" classes={{ root: classes.headerGrid }}>
+          <TMAvatar
+            size="medium"
+            alt={username}
+            src={avatarUrl}
+          />
+
+          <Grid container item direction="column" classes={{ root: classes.usernameGrid }}>
+            <Grid container item>
+              <Typography variant="h5"> {username} </Typography>
+              {isHost && <Crown classes={{ root: classes.crownIcon }} />}
+
+            </Grid>
+            <Tooltip title="Copy" arrow placement="right">
+              <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
+                <Typography variant="body1"> u/{gamerTag} </Typography>
+                <Copy classes={{ root: classes.copyIcon }} />
+              </div>
+            </Tooltip>
           </Grid>
-          <Tooltip title="Copy" arrow placement="right">
-            <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
-              <Typography variant="body1"> u/{gamerTag} </Typography>
-              <Copy classes={{ root: classes.copyIcon }} />
-            </div>
-          </Tooltip>
+
+          <IconButton classes={{ root: classes.threeDotsIconButton }} onClick={handleOptionsButton}>
+            <ThreeDots size="inherit" />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "left" }}
+            open={open}
+            onClose={handleClose}
+          >
+            <MenuItem>Profile</MenuItem>
+            <MenuItem>Kick</MenuItem>
+          </Menu>
         </Grid>
 
-        <IconButton classes={{ root: classes.threeDotsIconButton }} onClick={handleOptionsButton}>
-          <ThreeDots size="inherit" />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          transformOrigin={{ vertical: "top", horizontal: "left" }}
-          open={open}
-          onClose={handleClose}
-        >
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>Kick</MenuItem>
-        </Menu>
+        <Typography variant="body1"> {bio} </Typography>
+
+        <Collapse in={!acceptedPlayer}>
+          <Grid container item wrap="nowrap" classes={{ root: classes.buttonsGrid }}>
+            <TMButton
+              fullWidth
+              variant="outlined"
+              leadingIcon={<Exit />}
+            >
+              Deny
+            </TMButton>
+
+            <TMButton
+              fullWidth
+              color="primary"
+              leadingIcon={<Headset />}
+              style={{ marginLeft: 16 }}
+              onClick={handledAcceptButton}
+            >
+              Accept
+            </TMButton>
+          </Grid>
+        </Collapse>
       </Grid>
-
-      <Typography variant="body1"> {bio} </Typography>
-
-      <Collapse in={!acceptedPlayer}>
-        <Grid container item wrap="nowrap" classes={{ root: classes.buttonsGrid }}>
-          <TMButton
-            fullWidth
-            variant="outlined"
-            leadingIcon={<Exit />}
-          >
-            Deny
-          </TMButton>
-
-          <TMButton
-            fullWidth
-            color="primary"
-            leadingIcon={<Headset />}
-            style={{ marginLeft: 16 }}
-            onClick={handledAcceptButton}
-          >
-            Accept
-          </TMButton>
-        </Grid>
-      </Collapse>
     </Grid>
   )
 }
