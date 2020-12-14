@@ -1,37 +1,16 @@
 import React from "react"
 
-import { ThemeProvider, makeStyles } from "@material-ui/core/styles"
-
-import { CssBaseline, Toolbar } from "@material-ui/core"
+import { ThemeProvider } from "@material-ui/core/styles"
+import { CssBaseline } from "@material-ui/core"
 import { TMTheme } from "./atoms"
-
-
-import AppBar from "./screens/TMAppBar"
-import LobbySidebar from "./screens/lobby-screen/LobbySidebar"
-import ChatWindow from "./screens/lobby-screen/ChatWindow"
-
-const useStyles = makeStyles({
-  root: { display: "flex" },
-  content: {
-    flexGrow: 1,
-    backgroundColor: `${TMTheme.palette.grey[800]}`
-  }
-})
+import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 
 function App() {
-  const classes = useStyles()
 
   return (
     <ThemeProvider theme={TMTheme} >
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar />
-        <LobbySidebar />
-        <main className={classes.content}>
-          <Toolbar />
-          <ChatWindow />
-        </main>
-      </div>
+      <CssBaseline />
+      <LobbyScreen />
     </ThemeProvider>
   )
 }
