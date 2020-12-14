@@ -13,17 +13,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 16,
     "& .MuiOutlinedInput-root": {
       borderRadius: 16,
-      // "&.Mui-focused fieldset": {
-      //   //borders set to none to disable border highlight on hover and focus
-      //   // borderColor: theme.palette.grey[700],
-      // },
+
       "& fieldset": {
         border: "none",
-        // borderColor: theme.palette.grey[700],
       },
-      // "&:hover fieldset": {
-      //   // borderColor: theme.palette.grey[700],
-      // },
     },
   },
   airplane: {
