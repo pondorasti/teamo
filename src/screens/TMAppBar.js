@@ -5,6 +5,7 @@ import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
 import TeamoBanner from "../assets/images/TeamoBanner.png"
 
+// WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
   appBarRoot: {
     backgroundColor: theme.palette.grey[900],

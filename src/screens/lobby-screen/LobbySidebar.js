@@ -7,7 +7,7 @@ import data from "../../lobbyPlayersDummyData"
 
 const drawerWidth = 352
 const useStyle = makeStyles(theme => ({
-  drawer: {
+  drawerRoot: {
     width: drawerWidth,
     flexShrink: 0,
   },
@@ -26,15 +26,15 @@ function LobbySidebar() {
 
   return (
     <Drawer
-      className={classes.drawer}
       variant="permanent"
       classes={{
-        paper: classes.drawerPaper,
+        root: classes.drawerRoot,
+        paper: classes.drawerPaper
       }}
     >
       {/* An extra toolbar for shifting the content of the page under the app bar */}
       <Toolbar />
-      
+
       <div className={classes.drawerContainer}>
         <Grid container spacing={3} >
           <LobbyHeader

@@ -15,16 +15,20 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[700],
   },
   mainGrid: {
+    // Last Message Component
     "& > *:nth-last-child(2)": {
       paddingBottom: padding
+    },
+    // SendMessage Component
+    "& > *:last-child": {
+      paddingTop: 0,
+      paddingBottom: padding,
     },
     marginBottom: 0,
   },
   sendMessageGridContainer: {
     position: "sticky",
     bottom: 0,
-    paddingTop: 0,
-    paddingBottom: padding,
     backgroundColor: theme.palette.grey[700],
   },
 }))
