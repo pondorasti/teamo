@@ -85,14 +85,8 @@ function App() {
 
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateTeamoDialog
-            open={openCreateTeamo}
-            onClose={handleCreateClose}
-          />
-          <CreateProfileDialog
-            open={openCreateProfile}
-            onClose={handleCreateProfileClose}
-          />
+          <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
+          <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
           <ProfileDialog
             open={openProfile}
             onClose={handleProfileClose}

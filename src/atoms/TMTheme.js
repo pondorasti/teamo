@@ -231,8 +231,8 @@ const TMTheme = createMuiTheme({
     // List
     MuiListItem: {
       root: {
-        paddingTop: 8,
-        paddingBottom: 8,
+        // Do not change this value without updating MuiDialogContent List Edge case
+        padding: "8px 0", 
       },
     },
     MuiListItemIcon: {
