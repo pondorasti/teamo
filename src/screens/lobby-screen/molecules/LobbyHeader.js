@@ -13,10 +13,10 @@ import {
   Gear,
   Headset,
   Exit,
-} from "../../assets/icons"
-import { Status, Microphone } from "../../api/lobby-template/"
+} from "../../../assets/icons"
+import { Status, Microphone } from "../../../api/lobby-template/"
 import Autocomplete from "@material-ui/lab/Autocomplete"
-import TMButton from "../../atoms/TMButton"
+import TMButton from "../../../atoms/TMButton"
 
 const useStyles = makeStyles({
   gameLogo: {

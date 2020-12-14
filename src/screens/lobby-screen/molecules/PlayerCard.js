@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Grid, Typography, Tooltip, IconButton, Menu, MenuItem, Collapse } from "@material-ui/core"
-import { Copy, ThreeDots, Exit, Headset, Crown } from "../../assets/icons"
-import { TMAvatar, TMButton } from "../../atoms/"
+import { Copy, ThreeDots, Exit, Headset, Crown } from "../../../assets/icons"
+import { TMAvatar, TMButton } from "../../../atoms"
 
 const useStyles = makeStyles(theme => ({
   containerGrid: {

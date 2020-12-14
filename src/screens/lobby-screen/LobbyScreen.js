@@ -2,8 +2,8 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Toolbar } from "@material-ui/core/"
 import AppBar from "../TMAppBar"
-import LobbySidebar from "./LobbySidebar"
-import ChatWindow from "./ChatWindow"
+import LobbySidebar from "./molecules/LobbySidebar"
+import ChatWindow from "./molecules/ChatWindow"
 
 const useStyles = makeStyles(theme => ({
   root: { display: "flex" },
