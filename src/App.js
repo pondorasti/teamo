@@ -17,6 +17,7 @@ import ProfileDialog from "./screens/profile/ProfileDialog"
 import PlayerCard from "./screens/lobby-screen/PlayerCard"
 import Message from "./screens/lobby-screen/Message"
 import LobbyHeader from "./screens/lobby-screen/LobbyHeader"
+import HeroCard from "./screens/home-screen/molecules/HeroCard"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
@@ -117,6 +118,16 @@ function App() {
             timestamp="Today at 17:42"
             message="Hello! how are you?"
           />
+          <HeroCard
+            hostUsername="Pondorasti"
+            hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+            gameName="Fall Guys"
+            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
+            description="This is my room decription, this should be no more than three lines long..."
+            platform="PC"
+            usesMic={true}
+            sizeStatus="3/4"
+          />
         </div>
         <div style={{ padding: 32 }}>
           <LobbyGrid lobbies={data} />
@@ -136,8 +147,7 @@ const gamesPlayed = [
   },
   {
     title: "Minecraft",
-    imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
   },
   {
     title: "Fall Guys",
