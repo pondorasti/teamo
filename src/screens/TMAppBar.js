@@ -89,9 +89,6 @@ function TMAppBar() {
         <Divider classes={{root: classes.divider}} />
 
       </AppBar>
-      
-      {/* An extra toolbar for shifting the content of the page under the app bar */}
-      <Toolbar />
     </>
   )
 }

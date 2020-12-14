@@ -13,7 +13,6 @@ const useStyle = makeStyles(theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    
     backgroundColor: theme.palette.grey[800]
   },
   drawerContainer: {
@@ -33,7 +32,9 @@ function LobbySidebar() {
         paper: classes.drawerPaper,
       }}
     >
+      {/* An extra toolbar for shifting the content of the page under the app bar */}
       <Toolbar />
+      
       <div className={classes.drawerContainer}>
         <Grid container spacing={3} >
           <LobbyHeader
