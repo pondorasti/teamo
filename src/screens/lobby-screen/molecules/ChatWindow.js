@@ -1,9 +1,9 @@
 import React from "react"
 import SendMessage from "./SendMessage"
 import Message from "./Message"
-import messageData from "../../../messageData"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
+import messagesData from "../../../api/dummy-data/messages"
 
 const padding = 24
 const useStyles = makeStyles(theme => ({
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 function ChatWindow() {
   const classes = useStyles()
 
-  const messages = messageData.map((message, index) => (
+  const messages = messagesData.map((message, index) => (
     <Grid item key={index}>
       <Message
         username={message.username}

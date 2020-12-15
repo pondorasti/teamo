@@ -7,7 +7,7 @@ import { TextField } from "@material-ui/core"
 
 import { TMButton } from "./atoms"
 
-import data from "./lobbiesDumyData"
+import lobbies from "./api/dummy-data/lobbies"
 
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
@@ -92,7 +92,7 @@ function App() {
         <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
         <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
         <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-        <LobbyGrid lobbies={data} />
+        <LobbyGrid lobbies={lobbies} />
       </main>
     </ThemeProvider>
   )

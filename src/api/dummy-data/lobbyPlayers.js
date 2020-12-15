@@ -1,4 +1,4 @@
-export const data = [
+export const lobbyPlayers = [
   {
     username: "Pondorasti",
     gamerTag: "Lascorpy",
@@ -33,4 +33,4 @@ export const data = [
   }
 ]
 
-export default data
+export default lobbyPlayers

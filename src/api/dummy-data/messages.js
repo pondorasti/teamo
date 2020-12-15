@@ -1,4 +1,4 @@
-const messageData = [
+const messages = [
   {
     username: "FirstMessage",
     avatarUrl:
@@ -276,4 +276,4 @@ const messageData = [
   },
 ]
 
-export default messageData
+export default messages

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Drawer, Toolbar, Grid, Divider } from "@material-ui/core/"
 import LobbyHeader from "./LobbyHeader"
 import PlayerCard from "./PlayerCard"
-import data from "../../../lobbyPlayersDummyData"
+import lobbyPlayers from "../../../api/dummy-data/lobbyPlayers"
 
 const drawerWidth = 352
 const useStyle = makeStyles(theme => ({
@@ -52,7 +52,7 @@ function LobbySidebar() {
           </Grid>
 
           <Grid container item spacing={2}>
-            {data.map((player, index) => (
+            {lobbyPlayers.map((player, index) => (
               <PlayerCard
                 key={index}
                 username={player.username}
