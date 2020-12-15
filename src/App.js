@@ -12,7 +12,7 @@ import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
-import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
+import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
 import LobbySidebar from "./screens/lobby-screen/LobbySidebar"
@@ -85,7 +85,7 @@ function App() {
 
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
           <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
+          <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
           <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
           <ProfileDialog
             open={openProfile}
