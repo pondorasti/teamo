@@ -1,31 +1,36 @@
 import React from "react"
 import SendMessage from "./SendMessage"
 import Message from "./Message"
-import messageData from "./messageData"
+import messageData from "../../../messageData"
 import { makeStyles } from "@material-ui/core/styles"
 import Grid from "@material-ui/core/Grid"
 
 const padding = 24
 const useStyles = makeStyles(theme => ({
-  containerGrid: {
+  gridContainer: {
+    overflowY: "auto",
+    overflowX: "hidden",
+    height: "calc(100vh - 64px)",
     padding: `${padding}px`,
     paddingBottom: 0,
-    height: "calc(100vh - 64px)",
     backgroundColor: theme.palette.grey[700],
   },
   mainGrid: {
+    // Last Message Component
+    "& > *:nth-last-child(2)": {
+      paddingBottom: padding,
+    },
+    // SendMessage Component
     "& > *:last-child": {
-      marginBottom: 76,
+      paddingTop: 0,
+      paddingBottom: padding,
     },
     marginBottom: 0,
   },
-  sendMessageContainer: {
-    position: "fixed",
+  sendMessageGridContainer: {
+    position: "sticky",
     bottom: 0,
-    paddingBottom: padding,
     backgroundColor: theme.palette.grey[700],
-    width: `calc(100% - ${2 * padding}px)`,
-    display: "flex",
   },
 }))
 
@@ -44,7 +49,7 @@ function ChatWindow() {
   ))
 
   return (
-    <Grid container classes={{ root: classes.containerGrid }}>
+    <Grid container classes={{ root: classes.gridContainer }}>
       <Grid
         item
         container
@@ -55,11 +60,11 @@ function ChatWindow() {
         classes={{ root: classes.mainGrid }}
       >
         {messages}
-      </Grid>
 
-      <div className={classes.sendMessageContainer}>
-        <SendMessage />
-      </div>
+        <Grid item classes={{ root: classes.sendMessageGridContainer }}>
+          <SendMessage />
+        </Grid>
+      </Grid>
     </Grid>
   )
 }
