@@ -132,11 +132,22 @@ function PlayerCard({ username, gamerTag, avatarUrl, bio, isHost, isAccepted }) 
 }
 
 PlayerCard.propTypes = {
+  /** The username associated with the player. */
   username: PropTypes.string.isRequired,
+  
+  /** The gamer tag associated with the player. */
   gamerTag: PropTypes.string.isRequired,
+  
+  /** The avatar `src` attribute associated with the message. */
   avatarUrl: PropTypes.string.isRequired,
+
+  /** The bio associated with the player. */
   bio: PropTypes.string.isRequired,
+  
+  /** A boolean property that represents if the player is the host of the lobby. */
   isHost: PropTypes.bool,
+  
+  /** A boolean property that represents if the player was accepted to the lobby or not. */
   isAccepted: PropTypes.bool,
 }
 
