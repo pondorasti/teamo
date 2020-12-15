@@ -37,8 +37,8 @@ function ProfileDialog({
   const classes = useStyles()
   const theme = useTheme()
 
-  const listGames = gamesPlayed.map(game => (
-    <Grid item xs={12} sm={6} md={4} key={game.gameTitle}>
+  const listGames = gamesPlayed.map((game, index) => (
+    <Grid item xs={12} sm={6} md={4} key={index}>
       <ProfileGameCard imageUrl={game.imageUrl} title={game.title} />
     </Grid>
   ))
