@@ -90,7 +90,7 @@ function LobbyOptionsButton({className}) {
 
 LobbyOptionsButton.propTypes = {
   /** Override or extend the styles applied to the component. */
-  className: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
 }
 
 export default LobbyOptionsButton
