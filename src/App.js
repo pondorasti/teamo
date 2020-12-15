@@ -11,6 +11,7 @@ import data from "./lobbiesDumyData"
 
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
+import Carousel from "./screens/home-screen/molecules/Carousel"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
 import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
@@ -58,19 +59,13 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={TMTheme} >
+    <ThemeProvider theme={TMTheme}>
       <CssBaseline />
       {/* <LobbyScreen /> */}
-      <main>
+      <main style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <AppBar />
         <Toolbar />
-        <TextField
-          label="Games"
-          defaultValue="jello"
-          helperText="hello"
-          rows={4}
-          multiline
-        />
+        <TextField label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
         <TextField label="Games" defaultValue="jello" type="number" />
 
         <LoginDialog open={openLogin} onClose={handleLoginClose} />
@@ -92,6 +87,8 @@ function App() {
         <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
         <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
         <TMButton onClick={handleProfileOpen}>Profile</TMButton>
+        <Carousel />
+
         <LobbyGrid lobbies={data} />
       </main>
     </ThemeProvider>
@@ -108,8 +105,7 @@ const gamesPlayed = [
   },
   {
     title: "Minecraft",
-    imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/I/91ZmgFvglpL.png",
   },
   {
     title: "Fall Guys",
