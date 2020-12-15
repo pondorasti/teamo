@@ -11,7 +11,7 @@ import data from "./lobbiesDumyData"
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
-import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
+import JoinLobbyDialog from "./screens/home-screen/dialogs/JoinLobbyDialog"
 import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile/ProfileDialog"
@@ -84,7 +84,7 @@ function App() {
           <TextField label="Games" defaultValue="jello" type="number" />
 
           <LoginDialog open={openLogin} onClose={handleLoginClose} />
-          <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
+          <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
           <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
           <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
           <ProfileDialog
