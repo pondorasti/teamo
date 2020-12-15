@@ -102,6 +102,9 @@ TMAvatar.propTypes = {
   /** An optional badge for the avatar */
   status: PropTypes.oneOf(["none", "online"]),
 
+  /** An optional string property that represents the background color of the badge */
+  backgroundColor: PropTypes.string,
+
   /** Override or extend the styles applied to the component. */
   style: PropTypes.object,
 }

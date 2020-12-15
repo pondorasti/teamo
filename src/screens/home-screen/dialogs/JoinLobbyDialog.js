@@ -41,7 +41,7 @@ const imgArray = [
   TallShroomie,
 ]
 
-function JoinTeamoDialog({ open, onClose }) {
+function JoinLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
   const [randomImg, setRandomImg] = useState(null)
@@ -103,7 +103,7 @@ function JoinTeamoDialog({ open, onClose }) {
   )
 }
 
-JoinTeamoDialog.propTypes = {
+JoinLobbyDialog.propTypes = {
   /** If `true`, the modal is presented. */
   open: PropTypes.bool.isRequired,
 
@@ -111,8 +111,8 @@ JoinTeamoDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
 }
 
-JoinTeamoDialog.defaultProps = {
+JoinLobbyDialog.defaultProps = {
   open: false,
 }
 
-export default JoinTeamoDialog
+export default JoinLobbyDialog

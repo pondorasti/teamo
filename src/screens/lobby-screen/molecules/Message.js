@@ -27,16 +27,16 @@ function Message({ avatarUrl, username, timestamp, message }) {
 }
 
 Message.propTypes = {
-  /** The avatar `src` attribute associated with the message */
+  /** The avatar `src` attribute associated with the message. */
   avatarUrl: PropTypes.string.isRequired,
 
-  /** The username associated with the message */
+  /** The username associated with the message. */
   username: PropTypes.string.isRequired,
 
-  /** A string representation of the timestamp */
+  /** A string representation of the timestamp. */
   timestamp: PropTypes.string.isRequired,
 
-  /** The contents of the message */
+  /** The contents of the message. */
   message: PropTypes.string.isRequired,
 }
 
