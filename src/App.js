@@ -1,10 +1,11 @@
 import React from "react"
 
-import { ThemeProvider, makeStyles } from "@material-ui/core/styles"
+import { CssBaseline, Toolbar } from "@material-ui/core"
+import { TMTheme } from "./atoms"
+import { ThemeProvider } from "@material-ui/core/styles"
 import { TextField } from "@material-ui/core"
 
-import { CssBaseline } from "@material-ui/core"
-import { TMTheme, TMButton } from "./atoms"
+import { TMButton } from "./atoms"
 
 import data from "./lobbiesDumyData"
 
@@ -14,21 +15,10 @@ import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
 import JoinLobbyDialog from "./screens/home-screen/dialogs/JoinLobbyDialog"
 import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
-import ProfileDialog from "./screens/profile/ProfileDialog"
-import LobbySidebar from "./screens/lobby-screen/LobbySidebar"
-
-const useStyles = makeStyles({
-  root: { display: "flex" },
-  content: {
-    flexGrow: 1,
-    padding: 32,
-    backgroundColor: `${TMTheme.palette.grey[800]}`
-  }
-})
+import ProfileDialog from "./screens/profile-dialog/ProfileDialog"
+// import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 
 function App() {
-  const classes = useStyles()
-
   const [openLogin, setOpenLogin] = React.useState(false)
   const [openJoinTeamo, setOpenJoinTeamo] = React.useState(false)
   const [openCreateTeamo, setOpenCreateTeamo] = React.useState(false)
@@ -69,42 +59,41 @@ function App() {
 
   return (
     <ThemeProvider theme={TMTheme} >
-      <div className={classes.root}>
-        <CssBaseline />
-        <LobbySidebar />
-        <main className={classes.content}>
-          <AppBar />
-          <TextField
-            label="Games"
-            defaultValue="jello"
-            helperText="hello"
-            rows={4}
-            multiline
-          />
-          <TextField label="Games" defaultValue="jello" type="number" />
+      <CssBaseline />
+      {/* <LobbyScreen /> */}
+      <main>
+        <AppBar />
+        <Toolbar />
+        <TextField
+          label="Games"
+          defaultValue="jello"
+          helperText="hello"
+          rows={4}
+          multiline
+        />
+        <TextField label="Games" defaultValue="jello" type="number" />
 
-          <LoginDialog open={openLogin} onClose={handleLoginClose} />
-          <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
-          <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
-          <ProfileDialog
-            open={openProfile}
-            onClose={handleProfileClose}
-            backgroundColor="#1E1E1E"
-            username="ShiroTheCat"
-            status="online"
-            bio="Hello, my name Shiro, i look like dog, but i am cat."
-            avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-            gamesPlayed={gamesPlayed}
-          />
-          <TMButton onClick={handleLoginOpen}>Login</TMButton>
-          <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
-          <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
-          <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
-          <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-          <LobbyGrid lobbies={data} />
-        </main>
-      </div>
+        <LoginDialog open={openLogin} onClose={handleLoginClose} />
+        <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
+        <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
+        <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
+        <ProfileDialog
+          open={openProfile}
+          onClose={handleProfileClose}
+          backgroundColor="#1E1E1E"
+          username="ShiroTheCat"
+          status="online"
+          bio="Hello, my name Shiro, i look like dog, but i am cat."
+          avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+          gamesPlayed={gamesPlayed}
+        />
+        <TMButton onClick={handleLoginOpen}>Login</TMButton>
+        <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
+        <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
+        <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
+        <TMButton onClick={handleProfileOpen}>Profile</TMButton>
+        <LobbyGrid lobbies={data} />
+      </main>
     </ThemeProvider>
   )
 }
