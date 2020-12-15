@@ -10,38 +10,35 @@ import TMAvatar from "../../../atoms/TMAvatar"
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
-    display: "flex",
-    width: 400,
-    height: 200,
-    borderRadius: 16,
+  },
+  card: {
+    // width: 400,
+    // height: 200,
+    borderRadius: "16px 20px 20px 16px",
+    // position: "relative",
+    // display: "flex",
   },
   gameImg: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     position: "absolute",
-    top: 0,
-    left: 0,
     borderRadius: "16px 20px 20px 16px",
   },
-  card: {
-    width: "45%",
-    marginLeft: "55%",
+  cardContent: {
+    // width: "45%",
+    // marginLeft: "55%",
     borderRadius: 16,
     height: "100%",
-    // boxShadow: "1px 3px 1px #9E9E9E",
-    // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-
-    // don't accidently trigger options menu by hovering over the border
     pointerEvents: "fill",
     backgroundColor: theme.palette.grey[700],
     "&:hover + $optionsButtonContainer": {
       opacity: 1,
       pointerEvents: "auto",
     },
+    padding: 12,
   },
-  cardActionArea: { padding: 12 },
   topDiv: {
     display: "flex",
     width: "100%",
@@ -76,33 +73,34 @@ function HeroCard({
   const classes = useStyles()
 
   return (
-    <CardActionArea className={classes.cardContainer}>
-      <div classes={{ root: classes.gameImg }}>
-        <img className={classes.gameImg} src={gameImg} alt={gameName} />
-      </div>
+    <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
-        <CardContent classes={{ root: classes.cardActionArea }}>
-          <Grid container justify="space-between">
-            <div className={classes.topDiv}>
-              <Grid item xs={12} classes={{ root: classes.hostInfo }}>
-                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-                  {hostUsername}
-                </Typography>
+        <CardActionArea>
+          <div>
+            <img className={classes.gameImg} src={gameImg} alt={gameName} />
+          </div>
+          <CardContent classes={{ root: classes.cardContent }}>
+            <Grid container justify="space-between">
+              <div className={classes.topDiv}>
+                <Grid item xs={12} classes={{ root: classes.hostInfo }}>
+                  <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+                  <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+                    {hostUsername}
+                  </Typography>
+                </Grid>
+              </div>
+              <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
+                <Typography variant="h5">{description}</Typography>
               </Grid>
-            </div>
-            <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
-              <Typography variant="h5">{description}</Typography>
+              <Grid item xs={12}>
+                <HeroCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <HeroCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
-            </Grid>
-          </Grid>
-        </CardContent>
+          </CardContent>
+        </CardActionArea>
       </Card>
-
       <LobbyOptionsButton className={classes.optionsButtonContainer} />
-    </CardActionArea>
+    </div>
   )
 }
 
