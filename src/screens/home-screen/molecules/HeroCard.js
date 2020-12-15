@@ -14,40 +14,38 @@ const useStyles = makeStyles(theme => ({
     height: 200,
   },
   card: {
-    borderRadius: "16px 20px 20px 16px",
-    position: "relative",
-    display: "flex",
-    // height: "100%",
+    borderRadius: 16,
+    // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-    pointerEvents: "fill",
+    //Keep this border radius for the grey mask below
     backgroundColor: theme.palette.grey[700],
     "&:hover + $optionsButtonContainer": {
       opacity: 1,
+      //pointerEvents needed here for options to display
       pointerEvents: "auto",
     },
-    padding: 12,
   },
   gameImg: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
     position: "absolute",
-    borderRadius: "16px 20px 20px 16px",
+    borderRadius: "16px 40px 40px 16px",
   },
   cardContent: {
-    // width: "45%",
-    // marginLeft: "55%",
+    position: "relative",
+    padding: 0,
+    width: 184,
+    height: 200,
+    left: "54%",
+  },
+  cardGrid: {
     borderRadius: 16,
-  },
-  topDiv: {
-    display: "flex",
-    width: "100%",
-    alignItems: "center",
-    marginBottom: 24,
-  },
-
-  cardMiddleSection: {
-    marginBottom: 16,
+    height: "100%",
+    // fixes safari overflow bug
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+    backgroundColor: theme.palette.grey[700],
+    padding: 16,
   },
   hostInfo: {
     display: "flex",
@@ -80,16 +78,21 @@ function HeroCard({
             <img className={classes.gameImg} src={gameImg} alt={gameName} />
           </div>
           <CardContent classes={{ root: classes.cardContent }}>
-            <Grid container justify="space-between">
-              <div className={classes.topDiv}>
-                <Grid item xs={12} classes={{ root: classes.hostInfo }}>
-                  <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-                  <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-                    {hostUsername}
-                  </Typography>
-                </Grid>
-              </div>
-              <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
+            <Grid
+              container
+              // direction="column"
+              justify="space-between"
+              alignItems="flex-start"
+              alignContent="space-between"
+              classes={{ root: classes.cardGrid }}
+            >
+              <Grid item xs={12} classes={{ root: classes.hostInfo }}>
+                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+                  {hostUsername}
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
                 <Typography variant="h5">{description}</Typography>
               </Grid>
               <Grid item xs={12}>
