@@ -157,6 +157,9 @@ const TMTheme = createMuiTheme({
     MuiDialogTitle: {
       disableTypography: true,
     },
+    MuiListItem: {
+      disableGutters: true,
+    }
   },
   overrides: {
     // Textfield
@@ -203,7 +206,7 @@ const TMTheme = createMuiTheme({
       root: {
         display: "flex",
         flexDirection: "column",
-        
+
         padding: "0px 32px 32px 32px",
         "&:first-child": {
           paddingTop: 32,
@@ -211,11 +214,7 @@ const TMTheme = createMuiTheme({
 
         // List edge cases
         "& > .MuiList-padding": {
-          padding: 0
-        },
-        "& .MuiListItem-gutters": { // disable gutters
-          paddingLeft: 0,
-          paddingRight: 0,
+          padding: 0,
         },
       },
     },
@@ -232,8 +231,8 @@ const TMTheme = createMuiTheme({
     // List
     MuiListItem: {
       root: {
-        paddingTop: 8,
-        paddingBottom: 8,
+        // Do not change this value without updating MuiDialogContent List Edge case
+        padding: "8px 0", 
       },
     },
     MuiListItemIcon: {
@@ -243,6 +242,16 @@ const TMTheme = createMuiTheme({
         minWidth: 24, // Default value is 56
         color: defaultTheme.palette.secondary.main,
       },
+    },
+
+    // Tooltip
+    MuiTooltip: {
+      tooltip: {
+        backgroundColor: defaultTheme.palette.grey[600],
+      },
+      arrow: {
+        color: defaultTheme.palette.grey[600],
+      }
     },
   },
 })

@@ -8,6 +8,7 @@ import TeamoBanner from "../assets/images/TeamoBanner.png"
 const useStyles = makeStyles((theme) => ({
   appBarRoot: {
     backgroundColor: theme.palette.grey[900],
+    zIndex: theme.zIndex.drawer + 1,
   },
   toolbarRoot: {
     padding: "0 32px 0 32px",
