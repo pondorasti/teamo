@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid"
 const padding = 24
 const useStyles = makeStyles(theme => ({
   gridContainer: {
-    overflowY: "scroll",
+    overflowY: "auto",
     overflowX: "hidden",
     height: "calc(100vh - 64px)",
     padding: `${padding}px`,
