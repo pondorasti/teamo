@@ -10,13 +10,22 @@ import TMAvatar from "../../../atoms/TMAvatar"
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
+    width: 400,
+    height: 200,
   },
   card: {
-    // width: 400,
-    // height: 200,
     borderRadius: "16px 20px 20px 16px",
-    // position: "relative",
-    // display: "flex",
+    position: "relative",
+    display: "flex",
+    // height: "100%",
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+    pointerEvents: "fill",
+    backgroundColor: theme.palette.grey[700],
+    "&:hover + $optionsButtonContainer": {
+      opacity: 1,
+      pointerEvents: "auto",
+    },
+    padding: 12,
   },
   gameImg: {
     width: "100%",
@@ -29,15 +38,6 @@ const useStyles = makeStyles(theme => ({
     // width: "45%",
     // marginLeft: "55%",
     borderRadius: 16,
-    height: "100%",
-    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-    pointerEvents: "fill",
-    backgroundColor: theme.palette.grey[700],
-    "&:hover + $optionsButtonContainer": {
-      opacity: 1,
-      pointerEvents: "auto",
-    },
-    padding: 12,
   },
   topDiv: {
     display: "flex",
