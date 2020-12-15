@@ -76,7 +76,7 @@ function LobbyOptionsButton({className}) {
       </IconButton>
       <Menu
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         onClose={handleClose}
