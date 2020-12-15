@@ -8,7 +8,8 @@ import Grid from "@material-ui/core/Grid"
 const padding = 24
 const useStyles = makeStyles(theme => ({
   gridContainer: {
-    overflow: "scroll",
+    overflowY: "scroll",
+    overflowX: "hidden",
     height: "calc(100vh - 64px)",
     padding: `${padding}px`,
     paddingBottom: 0,
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   mainGrid: {
     // Last Message Component
     "& > *:nth-last-child(2)": {
-      paddingBottom: padding
+      paddingBottom: padding,
     },
     // SendMessage Component
     "& > *:last-child": {
