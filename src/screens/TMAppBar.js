@@ -5,9 +5,11 @@ import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
 import TeamoBanner from "../assets/images/TeamoBanner.png"
 
+// WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
   appBarRoot: {
     backgroundColor: theme.palette.grey[900],
+    zIndex: theme.zIndex.drawer + 1,
   },
   toolbarRoot: {
     padding: "0 32px 0 32px",
@@ -88,9 +90,6 @@ function TMAppBar() {
         <Divider classes={{root: classes.divider}} />
 
       </AppBar>
-      
-      {/* An extra toolbar for shifting the content of the page under the app bar */}
-      <Toolbar />
     </>
   )
 }

@@ -1,22 +1,22 @@
 import React from "react"
 
+import { CssBaseline, Toolbar } from "@material-ui/core"
+import { TMTheme } from "./atoms"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { TextField } from "@material-ui/core"
 
-import { CssBaseline } from "@material-ui/core"
-import { TMTheme, TMButton } from "./atoms"
-import LobbyGrid from "./screens/home-screen/LobbyGrid"
-import data from "./lobbiesDumyData"
+import { TMButton } from "./atoms"
 
+import lobbies from "./api/dummy-data/lobbies"
+
+import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
-import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
-import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
+import JoinLobbyDialog from "./screens/home-screen/dialogs/JoinLobbyDialog"
+import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
-import ProfileDialog from "./screens/profile/ProfileDialog"
-import PlayerCard from "./screens/lobby-screen/PlayerCard"
-import Message from "./screens/lobby-screen/Message"
-import LobbyHeader from "./screens/lobby-screen/LobbyHeader"
+import ProfileDialog from "./screens/profile-dialog/ProfileDialog"
+// import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 import HeroCard from "./screens/home-screen/molecules/HeroCard"
 
 function App() {
@@ -59,80 +59,53 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={TMTheme}>
+    <ThemeProvider theme={TMTheme} >
       <CssBaseline />
+      {/* <LobbyScreen /> */}
+      <main>
+        <AppBar />
+        <Toolbar />
+        <TextField
+          label="Games"
+          defaultValue="jello"
+          helperText="hello"
+          rows={4}
+          multiline
+        />
+        <TextField label="Games" defaultValue="jello" type="number" />
 
-      <AppBar />
-
-      <div style={{ backgroundColor: `${TMTheme.palette.grey[800]}` }}>
-        <div style={{ padding: 32 }}>
-          <TextField label="Games" defaultValue="jello" helperText="hello" rows={4} multiline />
-          <TextField label="Games" defaultValue="jello" type="number" />
-
-          <LoginDialog open={openLogin} onClose={handleLoginClose} />
-          <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-          <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
-          <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
-          <ProfileDialog
-            open={openProfile}
-            onClose={handleProfileClose}
-            backgroundColor="#1E1E1E"
-            username="ShiroTheCat"
-            status="online"
-            bio="Hello, my name Shiro, i look like dog, but i am cat."
-            avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-            gamesPlayed={gamesPlayed}
-          />
-          <TMButton onClick={handleLoginOpen}>Login</TMButton>
-          <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
-          <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
-          <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
-          <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-          <LobbyHeader
-            lobbyHost="Pondorasti"
-            gameName="Minecraft"
-            gameLogo="https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png"
-            lobbyDesc="This is my room decription, this should be no more than three lines long..."
-            platform="PC"
-            mic="Microphone"
-            players="4/4 Players, 1 waiting"
-          />
-
-          <PlayerCard
-            username="Pondorasti"
-            gamerTag="Lascorpy"
-            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            bio="we only allow this many characters? 52 chars, let's make it 62"
-          />
-          <PlayerCard
-            username="Pondorasti"
-            gamerTag="Lascorpy"
-            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            bio="we only allow this many characters? 52 chars, let's make it 62"
-            isHost
-            isAccepted
-          />
-          <Message
-            avatarUrl="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            username="Pondorasti"
-            timestamp="Today at 17:42"
-            message="Hello! how are you?"
-          />
-          <HeroCard
-            hostUsername="Pondorasti"
-            hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            gameName="Fall Guys"
-            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
-            description="This is my room decription, this should be no more than three lines long..."
-            platform="PC"
-            usesMic={true}
-            sizeStatus="3/4"
-          />
-        </div>
-        <div style={{ padding: 32 }}>
-          <LobbyGrid lobbies={data} />
-        </div>
-      </div>
+        <LoginDialog open={openLogin} onClose={handleLoginClose} />
+        <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
+        <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
+        <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
+        <ProfileDialog
+          open={openProfile}
+          onClose={handleProfileClose}
+          backgroundColor="#1E1E1E"
+          username="ShiroTheCat"
+          status="online"
+          bio="Hello, my name Shiro, i look like dog, but i am cat."
+          avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+          gamesPlayed={gamesPlayed}
+        />
+        <TMButton onClick={handleLoginOpen}>Login</TMButton>
+        <TMButton onClick={handleJoinOpen}>Join Teamo</TMButton>
+        <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
+        <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
+        <TMButton onClick={handleProfileOpen}>Profile</TMButton>
+        <LobbyGrid lobbies={lobbies} />
+        <HeroCard
+          hostUsername="Pondorasti"
+          hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+          gameName="Fall Guys"
+          gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
+          description="This is my room decription, this should be no more than three lines long..."
+          platform="PC"
+          usesMic={true}
+          sizeStatus="3/4"
+        />
+      </main>
+         
     </ThemeProvider>
   )
 }
