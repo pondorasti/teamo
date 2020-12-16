@@ -101,9 +101,9 @@ function App() {
             gameName="Fall Guys"
             gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
             description="This is my room decription, this should be no more than three lines long..."
-            platform="PC"
+            platform="PS Vita"
             usesMic={true}
-            sizeStatus="3/4"
+            sizeStatus="3/15"
             isContentHidden={checked}
           />
         </div>

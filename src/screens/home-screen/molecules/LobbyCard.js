@@ -83,9 +83,8 @@ function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description,
             <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
               <Typography variant="h5">{description}</Typography>
             </Grid>
-            <Grid item xs={12}>
-              <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
-            </Grid>
+
+            <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
           </Grid>
         </CardActionArea>
       </Card>

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
 
-import HeroCardFooter from "./HeroCardFooter"
+import LobbyCardFooter from "./LobbyCardFooter"
 import LobbyOptionsButton from "./LobbyOptionsButton"
 import TMAvatar from "../../../atoms/TMAvatar"
 
@@ -87,9 +87,8 @@ function HeroCard({
               <Grid item xs={12}>
                 <Typography variant="h5">{description}</Typography>
               </Grid>
-              <Grid item xs={12}>
-                <HeroCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
-              </Grid>
+
+              <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} isCompact />
             </Grid>
           </CardActionArea>
         </Fade>
