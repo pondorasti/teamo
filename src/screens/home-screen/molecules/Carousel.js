@@ -8,21 +8,40 @@ import HeroCard from "./HeroCard"
 import { IconButton } from "@material-ui/core"
 import PropTypes from "prop-types"
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   slider: {
-    width: "100%",
     display: "flex",
     alignItems: "center",
     "& > .slick-list > .slick-track": {
       paddingTop: 24,
       paddingBottom: 24,
     },
+    "& > .slick-list > .slick-track > .slick-slide": {
+      //this could be useful:
+      paddingRight: 200,
+      display: "flex",
+      justifyContent: "center",
+    },
+    // margin: "auto",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: 672, // 336 * 2
+    },
+    [theme.breakpoints.up("md")]: {
+      maxWidth: 1008, // 336 * 3
+    },
   },
   slide: {
-    width: 400,
-    transform: "scale(0.7)",
+    // maxWidth: 400,
+    transform: "scale(0.8)",
     transition: "transform 300ms",
     opacity: 0.5,
+    [theme.breakpoints.down("sm")]: {
+      width: 300,
+    },
+
+    [theme.breakpoints.up("md")]: {
+      width: 400,
+    },
   },
 
   activeSlide: {
@@ -32,7 +51,7 @@ const useStyles = makeStyles({
     position: "relative",
     filter: "drop-shadow(0px 0px 100px rgba(0, 0, 0, 0.75))",
   },
-})
+}))
 
 const PrevArrow = ({ onClick }) => {
   return (
@@ -96,9 +115,9 @@ function Carousel() {
     speed: 300,
     pauseOnHover: true,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    // slidesToScroll: 3,
     centerMode: true,
-    // centerPadding: 60,
+    centerPadding: -50,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
@@ -131,6 +150,16 @@ const lobbies = [
   },
   {
     username: "Card - 4",
+    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
+    description: "This is my room decription, this should be no more than three lines long...",
+  },
+  {
+    username: "Card - 5",
+    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
+    description: "This is my room decription, this should be no more than three lines long...",
+  },
+  {
+    username: "Card - 6",
     gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description: "This is my room decription, this should be no more than three lines long...",
   },
