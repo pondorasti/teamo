@@ -9,14 +9,10 @@ import { IconButton } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 const useStyles = makeStyles({
-  container: {
-    width: "100%",
-  },
   slider: {
     width: "100%",
     display: "flex",
     alignItems: "center",
-
     "& > .slick-list > .slick-track": {
       paddingTop: 24,
       paddingBottom: 24,
@@ -34,7 +30,7 @@ const useStyles = makeStyles({
     opacity: 1,
     zIndex: 9,
     position: "relative",
-    filter: "drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.75))",
+    filter: "drop-shadow(0px 0px 100px rgba(0, 0, 0, 0.75))",
   },
 })
 
@@ -109,11 +105,9 @@ function Carousel() {
   }
 
   return (
-    // <div className={classes.container}>
     <Slider {...settings} className={classes.slider}>
       {mapCarousel}
     </Slider>
-    // </div>
   )
 }
 
