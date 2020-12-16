@@ -7,14 +7,14 @@ import { TextField } from "@material-ui/core"
 
 import { TMButton } from "./atoms"
 
-import data from "./lobbiesDumyData"
+import lobbies from "./api/dummy-data/lobbies"
 
 import LobbyGrid from "./screens/home-screen/LobbyGrid"
 import AppBar from "./screens/TMAppBar"
 import Carousel from "./screens/home-screen/molecules/Carousel"
 import LoginDialog from "./screens/home-screen/dialogs/LoginDialog"
-import JoinTeamoDialog from "./screens/home-screen/dialogs/JoinTeamoDialog"
-import CreateTeamoDialog from "./screens/home-screen/dialogs/CreateTeamoDialog"
+import JoinLobbyDialog from "./screens/home-screen/dialogs/JoinLobbyDialog"
+import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile-dialog/ProfileDialog"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
@@ -69,8 +69,8 @@ function App() {
         <TextField label="Games" defaultValue="jello" type="number" />
 
         <LoginDialog open={openLogin} onClose={handleLoginClose} />
-        <JoinTeamoDialog open={openJoinTeamo} onClose={handleJoinClose} />
-        <CreateTeamoDialog open={openCreateTeamo} onClose={handleCreateClose} />
+        <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
+        <CreateLobbyDialog open={openCreateTeamo} onClose={handleCreateClose} />
         <CreateProfileDialog open={openCreateProfile} onClose={handleCreateProfileClose} />
         <ProfileDialog
           open={openProfile}
@@ -88,8 +88,7 @@ function App() {
         <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
         <TMButton onClick={handleProfileOpen}>Profile</TMButton>
         <Carousel />
-
-        <LobbyGrid lobbies={data} />
+        <LobbyGrid lobbies={lobbies} />
       </main>
     </ThemeProvider>
   )

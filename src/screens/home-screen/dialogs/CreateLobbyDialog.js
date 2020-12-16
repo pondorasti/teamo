@@ -16,7 +16,7 @@ import {
 
 import TMButton from "../../../atoms/TMButton"
 
-import { Platform, Game, Size, Microphone } from "../../../api/lobby-template/"
+import { Platform, Game, Size, Microphone } from "../../../api/lobby-template"
 
 import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
 import { CouchBuddies } from "../../../assets/images"
@@ -33,7 +33,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-function CreateTeamoDialog({ open, onClose }) {
+function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
   return (
@@ -113,7 +113,7 @@ function CreateTeamoDialog({ open, onClose }) {
   )
 }
 
-CreateTeamoDialog.propTypes = {
+CreateLobbyDialog.propTypes = {
   /** If `true`, the modal is presented. */
   open: PropTypes.bool.isRequired,
 
@@ -121,8 +121,8 @@ CreateTeamoDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
 }
 
-CreateTeamoDialog.defaultProps = {
+CreateLobbyDialog.defaultProps = {
   open: false,
 }
 
-export default CreateTeamoDialog
+export default CreateLobbyDialog

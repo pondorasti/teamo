@@ -76,7 +76,7 @@ function LobbyOptionsButton({className}) {
       </IconButton>
       <Menu
         anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         onClose={handleClose}
@@ -90,7 +90,7 @@ function LobbyOptionsButton({className}) {
 
 LobbyOptionsButton.propTypes = {
   /** Override or extend the styles applied to the component. */
-  className: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
 }
 
 export default LobbyOptionsButton
