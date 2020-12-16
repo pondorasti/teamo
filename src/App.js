@@ -1,9 +1,8 @@
 import React from "react"
 
-import { CssBaseline, Toolbar } from "@material-ui/core"
+import { CssBaseline, Toolbar, FormControlLabel, Switch } from "@material-ui/core"
 import { TMTheme } from "./atoms"
 import { ThemeProvider } from "@material-ui/core/styles"
-import { TextField } from "@material-ui/core"
 
 import { TMButton } from "./atoms"
 
@@ -58,21 +57,18 @@ function App() {
     setOpenProfile(false)
   }
 
+  const [checked, setChecked] = React.useState(true)
+  const handleChange = () => {
+    setChecked((prev) => !prev)
+  }
+
   return (
     <ThemeProvider theme={TMTheme} >
       <CssBaseline />
       {/* <LobbyScreen /> */}
-      <main>
+      <main style={{ backgroundColor: "black", padding: 16 }}>
         <AppBar />
         <Toolbar />
-        <TextField
-          label="Games"
-          defaultValue="jello"
-          helperText="hello"
-          rows={4}
-          multiline
-        />
-        <TextField label="Games" defaultValue="jello" type="number" />
 
         <LoginDialog open={openLogin} onClose={handleLoginClose} />
         <JoinLobbyDialog open={openJoinTeamo} onClose={handleJoinClose} />
@@ -93,19 +89,27 @@ function App() {
         <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
         <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
         <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-        <LobbyGrid lobbies={lobbies} />
-        <HeroCard
-          hostUsername="Pondorasti"
-          hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-          gameName="Fall Guys"
-          gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
-          description="This is my room decription, this should be no more than three lines long..."
-          platform="PC"
-          usesMic={true}
-          sizeStatus="3/4"
+
+        <FormControlLabel
+          control={<Switch checked={checked} onChange={handleChange} />}
+          label="Show"
         />
+        <div style={{ width: 400, margin: 16 }}>
+          <HeroCard
+            hostUsername="Pondorasti"
+            hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+            gameName="Fall Guys"
+            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
+            description="This is my room decription, this should be no more than three lines long..."
+            platform="PC"
+            usesMic={true}
+            sizeStatus="3/4"
+            isContentHidden={checked}
+          />
+        </div>
+        <LobbyGrid lobbies={lobbies} />
       </main>
-         
+
     </ThemeProvider>
   )
 }

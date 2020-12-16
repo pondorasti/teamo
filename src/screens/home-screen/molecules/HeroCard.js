@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import HeroCardFooter from "./HeroCardFooter"
@@ -10,7 +10,6 @@ import TMAvatar from "../../../atoms/TMAvatar"
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
-    width: 400,
   },
   card: {
     height: 200,
@@ -30,7 +29,8 @@ const useStyles = makeStyles(theme => ({
   },
   cardGrid: {
     position: "relative",
-    height: 200,
+    height: "100%",
+
     width: "50%",
     left: "50%",
 
@@ -58,6 +58,7 @@ function HeroCard({
   platform,
   usesMic,
   sizeStatus,
+  isContentHidden,
 }) {
   const classes = useStyles()
 
@@ -66,10 +67,9 @@ function HeroCard({
       <Card
         classes={{ root: classes.card }}
         style={{ backgroundImage: `url(${gameImg})` }}
-        
       >
-        {true &&
-          <CardActionArea>
+        <Fade in={isContentHidden}>
+          <CardActionArea style={{ height: "100%" }}>
             <Grid
               container
               justify="space-between"
@@ -90,11 +90,10 @@ function HeroCard({
               </Grid>
             </Grid>
           </CardActionArea>
-        }
+        </Fade>
       </Card>
-      {true &&
-      <LobbyOptionsButton className={classes.optionsButtonContainer} />
-      }
+
+      {isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
     </div>
   )
 }
@@ -123,6 +122,9 @@ HeroCard.propTypes = {
 
   /** The size status of the lobby. */
   sizeStatus: PropTypes.string.isRequired,
+
+  /** Hides or shows the lobby content. */
+  isContentHidden: PropTypes.bool.isRequired,
 }
 
 export default HeroCard
