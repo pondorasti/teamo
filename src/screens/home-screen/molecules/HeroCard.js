@@ -10,9 +10,16 @@ import TMAvatar from "../../../atoms/TMAvatar"
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
+    
   },
   card: {
+    width: 400,
     height: 200,
+
+    // Pure Wizardry
+    // Source: https://stackoverflow.com/a/41059954/7897036
+    marginLeft: "50%",
+    transform: "translateX(-50%)",
 
     borderRadius: 16,
     overflow: "visible",

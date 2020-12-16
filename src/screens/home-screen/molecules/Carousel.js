@@ -31,7 +31,10 @@ const useStyles = makeStyles(theme => ({
     
     pointerEvents: "none",
     outline: "none",
-    // wdith: 400,
+    // width: 400,
+
+    display: "flex",
+    justifyContent: "center",
   },
 
   activeSlide: {
