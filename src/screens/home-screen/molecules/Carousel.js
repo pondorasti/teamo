@@ -8,8 +8,11 @@ import LobbyCard from "./LobbyCard"
 import classNames from "classnames"
 
 const useStyles = makeStyles({
+  container: {
+    width: "100%",
+  },
   slider: {
-    width: 800,
+    width: "60%",
     paddingTop: 16,
     display: "flex",
     alignItems: "center",
@@ -17,14 +20,14 @@ const useStyles = makeStyles({
   cards: {
     // width: 400,
     // height: 200,
-    margin: 32,
+    // margin: 32,
     // backgroundColor: "red",
   },
   slide: {
     transform: "scale(0.7)",
     transition: "transform 300ms",
     opacity: 0.5,
-    margin: 16,
+    margin: 8,
   },
 
   activeSlide: {
@@ -32,11 +35,11 @@ const useStyles = makeStyles({
     opacity: 1,
     marginLeft: "-50px",
     marginRight: "-50px",
-    marginTop: 8,
+    // marginTop: 8,
     padding: 16,
     zIndex: 9,
     position: "relative",
-    filter: "drop-shadow(0px 0px 100px rgba(0, 0, 0, 0.75))",
+    filter: "drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.75))",
   },
 })
 
@@ -79,18 +82,20 @@ function Carousel() {
     speed: 400,
     pauseOnHover: true,
     slidesToShow: 3,
+    // slidesToScroll: 3,
     centerMode: true,
-    centerPadding: 30,
+    // centerPadding: 30,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
-    className: classes.slide,
   }
 
   return (
+    // <div className={classes.container}>
     <Slider {...settings} className={classes.slider}>
       {mapCarousel}
     </Slider>
+    // </div>
   )
 }
 
