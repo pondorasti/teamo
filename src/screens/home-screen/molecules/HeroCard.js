@@ -13,7 +13,12 @@ const useStyles = makeStyles(theme => ({
     width: 400,
   },
   card: {
+    height: 200,
+
     borderRadius: 16,
+    overflow: "visible",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
 
     // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
@@ -23,22 +28,13 @@ const useStyles = makeStyles(theme => ({
       pointerEvents: "auto",
     },
   },
-  gameImg: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    position: "absolute",
-    borderRadius: "16px 40px 40px 16px",
-  },
-  cardContent: {
-  },
   cardGrid: {
     position: "relative",
     height: 200,
     width: "50%",
     left: "50%",
 
-    borderRadius: 16,
+    borderRadius: "16px 0 0 16px",
     padding: 16,
     backgroundColor: theme.palette.grey[700],
   },
@@ -66,12 +62,14 @@ function HeroCard({
   const classes = useStyles()
 
   return (
-    <div className={classes.cardContainer}>
-      <Card classes={{ root: classes.card }}>
-        <CardActionArea>
-          <img className={classes.gameImg} src={gameImg} alt={gameName} />
-
-          {true &&
+    <div className={classes.cardContainer} title={gameName}>
+      <Card
+        classes={{ root: classes.card }}
+        style={{ backgroundImage: `url(${gameImg})` }}
+        
+      >
+        {true &&
+          <CardActionArea>
             <Grid
               container
               justify="space-between"
@@ -91,11 +89,12 @@ function HeroCard({
                 <HeroCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
               </Grid>
             </Grid>
-          }
-        </CardActionArea>
+          </CardActionArea>
+        }
       </Card>
-
+      {true &&
       <LobbyOptionsButton className={classes.optionsButtonContainer} />
+      }
     </div>
   )
 }
