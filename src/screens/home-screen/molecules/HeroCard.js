@@ -37,6 +37,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "16px 0 0 16px",
     padding: 16,
     backgroundColor: theme.palette.grey[700],
+    
+    boxShadow: "0 0 16px 8px #00000099"
   },
   hostInfo: {
     display: "flex",
