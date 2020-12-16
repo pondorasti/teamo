@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
   container: {
     margin: "auto",
 
+    width: "100%",
     [theme.breakpoints.up("sm")]: {
       maxWidth: 672 // 336 * 2
     },
@@ -23,25 +24,54 @@ const useStyles = makeStyles(theme => ({
   slider: {
     display: "flex",
     alignItems: "center",
-
-    "& > .slick-list > .slick-track": {
-      // padding: "48px 0",
-    },
   },
   slide: {
-    transform: "scale(0.8)",
-    outline: "none",
-    transition: "transform 300ms",
-
     padding: "16px 0",
+    transition: "transform 500ms, opacity 500ms",
+    
+    pointerEvents: "none",
+    outline: "none",
+    // wdith: 400,
   },
 
   activeSlide: {
     transform: "scale(1)",
+    pointerEvents: "auto",
+    opacity: 1,
 
-    // zIndex: 9,
-    // position: "relative",
+
+    zIndex: 1,
+    position: "relative",
   },
+
+  leadingCards: {
+    opacity: 0,
+    transform: "scale(0.8) translate(60%, 0) scale(0.5)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(0.8) translate(80%, 0) scale(0.5)",
+    },
+  },
+  trailingCards: {
+    opacity: 0,
+    transform: "scale(0.8) translate(-60%, 0) scale(0.5)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(0.8) translate(-80%, 0) scale(0.5)",
+    },
+  },
+  leadingCard: {
+    opacity: 1,
+    transform: "scale(0.8) translate(60%, 0)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(0.8) translate(80%, 0)",
+    },
+  },
+  trailingCard: {
+    opacity: 1,
+    transform: "scale(0.8) translate(-60%, 0)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(0.8) translate(-80%, 0)",
+    },
+  }
 }))
 
 const PrevArrow = ({ onClick }) => {
@@ -78,18 +108,22 @@ NextArrow.propTypes = {
 
 function Carousel() {
   const classes = useStyles()
-  const [imageIndex, setImageIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const mapCarousel = lobbies.map((lobby, index) => {
     const className = classNames(
       {
-        [classes.activeSlide]: index === imageIndex,
+        [classes.activeSlide]: index === currentIndex,
+        [classes.leadingCards]: (index + 1 <= currentIndex),
+        [classes.trailingCards]: (index - 1 >= currentIndex ),
+        [classes.leadingCard]: (index + 1 === currentIndex),
+        [classes.trailingCard]: (index - 1 === currentIndex ),
       },
       classes.slide
     )
 
     return (
-      <div key={index} className={className} style={{ width: 400 }}>
+      <div key={index} className={className}>
         <HeroCard
           hostUsername={lobby.username}
           hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
@@ -99,7 +133,7 @@ function Carousel() {
           platform="PS5"
           usesMic={true}
           sizeStatus="3/5"
-          isContentHidden={index === imageIndex}
+          isContentHidden={index === currentIndex}
         />
       </div>
     )
@@ -107,13 +141,14 @@ function Carousel() {
 
   const settings = {
     focusOnSelect: true,
-    speed: 300,
+    speed: 500,
     slidesToShow: 3,
     centerMode: true,
 
-    className: "center",
 
-    variableWidth: true,
+    draggable: false,
+
+    // variableWidth: true,
     adaptiveHeight: true,
     centerPadding: 0,
 
@@ -125,7 +160,7 @@ function Carousel() {
     // autoplay: true,
     // autoplaySpeed: 6000,
 
-    beforeChange: (current, next) => setImageIndex(next),
+    beforeChange: (_, next) => setCurrentIndex(next),
   }
 
   return (
@@ -152,6 +187,21 @@ const lobbies = [
   },
   {
     username: "Card - 3",
+    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
+    description: "This is my room decription, this should be no more than three lines long...",
+  },
+  {
+    username: "Card - 4",
+    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
+    description: "This is my room decription, this should be no more than three lines long...",
+  },
+  {
+    username: "Card - 5",
+    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
+    description: "This is my room decription, this should be no more than three lines long...",
+  },
+  {
+    username: "Card - 6",
     gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description: "This is my room decription, this should be no more than three lines long...",
   },

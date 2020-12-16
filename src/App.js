@@ -67,7 +67,7 @@ function App() {
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
       {/* <LobbyScreen /> */}
-      <main style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "black" }}>
+      <main style={{ backgroundColor: "black" }}>
         <AppBar />
         <Toolbar />
 

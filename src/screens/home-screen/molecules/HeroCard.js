@@ -70,7 +70,7 @@ function HeroCard({
         classes={{ root: classes.card }}
         style={{ backgroundImage: `url(${gameImg})` }}
       >
-        <Fade in={isContentHidden}>
+        <Fade in={isContentHidden} style={{transition: "transform 500ms",}}>
           <CardActionArea style={{ height: "100%" }}>
             <Grid
               container
