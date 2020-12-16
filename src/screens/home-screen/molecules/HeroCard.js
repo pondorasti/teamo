@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography, CardContent } from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import HeroCardFooter from "./HeroCardFooter"
@@ -11,14 +11,12 @@ const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
     width: 400,
-    height: 200,
   },
   card: {
     borderRadius: 16,
+
     // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-    //Keep this border radius for the grey mask below
-    backgroundColor: theme.palette.grey[700],
     "&:hover + $optionsButtonContainer": {
       opacity: 1,
       //pointerEvents needed here for options to display
@@ -33,19 +31,16 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "16px 40px 40px 16px",
   },
   cardContent: {
-    position: "relative",
-    padding: 0,
-    width: 184,
-    height: 200,
-    left: "54%",
   },
   cardGrid: {
+    position: "relative",
+    height: 200,
+    width: "50%",
+    left: "50%",
+
     borderRadius: 16,
-    height: "100%",
-    // fixes safari overflow bug
-    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-    backgroundColor: theme.palette.grey[700],
     padding: 16,
+    backgroundColor: theme.palette.grey[700],
   },
   hostInfo: {
     display: "flex",
@@ -74,15 +69,12 @@ function HeroCard({
     <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
         <CardActionArea>
-          <div>
-            <img className={classes.gameImg} src={gameImg} alt={gameName} />
-          </div>
-          <CardContent classes={{ root: classes.cardContent }}>
+          <img className={classes.gameImg} src={gameImg} alt={gameName} />
+
+          {true &&
             <Grid
               container
-              // direction="column"
               justify="space-between"
-              alignItems="flex-start"
               alignContent="space-between"
               classes={{ root: classes.cardGrid }}
             >
@@ -99,9 +91,10 @@ function HeroCard({
                 <HeroCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
               </Grid>
             </Grid>
-          </CardContent>
+          }
         </CardActionArea>
       </Card>
+
       <LobbyOptionsButton className={classes.optionsButtonContainer} />
     </div>
   )
