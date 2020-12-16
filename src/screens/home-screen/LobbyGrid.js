@@ -57,9 +57,9 @@ function LobbyGrid({ lobbies }) {
               gameLogo={lobby.gameLogo}
               gameName="Minecraft"
               description={lobby.description}
-              platform="PS5"
-              usesMic={false}
-              sizeStatus="3/5"
+              platform={lobby.platform}
+              usesMic={lobby.usesMic}
+              sizeStatus={lobby.sizeStatus}
             />
           </Grid>
         ))}
