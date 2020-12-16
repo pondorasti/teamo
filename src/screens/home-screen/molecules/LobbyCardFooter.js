@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
   platformOption: {
     display: "flex",
     justifyContent: "start",
-    borderRight: "1px solid",
   },
   micOption: {
     display: "flex",
@@ -21,31 +20,42 @@ const useStyles = makeStyles((theme) => ({
   playersOption: {
     display: "flex",
     justifyContent: "flex-end",
-    borderLeft: "1px solid",
   },
   iconStyle: {
     marginRight: 4,
     fontSize: 16,
   },
+  divider: {
+    width: 1,
+    backgroundColor: theme.palette.secondary.main,
+  }
 }))
 
-function LobbyCardFooter({ platform, usesMic, sizeStatus }) {
+function LobbyCardFooter({ platform, usesMic, sizeStatus, isCompact }) {
   const classes = useStyles()
 
   return (
-    <Grid container classes={{ root: classes.statContainerStyles }}>
-      <Grid item xs={4} classes={{ root: classes.platformOption }}>
+    <Grid
+      container
+      justify={isCompact ? "space-between" : "flex-start"}
+      wrap="nowrap"
+      classes={{ root: classes.statContainerStyles }}
+    >
+      <Grid item xs={isCompact ? false : 4} classes={{ root: classes.platformOption }}>
         <Dpad classes={{ root: classes.iconStyle }} />
         <Typography variant="caption">{platform}</Typography>
       </Grid>
 
-      <Grid item xs={4} classes={{ root: classes.micOption }}>
-        {usesMic ? <Mic classes={{ root: classes.iconStyle }} /> : <MicSlash classes={{ root: classes.iconStyle }} />}
+      <Grid item classes={{ root: classes.divider }} />
 
-        <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography>
+      <Grid item xs={isCompact ? false : 4} classes={{ root: classes.micOption }}>
+        {usesMic ? <Mic classes={{ root: classes.iconStyle }} /> : <MicSlash classes={{ root: classes.iconStyle }} />}
+        {!isCompact && <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography> }
       </Grid>
 
-      <Grid item xs={4} classes={{ root: classes.playersOption }}>
+      <Grid item classes={{ root: classes.divider }} />
+
+      <Grid item xs={isCompact ? false : 4} classes={{ root: classes.playersOption }}>
         <People classes={{ root: classes.iconStyle }} />
         <Typography variant="caption">{sizeStatus}</Typography>
       </Grid>
@@ -62,6 +72,13 @@ LobbyCardFooter.propTypes = {
 
   /** The size status of the lobby. */
   sizeStatus: PropTypes.string.isRequired,
+
+  isCompact: PropTypes.bool
 }
+
+LobbyCardFooter.defaultProps = {
+  isCompact: false,
+}
+
 
 export default LobbyCardFooter
