@@ -4,6 +4,7 @@ import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
 import TeamoBanner from "../assets/images/TeamoBanner.png"
+import CreateLobbyDialog from "./home-screen/dialogs/CreateLobbyDialog"
 
 // WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 function TMAppBar() {
   const classes = useStyles()
+  const [showCreateLobby, setShowCreateLobby] = React.useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -59,7 +61,8 @@ function TMAppBar() {
 
           <div className={classes.divSpacer} />
 
-          <TMButton size="small">Create Teamo</TMButton>
+          <TMButton size="small" onClick={() => setShowCreateLobby(true)}>Create Teamo</TMButton>
+          <CreateLobbyDialog open={showCreateLobby} onClose={() => setShowCreateLobby(false)} />
 
           <IconButton
             aria-label="account of current user"
