@@ -16,7 +16,7 @@ function App() {
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
       {/* <LobbyScreen /> */}
-      <main style={{ backgroundColor: "black" }}>
+      <main style={{ padding: 32, backgroundColor: TMTheme.palette.grey[800] }}>
         <AppBar />
         <Toolbar />
 

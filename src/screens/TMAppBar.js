@@ -3,7 +3,7 @@ import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
-import TeamoBanner from "../assets/images/TeamoBanner.png"
+import { TeamoBanner } from "../assets/images/"
 import CreateLobbyDialog from "./home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
 import LoginDialog from "./home-screen/dialogs/LoginDialog"
@@ -71,7 +71,7 @@ function TMAppBar() {
         elevation={0}
       >
         <Toolbar classes={{ root: classes.toolbarRoot }}>
-          <img src={TeamoBanner} alt="Teamo Banner" style={{ maxHeight: 38 }} />
+          <img src={TeamoBanner} alt="Teamo Banner" />
 
           <div className={classes.divSpacer} />
 
