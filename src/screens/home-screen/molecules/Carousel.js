@@ -30,8 +30,12 @@ const useStyles = makeStyles(theme => ({
     }
   },
   "@keyframes crossFade": {
-    "from": { zIndex: 1 },
+    "from": { zIndex: 6 },
     "to": { zIndex: 10 },
+  },
+  "@keyframes reverseCrossFade": {
+    "from": { zIndex: 10 },
+    "to": { zIndex: 1 },
   },
   allCards: {
     padding: "16px 0",
@@ -53,38 +57,26 @@ const useStyles = makeStyles(theme => ({
     opacity: 1,
     zIndex: 10,
 
-    animation: `${theme.transitions.duration.carousel}ms linear $crossFade`,
+    animation: `$crossFade ${theme.transitions.duration.carousel}ms linear`,
   },
 
   leadingCards: {
     opacity: 0,
-    transform: "scale(0.8) translate(60%, 0) scale(0.5)",
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(0.8) translate(80%, 0) scale(0.5)",
-    },
+    transform: "scale(0.5) translate(60%, 0)",
   },
   trailingCards: {
     opacity: 0,
-    transform: "scale(0.8) translate(-60%, 0) scale(0.5)",
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(0.8) translate(-80%, 0) scale(0.5)",
-    },
+    transform: "scale(0.5) translate(-60%, 0)",
   },
   leadingCard: {
     opacity: 1,
-    animation: `${theme.transitions.duration.carousel}ms linear reverse $crossFade`,
+    animation: `$reverseCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(60%, 0)",
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(0.8) translate(80%, 0)",
-    },
   },
   trailingCard: {
     opacity: 1,
-    animation: `${theme.transitions.duration.carousel}ms linear reverse $crossFade`,
+    animation: `$reverseCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(-60%, 0)",
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(0.8) translate(-80%, 0)",
-    },
   }
 }))
 
@@ -128,10 +120,13 @@ function Carousel() {
     const className = classNames(
       {
         [classes.centerCard]: index === currentIndex,
+        
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
+
         [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === lobbies.length && 0 === currentIndex )),
         [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && lobbies.length - 1 === currentIndex)),
+
       },
       classes.allCards
     )
