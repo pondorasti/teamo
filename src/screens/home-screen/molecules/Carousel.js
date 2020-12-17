@@ -30,11 +30,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   "@keyframes crossFade": {
-    "from": { zIndex: 6 },
-    "to": { zIndex: 10 },
+    "from": { zIndex: 18 },
+    "to": { zIndex: 30 },
   },
   "@keyframes reverseCrossFade": {
-    "from": { zIndex: 10 },
+    "from": { zIndex: 30 },
     "to": { zIndex: 1 },
   },
   allCards: {
