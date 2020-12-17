@@ -1,13 +1,12 @@
 import React, { useState } from "react"
-import Slider from "react-slick"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { ArrowLeft, ArrowRight } from "../../../assets/icons"
-import "./Carousel.css"
-import classNames from "classnames"
-import HeroCard from "./HeroCard"
-import { IconButton } from "@material-ui/core"
 import PropTypes from "prop-types"
-
+import classNames from "classnames"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { IconButton } from "@material-ui/core"
+import { ArrowLeft, ArrowRight } from "../../../assets/icons"
+import HeroCard from "./HeroCard"
+import Slider from "react-slick"
+import "./Carousel.css"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -25,14 +24,26 @@ const useStyles = makeStyles(theme => ({
   slider: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
+    "& > .slick-list": {
+      // maxWidth: 672 // 336 * 2
+    }
+  },
+  "@keyframes crossFade": {
+    "from": { zIndex: 1 },
+    "to": { zIndex: 10 },
   },
   allCards: {
     padding: "16px 0",
-    transition: "transform 500ms, opacity 500ms",
+    transition: theme.transitions.create(["opacity", "transform"], {
+      duration: theme.transitions.duration.carousel,
+    }),
 
     pointerEvents: "none",
 
     // Disables focus interaction
+    zIndex: 5,
+    position: "relative",
     outline: "none",
   },
 
@@ -40,9 +51,9 @@ const useStyles = makeStyles(theme => ({
     transform: "scale(1)",
     pointerEvents: "auto",
     opacity: 1,
+    zIndex: 10,
 
-    zIndex: 1,
-    position: "relative",
+    animation: `${theme.transitions.duration.carousel}ms linear $crossFade`,
   },
 
   leadingCards: {
@@ -61,6 +72,7 @@ const useStyles = makeStyles(theme => ({
   },
   leadingCard: {
     opacity: 1,
+    animation: `${theme.transitions.duration.carousel}ms linear reverse $crossFade`,
     transform: "scale(0.8) translate(60%, 0)",
     [theme.breakpoints.down("sm")]: {
       transform: "scale(0.8) translate(80%, 0)",
@@ -68,6 +80,7 @@ const useStyles = makeStyles(theme => ({
   },
   trailingCard: {
     opacity: 1,
+    animation: `${theme.transitions.duration.carousel}ms linear reverse $crossFade`,
     transform: "scale(0.8) translate(-60%, 0)",
     [theme.breakpoints.down("sm")]: {
       transform: "scale(0.8) translate(-80%, 0)",
@@ -75,7 +88,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const PrevArrow = ({ onClick }) => {
+function PrevArrow({ onClick }) {
   return (
     <IconButton
       size="small"
@@ -87,7 +100,7 @@ const PrevArrow = ({ onClick }) => {
   )
 }
 
-const NextArrow = ({ onClick }) => {
+function NextArrow({ onClick }) {
   return (
     <IconButton
       size="small"
@@ -98,6 +111,7 @@ const NextArrow = ({ onClick }) => {
     </IconButton>
   )
 }
+
 PrevArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
@@ -155,9 +169,9 @@ function Carousel() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
 
-    // pauseOnHover: true,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
+    pauseOnHover: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
 
     beforeChange: (_, next) => setCurrentIndex(next),
   }
@@ -220,14 +234,3 @@ const lobbies = [
     description: "This is my room decription, this should be no more than three lines long...",
   },
 ]
-
-// function Arrow(props) {
-//   let className = props.type === "next" ? "nextArrow" : "prevArrow";
-//   className += " arrow";
-//   const char = props.type === "next" ? "👉" : "👈";
-//   return (
-//     <span className={className} onClick={props.onClick}>
-//       {char}
-//     </span>
-//   );
-// }
