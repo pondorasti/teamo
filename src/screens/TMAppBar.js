@@ -5,6 +5,8 @@ import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
 import TeamoBanner from "../assets/images/TeamoBanner.png"
 import CreateLobbyDialog from "./home-screen/dialogs/CreateLobbyDialog"
+import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
+import LoginDialog from "./home-screen/dialogs/LoginDialog"
 import ProfileDialog from "./profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
 
@@ -31,6 +33,8 @@ function TMAppBar() {
   const classes = useStyles()
   const [showCreateLobby, setShowCreateLobby] = React.useState(false)
   const [showProfile, setShowProfile] = React.useState(false)
+  const [showCreateProfile, setShowCreateProfile] = React.useState(false)
+  const [showLogin, setShowLogin] = React.useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -50,6 +54,12 @@ function TMAppBar() {
     handleClose()
   }
   const handleSignOut = () => {
+    setShowLogin(true)
+    handleClose()
+  }
+
+  const handleCreateProfile = () => {
+    setShowCreateProfile(true)
     handleClose()
   }
 
@@ -101,7 +111,11 @@ function TMAppBar() {
               gamesPlayed={gamesPlayed}
             />
 
-            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
+            <MenuItem onClick={handleCreateProfile}>Create Profile</MenuItem>
+            <CreateProfileDialog open={showCreateProfile} onClose={() => setShowCreateProfile(false)} />
+
+            <MenuItem onClick={handleSignOut}>Sign out / Login</MenuItem>
+            <LoginDialog open={showLogin} onClose={() => setShowLogin(false)} />
           </Menu>
         </Toolbar>
 
