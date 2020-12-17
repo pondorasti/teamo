@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
 
@@ -7,12 +7,22 @@ import LobbyCardFooter from "./LobbyCardFooter"
 import LobbyOptionsButton from "./LobbyOptionsButton"
 import TMAvatar from "../../../atoms/TMAvatar"
 
+const height = 200
+const width = 400
+
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
+    width: width,
+    height: height,
+
+    // Pure Wizardry
+    // Source: https://stackoverflow.com/a/41059954/7897036
+    marginLeft: "50%",
+    transform: "translateX(-50%)",
   },
   card: {
-    height: 200,
+    height: height,
 
     borderRadius: 16,
     overflow: "visible",
@@ -63,14 +73,19 @@ function HeroCard({
   isContentHidden,
 }) {
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
     <div className={classes.cardContainer} title={gameName}>
       <Card
         classes={{ root: classes.card }}
-        style={{ backgroundImage: `url(${gameImg})` }}
+        style={{ 
+          backgroundImage: `url(${gameImg})`,
+          filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
+          transition: `all ${theme.transitions.duration.carousel}ms ease`,
+        }}
       >
-        <Fade in={isContentHidden}>
+        <Fade in={!isContentHidden} timeout={theme.transitions.duration.carousel}>
           <CardActionArea style={{ height: "100%" }}>
             <Grid
               container
@@ -94,7 +109,7 @@ function HeroCard({
         </Fade>
       </Card>
 
-      {isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
+      {!isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
     </div>
   )
 }
