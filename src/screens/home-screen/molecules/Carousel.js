@@ -25,9 +25,8 @@ const useStyles = makeStyles(theme => ({
   slider: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
-    "& > .slick-list": {
-      // maxWidth: 672 // 336 * 2
+    "& > .slick-list > .slick-track > *": {
+      outline: "none"
     }
   },
   "@keyframes centerCrossFade": {
@@ -50,15 +49,16 @@ const useStyles = makeStyles(theme => ({
 
     pointerEvents: "none",
 
-    // Disables focus interaction
-    zIndex: 5,
     position: "relative",
+    zIndex: 5,
+
+    // Disables focus interaction
     outline: "none",
   },
 
   centerCard: {
     transform: "scale(1)",
-    pointerEvents: "auto",
+    // pointerEvents: "auto",
     opacity: 1,
     zIndex: 10,
 
@@ -82,6 +82,9 @@ const useStyles = makeStyles(theme => ({
     opacity: 1,
     animation: `$trailingCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(-60%, 0)",
+  },
+  pointerEvents: {
+    pointerEvents: "auto"
   }
 }))
 
@@ -120,15 +123,19 @@ function Carousel() {
   const classes = useStyles()
   const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [pointerEvents, setPointerEvents] = React.useState(true)
 
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
       {
         [classes.centerCard]: index === currentIndex,
         
+        [classes.centerCard]: (index === currentIndex),
+        [classes.pointerEvents]: (index === currentIndex && pointerEvents),
+        
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
-
+        
         [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex )),
         [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
 
@@ -173,7 +180,11 @@ function Carousel() {
     autoplay: true,
     autoplaySpeed: 5000,
 
-    beforeChange: (_, next) => setCurrentIndex(next),
+    beforeChange: (_, next) => {
+      setPointerEvents(false)
+      setCurrentIndex(next)
+      setTimeout(() => setPointerEvents(true), theme.transitions.duration.carousel * 0.90)
+    },
   }
 
   return (
