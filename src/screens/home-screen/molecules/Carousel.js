@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 720, // 336 * 3
+      maxWidth: 1000, // 336 * 3
     },
   },
   slider: {
@@ -30,10 +30,9 @@ const useStyles = makeStyles(theme => ({
     transition: "transform 500ms, opacity 500ms",
 
     pointerEvents: "none",
-    outline: "none",
 
-    display: "flex",
-    justifyContent: "center",
+    // Disables focus interaction
+    outline: "none",
   },
 
   centerCard: {
@@ -105,8 +104,6 @@ NextArrow.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-
-
 function Carousel() {
   const classes = useStyles()
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -117,8 +114,8 @@ function Carousel() {
         [classes.centerCard]: index === currentIndex,
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
-        [classes.leadingCard]: (index + 1 === currentIndex),
-        [classes.trailingCard]: (index - 1 === currentIndex),
+        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === lobbies.length && 0 === currentIndex )),
+        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && lobbies.length - 1 === currentIndex)),
       },
       classes.allCards
     )
