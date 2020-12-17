@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
 
@@ -73,6 +73,7 @@ function HeroCard({
   isContentHidden,
 }) {
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
     <div className={classes.cardContainer} title={gameName}>
@@ -80,7 +81,7 @@ function HeroCard({
         classes={{ root: classes.card }}
         style={{ backgroundImage: `url(${gameImg})` }}
       >
-        <Fade in={isContentHidden} style={{transition: "transform 500ms",}}>
+        <Fade in={!isContentHidden} timeout={theme.transitions.duration.carousel}>
           <CardActionArea style={{ height: "100%" }}>
             <Grid
               container
@@ -104,7 +105,7 @@ function HeroCard({
         </Fade>
       </Card>
 
-      {isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
+      {!isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
     </div>
   )
 }

@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import Slider from "react-slick"
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { ArrowLeft, ArrowRight } from "../../../assets/icons"
 import "./Carousel.css"
 import classNames from "classnames"
 import HeroCard from "./HeroCard"
 import { IconButton } from "@material-ui/core"
 import PropTypes from "prop-types"
+
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -106,6 +107,7 @@ NextArrow.propTypes = {
 
 function Carousel() {
   const classes = useStyles()
+  const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const mapCarousel = lobbies.map((lobby, index) => {
@@ -132,7 +134,7 @@ function Carousel() {
             platform="PS5"
             usesMic={true}
             sizeStatus="3/5"
-            isContentHidden={index === currentIndex}
+            isContentHidden={index != currentIndex}
           />
         </div>
       </div>
@@ -141,7 +143,7 @@ function Carousel() {
 
   const settings = {
     focusOnSelect: true,
-    speed: 500,
+    speed: theme.transitions.duration.carousel,
     slidesToShow: 3,
     centerMode: true,
     draggable: false,
