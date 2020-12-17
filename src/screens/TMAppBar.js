@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core/"
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
 
 function TMAppBar() {
   const classes = useStyles()
-  const [showCreateLobby, setShowCreateLobby] = React.useState(false)
-  const [showProfile, setShowProfile] = React.useState(false)
-  const [showCreateProfile, setShowCreateProfile] = React.useState(false)
-  const [showLogin, setShowLogin] = React.useState(false)
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [showCreateLobby, setShowCreateLobby] = useState(false)
+  const [showProfile, setShowProfile] = useState(false)
+  const [showCreateProfile, setShowCreateProfile] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
+  const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
   const handleClose = () => {
