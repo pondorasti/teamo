@@ -137,6 +137,7 @@ const defaultTheme = {
       shortest: 250, // IconButton
       shorter: 200,
       short: 250, // CardActionArea
+      carousel: 5000,
     },
   },
 }

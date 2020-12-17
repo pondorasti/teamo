@@ -1,21 +1,2 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-
-/* .slide {
-  transform: scale(0.7);
-  transition: transform 300ms;
-  opacity: 0.5;
-  margin: 16;
-}
-
-.activeSlide {
-  transform: scale(1.1);
-  opacity: 1;
-  margin-left: -50px;
-  margin-right: -50px;
-  margin-top: 8px;
-  padding: 16;
-  z-index: 9;
-  position: relative;
-  filter: drop-shadow(0px 0px 100px rgba(0, 0, 0, 0.75));
-} */
