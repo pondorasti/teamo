@@ -30,12 +30,16 @@ const useStyles = makeStyles(theme => ({
       // maxWidth: 672 // 336 * 2
     }
   },
-  "@keyframes crossFade": {
-    "from": { zIndex: 18 },
-    "to": { zIndex: 30 },
+  "@keyframes centerCrossFade": {
+    "from": { zIndex: 60 },
+    "to": { zIndex: 100 },
   },
-  "@keyframes reverseCrossFade": {
-    "from": { zIndex: 30 },
+  "@keyframes leadignCrossFade": {
+    "from": { zIndex: 95 },
+    "to": { zIndex: 1 },
+  },
+  "@keyframes trailingCrossFade": {
+    "from": { zIndex: 90 },
     "to": { zIndex: 1 },
   },
   allCards: {
@@ -58,7 +62,7 @@ const useStyles = makeStyles(theme => ({
     opacity: 1,
     zIndex: 10,
 
-    animation: `$crossFade ${theme.transitions.duration.carousel}ms linear`,
+    animation: `$centerCrossFade ${theme.transitions.duration.carousel}ms linear`,
   },
 
   leadingCards: {
@@ -71,12 +75,12 @@ const useStyles = makeStyles(theme => ({
   },
   leadingCard: {
     opacity: 1,
-    animation: `$reverseCrossFade ${theme.transitions.duration.carousel}ms linear`,
+    animation: `$leadignCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(60%, 0)",
   },
   trailingCard: {
     opacity: 1,
-    animation: `$reverseCrossFade ${theme.transitions.duration.carousel}ms linear`,
+    animation: `$trailingCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(-60%, 0)",
   }
 }))
