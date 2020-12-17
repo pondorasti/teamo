@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight } from "../../../assets/icons"
 import HeroCard from "./HeroCard"
 import Slider from "react-slick"
 import "./Carousel.css"
+import heroLobbies from "../../../api/dummy-data/heroLobbies"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -116,7 +117,7 @@ function Carousel() {
   const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const mapCarousel = lobbies.map((lobby, index) => {
+  const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
       {
         [classes.centerCard]: index === currentIndex,
@@ -124,8 +125,8 @@ function Carousel() {
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
 
-        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === lobbies.length && 0 === currentIndex )),
-        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && lobbies.length - 1 === currentIndex)),
+        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex )),
+        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
 
       },
       classes.allCards
@@ -181,51 +182,3 @@ function Carousel() {
 }
 
 export default Carousel
-
-const lobbies = [
-  {
-    username: "Card - 1",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 2",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 3",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 4",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 5",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 6",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 4",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 5",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-  {
-    username: "Card - 6",
-    gameLogo: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description: "This is my room decription, this should be no more than three lines long...",
-  },
-]

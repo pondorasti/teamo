@@ -1,6 +1,6 @@
 import React from "react"
 
-import { CssBaseline, Toolbar, FormControlLabel, Switch } from "@material-ui/core"
+import { CssBaseline, Toolbar } from "@material-ui/core"
 import { TMTheme } from "./atoms"
 import { ThemeProvider } from "@material-ui/core/styles"
 
@@ -17,7 +17,6 @@ import CreateLobbyDialog from "./screens/home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
 import ProfileDialog from "./screens/profile-dialog/ProfileDialog"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
-import HeroCard from "./screens/home-screen/molecules/HeroCard"
 
 function App() {
   const [openLogin, setOpenLogin] = React.useState(false)
@@ -58,11 +57,6 @@ function App() {
     setOpenProfile(false)
   }
 
-  const [checked, setChecked] = React.useState(true)
-  const handleChange = () => {
-    setChecked((prev) => !prev)
-  }
-
   return (
     <ThemeProvider theme={TMTheme}>
       <CssBaseline />
@@ -90,24 +84,6 @@ function App() {
         <TMButton onClick={handleCreateOpen}>Create Teamo</TMButton>
         <TMButton onClick={handleCreateProfileOpen}>Create Profile</TMButton>
         <TMButton onClick={handleProfileOpen}>Profile</TMButton>
-
-        <FormControlLabel
-          control={<Switch checked={checked} onChange={handleChange} />}
-          label="Show"
-        />
-        <div style={{ width: 400, margin: 16 }}>
-          <HeroCard
-            hostUsername="Pondorasti"
-            hostPicture="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
-            gameName="Fall Guys"
-            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
-            description="This is my room decription, this should be no more than three lines long..."
-            platform="PS Vita"
-            usesMic={true}
-            sizeStatus="3/15"
-            isContentHidden={checked}
-          />
-        </div>
         <Carousel />
         <LobbyGrid lobbies={lobbies} />
       </main>
