@@ -7,19 +7,22 @@ import LobbyCardFooter from "./LobbyCardFooter"
 import LobbyOptionsButton from "./LobbyOptionsButton"
 import TMAvatar from "../../../atoms/TMAvatar"
 
+const height = 200
+const width = 400
+
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
-    
-  },
-  card: {
-    width: 400,
-    height: 200,
+    width: width,
+    height: height,
 
     // Pure Wizardry
     // Source: https://stackoverflow.com/a/41059954/7897036
     marginLeft: "50%",
     transform: "translateX(-50%)",
+  },
+  card: {
+    height: height,
 
     borderRadius: 16,
     overflow: "visible",

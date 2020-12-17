@@ -18,30 +18,28 @@ const useStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 1008, // 336 * 3
+      maxWidth: 720, // 336 * 3
     },
   },
   slider: {
     display: "flex",
     alignItems: "center",
   },
-  slide: {
+  allCards: {
     padding: "16px 0",
     transition: "transform 500ms, opacity 500ms",
-    
+
     pointerEvents: "none",
     outline: "none",
-    // width: 400,
 
     display: "flex",
     justifyContent: "center",
   },
 
-  activeSlide: {
+  centerCard: {
     transform: "scale(1)",
     pointerEvents: "auto",
     opacity: 1,
-
 
     zIndex: 1,
     position: "relative",
@@ -116,28 +114,30 @@ function Carousel() {
   const mapCarousel = lobbies.map((lobby, index) => {
     const className = classNames(
       {
-        [classes.activeSlide]: index === currentIndex,
+        [classes.centerCard]: index === currentIndex,
         [classes.leadingCards]: (index + 1 <= currentIndex),
-        [classes.trailingCards]: (index - 1 >= currentIndex ),
+        [classes.trailingCards]: (index - 1 >= currentIndex),
         [classes.leadingCard]: (index + 1 === currentIndex),
-        [classes.trailingCard]: (index - 1 === currentIndex ),
+        [classes.trailingCard]: (index - 1 === currentIndex),
       },
-      classes.slide
+      classes.allCards
     )
 
     return (
       <div key={index} className={className}>
-        <HeroCard
-          hostUsername={lobby.username}
-          hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-          gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
-          gameName="Minecraft"
-          description={lobby.description}
-          platform="PS5"
-          usesMic={true}
-          sizeStatus="3/5"
-          isContentHidden={index === currentIndex}
-        />
+        <div>
+          <HeroCard
+            hostUsername={lobby.username}
+            hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
+            gameName="Minecraft"
+            description={lobby.description}
+            platform="PS5"
+            usesMic={true}
+            sizeStatus="3/5"
+            isContentHidden={index === currentIndex}
+          />
+        </div>
       </div>
     )
   })
@@ -147,21 +147,18 @@ function Carousel() {
     speed: 500,
     slidesToShow: 3,
     centerMode: true,
-
-
     draggable: false,
-
-    // variableWidth: true,
     adaptiveHeight: true,
     centerPadding: 0,
+
+    infinite: true,
 
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
 
-    // pauseOnFocus
     // pauseOnHover: true,
     // autoplay: true,
-    // autoplaySpeed: 6000,
+    // autoplaySpeed: 5000,
 
     beforeChange: (_, next) => setCurrentIndex(next),
   }
