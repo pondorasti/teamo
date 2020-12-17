@@ -79,7 +79,11 @@ function HeroCard({
     <div className={classes.cardContainer} title={gameName}>
       <Card
         classes={{ root: classes.card }}
-        style={{ backgroundImage: `url(${gameImg})` }}
+        style={{ 
+          backgroundImage: `url(${gameImg})`,
+          filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
+          transition: `all ${theme.transitions.duration.carousel}ms ease`,
+        }}
       >
         <Fade in={!isContentHidden} timeout={theme.transitions.duration.carousel}>
           <CardActionArea style={{ height: "100%" }}>

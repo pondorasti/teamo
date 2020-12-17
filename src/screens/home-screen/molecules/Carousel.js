@@ -30,11 +30,11 @@ const useStyles = makeStyles(theme => ({
     }
   },
   "@keyframes centerCrossFade": {
-    "from": { zIndex: 60 },
+    "from": { zIndex: 50 },
     "to": { zIndex: 100 },
   },
   "@keyframes leadignCrossFade": {
-    "from": { zIndex: 95 },
+    "from": { zIndex: 90 },
     "to": { zIndex: 1 },
   },
   "@keyframes trailingCrossFade": {
@@ -58,13 +58,11 @@ const useStyles = makeStyles(theme => ({
 
   centerCard: {
     transform: "scale(1)",
-    // pointerEvents: "auto",
     opacity: 1,
     zIndex: 10,
 
     animation: `$centerCrossFade ${theme.transitions.duration.carousel}ms linear`,
   },
-
   leadingCards: {
     opacity: 0,
     transform: "scale(0.5) translate(60%, 0)",
@@ -127,9 +125,7 @@ function Carousel() {
 
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
-      {
-        [classes.centerCard]: index === currentIndex,
-        
+      { 
         [classes.centerCard]: (index === currentIndex),
         [classes.pointerEvents]: (index === currentIndex && pointerEvents),
         
@@ -144,8 +140,8 @@ function Carousel() {
     )
 
     return (
-      <div key={index} className={className}>
-        <div>
+      <div key={index} className={className} style={{ boxShadow: "0 0 0 100px inset, 0 0 5px grey" }}>
+        <div >
           <HeroCard
             hostUsername={lobby.username}
             hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
