@@ -5,6 +5,8 @@ import TMAvatar from "../atoms/TMAvatar"
 import { makeStyles } from "@material-ui/styles"
 import TeamoBanner from "../assets/images/TeamoBanner.png"
 import CreateLobbyDialog from "./home-screen/dialogs/CreateLobbyDialog"
+import ProfileDialog from "./profile-dialog/ProfileDialog"
+import gamesPlayed from "../api/dummy-data/gamesPlayed"
 
 // WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 function TMAppBar() {
   const classes = useStyles()
   const [showCreateLobby, setShowCreateLobby] = React.useState(false)
+  const [showProfile, setShowProfile] = React.useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -43,6 +46,7 @@ function TMAppBar() {
   }
 
   const handleShowProfile = () => {
+    setShowProfile(true)
     handleClose()
   }
   const handleSignOut = () => {
@@ -86,11 +90,22 @@ function TMAppBar() {
             onClose={handleClose}
           >
             <MenuItem onClick={handleShowProfile}>My Profile</MenuItem>
+            <ProfileDialog
+              open={showProfile}
+              onClose={() => setShowProfile(false)}
+              backgroundColor="#1E1E1E"
+              username="ShiroTheCat"
+              status="online"
+              bio="Hello, my name Shiro, i look like dog, but i am cat."
+              avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+              gamesPlayed={gamesPlayed}
+            />
+
             <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
           </Menu>
         </Toolbar>
 
-        <Divider classes={{root: classes.divider}} />
+        <Divider classes={{ root: classes.divider }} />
 
       </AppBar>
     </>
