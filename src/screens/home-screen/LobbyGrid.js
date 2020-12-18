@@ -6,17 +6,6 @@ import LobbyCard from "./molecules/LobbyCard"
 import SelectedGameInfo from "./molecules/SelectedGameInfo"
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    margin: "auto",
-
-    [theme.breakpoints.up("sm")]: {
-      maxWidth: 672 // 336 * 2
-    },
-
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 1008, // 336 * 3
-    },
-  },
   gridItem: {
     // Do not change this value without updating `maxWidth` for
     // LobbyGrid - `container` and SelectedGameInfo - `divContainer`

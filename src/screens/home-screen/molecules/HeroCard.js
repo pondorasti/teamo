@@ -9,12 +9,16 @@ import TMAvatar from "../../../atoms/TMAvatar"
 
 const height = 200
 const width = 400
+const smallWidth = 300
 
 const useStyles = makeStyles(theme => ({
   cardContainer: {
     position: "relative",
     width: width,
     height: height,
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: smallWidth
+    },
 
     // Pure Wizardry
     // Source: https://stackoverflow.com/a/41059954/7897036
@@ -43,6 +47,10 @@ const useStyles = makeStyles(theme => ({
 
     width: "50%",
     left: "50%",
+    [theme.breakpoints.down("sm")]: {
+      width: "60%",
+      left: "40%",
+    },
 
     borderRadius: "16px 0 0 16px",
     padding: 16,

@@ -10,18 +10,6 @@ import "./Carousel.css"
 import heroLobbies from "../../../api/dummy-data/heroLobbies"
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    margin: "auto",
-
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      maxWidth: 672 // 336 * 2
-    },
-
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 1000, // 336 * 3
-    },
-  },
   slider: {
     display: "flex",
     alignItems: "center",
@@ -184,11 +172,9 @@ function Carousel() {
   }
 
   return (
-    // <div className={classes.container}>
     <Slider {...settings} className={classes.slider}>
       {mapCarousel}
     </Slider>
-    // </div>
   )
 }
 
