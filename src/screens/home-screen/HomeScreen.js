@@ -59,7 +59,7 @@ function HomeScreen() {
           >
             <Hidden xsDown>
               <Grid item>
-                <img src={AsianScene} className={classes.image} style={{ paddingRight: 32 }} />
+                <img src={AsianScene} className={classes.image} />
               </Grid>
             </Hidden>
 
@@ -72,7 +72,7 @@ function HomeScreen() {
 
             <Hidden xsDown>
               <Grid item>
-                <img src={WesternScene} className={classes.image} style={{ paddingLeft: 32}} />
+                <img src={WesternScene} className={classes.image} />
               </Grid>
             </Hidden>
           </Grid>
