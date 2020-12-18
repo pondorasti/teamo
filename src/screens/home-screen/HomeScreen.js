@@ -8,7 +8,7 @@ import LobbyGrid from "./molecules/LobbyGrid"
 import AppBar from "../TMAppBar"
 import Carousel from "./molecules/Carousel"
 
-import { AsianHouse, WesternHouse } from "../../assets/images/"
+import { AsianScene, WesternScene } from "../../assets/images/"
 
 const useStyles = makeStyles(theme => ({
   gridContainer: {
@@ -53,7 +53,7 @@ function HomeScreen() {
         >
           <Hidden xsDown>
             <Grid item>
-              <img src={AsianHouse} style={{ maxHeight: 384 }} />
+              <img src={AsianScene} style={{ maxHeight: 600, paddingTop: 32, paddingRight: 32, opacity: 0.9 }} />
             </Grid>
           </Hidden>
 
@@ -66,7 +66,7 @@ function HomeScreen() {
 
           <Hidden xsDown>
             <Grid item>
-              <img src={WesternHouse} style={{ maxHeight: 384 }} />
+              <img src={WesternScene} style={{ maxHeight: 600, paddingTop: 32, paddingRight: 32, opacity: 0.9 }} />
             </Grid>
           </Hidden>
         </Grid>
