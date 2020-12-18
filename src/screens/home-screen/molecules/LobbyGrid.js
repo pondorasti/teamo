@@ -2,8 +2,8 @@ import { Grid } from "@material-ui/core"
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
-import LobbyCard from "./molecules/LobbyCard"
-import SelectedGameInfo from "./molecules/SelectedGameInfo"
+import LobbyCard from "./LobbyCard"
+import SelectedGameInfo from "./SelectedGameInfo"
 
 const useStyles = makeStyles(theme => ({
   gridItem: {
