@@ -32,7 +32,7 @@ function LobbyGrid({ lobbies }) {
   const classes = useStyles()
 
   return (
-    <div className={classes.container}>
+    <div>
       <SelectedGameInfo />
 
       <Grid

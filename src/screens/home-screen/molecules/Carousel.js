@@ -125,14 +125,14 @@ function Carousel() {
 
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
-      { 
+      {
         [classes.centerCard]: (index === currentIndex),
         [classes.pointerEvents]: (index === currentIndex && pointerEvents),
-        
+
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
-        
-        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex )),
+
+        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex)),
         [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
 
       },
@@ -184,11 +184,11 @@ function Carousel() {
   }
 
   return (
-    <div className={classes.container}>
-      <Slider {...settings} className={classes.slider}>
-        {mapCarousel}
-      </Slider>
-    </div>
+    // <div className={classes.container}>
+    <Slider {...settings} className={classes.slider}>
+      {mapCarousel}
+    </Slider>
+    // </div>
   )
 }
 
