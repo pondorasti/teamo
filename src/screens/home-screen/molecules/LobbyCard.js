@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 import LobbyCardFooter from "./LobbyCardFooter"
 import LobbyOptionsButton from "./LobbyOptionsButton"
 import TMAvatar from "../../../atoms/TMAvatar"
+import JoinLobbyDialog from "../dialogs/JoinLobbyDialog"
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: { position: "relative" },
@@ -56,11 +57,12 @@ const useStyles = makeStyles((theme) => ({
 
 function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus }) {
   const classes = useStyles()
+  const [showJoinLobby, setShowJoinLobby] = useState(false)
 
   return (
     <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
-        <CardActionArea classes={{ root: classes.cardActionArea }}>
+        <CardActionArea classes={{ root: classes.cardActionArea }} onClick={() => setShowJoinLobby(true)}>
           <Grid container justify="space-between">
             <div className={classes.topDiv}>
               <Grid item xs={6} classes={{ root: classes.hostInfo }}>
@@ -89,6 +91,7 @@ function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description,
         </CardActionArea>
       </Card>
 
+      <JoinLobbyDialog open={showJoinLobby} onClose={() => setShowJoinLobby(false)} />
       <LobbyOptionsButton className={classes.optionsButtonContainer} />
     </div>
   )
