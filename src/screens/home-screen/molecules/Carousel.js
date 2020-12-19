@@ -117,13 +117,12 @@ function Carousel() {
 
         [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex)),
         [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
-
       },
       classes.allCards
     )
 
     return (
-      <div key={index} className={className} style={{ boxShadow: "0 0 0 100px inset, 0 0 5px grey" }}>
+      <div key={index} className={className}>
         <div >
           <HeroCard
             hostUsername={lobby.username}
