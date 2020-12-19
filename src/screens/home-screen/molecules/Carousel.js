@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   "@keyframes centerCrossFade": {
-    "from": { zIndex: 50 },
+    "from": { zIndex: 60 },
     "to": { zIndex: 100 },
   },
   "@keyframes leadignCrossFade": {
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     transform: "scale(1)",
     opacity: 1,
     zIndex: 10,
-
+    pointerEvents: "auto",
     animation: `$centerCrossFade ${theme.transitions.duration.carousel}ms linear`,
   },
   leadingCards: {
@@ -69,9 +69,6 @@ const useStyles = makeStyles(theme => ({
     animation: `$trailingCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(-60%, 0)",
   },
-  pointerEvents: {
-    pointerEvents: "auto"
-  }
 }))
 
 function PrevArrow({ onClick }) {
@@ -109,13 +106,11 @@ function Carousel() {
   const classes = useStyles()
   const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [pointerEvents, setPointerEvents] = React.useState(true)
 
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
       {
         [classes.centerCard]: (index === currentIndex),
-        [classes.pointerEvents]: (index === currentIndex && pointerEvents),
 
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
@@ -164,11 +159,7 @@ function Carousel() {
     autoplay: true,
     autoplaySpeed: 5000,
 
-    beforeChange: (_, next) => {
-      setPointerEvents(false)
-      setCurrentIndex(next)
-      setTimeout(() => setPointerEvents(true), theme.transitions.duration.carousel * 0.90)
-    },
+    beforeChange: (_, next) => { setCurrentIndex(next) },
   }
 
   return (
