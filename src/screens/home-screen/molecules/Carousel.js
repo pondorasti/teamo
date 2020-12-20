@@ -10,18 +10,6 @@ import "./Carousel.css"
 import heroLobbies from "../../../api/dummy-data/heroLobbies"
 
 const useStyles = makeStyles(theme => ({
-  container: {
-    margin: "auto",
-
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      maxWidth: 672 // 336 * 2
-    },
-
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 1000, // 336 * 3
-    },
-  },
   slider: {
     display: "flex",
     alignItems: "center",
@@ -30,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   "@keyframes centerCrossFade": {
-    "from": { zIndex: 50 },
+    "from": { zIndex: 60 },
     "to": { zIndex: 100 },
   },
   "@keyframes leadignCrossFade": {
@@ -60,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     transform: "scale(1)",
     opacity: 1,
     zIndex: 10,
-
+    pointerEvents: "auto",
     animation: `$centerCrossFade ${theme.transitions.duration.carousel}ms linear`,
   },
   leadingCards: {
@@ -81,9 +69,6 @@ const useStyles = makeStyles(theme => ({
     animation: `$trailingCrossFade ${theme.transitions.duration.carousel}ms linear`,
     transform: "scale(0.8) translate(-60%, 0)",
   },
-  pointerEvents: {
-    pointerEvents: "auto"
-  }
 }))
 
 function PrevArrow({ onClick }) {
@@ -121,26 +106,23 @@ function Carousel() {
   const classes = useStyles()
   const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [pointerEvents, setPointerEvents] = React.useState(true)
 
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
-      { 
+      {
         [classes.centerCard]: (index === currentIndex),
-        [classes.pointerEvents]: (index === currentIndex && pointerEvents),
-        
+
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
-        
-        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex )),
-        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
 
+        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex)),
+        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
       },
       classes.allCards
     )
 
     return (
-      <div key={index} className={className} style={{ boxShadow: "0 0 0 100px inset, 0 0 5px grey" }}>
+      <div key={index} className={className}>
         <div >
           <HeroCard
             hostUsername={lobby.username}
@@ -176,19 +158,13 @@ function Carousel() {
     autoplay: true,
     autoplaySpeed: 5000,
 
-    beforeChange: (_, next) => {
-      setPointerEvents(false)
-      setCurrentIndex(next)
-      setTimeout(() => setPointerEvents(true), theme.transitions.duration.carousel * 0.90)
-    },
+    beforeChange: (_, next) => { setCurrentIndex(next) },
   }
 
   return (
-    <div className={classes.container}>
-      <Slider {...settings} className={classes.slider}>
-        {mapCarousel}
-      </Slider>
-    </div>
+    <Slider {...settings} className={classes.slider}>
+      {mapCarousel}
+    </Slider>
   )
 }
 
