@@ -1,10 +1,10 @@
 const Game = {
-  "label"   : "Games",
-  "options" : [
+  label: "Games",
+  options: [
     "Minecraft",
     "League of Legends",
-    "Among Us"
-  ]
+    "Among Us",
+  ],
 }
 
 export default Game

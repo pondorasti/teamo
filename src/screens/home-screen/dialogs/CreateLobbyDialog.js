@@ -16,9 +16,13 @@ import {
 
 import TMButton from "../../../atoms/TMButton"
 
-import { Platform, Game, Size, Microphone } from "../../../api/lobby-template"
+import {
+  Platform, Game, Size, Microphone,
+} from "../../../api/lobby-template"
 
-import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
+import {
+  Controller, Dpad, Mic, People, Description,
+} from "../../../assets/icons"
 import { CouchBuddies } from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
@@ -39,7 +43,11 @@ function CreateLobbyDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title">
-        <img src={CouchBuddies} className={classes.illustration} />
+        <img
+          src={CouchBuddies}
+          alt="Five animals playing video games on a couch"
+          className={classes.illustration}
+        />
         <Typography variant="h4">Create Teamo</Typography>
       </DialogTitle>
 
@@ -50,7 +58,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Controller />
             </ListItemIcon>
             <Autocomplete
-              renderInput={params => <TextField {...params} label={Game.label} />}
+              renderInput={(params) => <TextField {...params} label={Game.label} />}
               options={Game.options}
               fullWidth
             />
@@ -61,7 +69,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Dpad />
             </ListItemIcon>
             <Autocomplete
-              renderInput={params => <TextField {...params} label={Platform.label} />}
+              renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
               fullWidth
             />
@@ -72,7 +80,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Mic />
             </ListItemIcon>
             <Autocomplete
-              renderInput={params => <TextField {...params} label={Microphone.label} />}
+              renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
               fullWidth
             />
@@ -83,7 +91,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <People />
             </ListItemIcon>
             <Autocomplete
-              renderInput={params => <TextField {...params} label={Size.label} />}
+              renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
               fullWidth
             />
@@ -119,10 +127,6 @@ CreateLobbyDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
-}
-
-CreateLobbyDialog.defaultProps = {
-  open: false,
 }
 
 export default CreateLobbyDialog

@@ -1,19 +1,21 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Drawer, Toolbar, Grid, Divider } from "@material-ui/core/"
+import {
+  Drawer, Toolbar, Grid, Divider,
+} from "@material-ui/core/"
 import LobbyHeader from "./LobbyHeader"
 import PlayerCard from "./PlayerCard"
 import lobbyPlayers from "../../../api/dummy-data/lobbyPlayers"
 
 const drawerWidth = 352
-const useStyle = makeStyles(theme => ({
+const useStyle = makeStyles((theme) => ({
   drawerRoot: {
     width: drawerWidth,
     flexShrink: 0,
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: theme.palette.grey[800]
+    backgroundColor: theme.palette.grey[800],
   },
   drawerContainer: {
     overflow: "auto",
@@ -29,14 +31,14 @@ function LobbySidebar() {
       variant="permanent"
       classes={{
         root: classes.drawerRoot,
-        paper: classes.drawerPaper
+        paper: classes.drawerPaper,
       }}
     >
       {/* An extra toolbar for shifting the content of the page under the app bar */}
       <Toolbar />
 
       <div className={classes.drawerContainer}>
-        <Grid container spacing={3} >
+        <Grid container spacing={3}>
           <LobbyHeader
             lobbyHost="Pondorasti"
             gameName="Minecraft"
@@ -52,9 +54,9 @@ function LobbySidebar() {
           </Grid>
 
           <Grid container item spacing={2}>
-            {lobbyPlayers.map((player, index) => (
+            {lobbyPlayers.map((player) => (
               <PlayerCard
-                key={index}
+                key={player.id}
                 username={player.username}
                 gamerTag={player.gamerTag}
                 avatarUrl={player.avatarUrl}

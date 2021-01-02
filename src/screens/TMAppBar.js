@@ -1,9 +1,11 @@
 import React, { useState } from "react"
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core/"
+import {
+  AppBar, Toolbar, IconButton, Menu, MenuItem, Divider,
+} from "@material-ui/core/"
+import { makeStyles } from "@material-ui/styles"
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
-import { makeStyles } from "@material-ui/styles"
-import { TeamoBanner } from "../assets/images/"
+import { TeamoBanner } from "../assets/images"
 import CreateLobbyDialog from "./home-screen/dialogs/CreateLobbyDialog"
 import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
 import LoginDialog from "./home-screen/dialogs/LoginDialog"
@@ -112,7 +114,10 @@ function TMAppBar() {
             />
 
             <MenuItem onClick={handleCreateProfile}>Create Profile</MenuItem>
-            <CreateProfileDialog open={showCreateProfile} onClose={() => setShowCreateProfile(false)} />
+            <CreateProfileDialog
+              open={showCreateProfile}
+              onClose={() => setShowCreateProfile(false)}
+            />
 
             <MenuItem onClick={handleSignOut}>Sign out / Login</MenuItem>
             <LoginDialog open={showLogin} onClose={() => setShowLogin(false)} />

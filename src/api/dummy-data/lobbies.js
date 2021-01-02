@@ -1,5 +1,6 @@
-export const lobbies = [
+const lobbies = [
   {
+    id: 1,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -10,6 +11,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 2,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -20,6 +22,7 @@ export const lobbies = [
     sizeStatus: "3/10",
   },
   {
+    id: 3,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -30,6 +33,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 4,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -40,6 +44,7 @@ export const lobbies = [
     sizeStatus: "1/8",
   },
   {
+    id: 5,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -50,6 +55,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 6,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -60,6 +66,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 7,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -70,6 +77,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 8,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -80,6 +88,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 9,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -90,6 +99,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 10,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -100,6 +110,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 11,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -110,6 +121,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 12,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -120,6 +132,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 13,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -130,6 +143,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 14,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -140,6 +154,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 15,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -150,6 +165,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 16,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
@@ -160,6 +176,7 @@ export const lobbies = [
     sizeStatus: "3/5",
   },
   {
+    id: 17,
     username: "Pondorasti",
     gameLogo:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",

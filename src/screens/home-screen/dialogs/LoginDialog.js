@@ -26,7 +26,11 @@ function LoginDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="login-modal">
       <DialogTitle id="login-modal-title">
-        <img src={CouchBuddies} className={classes.illustration} />
+        <img
+          src={CouchBuddies}
+          alt="Five animals playing video games on a couch"
+          className={classes.illustration}
+        />
         <Typography variant="h4">Teamo</Typography>
         <Typography variant="h5" classes={{ root: classes.slogan }}>
           Good Team, Good Game.
@@ -67,10 +71,6 @@ LoginDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
-}
-
-LoginDialog.defaultProps = {
-  open: false,
 }
 
 export default LoginDialog

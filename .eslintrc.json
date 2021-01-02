@@ -5,7 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -25,7 +26,13 @@
         "semi": ["error", "never"],
 
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        
+        "import/no-extraneous-dependencies": ["off", {"devDependencies": true}],
+        "react/jsx-props-no-spreading": "off",
+        "react/forbid-prop-types": 0
     },
     "settings": {
       "react": {

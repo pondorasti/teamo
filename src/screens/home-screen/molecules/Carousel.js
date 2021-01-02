@@ -3,31 +3,31 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { IconButton } from "@material-ui/core"
+import Slider from "react-slick"
 import { ArrowLeft, ArrowRight } from "../../../assets/icons"
 import HeroCard from "./HeroCard"
-import Slider from "react-slick"
 import "./Carousel.css"
 import heroLobbies from "../../../api/dummy-data/heroLobbies"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   slider: {
     display: "flex",
     alignItems: "center",
     "& > .slick-list > .slick-track > *": {
-      outline: "none"
-    }
+      outline: "none",
+    },
   },
   "@keyframes centerCrossFade": {
-    "from": { zIndex: 60 },
-    "to": { zIndex: 100 },
+    from: { zIndex: 60 },
+    to: { zIndex: 100 },
   },
   "@keyframes leadignCrossFade": {
-    "from": { zIndex: 90 },
-    "to": { zIndex: 1 },
+    from: { zIndex: 90 },
+    to: { zIndex: 1 },
   },
   "@keyframes trailingCrossFade": {
-    "from": { zIndex: 90 },
-    "to": { zIndex: 1 },
+    from: { zIndex: 90 },
+    to: { zIndex: 1 },
   },
   allCards: {
     padding: "16px 0",
@@ -115,15 +115,21 @@ function Carousel() {
         [classes.leadingCards]: (index + 1 <= currentIndex),
         [classes.trailingCards]: (index - 1 >= currentIndex),
 
-        [classes.leadingCard]: (index + 1 === currentIndex || (index + 1 === heroLobbies.length && 0 === currentIndex)),
-        [classes.trailingCard]: (index - 1 === currentIndex || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)),
+        [classes.leadingCard]: (
+          (index + 1 === currentIndex)
+          || (index + 1 === heroLobbies.length && currentIndex === 0)
+        ),
+        [classes.trailingCard]: (
+          (index - 1 === currentIndex)
+          || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)
+        ),
       },
-      classes.allCards
+      classes.allCards,
     )
 
     return (
-      <div key={index} className={className}>
-        <div >
+      <div key={lobby.id} className={className}>
+        <div>
           <HeroCard
             hostUsername={lobby.username}
             hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
@@ -131,9 +137,9 @@ function Carousel() {
             gameName="Minecraft"
             description={lobby.description}
             platform="PS5"
-            usesMic={true}
+            usesMic
             sizeStatus="3/5"
-            isContentHidden={index != currentIndex}
+            isContentHidden={index !== currentIndex}
           />
         </div>
       </div>

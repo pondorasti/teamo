@@ -48,11 +48,11 @@ function CreateProfileDialog({ open, onClose }) {
       classes={{ root: classes.dialogBody }}
     >
       <DialogTitle id="create-teamo-modal-title" classes={{ root: classes.dialogTitle }}>
-        <img src={WavingRacoon} className={classes.illustration} />
+        <img src={WavingRacoon} alt="Waving raccoon" className={classes.illustration} />
         <Typography variant="h4" classes={{ root: classes.titleText }}>
           User Profile
         </Typography>
-        <img src={WavingLion} className={classes.illustration} />
+        <img src={WavingLion} alt="Waving lion" className={classes.illustration} />
       </DialogTitle>
 
       <DialogContent>
@@ -88,10 +88,6 @@ CreateProfileDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
-}
-
-CreateProfileDialog.defaultProps = {
-  open: false,
 }
 
 export default CreateProfileDialog

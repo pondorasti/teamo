@@ -1,9 +1,9 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { IconButton, InputAdornment, TextField }  from "@material-ui/core/"
+import { IconButton, InputAdornment, TextField } from "@material-ui/core/"
 import { Airplane } from "../../../assets/icons"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textField: {
     background: theme.palette.grey[600],
     borderRadius: 16,
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   iconButton: {
-    width: 32, 
+    width: 32,
     height: 32,
   },
   airplaneIcon: {

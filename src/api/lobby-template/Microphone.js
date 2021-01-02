@@ -1,9 +1,9 @@
 const Microphone = {
-  "label"   : "Preference",
-  "options" : [
+  label: "Preference",
+  options: [
     "Microphone",
-    "No Microphone"
-  ]
+    "No Microphone",
+  ],
 }
 
 export default Microphone

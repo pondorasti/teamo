@@ -1,11 +1,11 @@
 const Platforms = {
-  "label"   : "Platforms",
-  "options" : [
+  label: "Platforms",
+  options: [
     "PC",
     "Play Station",
     "XBOX",
-    "VR"
-  ]
+    "VR",
+  ],
 }
 
 export default Platforms

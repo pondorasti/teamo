@@ -5,11 +5,11 @@ import PropTypes from "prop-types"
 import LobbyCard from "./LobbyCard"
 import SelectedGameInfo from "./SelectedGameInfo"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   gridItem: {
     // Do not change this value without updating `maxWidth` for
     // LobbyGrid - `container` and SelectedGameInfo - `divContainer`
-    maxWidth: 336, 
+    maxWidth: 336,
 
     [theme.breakpoints.down("xs")]: {
       maxWidth: "100%",
@@ -29,9 +29,9 @@ function LobbyGrid({ lobbies }) {
         spacing={2}
         justify="center"
       >
-        {lobbies.map((lobby, index) => (
+        {lobbies.map((lobby) => (
           <Grid
-            key={index}
+            key={lobby.id}
             item
             xs={12}
             sm={6}
@@ -59,7 +59,7 @@ function LobbyGrid({ lobbies }) {
 
 LobbyGrid.propTypes = {
   /** An array of lobbies */
-  lobbies: PropTypes.array,
+  lobbies: PropTypes.array.isRequired,
 }
 
 export default LobbyGrid

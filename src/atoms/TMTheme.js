@@ -160,7 +160,7 @@ const TMTheme = createMuiTheme({
     },
     MuiListItem: {
       disableGutters: true,
-    }
+    },
   },
   overrides: {
     // Textfield
@@ -233,7 +233,7 @@ const TMTheme = createMuiTheme({
     MuiListItem: {
       root: {
         // Do not change this value without updating MuiDialogContent List Edge case
-        padding: "8px 0", 
+        padding: "8px 0",
       },
     },
     MuiListItemIcon: {
@@ -252,7 +252,7 @@ const TMTheme = createMuiTheme({
       },
       arrow: {
         color: defaultTheme.palette.grey[600],
-      }
+      },
     },
   },
 })

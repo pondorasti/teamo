@@ -1,6 +1,8 @@
 import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
+import {
+  Grid, Card, CardActionArea, Typography, Fade,
+} from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "./LobbyCardFooter"
@@ -11,13 +13,13 @@ const height = 200
 const width = 400
 const smallWidth = 300
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardContainer: {
     position: "relative",
-    width: width,
-    height: height,
+    width,
+    height,
     [theme.breakpoints.down("sm")]: {
-      maxWidth: smallWidth
+      maxWidth: smallWidth,
     },
 
     // Pure Wizardry
@@ -26,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     transform: "translateX(-50%)",
   },
   card: {
-    height: height,
+    height,
 
     borderRadius: 16,
     overflow: "visible",
@@ -37,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
     "&:hover + $optionsButtonContainer": {
       opacity: 1,
-      //pointerEvents needed here for options to display
+      // pointerEvents needed here for options to display
       pointerEvents: "auto",
     },
   },
@@ -55,8 +57,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: "16px 0 0 16px",
     padding: 16,
     backgroundColor: theme.palette.grey[700],
-    
-    boxShadow: "0 0 16px 8px #00000099"
+
+    boxShadow: "0 0 16px 8px #00000099",
   },
   hostInfo: {
     display: "flex",
@@ -87,7 +89,7 @@ function HeroCard({
     <div className={classes.cardContainer} title={gameName}>
       <Card
         classes={{ root: classes.card }}
-        style={{ 
+        style={{
           backgroundImage: `url(${gameImg})`,
           filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
           transition: `all ${theme.transitions.duration.carousel}ms ease`,
@@ -111,7 +113,12 @@ function HeroCard({
                 <Typography variant="h5">{description}</Typography>
               </Grid>
 
-              <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} isCompact />
+              <LobbyCardFooter
+                platform={platform}
+                usesMic={usesMic}
+                sizeStatus={sizeStatus}
+                isCompact
+              />
             </Grid>
           </CardActionArea>
         </Fade>

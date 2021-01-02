@@ -6,7 +6,7 @@ import classNames from "classnames"
 
 import ThreeDots from "../../../assets/icons/ThreeDots"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     border: `1px solid ${theme.palette.grey[500]}`,
     backgroundColor: theme.palette.grey[700],
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   iconStyle: { fontSize: 16 },
 }))
 
-function LobbyOptionsButton({className}) {
+function LobbyOptionsButton({ className }) {
   const classes = useStyles()
   const containerClassName = classNames(className, classes.container)
 

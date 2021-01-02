@@ -76,6 +76,7 @@ function JoinLobbyDialog({ open, onClose }) {
         </Typography>
         <img
           src={randomImg}
+          alt="Random animal standing"
           className={classes.illustration}
           style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
         />
@@ -109,10 +110,6 @@ JoinLobbyDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
-}
-
-JoinLobbyDialog.defaultProps = {
-  open: false,
 }
 
 export default JoinLobbyDialog
