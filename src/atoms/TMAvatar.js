@@ -55,7 +55,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
+function TMAvatar({
+  alt, src, size, status, backgroundColor, style,
+}) {
   const classes = useStyles()
   const className = classNames({
     [classes.sizeExtraSmall]: size === "extraSmall",
@@ -68,25 +70,24 @@ function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
     return (
       <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
     )
-  } else {
-    return (
-      <div className={classes.container}>
-        <Avatar
-          classes={{ root: className }}
-          alt={alt}
-          src={src}
-          style={style}
-        />
-        <div className={classes.onlineStatusOverlay}>
-          <div
-            className={classes.backgroundStatusOverlay}
-            style={{ backgroundColor: `${backgroundColor}` }}
-          ></div>
-        </div>
-        <div className={classes.onlineStatusOverlay}></div>
-      </div>
-    )
   }
+  return (
+    <div className={classes.container}>
+      <Avatar
+        classes={{ root: className }}
+        alt={alt}
+        src={src}
+        style={style}
+      />
+      <div className={classes.onlineStatusOverlay}>
+        <div
+          className={classes.backgroundStatusOverlay}
+          style={{ backgroundColor: `${backgroundColor}` }}
+        />
+      </div>
+      <div className={classes.onlineStatusOverlay} />
+    </div>
+  )
 }
 
 TMAvatar.propTypes = {
@@ -112,6 +113,8 @@ TMAvatar.propTypes = {
 TMAvatar.defaultProps = {
   size: "medium",
   status: "none",
+  backgroundColor: undefined,
+  style: undefined,
 }
 
 export default TMAvatar

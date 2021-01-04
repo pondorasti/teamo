@@ -7,16 +7,16 @@ import lobbies from "../../api/dummy-data/lobbies"
 import LobbyGrid from "./molecules/LobbyGrid"
 import AppBar from "../TMAppBar"
 import Carousel from "./molecules/Carousel"
-import { AsianScene, WesternScene } from "../../assets/images/"
+import { EasternScene, WesternScene } from "../../assets/images"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: "calc(100vh - 64px)",
     overflowY: "auto",
   },
   gridContainer: {
     backgroundColor: `${theme.palette.grey[800]}`,
-    
+
     overflowX: "hidden",
     [theme.breakpoints.down("xs")]: {
       display: "block",
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     padding: 32,
 
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 672 // 336 * 2
+      maxWidth: 672, // 336 * 2
     },
 
     [theme.breakpoints.up("md")]: {
@@ -59,7 +59,11 @@ function HomeScreen() {
           >
             <Hidden xsDown>
               <Grid item>
-                <img src={AsianScene} className={classes.image} />
+                <img
+                  src={EasternScene}
+                  className={classes.image}
+                  alt="Eastern style islands with a raccoon playing VR on the roof."
+                />
               </Grid>
             </Hidden>
 
@@ -72,7 +76,7 @@ function HomeScreen() {
 
             <Hidden xsDown>
               <Grid item>
-                <img src={WesternScene} className={classes.image} />
+                <img src={WesternScene} className={classes.image} alt="Western style islands focusing on mushrooms playing video games on a couch." />
               </Grid>
             </Hidden>
           </Grid>

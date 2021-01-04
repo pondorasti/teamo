@@ -7,17 +7,17 @@ import CardMedia from "@material-ui/core/CardMedia"
 import Typography from "@material-ui/core/Typography"
 import PropTypes from "prop-types"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 8,
-    
+
     // fixes safari overflow bug
     WebkitMaskImage: "-webkit-radial-gradient(white, black)",
   },
-  media: { 
+  media: {
     height: 72,
     [theme.breakpoints.down("xs")]: {
-      height: 144 ,
+      height: 144,
     },
   },
   cardContent: { padding: 8 },

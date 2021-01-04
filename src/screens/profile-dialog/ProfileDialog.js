@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Dialog, DialogContent, Typography, Grid } from "@material-ui/core"
+import {
+  Dialog, DialogContent, Typography, Grid,
+} from "@material-ui/core"
 import { TMButton, TMAvatar } from "../../atoms"
 import ProfileGameCard from "./ProfileGameCard"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   headerGridContainer: {
     overflow: "visible",
   },
@@ -37,8 +39,8 @@ function ProfileDialog({
   const classes = useStyles()
   const theme = useTheme()
 
-  const listGames = gamesPlayed.map((game, index) => (
-    <Grid item xs={12} sm={6} md={4} key={index}>
+  const listGames = gamesPlayed.map((game) => (
+    <Grid item xs={12} sm={6} md={4} key={game.id}>
       <ProfileGameCard imageUrl={game.imageUrl} title={game.title} />
     </Grid>
   ))
@@ -108,7 +110,9 @@ ProfileDialog.propTypes = {
   status: PropTypes.oneOf(["none", "online"]).isRequired,
 
   bio: PropTypes.string.isRequired,
-  avatarUrl: PropTypes.any.isRequired,
+
+  avatarUrl: PropTypes.string.isRequired,
+
   gamesPlayed: PropTypes.any.isRequired,
 }
 

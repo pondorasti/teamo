@@ -3,6 +3,7 @@ import { SvgIcon } from "@material-ui/core"
 
 function MicIcon(props) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <SvgIcon {...props}>
       <path
         id="Mic"

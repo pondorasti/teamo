@@ -5,7 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -15,7 +16,6 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react",
         "react-hooks"
     ],
     "rules": {
@@ -24,8 +24,13 @@
         "quotes": ["error", "double"],
         "semi": ["error", "never"],
 
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        
+        // TODO: remove in the future
+        "react/forbid-prop-types": 0
     },
     "settings": {
       "react": {

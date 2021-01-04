@@ -2,14 +2,14 @@ import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Grid, Typography, TextField } from "@material-ui/core"
 import Autocomplete from "@material-ui/lab/Autocomplete"
-import { Platform, Game } from "../../../api/lobby-template/"
+import { Platform, Game } from "../../../api/lobby-template"
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
     padding: "24px 0",
     margin: "auto",
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 656 // 336 * 2 - 16 (side padding)
+      maxWidth: 656, // 336 * 2 - 16 (side padding)
     },
 
     [theme.breakpoints.up("md")]: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   rightGrid: {
     display: "flex",
     alignItems: "center",
-    
+
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       width: "100%",
-      height: "auto"
+      height: "auto",
     },
   },
   gameInfo: {
@@ -120,12 +120,14 @@ function TMSelectedGameInfo() {
         <Grid item classes={{ root: classes.rightGrid }}>
           <Autocomplete
             classes={{ root: classes.leftAutocomplete }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} label={Game.label} />}
             options={Game.options}
             fullWidth
           />
           <Autocomplete
             classes={{ root: classes.rightAutocomplete }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} label={Platform.label} />}
             options={Platform.options}
           />

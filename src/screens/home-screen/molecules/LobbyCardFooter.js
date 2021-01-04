@@ -3,7 +3,9 @@ import { Grid, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
 
-import { People, Dpad, Mic, MicSlash } from "../../../assets/icons"
+import {
+  People, Dpad, Mic, MicSlash,
+} from "../../../assets/icons"
 
 const useStyles = makeStyles((theme) => ({
   statContainerStyles: {
@@ -28,10 +30,12 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     width: 1,
     backgroundColor: theme.palette.secondary.main,
-  }
+  },
 }))
 
-function LobbyCardFooter({ platform, usesMic, sizeStatus, isCompact }) {
+function LobbyCardFooter({
+  platform, usesMic, sizeStatus, isCompact,
+}) {
   const classes = useStyles()
 
   return (
@@ -49,8 +53,10 @@ function LobbyCardFooter({ platform, usesMic, sizeStatus, isCompact }) {
       <Grid item classes={{ root: classes.divider }} />
 
       <Grid item xs={isCompact ? false : 4} classes={{ root: classes.micOption }}>
-        {usesMic ? <Mic classes={{ root: classes.iconStyle }} /> : <MicSlash classes={{ root: classes.iconStyle }} />}
-        {!isCompact && <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography> }
+        {usesMic
+          ? <Mic classes={{ root: classes.iconStyle }} />
+          : <MicSlash classes={{ root: classes.iconStyle }} />}
+        {!isCompact && <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography>}
       </Grid>
 
       <Grid item classes={{ root: classes.divider }} />
@@ -73,12 +79,11 @@ LobbyCardFooter.propTypes = {
   /** The size status of the lobby. */
   sizeStatus: PropTypes.string.isRequired,
 
-  isCompact: PropTypes.bool
+  isCompact: PropTypes.bool,
 }
 
 LobbyCardFooter.defaultProps = {
   isCompact: false,
 }
-
 
 export default LobbyCardFooter

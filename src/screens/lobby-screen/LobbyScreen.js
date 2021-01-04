@@ -5,12 +5,12 @@ import AppBar from "../TMAppBar"
 import LobbySidebar from "./molecules/LobbySidebar"
 import ChatWindow from "./molecules/ChatWindow"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: { display: "flex" },
   content: {
     flexGrow: 1,
-    backgroundColor: `${theme.palette.grey[800]}`
-  }
+    backgroundColor: `${theme.palette.grey[800]}`,
+  },
 }))
 
 function LobbyScreen() {

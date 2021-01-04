@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: fade(
         theme.palette.error.light,
-        theme.palette.action.hoverOpacity
+        theme.palette.action.hoverOpacity,
       ),
       borderColor: theme.palette.error.main,
     },
@@ -135,10 +135,14 @@ TMButton.propTypes = {
 }
 
 TMButton.defaultProps = {
+  leadingIcon: undefined,
   size: "large",
   variant: "contained",
   disabled: false,
   fullWidth: false,
+  href: undefined,
+  style: undefined,
+  onClick: undefined,
 }
 
 export default TMButton

@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
+import {
+  Grid, Card, CardActionArea, Typography,
+} from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "./LobbyCardFooter"
@@ -55,14 +57,19 @@ const useStyles = makeStyles((theme) => ({
   optionsButtonContainer: {}, // decoy class used for referencing
 }))
 
-function LobbyCard({ hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus }) {
+function LobbyCard({
+  hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus,
+}) {
   const classes = useStyles()
   const [showJoinLobby, setShowJoinLobby] = useState(false)
 
   return (
     <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
-        <CardActionArea classes={{ root: classes.cardActionArea }} onClick={() => setShowJoinLobby(true)}>
+        <CardActionArea
+          classes={{ root: classes.cardActionArea }}
+          onClick={() => setShowJoinLobby(true)}
+        >
           <Grid container justify="space-between">
             <div className={classes.topDiv}>
               <Grid item xs={6} classes={{ root: classes.hostInfo }}>
