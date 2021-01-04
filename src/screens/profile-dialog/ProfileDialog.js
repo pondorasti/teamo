@@ -104,15 +104,19 @@ ProfileDialog.propTypes = {
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
 
+  /** The username associated with the user. */
   username: PropTypes.string.isRequired,
 
-  /** An optional badge for the avatar */
+  /** An optional badge for the avatar. */
   status: PropTypes.oneOf(["none", "online"]).isRequired,
 
+  /** The bio associated with the user. */
   bio: PropTypes.string.isRequired,
 
+  /** The avatar `src` attribute associated with the user. */
   avatarUrl: PropTypes.string.isRequired,
 
+  /** An array of games played. */
   gamesPlayed: PropTypes.any.isRequired,
 }
 
