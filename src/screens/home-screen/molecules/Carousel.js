@@ -168,6 +168,7 @@ function Carousel() {
   }
 
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Slider {...settings} className={classes.slider}>
       {mapCarousel}
     </Slider>

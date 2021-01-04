@@ -120,12 +120,14 @@ function TMSelectedGameInfo() {
         <Grid item classes={{ root: classes.rightGrid }}>
           <Autocomplete
             classes={{ root: classes.leftAutocomplete }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} label={Game.label} />}
             options={Game.options}
             fullWidth
           />
           <Autocomplete
             classes={{ root: classes.rightAutocomplete }}
+            // eslint-disable-next-line react/jsx-props-no-spreading
             renderInput={(params) => <TextField {...params} label={Platform.label} />}
             options={Platform.options}
           />

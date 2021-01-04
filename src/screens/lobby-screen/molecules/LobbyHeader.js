@@ -91,6 +91,7 @@ function LobbyHeader({
           {lobbyStatus === Status.options[0] ? <LockOpen /> : <Lock />}
         </ListItemIcon>
         <Autocomplete
+          // eslint-disable-next-line react/jsx-props-no-spreading
           renderInput={(params) => <TextField {...params} label={Status.label} />}
           options={Status.options}
           fullWidth

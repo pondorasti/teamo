@@ -58,6 +58,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Controller />
             </ListItemIcon>
             <Autocomplete
+              // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
               options={Game.options}
               fullWidth
@@ -69,6 +70,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Dpad />
             </ListItemIcon>
             <Autocomplete
+              // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
               fullWidth
@@ -80,6 +82,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <Mic />
             </ListItemIcon>
             <Autocomplete
+              // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
               fullWidth
@@ -91,6 +94,7 @@ function CreateLobbyDialog({ open, onClose }) {
               <People />
             </ListItemIcon>
             <Autocomplete
+              // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
               fullWidth

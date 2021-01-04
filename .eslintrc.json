@@ -31,7 +31,6 @@
         
         // TODO: remove in the future
         "import/no-extraneous-dependencies": ["off", {"devDependencies": true}],
-        "react/jsx-props-no-spreading": "off",
         "react/forbid-prop-types": 0
     },
     "settings": {

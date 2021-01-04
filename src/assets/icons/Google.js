@@ -3,6 +3,7 @@ import { SvgIcon } from "@material-ui/core"
 
 function GoogleIcon(props) {
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <SvgIcon {...props}>
       <mask
         id="mask0"
