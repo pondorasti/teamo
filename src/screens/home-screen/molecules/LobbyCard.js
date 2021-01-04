@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "flex-end",
   },
-  gameImg: {
+  gameLogo: {
     width: 84,
     height: 24,
     objectFit: "cover",
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function LobbyCard({
-  hostUsername, hostPicture, gameName, gameLogo, description, platform, usesMic, sizeStatus,
+  hostUsername, hostPicture, gameName, gameLogoUrl, description, platform, usesMic, sizeStatus,
 }) {
   const classes = useStyles()
   const [showJoinLobby, setShowJoinLobby] = useState(false)
@@ -86,7 +86,7 @@ function LobbyCard({
                 </Typography>
               </Grid>
               <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
-                <img className={classes.gameImg} src={gameLogo} alt={gameName} />
+                <img className={classes.gameLogo} src={gameLogoUrl} alt={gameName} />
               </Grid>
             </div>
             <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
@@ -115,7 +115,7 @@ LobbyCard.propTypes = {
   gameName: PropTypes.string.isRequired,
 
   /** The `src` attribute for the game logo. */
-  gameLogo: PropTypes.string.isRequired,
+  gameLogoUrl: PropTypes.string.isRequired,
 
   /** The description of lobby. */
   description: PropTypes.string.isRequired,

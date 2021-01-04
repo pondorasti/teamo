@@ -2,7 +2,7 @@ const lobbies = [
   {
     id: 1,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -13,7 +13,7 @@ const lobbies = [
   {
     id: 2,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -24,7 +24,7 @@ const lobbies = [
   {
     id: 3,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -35,7 +35,7 @@ const lobbies = [
   {
     id: 4,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -46,7 +46,7 @@ const lobbies = [
   {
     id: 5,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -57,7 +57,7 @@ const lobbies = [
   {
     id: 6,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -68,7 +68,7 @@ const lobbies = [
   {
     id: 7,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -79,7 +79,7 @@ const lobbies = [
   {
     id: 8,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -90,7 +90,7 @@ const lobbies = [
   {
     id: 9,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -101,7 +101,7 @@ const lobbies = [
   {
     id: 10,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -112,7 +112,7 @@ const lobbies = [
   {
     id: 11,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -123,7 +123,7 @@ const lobbies = [
   {
     id: 12,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -134,7 +134,7 @@ const lobbies = [
   {
     id: 13,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -145,7 +145,7 @@ const lobbies = [
   {
     id: 14,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -156,7 +156,7 @@ const lobbies = [
   {
     id: 15,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -167,7 +167,7 @@ const lobbies = [
   {
     id: 16,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -178,7 +178,7 @@ const lobbies = [
   {
     id: 17,
     username: "Pondorasti",
-    gameLogo:
+    gameLogoUrl:
       "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",

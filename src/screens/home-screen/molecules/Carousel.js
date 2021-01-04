@@ -133,7 +133,7 @@ function Carousel() {
           <HeroCard
             hostUsername={lobby.username}
             hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-            gameImg="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
+            gameBannerUrl="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
             gameName="Minecraft"
             description={lobby.description}
             platform="PS5"
