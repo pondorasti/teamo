@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import {
-  Grid, Card, CardActionArea, Typography,
-} from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "./LobbyCardFooter"
@@ -58,7 +56,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function LobbyCard({
-  hostUsername, hostPicture, gameName, gameLogoUrl, description, platform, usesMic, sizeStatus,
+  hostUsername,
+  hostPicture,
+  gameName,
+  gameLogoUrl,
+  description,
+  platform,
+  usesMic,
+  sizeStatus,
 }) {
   const classes = useStyles()
   const [showJoinLobby, setShowJoinLobby] = useState(false)
@@ -73,15 +78,8 @@ function LobbyCard({
           <Grid container justify="space-between">
             <div className={classes.topDiv}>
               <Grid item xs={6} classes={{ root: classes.hostInfo }}>
-                <TMAvatar
-                  size="extraSmall"
-                  src={hostPicture}
-                  alt={hostUsername}
-                />
-                <Typography
-                  variant="body1"
-                  classes={{ root: classes.hostUsername }}
-                >
+                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
                   {hostUsername}
                 </Typography>
               </Grid>
@@ -93,7 +91,11 @@ function LobbyCard({
               <Typography variant="h5">{description}</Typography>
             </Grid>
 
-            <LobbyCardFooter platform={platform} usesMic={usesMic} sizeStatus={sizeStatus} />
+            <LobbyCardFooter
+              platform={platform}
+              usesMic={usesMic}
+              sizeStatus={sizeStatus}
+            />
           </Grid>
         </CardActionArea>
       </Card>

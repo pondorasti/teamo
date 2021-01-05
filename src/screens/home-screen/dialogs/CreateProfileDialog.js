@@ -68,7 +68,13 @@ function CreateProfileDialog({ open, onClose }) {
             <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
               <Description />
             </ListItemIcon>
-            <TextField label="Bio" helperText="Max 62 characters" rows={2} multiline fullWidth />
+            <TextField
+              label="Bio"
+              helperText="Max 62 characters"
+              rows={2}
+              multiline
+              fullWidth
+            />
           </ListItem>
         </List>
       </DialogContent>

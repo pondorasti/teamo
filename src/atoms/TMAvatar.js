@@ -55,9 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMAvatar({
-  alt, src, size, status, backgroundColor, style,
-}) {
+function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
   const classes = useStyles()
   const className = classNames({
     [classes.sizeExtraSmall]: size === "extraSmall",
@@ -67,18 +65,11 @@ function TMAvatar({
   })
 
   if (status === "none") {
-    return (
-      <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
-    )
+    return <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
   }
   return (
     <div className={classes.container}>
-      <Avatar
-        classes={{ root: className }}
-        alt={alt}
-        src={src}
-        style={style}
-      />
+      <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
       <div className={classes.onlineStatusOverlay}>
         <div
           className={classes.backgroundStatusOverlay}
