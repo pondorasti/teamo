@@ -1,8 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import {
-  Drawer, Toolbar, Grid, Divider,
-} from "@material-ui/core/"
+import { Drawer, Toolbar, Grid, Divider } from "@material-ui/core/"
 import LobbyHeader from "./LobbyHeader"
 import PlayerCard from "./PlayerCard"
 import lobbyPlayers from "../../../api/dummy-data/lobbyPlayers"

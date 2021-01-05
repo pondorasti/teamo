@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import {
-  Grid, Card, CardActionArea, Typography,
-} from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "./LobbyCardFooter"

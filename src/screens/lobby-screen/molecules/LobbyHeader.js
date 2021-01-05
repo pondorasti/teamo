@@ -1,9 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
-import {
-  Grid, ListItemIcon, TextField, Typography,
-} from "@material-ui/core"
+import { Grid, ListItemIcon, TextField, Typography } from "@material-ui/core"
 import Autocomplete from "@material-ui/lab/Autocomplete"
 import {
   Description,

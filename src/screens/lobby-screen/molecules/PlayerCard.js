@@ -10,9 +10,7 @@ import {
   MenuItem,
   Collapse,
 } from "@material-ui/core"
-import {
-  Copy, ThreeDots, Exit, Headset, Crown,
-} from "../../../assets/icons"
+import { Copy, ThreeDots, Exit, Headset, Crown } from "../../../assets/icons"
 import { TMAvatar, TMButton } from "../../../atoms"
 
 const useStyles = makeStyles((theme) => ({
@@ -51,9 +49,7 @@ const useStyles = makeStyles((theme) => ({
   buttonsGrid: { marginTop: 16 },
 }))
 
-function PlayerCard({
-  username, gamerTag, avatarUrl, bio, isHost, isAccepted,
-}) {
+function PlayerCard({ username, gamerTag, avatarUrl, bio, isHost, isAccepted }) {
   const classes = useStyles()
   const theme = useTheme()
 
@@ -134,11 +130,7 @@ function PlayerCard({
           </Menu>
         </Grid>
 
-        <Typography variant="body1">
-          {" "}
-          {bio}
-          {" "}
-        </Typography>
+        <Typography variant="body1"> {bio} </Typography>
 
         <Collapse in={!acceptedPlayer}>
           <Grid container item wrap="nowrap" classes={{ root: classes.buttonsGrid }}>

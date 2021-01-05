@@ -95,7 +95,8 @@ const useStyles = makeStyles((theme) => ({
 function TMSelectedGameInfo() {
   const classes = useStyles()
 
-  const gameImg = "https://cdn.vox-cdn.com/thumbor/2D0fSxmi24Zw7aaB3M_TViUavrc=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15957232/0fe20042_0bb8_4781_82f4_7130f928b021.jpg"
+  const gameImg =
+    "https://cdn.vox-cdn.com/thumbor/2D0fSxmi24Zw7aaB3M_TViUavrc=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15957232/0fe20042_0bb8_4781_82f4_7130f928b021.jpg"
   const gameName = "Minecraft"
   const gameStats = "150 Players,  43 Lobbies"
 

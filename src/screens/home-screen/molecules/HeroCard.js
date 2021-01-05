@@ -1,8 +1,6 @@
 import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import {
-  Grid, Card, CardActionArea, Typography, Fade,
-} from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "./LobbyCardFooter"

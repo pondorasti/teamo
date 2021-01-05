@@ -3,9 +3,7 @@ import { Grid, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import PropTypes from "prop-types"
 
-import {
-  People, Dpad, Mic, MicSlash,
-} from "../../../assets/icons"
+import { People, Dpad, Mic, MicSlash } from "../../../assets/icons"
 
 const useStyles = makeStyles((theme) => ({
   statContainerStyles: {
@@ -33,9 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyCardFooter({
-  platform, usesMic, sizeStatus, isCompact,
-}) {
+function LobbyCardFooter({ platform, usesMic, sizeStatus, isCompact }) {
   const classes = useStyles()
 
   return (

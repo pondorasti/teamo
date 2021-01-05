@@ -1,7 +1,5 @@
 import React, { useState } from "react"
-import {
-  AppBar, Toolbar, IconButton, Menu, MenuItem, Divider,
-} from "@material-ui/core/"
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core/"
 import { makeStyles } from "@material-ui/styles"
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"

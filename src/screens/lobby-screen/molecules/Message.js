@@ -9,9 +9,7 @@ const useStyle = makeStyles({
   message: { marginTop: 4 },
 })
 
-function Message({
-  avatarUrl, username, timestamp, message,
-}) {
+function Message({ avatarUrl, username, timestamp, message }) {
   const classes = useStyle()
 
   return (

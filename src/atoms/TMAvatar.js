@@ -55,9 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMAvatar({
-  alt, src, size, status, backgroundColor, style,
-}) {
+function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
   const classes = useStyles()
   const className = classNames({
     [classes.sizeExtraSmall]: size === "extraSmall",

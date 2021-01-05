@@ -1,9 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import {
-  Dialog, DialogContent, Typography, Grid,
-} from "@material-ui/core"
+import { Dialog, DialogContent, Typography, Grid } from "@material-ui/core"
 import { TMButton, TMAvatar } from "../../atoms"
 import ProfileGameCard from "./ProfileGameCard"
 
@@ -27,9 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function ProfileDialog({
-  open, onClose, username, status, bio, avatarUrl, gamesPlayed,
-}) {
+function ProfileDialog({ open, onClose, username, status, bio, avatarUrl, gamesPlayed }) {
   const classes = useStyles()
   const theme = useTheme()
 

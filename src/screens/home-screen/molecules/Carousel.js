@@ -108,11 +108,11 @@ function Carousel() {
         [classes.trailingCards]: index - 1 >= currentIndex,
 
         [classes.leadingCard]:
-          index + 1 === currentIndex
-          || (index + 1 === heroLobbies.length && currentIndex === 0),
+          index + 1 === currentIndex ||
+          (index + 1 === heroLobbies.length && currentIndex === 0),
         [classes.trailingCard]:
-          index - 1 === currentIndex
-          || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex),
+          index - 1 === currentIndex ||
+          (index - 1 === -1 && heroLobbies.length - 1 === currentIndex),
       },
       classes.allCards,
     )
