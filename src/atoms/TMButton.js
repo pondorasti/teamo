@@ -35,10 +35,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.error.light,
     borderColor: theme.palette.error.main,
     "&:hover": {
-      backgroundColor: fade(
-        theme.palette.error.light,
-        theme.palette.action.hoverOpacity,
-      ),
+      backgroundColor: fade(theme.palette.error.light, theme.palette.action.hoverOpacity),
       borderColor: theme.palette.error.main,
     },
   },

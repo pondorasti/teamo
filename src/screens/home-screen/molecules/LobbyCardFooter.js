@@ -53,10 +53,14 @@ function LobbyCardFooter({
       <Grid item classes={{ root: classes.divider }} />
 
       <Grid item xs={isCompact ? false : 4} classes={{ root: classes.micOption }}>
-        {usesMic
-          ? <Mic classes={{ root: classes.iconStyle }} />
-          : <MicSlash classes={{ root: classes.iconStyle }} />}
-        {!isCompact && <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography>}
+        {usesMic ? (
+          <Mic classes={{ root: classes.iconStyle }} />
+        ) : (
+          <MicSlash classes={{ root: classes.iconStyle }} />
+        )}
+        {!isCompact && (
+          <Typography variant="caption">{usesMic ? "Mic" : "No Mic"}</Typography>
+        )}
       </Grid>
 
       <Grid item classes={{ root: classes.divider }} />

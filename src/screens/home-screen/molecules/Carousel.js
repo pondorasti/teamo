@@ -73,11 +73,7 @@ const useStyles = makeStyles((theme) => ({
 
 function PrevArrow({ onClick }) {
   return (
-    <IconButton
-      size="small"
-      onClick={onClick}
-      style={{ marginRight: 16 }}
-    >
+    <IconButton size="small" onClick={onClick} style={{ marginRight: 16 }}>
       <ArrowLeft style={{ fontSize: 48 }} />
     </IconButton>
   )
@@ -85,11 +81,7 @@ function PrevArrow({ onClick }) {
 
 function NextArrow({ onClick }) {
   return (
-    <IconButton
-      size="small"
-      onClick={onClick}
-      style={{ marginLeft: 16 }}
-    >
+    <IconButton size="small" onClick={onClick} style={{ marginLeft: 16 }}>
       <ArrowRight style={{ fontSize: 48 }} />
     </IconButton>
   )
@@ -110,19 +102,17 @@ function Carousel() {
   const mapCarousel = heroLobbies.map((lobby, index) => {
     const className = classNames(
       {
-        [classes.centerCard]: (index === currentIndex),
+        [classes.centerCard]: index === currentIndex,
 
-        [classes.leadingCards]: (index + 1 <= currentIndex),
-        [classes.trailingCards]: (index - 1 >= currentIndex),
+        [classes.leadingCards]: index + 1 <= currentIndex,
+        [classes.trailingCards]: index - 1 >= currentIndex,
 
-        [classes.leadingCard]: (
-          (index + 1 === currentIndex)
-          || (index + 1 === heroLobbies.length && currentIndex === 0)
-        ),
-        [classes.trailingCard]: (
-          (index - 1 === currentIndex)
-          || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex)
-        ),
+        [classes.leadingCard]:
+          index + 1 === currentIndex
+          || (index + 1 === heroLobbies.length && currentIndex === 0),
+        [classes.trailingCard]:
+          index - 1 === currentIndex
+          || (index - 1 === -1 && heroLobbies.length - 1 === currentIndex),
       },
       classes.allCards,
     )
@@ -164,7 +154,9 @@ function Carousel() {
     autoplay: true,
     autoplaySpeed: 5000,
 
-    beforeChange: (_, next) => { setCurrentIndex(next) },
+    beforeChange: (_, next) => {
+      setCurrentIndex(next)
+    },
   }
 
   return (

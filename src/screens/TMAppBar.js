@@ -67,18 +67,19 @@ function TMAppBar() {
 
   return (
     <>
-      <AppBar
-        classes={{ root: classes.appBarRoot }}
-        position="fixed"
-        elevation={0}
-      >
+      <AppBar classes={{ root: classes.appBarRoot }} position="fixed" elevation={0}>
         <Toolbar classes={{ root: classes.toolbarRoot }}>
           <img src={TeamoBanner} alt="Teamo Banner" />
 
           <div className={classes.divSpacer} />
 
-          <TMButton size="small" onClick={() => setShowCreateLobby(true)}>Create Teamo</TMButton>
-          <CreateLobbyDialog open={showCreateLobby} onClose={() => setShowCreateLobby(false)} />
+          <TMButton size="small" onClick={() => setShowCreateLobby(true)}>
+            Create Teamo
+          </TMButton>
+          <CreateLobbyDialog
+            open={showCreateLobby}
+            onClose={() => setShowCreateLobby(false)}
+          />
 
           <IconButton
             aria-label="account of current user"
@@ -125,7 +126,6 @@ function TMAppBar() {
         </Toolbar>
 
         <Divider classes={{ root: classes.divider }} />
-
       </AppBar>
     </>
   )

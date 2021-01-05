@@ -20,10 +20,7 @@ function GoogleIcon(props) {
         />
       </mask>
       <g mask="url(#mask0)">
-        <path
-          d="M-1.11621 19.0909V4.90906L8.37216 12L-1.11621 19.0909Z"
-          fill="#FBBC05"
-        />
+        <path d="M-1.11621 19.0909V4.90906L8.37216 12L-1.11621 19.0909Z" fill="#FBBC05" />
       </g>
       <mask
         id="mask1"

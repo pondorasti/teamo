@@ -41,7 +41,13 @@ const useStyles = makeStyles({
 })
 
 function LobbyHeader({
-  lobbyHost, gameName, gameLogo, lobbyDesc, platform, mic, players,
+  lobbyHost,
+  gameName,
+  gameLogo,
+  lobbyDesc,
+  platform,
+  mic,
+  players,
 }) {
   const classes = useStyles()
   const [lobbyStatus, setLobbyStatus] = React.useState(Status.options[0])
@@ -71,16 +77,12 @@ function LobbyHeader({
           <Typography variant="body1">{platform}</Typography>
         </Grid>
         <Grid container item alignItems="center" wrap="nowrap">
-          <ListItemIcon>
-            {mic === "Microphone" ? <Mic /> : <MicSlash />}
-          </ListItemIcon>
+          <ListItemIcon>{mic === "Microphone" ? <Mic /> : <MicSlash />}</ListItemIcon>
           <Typography variant="body1">{mic}</Typography>
         </Grid>
         <Grid container item alignItems="center" wrap="nowrap">
           <ListItemIcon>
-            {" "}
             <People />
-            {" "}
           </ListItemIcon>
           <Typography variant="body1">{players}</Typography>
         </Grid>

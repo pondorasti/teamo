@@ -28,13 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function ProfileDialog({
-  open,
-  onClose,
-  username,
-  status,
-  bio,
-  avatarUrl,
-  gamesPlayed,
+  open, onClose, username, status, bio, avatarUrl, gamesPlayed,
 }) {
   const classes = useStyles()
   const theme = useTheme()
@@ -49,12 +43,7 @@ function ProfileDialog({
     <Dialog open={open} onClose={onClose} aria-labelledby="profile-modal">
       <DialogContent classes={{ root: classes.headerGridContainer }}>
         <Grid container>
-          <Grid
-            container
-            item
-            wrap="nowrap"
-            classes={{ root: classes.paddingContainer }}
-          >
+          <Grid container item wrap="nowrap" classes={{ root: classes.paddingContainer }}>
             <TMAvatar
               backgroundColor={theme.palette.grey[800]}
               src={avatarUrl}

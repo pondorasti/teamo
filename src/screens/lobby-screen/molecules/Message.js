@@ -19,21 +19,17 @@ function Message({
       <TMAvatar size="small" src={avatarUrl} alt={username} />
       <Grid container item classes={{ root: classes.marginLeft }}>
         <Grid container item alignItems="baseline">
-          <Typography variant="h6">
-            {" "}
-            {username}
-            {" "}
-          </Typography>
-          <Typography variant="caption" color="textSecondary" classes={{ root: classes.marginLeft }}>
-            {" "}
+          <Typography variant="h6">{username}</Typography>
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            classes={{ root: classes.marginLeft }}
+          >
             {timestamp}
-            {" "}
           </Typography>
         </Grid>
         <Typography variant="body" classes={{ root: classes.message }}>
-          {" "}
           {message}
-          {" "}
         </Typography>
       </Grid>
     </Grid>

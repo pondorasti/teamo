@@ -2,7 +2,13 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import {
-  Grid, Typography, Tooltip, IconButton, Menu, MenuItem, Collapse,
+  Grid,
+  Typography,
+  Tooltip,
+  IconButton,
+  Menu,
+  MenuItem,
+  Collapse,
 } from "@material-ui/core"
 import {
   Copy, ThreeDots, Exit, Headset, Crown,
@@ -55,9 +61,15 @@ function PlayerCard({
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
-  function handleClose() { setAnchorEl(null) }
-  function handleOptionsButton(event) { setAnchorEl(event.currentTarget) }
-  function handledAcceptButton() { setAcceptedPlayer(true) }
+  function handleClose() {
+    setAnchorEl(null)
+  }
+  function handleOptionsButton(event) {
+    setAnchorEl(event.currentTarget)
+  }
+  function handledAcceptButton() {
+    setAcceptedPlayer(true)
+  }
 
   function copyGamerTagToClipboard() {
     navigator.clipboard.writeText(gamerTag)
@@ -70,31 +82,32 @@ function PlayerCard({
         item
         direction="column"
         classes={{ root: classes.containerGrid }}
-        style={{ backgroundColor: `${acceptedPlayer ? theme.palette.warning.main : theme.palette.grey[700]}` }}
+        style={{
+          backgroundColor: `${
+            acceptedPlayer ? theme.palette.warning.main : theme.palette.grey[700]
+          }`,
+        }}
       >
-
         <Grid container item wrap="nowrap" classes={{ root: classes.headerGrid }}>
-          <TMAvatar
-            size="medium"
-            alt={username}
-            src={avatarUrl}
-          />
+          <TMAvatar size="medium" alt={username} src={avatarUrl} />
 
-          <Grid container item direction="column" classes={{ root: classes.usernameGrid }}>
+          <Grid
+            container
+            item
+            direction="column"
+            classes={{ root: classes.usernameGrid }}
+          >
             <Grid container item>
-              <Typography variant="h5">
-                {" "}
-                {username}
-                {" "}
-              </Typography>
+              <Typography variant="h5">{username}</Typography>
               {isHost && <Crown classes={{ root: classes.crownIcon }} />}
-
             </Grid>
             <Tooltip title="Copy" arrow placement="right">
               {/* eslint-disable-next-line */}
-              <div onClick={copyGamerTagToClipboard} className={classes.containerGamerTag}>
+              <div
+                onClick={copyGamerTagToClipboard}
+                className={classes.containerGamerTag}
+              >
                 <Typography variant="body1">
-                  {" "}
                   u/
                   {gamerTag}
                 </Typography>
@@ -103,7 +116,10 @@ function PlayerCard({
             </Tooltip>
           </Grid>
 
-          <IconButton classes={{ root: classes.threeDotsIconButton }} onClick={handleOptionsButton}>
+          <IconButton
+            classes={{ root: classes.threeDotsIconButton }}
+            onClick={handleOptionsButton}
+          >
             <ThreeDots size="inherit" />
           </IconButton>
           <Menu
@@ -126,11 +142,7 @@ function PlayerCard({
 
         <Collapse in={!acceptedPlayer}>
           <Grid container item wrap="nowrap" classes={{ root: classes.buttonsGrid }}>
-            <TMButton
-              fullWidth
-              variant="outlined"
-              leadingIcon={<Exit />}
-            >
+            <TMButton fullWidth variant="outlined" leadingIcon={<Exit />}>
               Deny
             </TMButton>
 

@@ -67,18 +67,11 @@ function TMAvatar({
   })
 
   if (status === "none") {
-    return (
-      <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
-    )
+    return <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
   }
   return (
     <div className={classes.container}>
-      <Avatar
-        classes={{ root: className }}
-        alt={alt}
-        src={src}
-        style={style}
-      />
+      <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
       <div className={classes.onlineStatusOverlay}>
         <div
           className={classes.backgroundStatusOverlay}

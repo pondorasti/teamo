@@ -103,11 +103,7 @@ function TMSelectedGameInfo() {
     <div className={classes.divContainer}>
       <Grid container justify="space-between" classes={{ root: classes.gridContainer }}>
         <Grid item classes={{ root: classes.leftGrid }}>
-          <img
-            src={gameImg}
-            alt={gameName}
-            className={classes.gameImg}
-          />
+          <img src={gameImg} alt={gameName} className={classes.gameImg} />
 
           <div className={classes.gameInfo}>
             <Typography variant="h4">{gameName}</Typography>

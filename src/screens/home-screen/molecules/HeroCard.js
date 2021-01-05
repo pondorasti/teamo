@@ -124,7 +124,9 @@ function HeroCard({
         </Fade>
       </Card>
 
-      {!isContentHidden && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
+      {!isContentHidden && (
+        <LobbyOptionsButton className={classes.optionsButtonContainer} />
+      )}
     </div>
   )
 }

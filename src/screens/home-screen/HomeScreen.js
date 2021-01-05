@@ -76,7 +76,11 @@ function HomeScreen() {
 
             <Hidden xsDown>
               <Grid item>
-                <img src={WesternScene} className={classes.image} alt="Western style islands focusing on mushrooms playing video games on a couch." />
+                <img
+                  src={WesternScene}
+                  className={classes.image}
+                  alt="Western style islands focusing on mushrooms playing video games on a couch."
+                />
               </Grid>
             </Hidden>
           </Grid>

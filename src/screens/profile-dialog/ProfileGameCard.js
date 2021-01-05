@@ -29,11 +29,7 @@ function ProfileGameCard({ imageUrl, title }) {
   return (
     <Card classes={{ root: classes.root }}>
       <CardActionArea>
-        <CardMedia
-          classes={{ root: classes.media }}
-          image={imageUrl}
-          title={title}
-        />
+        <CardMedia classes={{ root: classes.media }} image={imageUrl} title={title} />
         <CardContent classes={{ root: classes.cardContent }}>
           <Typography variant="h6">{title}</Typography>
         </CardContent>
