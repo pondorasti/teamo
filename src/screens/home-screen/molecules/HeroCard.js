@@ -75,7 +75,7 @@ function HeroCard({
   hostUsername,
   hostPicture,
   gameName,
-  gameImg,
+  gameBannerUrl,
   description,
   platform,
   usesMic,
@@ -90,7 +90,7 @@ function HeroCard({
       <Card
         classes={{ root: classes.card }}
         style={{
-          backgroundImage: `url(${gameImg})`,
+          backgroundImage: `url(${gameBannerUrl})`,
           filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
           transition: `all ${theme.transitions.duration.carousel}ms ease`,
         }}
@@ -139,8 +139,8 @@ HeroCard.propTypes = {
   /** The name of game. */
   gameName: PropTypes.string.isRequired,
 
-  /** The `src` attribute for the game logo. */
-  gameImg: PropTypes.string.isRequired,
+  /** The `src` attribute for the game banner. */
+  gameBannerUrl: PropTypes.string.isRequired,
 
   /** The description of lobby. */
   description: PropTypes.string.isRequired,
