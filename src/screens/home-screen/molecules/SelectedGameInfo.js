@@ -1,7 +1,7 @@
 import React from "react"
 import { makeStyles } from "@material-ui/styles"
 import { Grid, Typography, TextField } from "@material-ui/core"
-import Autocomplete from "@material-ui/lab/Autocomplete"
+import Autocomplete from "@material-ui/core/Autocomplete"
 import { Platform, Game } from "../../../api/lobby-template"
 
 const useStyles = makeStyles((theme) => ({
