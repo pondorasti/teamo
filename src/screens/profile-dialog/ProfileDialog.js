@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   userInfoGridContainer: {
     width: "60%",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
   },

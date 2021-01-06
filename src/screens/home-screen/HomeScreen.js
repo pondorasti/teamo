@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: `${theme.palette.grey[800]}`,
 
     overflowX: "hidden",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "block",
     },
   },
@@ -57,7 +57,7 @@ function HomeScreen() {
             wrap="nowrap"
             classes={{ root: classes.gridContainer }}
           >
-            <Hidden xsDown>
+            <Hidden smDown>
               <Grid item>
                 <img
                   src={EasternScene}
@@ -74,7 +74,7 @@ function HomeScreen() {
               </div>
             </Grid>
 
-            <Hidden xsDown>
+            <Hidden smDown>
               <Grid item>
                 <img
                   src={WesternScene}

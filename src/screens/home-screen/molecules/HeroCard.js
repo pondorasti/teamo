@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     width,
     height,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       maxWidth: smallWidth,
     },
 
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
     width: "50%",
     left: "50%",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "60%",
       left: "40%",
     },

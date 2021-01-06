@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gridContainer: {
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       alignItems: "flex-start",
     },
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftGrid: {
     display: "flex",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
   },
@@ -41,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
     },
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       paddingRight: 16, // It has something to do with the Handmade flex-gap
     },
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 8,
     objectFit: "cover",
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
       height: "auto",
     },
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   gameInfo: {
     flexDirection: "column",
     marginLeft: 8,
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
       marginTop: 8,
     },
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   leftAutocomplete: {
     width: 176,
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
     },
   },
@@ -81,11 +81,11 @@ const useStyles = makeStyles((theme) => ({
     width: 176,
     marginLeft: 16,
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: "100%",
     },
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
       marginTop: 16,
     },

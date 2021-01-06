@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     // LobbyGrid - `container` and SelectedGameInfo - `divContainer`
     maxWidth: 336,
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       maxWidth: "100%",
     },
   },
