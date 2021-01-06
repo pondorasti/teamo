@@ -1,7 +1,7 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
 import PropTypes from "prop-types"
-import { fade, darken } from "@material-ui/core/styles/colorManipulator"
+import { alpha, darken } from "@material-ui/core/styles/colorManipulator"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +35,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.error.light,
     borderColor: theme.palette.error.main,
     "&:hover": {
-      backgroundColor: fade(theme.palette.error.light, theme.palette.action.hoverOpacity),
+      backgroundColor: alpha(
+        theme.palette.error.light,
+        theme.palette.action.hoverOpacity,
+      ),
       borderColor: theme.palette.error.main,
     },
   },
