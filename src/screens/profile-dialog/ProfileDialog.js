@@ -51,7 +51,7 @@ function ProfileDialog({ open, onClose, username, status, bio, avatarUrl, gamesP
               container
               item
               direction="row"
-              justify="space-between"
+              justifyContent="space-between"
               style={{ marginLeft: 16 }}
             >
               <Grid item classes={{ root: classes.userInfoGridContainer }}>

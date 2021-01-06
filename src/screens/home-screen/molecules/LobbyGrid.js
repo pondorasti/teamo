@@ -24,7 +24,7 @@ function LobbyGrid({ lobbies }) {
     <div>
       <SelectedGameInfo />
 
-      <Grid container spacing={2} justify="center">
+      <Grid container spacing={2} justifyContent="center">
         {lobbies.map((lobby) => (
           <Grid
             key={lobby.id}

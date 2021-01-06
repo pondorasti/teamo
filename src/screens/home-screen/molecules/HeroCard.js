@@ -97,7 +97,7 @@ function HeroCard({
           <CardActionArea style={{ height: "100%" }}>
             <Grid
               container
-              justify="space-between"
+              justifyContent="space-between"
               alignContent="space-between"
               classes={{ root: classes.cardGrid }}
             >

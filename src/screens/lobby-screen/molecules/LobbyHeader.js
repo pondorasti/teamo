@@ -56,7 +56,7 @@ function LobbyHeader({
 
   return (
     <>
-      <Grid container item alignItems="center" justify="space-between">
+      <Grid container item alignItems="center" justifyContent="space-between">
         <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
         <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
       </Grid>

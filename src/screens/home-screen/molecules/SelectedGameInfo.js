@@ -102,7 +102,11 @@ function TMSelectedGameInfo() {
 
   return (
     <div className={classes.divContainer}>
-      <Grid container justify="space-between" classes={{ root: classes.gridContainer }}>
+      <Grid
+        container
+        justifyContent="space-between"
+        classes={{ root: classes.gridContainer }}
+      >
         <Grid item classes={{ root: classes.leftGrid }}>
           <img src={gameImg} alt={gameName} className={classes.gameImg} />
 

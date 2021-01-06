@@ -53,7 +53,7 @@ function HomeScreen() {
           <Grid
             container
             direction="row"
-            justify="center"
+            justifyContent="center"
             wrap="nowrap"
             classes={{ root: classes.gridContainer }}
           >
