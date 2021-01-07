@@ -5,9 +5,9 @@ export const allGame = {
   id: "rec13thvcp5VUJgXg",
   name: "All Games",
   logoUrl:
-    "https://dl.airtable.com/.attachments/aa157687a96b18491e2e4a051d2cc040/6705afa9/OtherGames_Logo.png",
+    "https://dl.airtable.com/.attachments/3eda9522779e84748dde4adbe1c88297/84a0feb9/AllGames_Logo.png",
   bannerUrl:
-    "https://dl.airtable.com/.attachments/e6322c158edd9b072e9516b2d42b3a16/0e72f660/GTA5_Banner.png",
+    "https://dl.airtable.com/.attachments/20acfce9fb1fa7953f9ac5f0d66c20c1/1974c4a3/AllGames_Banner.svg",
 }
 const otherGame = {
   id: "recya1yYthNT4SOef",

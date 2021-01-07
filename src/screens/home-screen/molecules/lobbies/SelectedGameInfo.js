@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function TMSelectedGameInfo() {
+function SelectedGameInfo() {
   const classes = useStyles()
 
   const gameStats = "150 Players,  43 Lobbies"
@@ -148,4 +148,4 @@ function TMSelectedGameInfo() {
   )
 }
 
-export default TMSelectedGameInfo
+export default SelectedGameInfo
