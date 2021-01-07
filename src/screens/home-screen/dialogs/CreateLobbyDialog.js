@@ -40,9 +40,8 @@ const useStyles = makeStyles(() => ({
 function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
-  const [gameName, setGameName] = useState(null)
-
   const games = useSelector(selectAllGames)
+  const [gameName, setGameName] = useState(null)
   // eslint-disable-next-line
   const game = useSelector((state) => selectGameByName(state, gameName))
 
@@ -65,9 +64,7 @@ function CreateLobbyDialog({ open, onClose }) {
             </ListItemIcon>
             <Autocomplete
               value={gameName}
-              onChange={(_, newValue) => {
-                setGameName(newValue)
-              }}
+              onChange={(_, newValue) => setGameName(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
               options={games.map((item) => item.name)}
