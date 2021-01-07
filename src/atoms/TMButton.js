@@ -3,6 +3,9 @@ import Button from "@material-ui/core/Button"
 import PropTypes from "prop-types"
 import { alpha, darken } from "@material-ui/core/styles/colorManipulator"
 import { makeStyles } from "@material-ui/core/styles"
+import CircularProgress from "@material-ui/core/CircularProgress"
+import clsx from "clsx"
+import { capitalize } from "@material-ui/core/utils"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +61,42 @@ const useStyles = makeStyles((theme) => ({
   childrenContainter: {
     width: "100%",
   },
+
+  /* Styles applied to the pendingIndicator element. */
+  pendingIndicator: {
+    position: "absolute",
+    visibility: "visible",
+    display: "flex",
+  },
+  /* Styles applied to the pendingIndicator element if `pendingPosition="center"`. */
+  pendingIndicatorCenter: {
+    left: "50%",
+    transform: "translate(-50%)",
+  },
+  /* Styles applied to the pendingIndicator element if `pendingPosition="start"`. */
+  pendingIndicatorStart: {
+    left: 14,
+  },
+  /* Styles applied to the pendingIndicator element if `pendingPosition="end"`. */
+  pendingIndicatorEnd: {
+    right: 14,
+  },
+  /* Styles applied to the endIcon element if `pending={true}` and `pendingPosition="end"`. */
+  endIconPendingEnd: {
+    visibility: "hidden",
+  },
+  /* Styles applied to the startIcon element if `pending={true}` and `pendingPosition="start"`. */
+  startIconPendingStart: {
+    visibility: "hidden",
+  },
+  /* Styles applied to the label element if `pending={true}` and `pendingPosition="center"`. */
+  labelPendingCenter: {
+    visibility: "hidden",
+  },
 }))
+
+const pendingIndicator = <CircularProgress color="inherit" size={16} />
+const pendingPosition = "center"
 
 function TMButton({
   children,
@@ -66,6 +104,7 @@ function TMButton({
   size,
   variant,
   disabled,
+  pending,
   fullWidth,
   href,
   style,
@@ -86,17 +125,29 @@ function TMButton({
         startIcon: classes.leadingIcon,
         iconSizeSmall: classes.iconSizeSmall,
         iconSizeLarge: classes.iconSizeLarge,
+        label: classes[`label${pending ? "Pending" : ""}${capitalize(pendingPosition)}`],
       }}
       startIcon={leadingIcon}
       size={size}
       variant={variant}
-      disabled={disabled}
+      disabled={disabled || pending}
       fullWidth={fullWidth}
       href={href}
       disableElevation
       style={style}
       onClick={onClick}
     >
+      {pending && (
+        <div
+          className={clsx(
+            classes.pendingIndicator,
+            classes[`pendingIndicator${capitalize(pendingPosition)}`],
+          )}
+        >
+          {pendingIndicator}
+        </div>
+      )}
+
       <div className={classes.childrenContainter}>{children}</div>
     </Button>
   )
@@ -117,6 +168,9 @@ TMButton.propTypes = {
 
   /** If `true`, the button will be disabled. */
   disabled: PropTypes.bool,
+
+  /** If `true`, the button will display a loading spinner. */
+  pending: PropTypes.bool,
 
   /** If `true`, the button will take up the full width of its container. */
   fullWidth: PropTypes.bool,
@@ -139,6 +193,7 @@ TMButton.defaultProps = {
   size: "large",
   variant: "contained",
   disabled: false,
+  pending: true,
   fullWidth: false,
   href: undefined,
   style: undefined,
