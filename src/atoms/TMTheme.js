@@ -15,6 +15,7 @@ const defaultTheme = {
       // secondary
       main: "#AAA3EB",
       dark: "#AAA3EB",
+      contrastText: "#000", // silence WCAG console.error()
     },
     warning: {
       // tertiary
@@ -36,6 +37,7 @@ const defaultTheme = {
       // green
       main: "#23E036",
       dark: "#23E036",
+      contrastText: "#000", // silence WCAG console.error()
     },
 
     text: {
@@ -46,6 +48,7 @@ const defaultTheme = {
     },
 
     grey: {
+      300: "#505050", // silence WCAG console.error()
       500: "#505050", // border color
       600: "#464646", // quaternary background
       700: "#2F2F30", // tertiary background
