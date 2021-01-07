@@ -39,7 +39,7 @@ function LobbyGrid() {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              hostUsername={lobby.hostId}
+              hostUsername={`${lobby.hostId}`}
               hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
               gameLogoUrl={lobby.game.logoUrl}
               gameName={lobby.game.name}
