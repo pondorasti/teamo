@@ -87,12 +87,10 @@ function NextArrow({ onClick }) {
   )
 }
 
-PrevArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
-NextArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
+PrevArrow.propTypes = { onClick: PropTypes.func }
+PrevArrow.defaultProps = { onClick: undefined }
+NextArrow.propTypes = { onClick: PropTypes.func }
+NextArrow.defaultProps = { onClick: undefined }
 
 function Carousel() {
   const classes = useStyles()
