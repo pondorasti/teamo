@@ -4,9 +4,9 @@ import { Grid, Toolbar, Hidden } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
 import lobbies from "../../api/dummy-data/lobbies"
-import LobbyGrid from "./molecules/LobbyGrid"
+import LobbyGrid from "./molecules/lobbies/LobbyGrid"
 import AppBar from "../TMAppBar"
-import Carousel from "./molecules/Carousel"
+import Carousel from "./molecules/carousel/Carousel"
 import { EasternScene, WesternScene } from "../../assets/images"
 
 const useStyles = makeStyles((theme) => ({

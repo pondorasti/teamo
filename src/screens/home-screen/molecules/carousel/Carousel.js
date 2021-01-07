@@ -4,10 +4,10 @@ import classNames from "classnames"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { IconButton } from "@material-ui/core"
 import Slider from "react-slick"
-import { ArrowLeft, ArrowRight } from "../../../assets/icons"
+import { ArrowLeft, ArrowRight } from "../../../../assets/icons"
 import HeroCard from "./HeroCard"
 import "./Carousel.css"
-import heroLobbies from "../../../api/dummy-data/heroLobbies"
+import heroLobbies from "../../../../api/dummy-data/heroLobbies"
 
 const useStyles = makeStyles((theme) => ({
   slider: {

@@ -3,13 +3,12 @@ import { makeStyles } from "@material-ui/core/styles/"
 import { Grid, Typography, TextField } from "@material-ui/core"
 import Autocomplete from "@material-ui/core/Autocomplete"
 import { useSelector } from "react-redux"
-import { Platform, Game } from "../../../api/lobby-template"
-
+import { Platform, Game } from "../../../../api/lobby-template"
 import {
   allGame,
   selectAllFilterGames,
   selectGameByName,
-} from "../../../redux/slices/games/gamesSlice"
+} from "../../../../redux/slices/games/gamesSlice"
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {
