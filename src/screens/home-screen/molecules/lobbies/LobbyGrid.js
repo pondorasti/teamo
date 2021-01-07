@@ -1,9 +1,10 @@
 import { Grid } from "@material-ui/core"
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import PropTypes from "prop-types"
+import { useSelector } from "react-redux"
 import LobbyCard from "./LobbyCard"
 import SelectedGameInfo from "./SelectedGameInfo"
+import { selectAllLobbies } from "./redux/lobbiesSlice"
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -17,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyGrid({ lobbies }) {
+function LobbyGrid() {
   const classes = useStyles()
+  const lobbies = useSelector(selectAllLobbies)
 
   return (
     <div>
@@ -37,25 +39,20 @@ function LobbyGrid({ lobbies }) {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              hostUsername={lobby.username}
+              hostUsername={lobby.hostId}
               hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-              gameLogoUrl={lobby.gameLogoUrl}
-              gameName="Minecraft"
+              gameLogoUrl={lobby.game.logoUrl}
+              gameName={lobby.game.name}
               description={lobby.description}
               platform={lobby.platform}
-              usesMic={lobby.usesMic}
-              sizeStatus={lobby.sizeStatus}
+              usesMic={lobby.microphone}
+              sizeStatus={`0/${lobby.size}`}
             />
           </Grid>
         ))}
       </Grid>
     </div>
   )
-}
-
-LobbyGrid.propTypes = {
-  /** An array of lobbies */
-  lobbies: PropTypes.array.isRequired,
 }
 
 export default LobbyGrid

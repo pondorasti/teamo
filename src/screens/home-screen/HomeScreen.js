@@ -3,7 +3,6 @@ import React from "react"
 import { Grid, Toolbar, Hidden } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-import lobbies from "../../api/dummy-data/lobbies"
 import LobbyGrid from "./molecules/lobbies/LobbyGrid"
 import AppBar from "../TMAppBar"
 import Carousel from "./molecules/carousel/Carousel"
@@ -70,7 +69,7 @@ function HomeScreen() {
             <Grid item>
               <div className={classes.contentContainer}>
                 <Carousel />
-                <LobbyGrid lobbies={lobbies} />
+                <LobbyGrid />
               </div>
             </Grid>
 

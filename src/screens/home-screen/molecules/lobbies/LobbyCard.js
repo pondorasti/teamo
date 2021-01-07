@@ -128,7 +128,7 @@ LobbyCard.propTypes = {
   /** The mic status for the lobby. */
   usesMic: PropTypes.bool.isRequired,
 
-  /** The size status of the lobby. */
+  /** The size status of the lobby (ex: 8/10). */
   sizeStatus: PropTypes.string.isRequired,
 }
 
