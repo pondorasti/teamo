@@ -75,7 +75,7 @@ function LobbyCard({
           classes={{ root: classes.cardActionArea }}
           onClick={() => setShowJoinLobby(true)}
         >
-          <Grid container justify="space-between">
+          <Grid container justifyContent="space-between">
             <div className={classes.topDiv}>
               <Grid item xs={6} classes={{ root: classes.hostInfo }}>
                 <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />

@@ -53,7 +53,7 @@ function ChatWindow() {
       <Grid
         item
         container
-        justify="flex-end"
+        justifyContent="flex-end"
         direction="column"
         spacing={2}
         wrap="nowrap"

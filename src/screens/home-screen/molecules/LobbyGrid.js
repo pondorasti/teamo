@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     // LobbyGrid - `container` and SelectedGameInfo - `divContainer`
     maxWidth: 336,
 
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       maxWidth: "100%",
     },
   },
@@ -24,7 +24,7 @@ function LobbyGrid({ lobbies }) {
     <div>
       <SelectedGameInfo />
 
-      <Grid container spacing={2} justify="center">
+      <Grid container spacing={2} justifyContent="center">
         {lobbies.map((lobby) => (
           <Grid
             key={lobby.id}

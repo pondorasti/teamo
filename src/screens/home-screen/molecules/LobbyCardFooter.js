@@ -37,7 +37,7 @@ function LobbyCardFooter({ platform, usesMic, sizeStatus, isCompact }) {
   return (
     <Grid
       container
-      justify={isCompact ? "space-between" : "flex-start"}
+      justifyContent={isCompact ? "space-between" : "flex-start"}
       wrap="nowrap"
       classes={{ root: classes.statContainerStyles }}
     >

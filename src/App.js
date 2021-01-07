@@ -1,5 +1,5 @@
 import React from "react"
-import { CssBaseline } from "@material-ui/core"
+import { StylesProvider, CssBaseline } from "@material-ui/core"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { TMTheme } from "./atoms"
 import HomeScreen from "./screens/home-screen/HomeScreen"
@@ -7,13 +7,15 @@ import HomeScreen from "./screens/home-screen/HomeScreen"
 
 function App() {
   return (
-    <ThemeProvider theme={TMTheme}>
-      <CssBaseline />
-      <div style={{ backgroundColor: TMTheme.palette.grey[800] }}>
-        {/* <LobbyScreen /> */}
-        <HomeScreen />
-      </div>
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={TMTheme}>
+        <CssBaseline />
+        <div style={{ backgroundColor: TMTheme.palette.grey[800] }}>
+          {/* <LobbyScreen /> */}
+          <HomeScreen />
+        </div>
+      </ThemeProvider>
+    </StylesProvider>
   )
 }
 

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   userInfoGridContainer: {
     width: "60%",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
   },
@@ -51,7 +51,7 @@ function ProfileDialog({ open, onClose, username, status, bio, avatarUrl, gamesP
               container
               item
               direction="row"
-              justify="space-between"
+              justifyContent="space-between"
               style={{ marginLeft: 16 }}
             >
               <Grid item classes={{ root: classes.userInfoGridContainer }}>

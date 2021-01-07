@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import { Grid, ListItemIcon, TextField, Typography } from "@material-ui/core"
-import Autocomplete from "@material-ui/lab/Autocomplete"
+import Autocomplete from "@material-ui/core/Autocomplete"
 import {
   Description,
   Dpad,
@@ -56,7 +56,7 @@ function LobbyHeader({
 
   return (
     <>
-      <Grid container item alignItems="center" justify="space-between">
+      <Grid container item alignItems="center" justifyContent="space-between">
         <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
         <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
       </Grid>

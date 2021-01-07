@@ -4,6 +4,8 @@ import { ArrowDown } from "../assets/icons"
 
 const defaultTheme = {
   palette: {
+    mode: "dark",
+
     primary: {
       // primary
       main: "#7800D7",
@@ -62,8 +64,6 @@ const defaultTheme = {
 
     tonalOffset: 0,
     contrastThreshold: 0,
-
-    type: "dark",
   },
   shadows: Array(25).fill("none"),
   typography: {
@@ -144,114 +144,131 @@ const defaultTheme = {
 
 const TMTheme = createMuiTheme({
   ...defaultTheme,
-  props: {
-    MuiTextField: {
-      variant: "outlined",
-      size: "small",
-    },
-    MuiAutocomplete: {
-      popupIcon: <ArrowDown />,
-      size: "small",
-      openOnFocus: true,
-      autoHighlight: true,
-    },
-    MuiDialogTitle: {
-      disableTypography: true,
-    },
-    MuiListItem: {
-      disableGutters: true,
-    },
-  },
-  overrides: {
+  components: {
     // Textfield
     MuiTextField: {
-      root: {
-        "& label.Mui-focused": {
-          color: defaultTheme.palette.secondary.main,
-        },
-        "& .MuiOutlinedInput-root": {
-          borderRadius: 12,
-          "&.Mui-focused fieldset": {
-            borderColor: defaultTheme.palette.secondary.main,
+      defaultProps: {
+        size: "small",
+      },
+      styleOverrides: {
+        root: {
+          "& label.Mui-focused": {
+            color: defaultTheme.palette.secondary.main,
+          },
+          "& .MuiOutlinedInput-root": {
+            borderRadius: 12,
+            "&.Mui-focused fieldset": {
+              borderColor: defaultTheme.palette.secondary.main,
+            },
           },
         },
       },
     },
 
+    // Autocomplete
+    MuiAutocomplete: {
+      defaultProps: {
+        popupIcon: <ArrowDown />,
+        size: "small",
+        openOnFocus: true,
+        autoHighlight: true,
+      },
+    },
+
     // Dialog
     MuiDialog: {
-      container: {
-        background: defaultTheme.palette.action.backgroundShadow,
-      },
-      paper: {
-        backgroundColor: defaultTheme.palette.grey[800],
-        borderRadius: 24,
+      styleOverrides: {
+        container: {
+          background: defaultTheme.palette.action.backgroundShadow,
+        },
+        paper: {
+          backgroundColor: defaultTheme.palette.grey[800],
+          borderRadius: 24,
+        },
       },
     },
     MuiDialogTitle: {
-      root: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0px 32px 0px 32px",
-        "&:first-child": {
-          paddingTop: 32,
-        },
-        "& + *": {
-          paddingTop: 32,
+      defaultProps: {
+        disableTypography: true,
+      },
+      styleOverrides: {
+        root: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "0px 32px 0px 32px",
+          "&:first-child": {
+            paddingTop: 32,
+          },
+          "& + *": {
+            paddingTop: 32,
+          },
         },
       },
     },
     MuiDialogContent: {
-      root: {
-        display: "flex",
-        flexDirection: "column",
+      styleOverrides: {
+        root: {
+          display: "flex",
+          flexDirection: "column",
 
-        padding: "0px 32px 32px 32px",
-        "&:first-child": {
-          paddingTop: 32,
-        },
+          padding: "0px 32px 32px 32px",
+          "&:first-child": {
+            paddingTop: 32,
+          },
 
-        // List edge cases
-        "& > .MuiList-padding": {
-          padding: 0,
+          // List edge cases
+          "& > .MuiList-padding": {
+            padding: 0,
+          },
         },
       },
     },
     MuiDialogActions: {
-      root: {
-        justifyContent: "center",
-        padding: "0px 32px 32px 32px",
-        "&:first-child": {
-          paddingTop: 32,
+      styleOverrides: {
+        root: {
+          justifyContent: "center",
+          padding: "0px 32px 32px 32px",
+          "&:first-child": {
+            paddingTop: 32,
+          },
         },
       },
     },
 
     // List
     MuiListItem: {
-      root: {
-        // Do not change this value without updating MuiDialogContent List Edge case
-        padding: "8px 0",
+      defaultProps: {
+        disableGutters: true,
+      },
+      styleOverrides: {
+        root: {
+          // Do not change this value without updating MuiDialogContent List Edge case
+          padding: "8px 0",
+        },
       },
     },
     MuiListItemIcon: {
-      root: {
-        marginRight: 16,
-        width: 24,
-        minWidth: 24, // Default value is 56
-        color: defaultTheme.palette.secondary.main,
+      styleOverrides: {
+        root: {
+          marginRight: 16,
+          width: 24,
+          minWidth: 24, // Default value is 56
+          color: defaultTheme.palette.secondary.main,
+        },
       },
     },
 
     // Tooltip
     MuiTooltip: {
-      tooltip: {
-        backgroundColor: defaultTheme.palette.grey[600],
-      },
-      arrow: {
-        color: defaultTheme.palette.grey[600],
+      styleOverrides: {
+        tooltip: {
+          backgroundColor: defaultTheme.palette.grey[600],
+        },
+        arrow: {
+          color: defaultTheme.palette.grey[600],
+        },
       },
     },
   },
