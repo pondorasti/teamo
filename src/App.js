@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StylesProvider, CssBaseline } from "@material-ui/core"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { Provider } from "react-redux"
@@ -9,9 +9,11 @@ import HomeScreen from "./screens/home-screen/HomeScreen"
 import store from "./redux/store"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
 
-store.dispatch(fetchGames())
-
 function App() {
+  useEffect(() => {
+    store.dispatch(fetchGames())
+  }, [])
+
   return (
     <Provider store={store}>
       <StylesProvider injectFirst>
