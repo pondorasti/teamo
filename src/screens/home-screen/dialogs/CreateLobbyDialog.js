@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import Autocomplete from "@material-ui/core/Autocomplete"
@@ -14,12 +14,16 @@ import {
   TextField,
 } from "@material-ui/core"
 
+import { useSelector } from "react-redux"
+
 import TMButton from "../../../atoms/TMButton"
 
 import { Platform, Game, Size, Microphone } from "../../../api/lobby-template"
 
 import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
 import { CouchBuddies } from "../../../assets/images"
+
+import { selectAllGames, selectGameByName } from "../../../redux/slices/games/gamesSlice"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -35,6 +39,12 @@ const useStyles = makeStyles(() => ({
 
 function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
+
+  const [gameName, setGameName] = useState(null)
+
+  const games = useSelector(selectAllGames)
+  // eslint-disable-next-line
+  const game = useSelector((state) => selectGameByName(state, gameName))
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
@@ -54,9 +64,13 @@ function CreateLobbyDialog({ open, onClose }) {
               <Controller />
             </ListItemIcon>
             <Autocomplete
+              value={gameName}
+              onChange={(_, newValue) => {
+                setGameName(newValue)
+              }}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
-              options={Game.options}
+              options={games.map((item) => item.name)}
               fullWidth
             />
           </ListItem>
