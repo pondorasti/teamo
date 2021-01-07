@@ -1,5 +1,5 @@
 import React from "react"
-import { makeStyles } from "@material-ui/styles"
+import { makeStyles } from "@material-ui/core/styles/"
 import { Grid, Typography, TextField } from "@material-ui/core"
 import Autocomplete from "@material-ui/core/Autocomplete"
 import { Platform, Game } from "../../../api/lobby-template"
