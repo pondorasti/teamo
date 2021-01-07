@@ -4,6 +4,8 @@ import { ArrowDown } from "../assets/icons"
 
 const defaultTheme = {
   palette: {
+    mode: "dark",
+
     primary: {
       // primary
       main: "#7800D7",
@@ -44,11 +46,6 @@ const defaultTheme = {
     },
 
     grey: {
-      100: "#505050", // border color
-      200: "#505050", // border color
-      300: "#505050", // border color
-      400: "#505050", // border color
-
       500: "#505050", // border color
       600: "#464646", // quaternary background
       700: "#2F2F30", // tertiary background
@@ -67,8 +64,6 @@ const defaultTheme = {
 
     tonalOffset: 0,
     contrastThreshold: 0,
-
-    type: "dark",
   },
   shadows: Array(25).fill("none"),
   typography: {
@@ -153,7 +148,6 @@ const TMTheme = createMuiTheme({
     // Textfield
     MuiTextField: {
       defaultProps: {
-        variant: "outlined",
         size: "small",
       },
       styleOverrides: {
