@@ -50,7 +50,7 @@ function CreateLobbyDialog({ open, onClose }) {
   const [platform, setPlatform] = useState(null)
   const [microphone, setMicrophone] = useState(null)
   const [size, setSize] = useState(null)
-  const [description, setDescription] = useState(null)
+  const [description, setDescription] = useState("")
 
   const dispatch = useDispatch()
   const game = useSelector((state) => selectGameByName(state, gameName))
