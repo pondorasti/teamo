@@ -193,7 +193,7 @@ TMButton.defaultProps = {
   size: "large",
   variant: "contained",
   disabled: false,
-  pending: true,
+  pending: false,
   fullWidth: false,
   href: undefined,
   style: undefined,

@@ -14,16 +14,20 @@ import {
   TextField,
 } from "@material-ui/core"
 
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
-import TMButton from "../../../atoms/TMButton"
+import TMButton from "../../../../atoms/TMButton"
 
-import { Platform, Game, Size, Microphone } from "../../../api/lobby-template"
+import { Platform, Game, Size, Microphone } from "../../../../api/lobby-template"
 
-import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
-import { CouchBuddies } from "../../../assets/images"
+import { Controller, Dpad, Mic, People, Description } from "../../../../assets/icons"
+import { CouchBuddies } from "../../../../assets/images"
 
-import { selectAllGames, selectGameByName } from "../../../redux/slices/games/gamesSlice"
+import {
+  selectAllGames,
+  selectGameByName,
+} from "../../../../redux/slices/games/gamesSlice"
+import { addNewLobby, selectStatus } from "./redux/createLobbySlice"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -42,8 +46,14 @@ function CreateLobbyDialog({ open, onClose }) {
 
   const games = useSelector(selectAllGames)
   const [gameName, setGameName] = useState(null)
-  // eslint-disable-next-line
+  const [platform, setPlatform] = useState(null)
+  const [microphone, setMicrophone] = useState(null)
+  const [size, setSize] = useState(null)
+  const [description, setDescription] = useState(null)
+
+  const dispatch = useDispatch()
   const game = useSelector((state) => selectGameByName(state, gameName))
+  const pending = useSelector(selectStatus) === "loading"
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
@@ -77,6 +87,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Dpad />
             </ListItemIcon>
             <Autocomplete
+              value={platform}
+              onChange={(_, newValue) => setPlatform(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
@@ -89,6 +101,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Mic />
             </ListItemIcon>
             <Autocomplete
+              value={microphone}
+              onChange={(_, newValue) => setMicrophone(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
@@ -101,6 +115,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <People />
             </ListItemIcon>
             <Autocomplete
+              value={size}
+              onChange={(_, newValue) => setSize(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
@@ -113,6 +129,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Description />
             </ListItemIcon>
             <TextField
+              value={description}
+              onChange={(_, newValue) => setDescription(newValue)}
               label="Description"
               helperText="Max 150 characters"
               rows={3}
@@ -124,7 +142,15 @@ function CreateLobbyDialog({ open, onClose }) {
       </DialogContent>
 
       <DialogActions>
-        <TMButton onClick={onClose} color="primary">
+        <TMButton
+          onClick={() => {
+            dispatch(
+              addNewLobby({ hostId: 1, game, platform, microphone, size, description }),
+            )
+          }}
+          color="primary"
+          pending={pending}
+        >
           Create
         </TMButton>
       </DialogActions>
