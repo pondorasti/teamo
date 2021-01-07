@@ -1,14 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import * as types from "./types"
 
-function timeout(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
-export const addNewLobby = createAsyncThunk(types.addNewLobby, async (lobby) => {
-  await timeout(10000)
-  return lobby
-})
+export const addNewLobby = createAsyncThunk(types.addNewLobby, async (lobby) => lobby)
 
 const initialState = {
   status: "idle",
@@ -26,6 +19,7 @@ const createLobbySlice = createSlice({
     },
     // eslint-disable-next-line no-unused-vars
     [addNewLobby.fulfilled]: (state, action) => {
+      // TODO: update status after dismiss
       state.status = "succeeded"
     },
     [addNewLobby.rejected]: (state, action) => {

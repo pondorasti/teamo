@@ -27,7 +27,8 @@ import {
   selectAllGames,
   selectGameByName,
 } from "../../../../redux/slices/games/gamesSlice"
-import { addNewLobby, selectStatus } from "./redux/createLobbySlice"
+import { selectStatus } from "./redux/createLobbySlice"
+import { lobbyAdded } from "../../molecules/lobbies/redux/lobbiesSlice"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -130,7 +131,7 @@ function CreateLobbyDialog({ open, onClose }) {
             </ListItemIcon>
             <TextField
               value={description}
-              onChange={(_, newValue) => setDescription(newValue)}
+              onChange={(event) => setDescription(event.target.value)}
               label="Description"
               helperText="Max 150 characters"
               rows={3}
@@ -144,9 +145,22 @@ function CreateLobbyDialog({ open, onClose }) {
       <DialogActions>
         <TMButton
           onClick={() => {
+            // dispatch(
+            //   addNewLobby({ hostId: 1, game, platform, microphone, size, description }),
+            // )
+
+            // TODO: remove bellow
             dispatch(
-              addNewLobby({ hostId: 1, game, platform, microphone, size, description }),
+              lobbyAdded(
+                1,
+                game,
+                platform,
+                microphone === Microphone.options[0],
+                size,
+                description,
+              ),
             )
+            onClose()
           }}
           color="primary"
           pending={pending}
