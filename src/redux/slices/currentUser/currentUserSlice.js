@@ -49,6 +49,10 @@ export const updateCurrentUser = createAsyncThunk(
   },
 )
 
+export const signOut = createAsyncThunk(types.signOut, async () => {
+  await auth.signOut()
+})
+
 const currentUserSlice = createSlice({
   name: types.currentUser,
   initialState,
@@ -66,8 +70,15 @@ const currentUserSlice = createSlice({
       state.signInStatus = "failed"
       state.signInError = action.error.message
     },
+
     [updateCurrentUser.fulfilled]: (state, action) => {
       state.user = action.payload
+    },
+    // eslint-disable-next-line no-unused-vars
+    [signOut.fulfilled]: (state, action) => {
+      state.user = null
+      state.signInStatus = "idle"
+      state.signInError = null
     },
   },
 })

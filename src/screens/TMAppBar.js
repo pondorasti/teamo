@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Divider } from "@material-ui/core/"
 import { makeStyles } from "@material-ui/core/styles"
+import { useSelector, useDispatch } from "react-redux"
 import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
 import { TeamoBanner } from "../assets/images"
@@ -9,6 +10,7 @@ import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
 import LoginDialog from "./home-screen/dialogs/login/LoginDialog"
 import ProfileDialog from "./profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
+import { selectCurrentUser, signOut } from "../redux/slices/currentUser/currentUserSlice"
 
 // WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
@@ -32,21 +34,29 @@ const useStyles = makeStyles((theme) => ({
 function TMAppBar() {
   const classes = useStyles()
   const [showCreateLobby, setShowCreateLobby] = useState(false)
+
+  const currentUser = useSelector(selectCurrentUser)
   const [showProfile, setShowProfile] = useState(false)
   const [showCreateProfile, setShowCreateProfile] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
+  const dispatch = useDispatch()
+
   const handleClose = () => {
     setAnchorEl(null)
   }
 
   const handleProfileButton = (event) => {
-    // if user logged in show menu
-    setAnchorEl(event.currentTarget)
-    // else
-    // open sign in modal
+    if (currentUser) {
+      // if user logged in show menu
+      setAnchorEl(event.currentTarget)
+    } else {
+      // else open sign-in modal
+      setShowLogin(true)
+      handleClose()
+    }
   }
 
   const handleShowProfile = () => {
@@ -54,7 +64,7 @@ function TMAppBar() {
     handleClose()
   }
   const handleSignOut = () => {
-    setShowLogin(true)
+    dispatch(signOut())
     handleClose()
   }
 
@@ -118,7 +128,7 @@ function TMAppBar() {
               onClose={() => setShowCreateProfile(false)}
             />
 
-            <MenuItem onClick={handleSignOut}>Sign out / Login</MenuItem>
+            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
             <LoginDialog open={showLogin} onClose={() => setShowLogin(false)} />
           </Menu>
         </Toolbar>
