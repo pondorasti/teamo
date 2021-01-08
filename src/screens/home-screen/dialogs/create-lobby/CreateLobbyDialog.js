@@ -19,7 +19,6 @@ import { useSelector, useDispatch } from "react-redux"
 import TMButton from "../../../../atoms/TMButton"
 
 import { Platform, Game, Size, Microphone } from "../../../../api/lobby-template"
-
 import { Controller, Dpad, Mic, People, Description } from "../../../../assets/icons"
 import { CouchBuddies } from "../../../../assets/images"
 
