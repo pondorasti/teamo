@@ -10,7 +10,11 @@ import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
 import LoginDialog from "./home-screen/dialogs/login/LoginDialog"
 import ProfileDialog from "./profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
-import { selectCurrentUser, signOut } from "../redux/slices/currentUser/currentUserSlice"
+import {
+  selectSignInStatus,
+  selectCurrentUser,
+  signOut,
+} from "../redux/slices/currentUser/currentUserSlice"
 
 // WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({
@@ -38,7 +42,13 @@ function TMAppBar() {
   const currentUser = useSelector(selectCurrentUser)
   const [showProfile, setShowProfile] = useState(false)
   const [showCreateProfile, setShowCreateProfile] = useState(false)
+
   const [showLogin, setShowLogin] = useState(false)
+  const signInStatus = useSelector(selectSignInStatus)
+  if (signInStatus === "succeeded" && showLogin === true) {
+    setShowLogin(false)
+  }
+
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 
@@ -99,7 +109,7 @@ function TMAppBar() {
             <TMAvatar
               size="extraSmall"
               alt="Pondorasti"
-              // src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+              src={currentUser ? currentUser.profilePictureUrl : ""}
             />
           </IconButton>
           <Menu
@@ -118,7 +128,7 @@ function TMAppBar() {
               username="ShiroTheCat"
               status="online"
               bio="Hello, my name Shiro, i look like dog, but i am cat."
-              avatarUrl="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
+              avatarUrl={currentUser ? currentUser.profilePictureUrl : ""}
               gamesPlayed={gamesPlayed}
             />
 

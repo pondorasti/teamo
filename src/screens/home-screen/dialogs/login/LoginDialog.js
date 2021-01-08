@@ -31,10 +31,6 @@ function LoginDialog({ open, onClose }) {
   const dispatch = useDispatch()
   const signInStatus = useSelector(selectSignInStatus)
 
-  if (signInStatus === "succeeded") {
-    onClose()
-  }
-
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="login-modal">
       <DialogTitle id="login-modal-title">

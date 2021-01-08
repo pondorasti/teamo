@@ -25,11 +25,10 @@ export const login = createAsyncThunk(types.login, async () => {
       if (!doc.exists) {
         usersRef.doc(authJSON.uid).set({
           id: authJSON.uid,
+          profilePictureUrl: authJSON.photoURL,
         })
       }
     })
-
-  return authJSON
 })
 
 export const updateCurrentUser = createAsyncThunk(
