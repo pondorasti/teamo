@@ -6,7 +6,7 @@ import TMAvatar from "../atoms/TMAvatar"
 import { TeamoBanner } from "../assets/images"
 import CreateLobbyDialog from "./home-screen/dialogs/create-lobby/CreateLobbyDialog"
 import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
-import LoginDialog from "./home-screen/dialogs/LoginDialog"
+import LoginDialog from "./home-screen/dialogs/login/LoginDialog"
 import ProfileDialog from "./profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
 
@@ -89,7 +89,7 @@ function TMAppBar() {
             <TMAvatar
               size="extraSmall"
               alt="Pondorasti"
-              src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
+              // src="https://avatars0.githubusercontent.com/u/32957606?s=460&u=e631c3762c12d41f3ce0348b8137f0751a2eed75&v=4"
             />
           </IconButton>
           <Menu
