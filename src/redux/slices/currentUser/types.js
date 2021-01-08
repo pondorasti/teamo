@@ -1,5 +1,6 @@
 const currentUser = "currentUser"
 
 const login = `${currentUser}/login`
+const updateCurrentUser = `${currentUser}/updateCurrentUser`
 
-export { currentUser, login }
+export { currentUser, login, updateCurrentUser }

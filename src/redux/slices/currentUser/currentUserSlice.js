@@ -9,6 +9,7 @@ const usersRef = firestore.collection("users")
 
 const initialState = {
   signInStatus: "idle",
+  signInError: null,
 }
 
 export const login = createAsyncThunk(types.login, async () => {
@@ -31,14 +32,27 @@ export const login = createAsyncThunk(types.login, async () => {
   return authJSON
 })
 
+export const updateCurrentUser = createAsyncThunk(
+  types.updateCurrentUser,
+  async ({ id }) => {
+    let data
+    await usersRef
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          data = doc.data()
+        }
+      })
+
+    return data
+  },
+)
+
 const currentUserSlice = createSlice({
   name: types.currentUser,
   initialState,
-  reducers: {
-    updateCurrentUser(state, action) {
-      state.user = action.payload
-    },
-  },
+  reducers: {},
   extraReducers: {
     // eslint-disable-next-line no-unused-vars
     [login.pending]: (state, action) => {
@@ -47,20 +61,18 @@ const currentUserSlice = createSlice({
     // eslint-disable-next-line no-unused-vars
     [login.fulfilled]: (state, action) => {
       state.signInStatus = "succeeded"
-      state.user = {
-        id: action.payload.uid,
-        photoUrl: action.payload.photoURL,
-      }
     },
-    // eslint-disable-next-line no-unused-vars
     [login.rejected]: (state, action) => {
       state.signInStatus = "failed"
-      // state.error = action.error.message
+      state.signInError = action.error.message
+    },
+    [updateCurrentUser.fulfilled]: (state, action) => {
+      state.user = action.payload
     },
   },
 })
 
-export const { updateCurrentUser } = currentUserSlice.actions
 export const selectSignInStatus = (state) => state[types.currentUser].signInStatus
+export const selectCurrentUser = (state) => state[types.currentUser].user
 
 export default currentUserSlice.reducer

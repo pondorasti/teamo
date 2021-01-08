@@ -8,18 +8,17 @@ import HomeScreen from "./screens/home-screen/HomeScreen"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 
 import store from "./redux/store"
-// import { updateCurrentUser } from "./redux/slices/currentUser/currentUserSlice"
+import { updateCurrentUser } from "./redux/slices/currentUser/currentUserSlice"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
 import auth from "./api/firebase/auth"
 
 function App() {
+  // update current user redux slice
   const [user] = useAuthState(auth)
-  // if (user != null) {
-  //   console.log(user)
-  // }
-
   useEffect(() => {
-    // store.dispatch(updateCurrentUser({ user }))
+    if (user != null) {
+      store.dispatch(updateCurrentUser({ id: user.uid }))
+    }
   }, [user])
 
   useEffect(() => {
