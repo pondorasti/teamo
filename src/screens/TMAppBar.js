@@ -6,7 +6,6 @@ import TMButton from "../atoms/TMButton"
 import TMAvatar from "../atoms/TMAvatar"
 import { TeamoBanner } from "../assets/images"
 import CreateLobbyDialog from "./home-screen/dialogs/create-lobby/CreateLobbyDialog"
-import CreateProfileDialog from "./home-screen/dialogs/CreateProfileDialog"
 import LoginDialog from "./home-screen/dialogs/login/LoginDialog"
 import ProfileDialog from "./profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
@@ -41,7 +40,6 @@ function TMAppBar() {
 
   const currentUser = useSelector(selectCurrentUser)
   const [showProfile, setShowProfile] = useState(false)
-  const [showCreateProfile, setShowCreateProfile] = useState(false)
 
   const [showLogin, setShowLogin] = useState(false)
   const signInStatus = useSelector(selectSignInStatus)
@@ -75,11 +73,6 @@ function TMAppBar() {
   }
   const handleSignOut = () => {
     dispatch(signOut())
-    handleClose()
-  }
-
-  const handleCreateProfile = () => {
-    setShowCreateProfile(true)
     handleClose()
   }
 
@@ -130,12 +123,6 @@ function TMAppBar() {
               bio="Hello, my name Shiro, i look like dog, but i am cat."
               avatarUrl={currentUser ? currentUser.profilePictureUrl : ""}
               gamesPlayed={gamesPlayed}
-            />
-
-            <MenuItem onClick={handleCreateProfile}>Create Profile</MenuItem>
-            <CreateProfileDialog
-              open={showCreateProfile}
-              onClose={() => setShowCreateProfile(false)}
             />
 
             <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
