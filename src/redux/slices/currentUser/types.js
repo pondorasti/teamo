@@ -1,7 +1,7 @@
 const currentUser = "currentUser"
 
 const login = `${currentUser}/login`
-const updateCurrentUser = `${currentUser}/updateCurrentUser`
 const signOut = `${currentUser}/signOut`
+const updateCurrentUser = `${currentUser}/update`
 
-export { currentUser, login, updateCurrentUser, signOut }
+export { currentUser, login, signOut, updateCurrentUser }

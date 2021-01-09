@@ -83,6 +83,22 @@ const currentUserSlice = createSlice({
 })
 
 export const selectSignInStatus = (state) => state[types.currentUser].signInStatus
+export const selectUserNeedsAgreement = (state) => {
+  const { user } = state[types.currentUser]
+  if (user) {
+    return user.agreement !== true
+  }
+  return false
+}
+export const selectUserNeedsSetup = (state) => {
+  const { user } = state[types.currentUser]
+  if (user) {
+    return user.username == null
+  }
+  return false
+}
+
 export const selectCurrentUser = (state) => state[types.currentUser].user
+export const selectCurrentUserId = (state) => state[types.currentUser].user.id
 
 export default currentUserSlice.reducer
