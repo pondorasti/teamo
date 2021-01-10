@@ -25,28 +25,11 @@ export const login = createAsyncThunk(types.login, async () => {
       if (!doc.exists) {
         usersRef.doc(authJSON.uid).set({
           id: authJSON.uid,
-          profilePictureUrl: authJSON.photoURL,
+          creationDate: new Date().toISOString(),
         })
       }
     })
 })
-
-export const updateCurrentUser = createAsyncThunk(
-  types.updateCurrentUser,
-  async ({ id }) => {
-    let data
-    await usersRef
-      .doc(id)
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          data = doc.data()
-        }
-      })
-
-    return data
-  },
-)
 
 export const signOut = createAsyncThunk(types.signOut, async () => {
   await auth.signOut()
@@ -55,7 +38,11 @@ export const signOut = createAsyncThunk(types.signOut, async () => {
 const currentUserSlice = createSlice({
   name: types.currentUser,
   initialState,
-  reducers: {},
+  reducers: {
+    update(state, action) {
+      state.user = action.payload
+    },
+  },
   extraReducers: {
     // eslint-disable-next-line no-unused-vars
     [login.pending]: (state, action) => {
@@ -70,11 +57,9 @@ const currentUserSlice = createSlice({
       state.signInError = action.error.message
     },
 
-    [updateCurrentUser.fulfilled]: (state, action) => {
-      state.user = action.payload
-    },
     // eslint-disable-next-line no-unused-vars
     [signOut.fulfilled]: (state, action) => {
+      // TODO: remove user subscriber
       state.user = null
       state.signInStatus = "idle"
       state.signInError = null
@@ -100,5 +85,16 @@ export const selectUserNeedsSetup = (state) => {
 
 export const selectCurrentUser = (state) => state[types.currentUser].user
 export const selectCurrentUserId = (state) => state[types.currentUser].user.id
+
+export const { update } = currentUserSlice.actions
+
+export const subscribeToCurrentUser = (dispatch, id) => {
+  usersRef.doc(id).onSnapshot((snap) => {
+    const newUserData = snap.data()
+    if (newUserData) {
+      dispatch(update(snap.data()))
+    }
+  })
+}
 
 export default currentUserSlice.reducer

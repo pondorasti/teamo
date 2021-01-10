@@ -7,9 +7,9 @@ import { TMTheme } from "./atoms"
 import HomeScreen from "./screens/home-screen/HomeScreen"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 import {
-  updateCurrentUser,
   selectUserNeedsAgreement,
   selectUserNeedsSetup,
+  subscribeToCurrentUser,
 } from "./redux/slices/currentUser/currentUserSlice"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
 import auth from "./api/firebase/auth"
@@ -27,9 +27,9 @@ function App() {
   // update current user redux slice
   const [user] = useAuthState(auth)
   useEffect(() => {
-    if (user != null) {
-      // console.log("user changed")
-      dispatch(updateCurrentUser({ id: user.uid }))
+    if (user != null && user.uid != null) {
+      const id = user.uid
+      subscribeToCurrentUser(dispatch, id)
     }
   }, [user])
 
@@ -41,8 +41,9 @@ function App() {
 
   const [showCreateProfile, setShowCreateProfile] = useState(false)
   const userNeedsSetup = useSelector(selectUserNeedsSetup)
-  if (userNeedsSetup && !showCreateProfile && !userNeedsAgreement) {
+  if (!userNeedsAgreement && userNeedsSetup && !showCreateProfile) {
     setShowCreateProfile(true)
+    setShowAgreement(false)
   }
 
   return (
