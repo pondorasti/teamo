@@ -42,8 +42,8 @@ function CreateProfileDialog({ open, onClose }) {
           First things first: we promise <br /> to respect your data.
         </Typography>
         <img
-          src="https://dl.airtable.com/.attachmentThumbnails/60f86e32ee1539df61f4c8ef8503318e/9a913cee"
-          srcSet="https://dl.airtable.com/.attachmentThumbnails/60f86e32ee1539df61f4c8ef8503318e/9a913cee 1x, https://dl.airtable.com/.attachmentThumbnails/edea715ffd8759b3621251d0d668388b/d2447b3c 2x"
+          src="https://dl.airtable.com/.attachments/ab3dacaf87a2c16cb6e6a086898a42f7/64544b42/PolicyScene1x.png"
+          srcSet="https://dl.airtable.com/.attachments/ab3dacaf87a2c16cb6e6a086898a42f7/64544b42/PolicyScene1x.png 1x, https://dl.airtable.com/.attachments/3f02ef58cad727d5c4ddf24d8322fbdf/2c871c3f/PolicyScene2x.png 2x"
           alt="Tall Shroomie enjoying his privacy in his house during sunrise."
           className={classes.illustration}
         />
@@ -71,7 +71,7 @@ function CreateProfileDialog({ open, onClose }) {
           <br />
           <br />
           By clicking next you agree to the Terms of Use, Privacy Policy and Data
-          Processing Agreement
+          Processing Agreement.
         </Typography>
       </DialogContent>
 
