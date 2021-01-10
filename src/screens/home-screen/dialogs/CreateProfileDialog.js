@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -11,11 +11,13 @@ import {
   ListItem,
   ListItemIcon,
   TextField,
+  Grid,
 } from "@material-ui/core"
 
 import TMButton from "../../../atoms/TMButton"
 import { Person, Description } from "../../../assets/icons"
 import { WavingRacoon, WavingLion } from "../../../assets/images"
+import { TMAvatar } from "../../../atoms"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -40,23 +42,43 @@ const useStyles = makeStyles(() => ({
 function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
 
+  const [didAgreeTerms, setDidAgreeTerms] = useState(false)
+
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      aria-labelledby="create-teamo-modal"
-      classes={{ root: classes.dialogBody }}
-    >
+    <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title" classes={{ root: classes.dialogTitle }}>
         <img src={WavingRacoon} alt="Waving raccoon" className={classes.illustration} />
         <Typography variant="h4" classes={{ root: classes.titleText }}>
-          User Profile
+          {/* User Profile */}
+          Create profile
         </Typography>
         <img src={WavingLion} alt="Waving lion" className={classes.illustration} />
       </DialogTitle>
 
       <DialogContent>
         <List>
+          <ListItem>
+            <Grid container wrap="nowrap">
+              <Grid item>
+                <TMAvatar
+                  src="https://lh3.googleusercontent.com/a-/AOh14GiQwpZJpxv5uVMM6Ksd47iMIDmz48GMNyPewiF5mA=s96-c"
+                  alt="Profile Picture"
+                  status="none"
+                  size="profileSettings"
+                />
+              </Grid>
+
+              <Grid container direction="column" wrap="nowrap" style={{ marginLeft: 16 }}>
+                <Grid item style={{ width: "100%", marginBottom: 8 }}>
+                  <TMButton fullWidth>Random</TMButton>
+                </Grid>
+                <Grid item style={{ width: "100%" }}>
+                  <TMButton fullWidth>Upload</TMButton>
+                </Grid>
+              </Grid>
+            </Grid>
+          </ListItem>
+
           <ListItem>
             <ListItemIcon>
               <Person />
@@ -80,7 +102,7 @@ function CreateProfileDialog({ open, onClose }) {
       </DialogContent>
 
       <DialogActions>
-        <TMButton onClick={onClose} color="primary">
+        <TMButton onClick={() => setDidAgreeTerms(!didAgreeTerms)} color="primary">
           Create
         </TMButton>
       </DialogActions>
@@ -94,6 +116,8 @@ CreateProfileDialog.propTypes = {
 
   /** A function that is called when the modal needs to be closed. */
   onClose: PropTypes.func.isRequired,
+
+  // state: PropTypes.oneOf(["create", "update"]),
 }
 
 export default CreateProfileDialog
