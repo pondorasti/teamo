@@ -12,7 +12,7 @@ const initialState = {
 
 export const acceptAgreement = createAsyncThunk(types.accept, async (_, { getState }) => {
   const id = selectCurrentUserId(getState())
-  await usersRef.doc(id).update({ agreement: true })
+  await usersRef.doc(id).update({ signedAgreement: true })
 })
 
 const agreementSlice = createSlice({

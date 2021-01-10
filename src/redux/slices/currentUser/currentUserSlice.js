@@ -86,7 +86,7 @@ export const selectSignInStatus = (state) => state[types.currentUser].signInStat
 export const selectUserNeedsAgreement = (state) => {
   const { user } = state[types.currentUser]
   if (user) {
-    return user.agreement !== true
+    return user.signedAgreement !== true
   }
   return false
 }
