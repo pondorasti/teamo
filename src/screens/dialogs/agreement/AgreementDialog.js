@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.info.main,
     },
   },
+  illustration: {
+    maxWidth: 420,
+    marginTop: 24,
+  },
 }))
 
 function CreateProfileDialog({ open, onClose }) {
@@ -37,6 +41,12 @@ function CreateProfileDialog({ open, onClose }) {
         <Typography variant="h4" classes={{ root: classes.titleText }}>
           First things first: we promise <br /> to respect your data.
         </Typography>
+        <img
+          src="https://dl.airtable.com/.attachmentThumbnails/60f86e32ee1539df61f4c8ef8503318e/9a913cee"
+          srcSet="https://dl.airtable.com/.attachmentThumbnails/60f86e32ee1539df61f4c8ef8503318e/9a913cee 1x, https://dl.airtable.com/.attachmentThumbnails/edea715ffd8759b3621251d0d668388b/d2447b3c 2x"
+          alt="Tall Shroomie enjoying his privacy in his house during sunrise."
+          className={classes.illustration}
+        />
       </DialogTitle>
 
       <DialogContent>
