@@ -1,8 +1,10 @@
+import auth from "./auth"
 import firestore from "./firestore"
+import storage from "./storage"
 
-export { default as auth } from "./auth"
-export { default as firestore } from "./firestore"
-export { default as storage } from "./storage"
+export { auth, firestore, storage }
 
 export const usersRef = firestore.collection("users")
 export const takenUsernamesRef = firestore.collection("takenUsernames")
+
+export const profilePicturesStorageRef = storage.child("profilePictures")

@@ -58,7 +58,7 @@ const imgArray = [
   TallShroomieProfile,
 ]
 
-function CreateProfileDialog({ open, onClose }) {
+function ProfileSettingsDialog({ open, onClose }) {
   const classes = useStyles()
 
   // Random Button
@@ -82,8 +82,6 @@ function CreateProfileDialog({ open, onClose }) {
       setProfileImg(newProfileImg)
     }
   }
-
-  const [didAgreeTerms, setDidAgreeTerms] = useState(false)
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
@@ -109,7 +107,7 @@ function CreateProfileDialog({ open, onClose }) {
                 />
               </Grid>
 
-              <Grid container direction="column" wrap="nowrap" style={{ marginLeft: 16 }}>
+              <Grid container direction="column" wrap="nowrap" style={{ marginLeft: 8 }}>
                 <Grid item style={{ width: "100%", marginBottom: 8 }}>
                   <TMButton fullWidth onClick={handleRandomButton}>
                     Random
@@ -155,15 +153,13 @@ function CreateProfileDialog({ open, onClose }) {
       </DialogContent>
 
       <DialogActions>
-        <TMButton onClick={() => setDidAgreeTerms(!didAgreeTerms)} color="primary">
-          Create
-        </TMButton>
+        <TMButton color="primary">Create</TMButton>
       </DialogActions>
     </Dialog>
   )
 }
 
-CreateProfileDialog.propTypes = {
+ProfileSettingsDialog.propTypes = {
   /** If `true`, the modal is presented. */
   open: PropTypes.bool.isRequired,
 
@@ -173,4 +169,4 @@ CreateProfileDialog.propTypes = {
   // state: PropTypes.oneOf(["create", "update"]),
 }
 
-export default CreateProfileDialog
+export default ProfileSettingsDialog
