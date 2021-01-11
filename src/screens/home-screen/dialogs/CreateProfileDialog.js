@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -16,8 +16,18 @@ import {
 
 import TMButton from "../../../atoms/TMButton"
 import { Person, Description } from "../../../assets/icons"
-import { WavingRacoon, WavingLion } from "../../../assets/images"
 import { TMAvatar } from "../../../atoms"
+
+import {
+  WavingRacoon,
+  WavingLion,
+  DumplingProfile,
+  LionProfile,
+  OctopusProfile,
+  RacoonProfile,
+  ShroomieProfile,
+  TallShroomieProfile,
+} from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -39,8 +49,39 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
+const imgArray = [
+  DumplingProfile,
+  LionProfile,
+  OctopusProfile,
+  RacoonProfile,
+  ShroomieProfile,
+  TallShroomieProfile,
+]
+
 function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
+
+  // Random Button
+  function getRandomImg() {
+    return imgArray[Math.floor(Math.random() * imgArray.length)]
+  }
+  const [profileImg, setProfileImg] = useState(getRandomImg)
+  function handleRandomButton() {
+    let newProfileImg
+    do {
+      newProfileImg = getRandomImg()
+    } while (newProfileImg === profileImg)
+    setProfileImg(newProfileImg)
+  }
+
+  // Upload Button
+  const inputUploadRef = useRef(null)
+  function handleInputUpload() {
+    if (inputUploadRef.current.files && inputUploadRef.current.files[0]) {
+      const newProfileImg = URL.createObjectURL(inputUploadRef.current.files[0])
+      setProfileImg(newProfileImg)
+    }
+  }
 
   const [didAgreeTerms, setDidAgreeTerms] = useState(false)
 
@@ -61,7 +102,7 @@ function CreateProfileDialog({ open, onClose }) {
             <Grid container wrap="nowrap">
               <Grid item>
                 <TMAvatar
-                  src="https://lh3.googleusercontent.com/a-/AOh14GiQwpZJpxv5uVMM6Ksd47iMIDmz48GMNyPewiF5mA=s96-c"
+                  src={profileImg}
                   alt="Profile Picture"
                   status="none"
                   size="profileSettings"
@@ -70,10 +111,22 @@ function CreateProfileDialog({ open, onClose }) {
 
               <Grid container direction="column" wrap="nowrap" style={{ marginLeft: 16 }}>
                 <Grid item style={{ width: "100%", marginBottom: 8 }}>
-                  <TMButton fullWidth>Random</TMButton>
+                  <TMButton fullWidth onClick={handleRandomButton}>
+                    Random
+                  </TMButton>
                 </Grid>
                 <Grid item style={{ width: "100%" }}>
-                  <TMButton fullWidth>Upload</TMButton>
+                  <input
+                    type="file"
+                    accept=".gif, .png, .jpg, .jpeg"
+                    multiple={false}
+                    ref={inputUploadRef}
+                    onChange={handleInputUpload}
+                    style={{ display: "none" }}
+                  />
+                  <TMButton fullWidth onClick={() => inputUploadRef.current.click()}>
+                    Upload
+                  </TMButton>
                 </Grid>
               </Grid>
             </Grid>

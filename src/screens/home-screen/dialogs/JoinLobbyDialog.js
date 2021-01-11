@@ -48,8 +48,12 @@ function JoinLobbyDialog({ open, onClose }) {
   const [isImgFlipped, setImgFlipped] = useState(false)
   const [isLoaded, setLoaded] = useState(false)
 
+  function getRandomImg() {
+    return imgArray[Math.floor(Math.random() * imgArray.length)]
+  }
+
   function handleImgRefresh() {
-    setRandomImg(imgArray[Math.floor(Math.random() * imgArray.length)])
+    setRandomImg(getRandomImg())
     setImgFlipped(Math.random() < 0.5)
   }
 
