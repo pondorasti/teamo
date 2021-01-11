@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import firestore from "../../../../api/firebase/firestore"
+import { firestore } from "../../../../api/firebase"
 import * as types from "./types"
 import { selectCurrentUserId } from "../../../../redux/slices/currentUser/currentUserSlice"
 

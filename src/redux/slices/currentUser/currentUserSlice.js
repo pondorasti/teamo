@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import firebase from "firebase/app"
 import "firebase/auth"
-import auth from "../../../api/firebase/auth"
-import firestore from "../../../api/firebase/firestore"
+import { firestore, auth } from "../../../api/firebase"
 import * as types from "./types"
 
 const usersRef = firestore.collection("users")

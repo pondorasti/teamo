@@ -12,9 +12,9 @@ import {
   subscribeToCurrentUser,
 } from "./redux/slices/currentUser/currentUserSlice"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
-import auth from "./api/firebase/auth"
+import { auth } from "./api/firebase"
 import AgreementDialog from "./screens/dialogs/agreement/AgreementDialog"
-import CreateProfileDialog from "./screens/home-screen/dialogs/CreateProfileDialog"
+import ProfileSettingsDialog from "./screens/dialogs/profile-settings/ProfileSettingsDialog"
 
 function App() {
   const dispatch = useDispatch()
@@ -55,7 +55,7 @@ function App() {
           <HomeScreen />
 
           <AgreementDialog open={showAgreement} onClose={() => setShowAgreement(false)} />
-          <CreateProfileDialog
+          <ProfileSettingsDialog
             open={showCreateProfile}
             onClose={() => setShowCreateProfile(false)}
           />
