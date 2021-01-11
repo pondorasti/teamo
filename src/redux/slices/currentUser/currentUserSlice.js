@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import firebase from "firebase/app"
 import "firebase/auth"
-import { firestore, auth } from "../../../api/firebase"
+import { auth, usersRef } from "../../../api/firebase"
 import * as types from "./types"
-
-const usersRef = firestore.collection("users")
 
 const initialState = {
   signInStatus: "idle",

@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { firestore } from "../../../../api/firebase"
+import { usersRef } from "../../../../api/firebase"
 import * as types from "./types"
 import { selectCurrentUserId } from "../../../../redux/slices/currentUser/currentUserSlice"
-
-const usersRef = firestore.collection("users")
 
 const initialState = {
   status: "idle",
