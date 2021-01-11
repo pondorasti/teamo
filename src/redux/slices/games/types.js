@@ -1,5 +1,5 @@
 const games = "games"
 
-const fetchGames = `${games}/fetchGames`
+const fetchGames = `${games}/fetch`
 
 export { games, fetchGames }
