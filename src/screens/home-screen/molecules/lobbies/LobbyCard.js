@@ -150,6 +150,7 @@ LobbyCard.propTypes = {
   /** The size status of the lobby (ex: 8/10). */
   sizeStatus: PropTypes.string.isRequired,
 
+  /** If `true` the view will be shown as an animated skeleton. */
   isLoading: PropTypes.bool.isRequired,
 }
 

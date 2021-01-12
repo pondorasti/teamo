@@ -57,8 +57,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameImg: {
-    width: 176,
-    height: 72,
     borderRadius: 8,
     objectFit: "cover",
 
@@ -115,7 +113,13 @@ function SelectedGameInfo() {
         classes={{ root: classes.gridContainer }}
       >
         <Grid item classes={{ root: classes.leftGrid }}>
-          <img src={game.bannerUrl} alt={game.name} className={classes.gameImg} />
+          <img
+            width="176px"
+            height="72px"
+            src={game.bannerUrl}
+            alt={game.name}
+            className={classes.gameImg}
+          />
 
           <div className={classes.gameInfo}>
             <Typography variant="h4">{game.name}</Typography>
