@@ -1,14 +1,21 @@
 import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit"
 import * as types from "./types"
-import lobbies from "../../../../../api/dummy-data/lobbies"
+import { lobbiesRef } from "../../../../../api/firebase"
+// import lobbies from "../../../../../api/dummy-data/lobbies"
 
 export const fetchLobbies = createAsyncThunk(types.fetchLobbies, async () => {
-  await setTimeout(() => {}, 3000)
-  return null
+  const querySnapshot = await lobbiesRef.get()
+
+  const lobbies = []
+  querySnapshot.forEach((doc) => {
+    lobbies.push(doc.data())
+  })
+
+  return lobbies
 })
 
 const initialState = {
-  lobbies,
+  lobbies: [],
   status: "idle",
   error: null,
 }
@@ -45,6 +52,7 @@ const lobbiesSlice = createSlice({
     // eslint-disable-next-line no-unused-vars
     [fetchLobbies.fulfilled]: (state, action) => {
       state.status = "succeeded"
+      state.lobbies = action.payload
     },
     // eslint-disable-next-line no-unused-vars
     [fetchLobbies.rejected]: (state, action) => {

@@ -1,10 +1,10 @@
+import React, { useEffect } from "react"
 import { Grid } from "@material-ui/core"
-import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import LobbyCard from "./LobbyCard"
 import SelectedGameInfo from "./SelectedGameInfo"
-import { selectAllLobbies } from "./redux/lobbiesSlice"
+import { selectAllLobbies, fetchLobbies } from "./redux/lobbiesSlice"
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 function LobbyGrid() {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchLobbies())
+  }, [])
   const lobbies = useSelector(selectAllLobbies)
 
   return (
