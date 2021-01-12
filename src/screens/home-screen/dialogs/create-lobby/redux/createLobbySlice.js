@@ -1,7 +1,27 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { lobbiesRef } from "../../../../../api/firebase"
+import { selectCurrentUserId } from "../../../../../redux/slices/currentUser/currentUserSlice"
 import * as types from "./types"
 
-export const addNewLobby = createAsyncThunk(types.addNewLobby, async (lobby) => lobby)
+export const addNewLobby = createAsyncThunk(
+  types.addNewLobby,
+  async ({ game, platform, microphone, size, description }, { getState }) => {
+    const hostId = selectCurrentUserId(getState())
+    const lobby = {
+      hostId,
+      timestamp: new Date().toISOString(),
+      game,
+      platform,
+      microphone,
+      size,
+      description,
+    }
+
+    const newLobbyRef = await lobbiesRef.add(lobby)
+    const lobbyId = newLobbyRef.id
+    await lobbiesRef.doc(lobbyId).update({ lobbyId })
+  },
+)
 
 const initialState = {
   status: "idle",

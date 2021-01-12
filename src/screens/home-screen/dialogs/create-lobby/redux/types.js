@@ -1,5 +1,5 @@
 const createLobby = "createLobby"
 
-const addNewLobby = `${createLobby}/addNewLobby`
+const addNewLobby = `${createLobby}/add`
 
 export { createLobby, addNewLobby }
