@@ -52,6 +52,16 @@ function TMAppBar() {
 
   const dispatch = useDispatch()
 
+  function handleCreateLobby() {
+    if (currentUser) {
+      // if user logged in show create lobby modal
+      setShowCreateLobby(true)
+    } else {
+      // else open sign-in modal
+      setShowLogin(true)
+    }
+  }
+
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -84,7 +94,7 @@ function TMAppBar() {
 
           <div className={classes.divSpacer} />
 
-          <TMButton size="small" onClick={() => setShowCreateLobby(true)}>
+          <TMButton size="small" onClick={handleCreateLobby}>
             Create Teamo
           </TMButton>
           <CreateLobbyDialog
