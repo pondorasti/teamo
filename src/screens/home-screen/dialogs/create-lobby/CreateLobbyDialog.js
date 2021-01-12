@@ -44,7 +44,7 @@ function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
   const games = useSelector(selectAllGames)
-  const [gameName, setGameName] = useState("")
+  const [gameName, setGameName] = useState(null)
   const [platform, setPlatform] = useState(null)
   const [microphone, setMicrophone] = useState(null)
   const [size, setSize] = useState(null)
@@ -56,7 +56,7 @@ function CreateLobbyDialog({ open, onClose }) {
   const pending = status === "loading"
   if (status === "succeeded") {
     dispatch(resetStatus())
-    setGameName("")
+    setGameName(null)
     setPlatform(null)
     setMicrophone(null)
     setSize(null)
@@ -83,7 +83,6 @@ function CreateLobbyDialog({ open, onClose }) {
             </ListItemIcon>
             <Autocomplete
               value={gameName}
-              inputValue={gameName}
               onChange={(_, newValue) => setGameName(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
