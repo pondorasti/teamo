@@ -8,7 +8,7 @@ import HomeScreen from "./screens/home-screen/HomeScreen"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 import {
   selectUserNeedsAgreement,
-  selectUserNeedsSetup,
+  selectUserFinishedSignUp,
   subscribeToCurrentUser,
 } from "./redux/slices/currentUser/currentUserSlice"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
@@ -40,10 +40,12 @@ function App() {
   }
 
   const [showCreateProfile, setShowCreateProfile] = useState(false)
-  const userNeedsSetup = useSelector(selectUserNeedsSetup)
-  if (!userNeedsAgreement && userNeedsSetup && !showCreateProfile) {
+  const userFinishedSignUp = useSelector(selectUserFinishedSignUp)
+  if (!userNeedsAgreement && userFinishedSignUp && !showCreateProfile) {
     setShowCreateProfile(true)
     setShowAgreement(false)
+  } else if (!userFinishedSignUp && showCreateProfile) {
+    setShowCreateProfile(false)
   }
 
   return (

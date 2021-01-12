@@ -35,8 +35,9 @@ export const updateProfile = createAsyncThunk(
     }
 
     // check for unique username
+    const lowerCaseUsername = username.toLowerCase()
     await takenUsernamesRef
-      .doc(username)
+      .doc(lowerCaseUsername)
       .get()
       // eslint-disable-next-line consistent-return
       .then((snap) => {
@@ -64,7 +65,9 @@ export const updateProfile = createAsyncThunk(
 
     // update user document
     await takenUsernamesRef.doc(username).set({})
-    await usersRef.doc(id).update({ username, description, profilePictureUrl })
+    await usersRef
+      .doc(id)
+      .update({ username, description, profilePictureUrl, finishedSignUp: true })
   },
 )
 

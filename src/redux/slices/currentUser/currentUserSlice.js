@@ -72,10 +72,10 @@ export const selectUserNeedsAgreement = (state) => {
   }
   return false
 }
-export const selectUserNeedsSetup = (state) => {
+export const selectUserFinishedSignUp = (state) => {
   const { user } = state[types.currentUser]
   if (user) {
-    return user.username == null
+    return user.finishedSignUp !== true
   }
   return false
 }
