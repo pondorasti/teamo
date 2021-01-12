@@ -1,5 +1,5 @@
 const profileSettings = "profileSettings"
 
-const update = `${profileSettings}/update`
+const updateProfile = `${profileSettings}/update`
 
-export { profileSettings, update }
+export { profileSettings, updateProfile }

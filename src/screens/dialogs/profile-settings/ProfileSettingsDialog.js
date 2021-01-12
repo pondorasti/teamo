@@ -13,11 +13,15 @@ import {
   TextField,
   Grid,
 } from "@material-ui/core"
-
-import TMButton from "../../../atoms/TMButton"
+import { useDispatch, useSelector } from "react-redux"
 import { Person, Description } from "../../../assets/icons"
-import { TMAvatar } from "../../../atoms"
-
+import { TMAvatar, TMButton } from "../../../atoms"
+import {
+  selectUpdateStatus,
+  selectUsernameError,
+  selectDescriptionError,
+  updateProfile,
+} from "./redux/profileSettingsSlice"
 import {
   WavingRacoon,
   WavingLion,
@@ -30,7 +34,7 @@ import {
 } from "../../../assets/images"
 
 const useStyles = makeStyles(() => ({
-  descriptionIconItem: {
+  listIconItem: {
     display: "flex",
     alignSelf: "flex-start",
     marginTop: 7, // WARNING: Hard-coded value.
@@ -61,26 +65,38 @@ const imgArray = [
 function ProfileSettingsDialog({ open, onClose }) {
   const classes = useStyles()
 
+  const [username, setUsername] = useState("")
+  const [description, setDescription] = useState("")
+
   // Random Button
   function getRandomImg() {
     return imgArray[Math.floor(Math.random() * imgArray.length)]
   }
-  const [profileImg, setProfileImg] = useState(getRandomImg)
+  const [profilePictureFile, setProfilePictureFile] = useState(getRandomImg)
+  // const profilePictureUrl = URL.createObjectURL(profilePictureFile)
   function handleRandomButton() {
     let newProfileImg
     do {
       newProfileImg = getRandomImg()
-    } while (newProfileImg === profileImg)
-    setProfileImg(newProfileImg)
+    } while (newProfileImg === profilePictureFile)
+    setProfilePictureFile(newProfileImg)
   }
 
   // Upload Button
   const inputUploadRef = useRef(null)
   function handleInputUpload() {
     if (inputUploadRef.current.files && inputUploadRef.current.files[0]) {
-      const newProfileImg = URL.createObjectURL(inputUploadRef.current.files[0])
-      setProfileImg(newProfileImg)
+      setProfilePictureFile(inputUploadRef.current.files[0])
     }
+  }
+
+  // Form Button
+  const dispatch = useDispatch()
+  const updateStatus = useSelector(selectUpdateStatus)
+  const userNameError = useSelector(selectUsernameError)
+  const descriptionError = useSelector(selectDescriptionError)
+  function handleFormButton() {
+    dispatch(updateProfile({ profilePictureFile, username, description }))
   }
 
   return (
@@ -100,7 +116,7 @@ function ProfileSettingsDialog({ open, onClose }) {
             <Grid container wrap="nowrap">
               <Grid item>
                 <TMAvatar
-                  src={profileImg}
+                  // src={profilePictureUrl}
                   alt="Profile Picture"
                   status="none"
                   size="profileSettings"
@@ -131,29 +147,46 @@ function ProfileSettingsDialog({ open, onClose }) {
           </ListItem>
 
           <ListItem>
-            <ListItemIcon>
+            <ListItemIcon classes={{ root: classes.listIconItem }}>
               <Person />
             </ListItemIcon>
-            <TextField label="Username" fullWidth />
+            <TextField
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              label="Username"
+              fullWidth
+              error={!!userNameError}
+              helperText={userNameError}
+              style={{ maxWidth: 300 }}
+            />
           </ListItem>
 
           <ListItem>
-            <ListItemIcon classes={{ root: classes.descriptionIconItem }}>
+            <ListItemIcon classes={{ root: classes.listIconItem }}>
               <Description />
             </ListItemIcon>
             <TextField
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
               label="Bio"
-              helperText="Max 62 characters"
               rows={2}
               multiline
               fullWidth
+              error={!!descriptionError}
+              helperText={descriptionError}
             />
           </ListItem>
         </List>
       </DialogContent>
 
       <DialogActions>
-        <TMButton color="primary">Create</TMButton>
+        <TMButton
+          color="primary"
+          onClick={handleFormButton}
+          pending={updateStatus === "loading"}
+        >
+          Create
+        </TMButton>
       </DialogActions>
     </Dialog>
   )
