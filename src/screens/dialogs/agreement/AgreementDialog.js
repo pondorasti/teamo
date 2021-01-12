@@ -78,7 +78,7 @@ function CreateProfileDialog({ open, onClose }) {
       <DialogActions>
         <TMButton
           onClick={() => dispatch(acceptAgreement())}
-          pending={agreementStatus}
+          pending={agreementStatus === "loading"}
           color="primary"
         >
           Next

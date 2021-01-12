@@ -29,7 +29,7 @@ function LoginDialog({ open, onClose }) {
   const classes = useStyles()
   const theme = useTheme()
   const dispatch = useDispatch()
-  const signInStatus = useSelector(selectSignInStatus)
+  const signInStatus = useSelector(selectSignInStatus) === "loading"
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="login-modal">
@@ -48,7 +48,7 @@ function LoginDialog({ open, onClose }) {
         <TMButton
           leadingIcon={<Google />}
           onClick={() => dispatch(login())}
-          pending={signInStatus === "loading"}
+          pending={signInStatus}
           fullWidth
           style={{
             marginBottom: 16,

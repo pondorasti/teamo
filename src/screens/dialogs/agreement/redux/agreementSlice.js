@@ -33,7 +33,6 @@ const agreementSlice = createSlice({
   },
 })
 
-export const selectAgreementStatus = (state) =>
-  state[types.agreement].status === "loading"
+export const selectAgreementStatus = (state) => state[types.agreement].status
 
 export default agreementSlice.reducer
