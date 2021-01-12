@@ -24,10 +24,6 @@ export const updateProfile = createAsyncThunk(
   types.updateProfile,
   // eslint-disable-next-line consistent-return
   async ({ profilePictureFile, username, description }, { getState }) => {
-    const id = selectCurrentUserId(getState())
-    const fileName = profilePictureFile.name
-    let profilePictureUrl
-
     // username form validation
     if (!usernameRegex.test(username)) {
       return Promise.reject(new Error(usernameFormatError))
@@ -49,7 +45,17 @@ export const updateProfile = createAsyncThunk(
         }
       })
 
+    const id = selectCurrentUserId(getState())
+    const fileName = profilePictureFile.name
+    let profilePictureUrl
+
     // upload profile picture image to backend storage
+
+    // const response = await fetch(WavingRacoon)
+    // const blob = await response.blob()
+    // const storageRef = profilePicturesStorageRef.child(id).child("WavingRacoon.png")
+    // await storageRef.put(new File([blob], WavingRacoon, { type: "image/png" }))
+
     const storageRef = profilePicturesStorageRef.child(id).child(fileName)
     await storageRef.put(profilePictureFile)
     await storageRef.getDownloadURL().then((url) => {
@@ -67,6 +73,14 @@ const profileSettingsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    // eslint-disable-next-line no-unused-vars
+    [updateProfile.pending]: (state, action) => {
+      state.updateStatus = "loading"
+    },
+    // eslint-disable-next-line no-unused-vars
+    [updateProfile.fulfilled]: (state, action) => {
+      state.updateStatus = "succeeded"
+    },
     [updateProfile.rejected]: (state, action) => {
       console.log(action.error.message)
       state.updateStatus = "error"
