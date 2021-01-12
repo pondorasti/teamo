@@ -64,7 +64,7 @@ export const updateProfile = createAsyncThunk(
     })
 
     // update user document
-    await takenUsernamesRef.doc(username).set({})
+    await takenUsernamesRef.doc(lowerCaseUsername).set({})
     await usersRef
       .doc(id)
       .update({ username, description, profilePictureUrl, finishedSignUp: true })

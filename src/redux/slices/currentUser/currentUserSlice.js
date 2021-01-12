@@ -89,7 +89,7 @@ export const subscribeToCurrentUser = (dispatch, id) => {
   usersRef.doc(id).onSnapshot((snap) => {
     const newUserData = snap.data()
     if (newUserData) {
-      dispatch(update(snap.data()))
+      dispatch(update(newUserData))
     }
   })
 }
