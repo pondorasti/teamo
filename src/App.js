@@ -8,7 +8,7 @@ import HomeScreen from "./screens/home-screen/HomeScreen"
 // import LobbyScreen from "./screens/lobby-screen/LobbyScreen"
 import {
   selectUserNeedsAgreement,
-  selectUserFinishedSignUp,
+  selectUserNeedsProfile,
   subscribeToCurrentUser,
 } from "./redux/slices/currentUser/currentUserSlice"
 import { fetchGames } from "./redux/slices/games/gamesSlice"
@@ -33,19 +33,24 @@ function App() {
     }
   }, [user])
 
-  const [showAgreement, setShowAgreement] = useState(false)
   const userNeedsAgreement = useSelector(selectUserNeedsAgreement)
-  if (userNeedsAgreement && !showAgreement) {
-    setShowAgreement(true)
-  }
-
+  const [showAgreement, setShowAgreement] = useState(false)
+  const userNeedsProfile = useSelector(selectUserNeedsProfile)
   const [showCreateProfile, setShowCreateProfile] = useState(false)
-  const userFinishedSignUp = useSelector(selectUserFinishedSignUp)
-  if (!userNeedsAgreement && userFinishedSignUp && !showCreateProfile) {
+
+  // Profile Settings Dialog
+  if (!userNeedsAgreement && userNeedsProfile && !showCreateProfile) {
     setShowCreateProfile(true)
     setShowAgreement(false)
-  } else if (!userFinishedSignUp && showCreateProfile) {
+  } else if (!userNeedsProfile && showCreateProfile) {
     setShowCreateProfile(false)
+  }
+
+  // Agreement Dialog (Always have this before the other dialog)
+  if (userNeedsAgreement && !showAgreement) {
+    setShowAgreement(true)
+  } else if (!userNeedsAgreement && showAgreement) {
+    setShowAgreement(false)
   }
 
   return (
