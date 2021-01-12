@@ -7,7 +7,7 @@ import TMAvatar from "../atoms/TMAvatar"
 import { TeamoBanner } from "../assets/images"
 import CreateLobbyDialog from "./home-screen/dialogs/create-lobby/CreateLobbyDialog"
 import LoginDialog from "./home-screen/dialogs/login/LoginDialog"
-import ProfileDialog from "./profile-dialog/ProfileDialog"
+import ProfileDialog from "./dialogs/profile-dialog/ProfileDialog"
 import gamesPlayed from "../api/dummy-data/gamesPlayed"
 import {
   selectSignInStatus,
