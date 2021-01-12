@@ -31,7 +31,12 @@ const initialState = {
 const createLobbySlice = createSlice({
   name: types.createLobby,
   initialState,
-  reducers: {},
+  reducers: {
+    // eslint-disable-next-line no-unused-vars
+    resetStatus(state, action) {
+      state.status = "idle"
+    },
+  },
   extraReducers: {
     // eslint-disable-next-line no-unused-vars
     [addNewLobby.pending]: (state, action) => {
@@ -48,6 +53,8 @@ const createLobbySlice = createSlice({
     },
   },
 })
+
+export const { resetStatus } = createLobbySlice.actions
 
 export const selectStatus = (state) => state[types.createLobby].status
 

@@ -26,7 +26,7 @@ import {
   selectAllGames,
   selectGameByName,
 } from "../../../../redux/slices/games/gamesSlice"
-import { selectStatus, addNewLobby } from "./redux/createLobbySlice"
+import { selectStatus, addNewLobby, resetStatus } from "./redux/createLobbySlice"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -44,7 +44,7 @@ function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
   const games = useSelector(selectAllGames)
-  const [gameName, setGameName] = useState(null)
+  const [gameName, setGameName] = useState("")
   const [platform, setPlatform] = useState(null)
   const [microphone, setMicrophone] = useState(null)
   const [size, setSize] = useState(null)
@@ -52,7 +52,17 @@ function CreateLobbyDialog({ open, onClose }) {
 
   const dispatch = useDispatch()
   const game = useSelector((state) => selectGameByName(state, gameName))
-  const pending = useSelector(selectStatus) === "loading"
+  const status = useSelector(selectStatus)
+  const pending = status === "loading"
+  if (status === "succeeded") {
+    dispatch(resetStatus())
+    setGameName("")
+    setPlatform(null)
+    setMicrophone(null)
+    setSize(null)
+    setDescription("")
+    onClose()
+  }
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
@@ -73,6 +83,7 @@ function CreateLobbyDialog({ open, onClose }) {
             </ListItemIcon>
             <Autocomplete
               value={gameName}
+              inputValue={gameName}
               onChange={(_, newValue) => setGameName(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
@@ -144,7 +155,6 @@ function CreateLobbyDialog({ open, onClose }) {
         <TMButton
           onClick={() => {
             dispatch(addNewLobby({ game, platform, microphone, size, description }))
-            onClose()
           }}
           color="primary"
           pending={pending}
