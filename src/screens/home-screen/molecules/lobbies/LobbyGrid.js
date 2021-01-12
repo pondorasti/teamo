@@ -44,13 +44,13 @@ function LobbyGrid() {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              hostUsername={`${lobby.hostId}`}
-              hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-              gameLogoUrl={lobby.game.logoUrl}
-              gameName={lobby.game.name}
+              hostUsername={lobby.cache.hostUser.username}
+              hostPicture={lobby.cache.hostUser.profilePictureUrl}
+              gameLogoUrl={lobby.cache.game.logoUrl}
+              gameName={lobby.cache.game.name}
               description={lobby.description}
               platform={lobby.platform}
-              usesMic={lobby.microphone}
+              usesMic={lobby.microphone === "Microphone"}
               sizeStatus={`0/${lobby.size}`}
             />
           </Grid>

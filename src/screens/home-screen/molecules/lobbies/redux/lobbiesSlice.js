@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import * as types from "./types"
 import { lobbiesRef } from "../../../../../api/firebase"
-// import lobbies from "../../../../../api/dummy-data/lobbies"
+import heroLobbies from "../../../../../api/dummy-data/heroLobbies"
 
 export const fetchLobbies = createAsyncThunk(types.fetchLobbies, async () => {
   const querySnapshot = await lobbiesRef.get()
@@ -15,7 +15,7 @@ export const fetchLobbies = createAsyncThunk(types.fetchLobbies, async () => {
 })
 
 const initialState = {
-  lobbies: [],
+  lobbies: heroLobbies,
   status: "idle",
   error: null,
 }
@@ -23,27 +23,7 @@ const initialState = {
 const lobbiesSlice = createSlice({
   name: types.lobbies,
   initialState,
-  reducers: {
-    lobbyAdded: {
-      reducer(state, action) {
-        state.lobbies.push(action.payload)
-      },
-      prepare(hostId, game, platform, microphone, size, description) {
-        return {
-          payload: {
-            id: nanoid(),
-            timestamp: new Date().toISOString(),
-            hostId,
-            game,
-            platform,
-            microphone,
-            size,
-            description,
-          },
-        }
-      },
-    },
-  },
+  reducers: {},
   extraReducers: {
     // eslint-disable-next-line no-unused-vars
     [fetchLobbies.pending]: (state, action) => {
@@ -61,8 +41,6 @@ const lobbiesSlice = createSlice({
     },
   },
 })
-
-export const { lobbyAdded } = lobbiesSlice.actions
 
 export const selectAllLobbies = (state) => state[types.lobbies].lobbies
 
