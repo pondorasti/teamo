@@ -93,7 +93,7 @@ TMAvatar.propTypes = {
   alt: PropTypes.string.isRequired,
 
   /** The `src` attribute for the `img` element. */
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
 
   /** The size of the avatar. */
   size: PropTypes.oneOf(["extraSmall", "small", "medium", "large", "profileSettings"]),
@@ -109,6 +109,7 @@ TMAvatar.propTypes = {
 }
 
 TMAvatar.defaultProps = {
+  src: undefined,
   size: "medium",
   status: "none",
   backgroundColor: undefined,

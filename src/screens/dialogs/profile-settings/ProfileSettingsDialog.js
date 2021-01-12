@@ -112,7 +112,7 @@ function ProfileSettingsDialog({ open, onClose }) {
 
       <DialogContent>
         <List>
-          <ListItem>
+          <ListItem style={{ marginBottom: 24 }}>
             <Grid container wrap="nowrap">
               <Grid item>
                 <TMAvatar
