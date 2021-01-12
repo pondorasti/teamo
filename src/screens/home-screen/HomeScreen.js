@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    maxHeight: 504,
+    height: 504,
+    width: 472,
     paddingTop: 32,
     opacity: 0.9,
   },
