@@ -23,6 +23,7 @@ const heroLobbies = [
     platform: "PC",
     size: "3",
     timestamp: "2021-01-12T11:48:55.505Z",
+    isLoading: true,
   },
   {
     cache: {
@@ -48,6 +49,7 @@ const heroLobbies = [
     platform: "PC",
     size: "3",
     timestamp: "2021-01-12T11:48:55.505Z",
+    isLoading: true,
   },
   {
     cache: {
@@ -73,6 +75,7 @@ const heroLobbies = [
     platform: "PC",
     size: "3",
     timestamp: "2021-01-12T11:48:55.505Z",
+    isLoading: true,
   },
   {
     cache: {
@@ -98,6 +101,7 @@ const heroLobbies = [
     platform: "PC",
     size: "3",
     timestamp: "2021-01-12T11:48:55.505Z",
+    isLoading: true,
   },
 ]
 

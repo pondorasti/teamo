@@ -96,6 +96,7 @@ const defaultTheme = {
       fontWeight: "500",
       fontSize: "1.0625rem",
       lineHeight: "1.24375rem",
+      tripleLineHeight: "3.73125rem",
       letterSpacing: "0.009375rem",
     },
     h6: {

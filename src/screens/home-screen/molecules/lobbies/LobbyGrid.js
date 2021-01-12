@@ -52,6 +52,7 @@ function LobbyGrid() {
               platform={lobby.platform}
               usesMic={lobby.microphone === "Microphone"}
               sizeStatus={`0/${lobby.size}`}
+              isLoading={!!lobby.isLoading}
             />
           </Grid>
         ))}

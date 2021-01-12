@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography } from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography, Skeleton } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "../LobbyCardFooter"
@@ -37,12 +37,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-end",
   },
   gameLogo: {
-    width: 84,
-    height: 24,
     objectFit: "cover",
   },
   cardMiddleSection: {
     marginBottom: 16,
+    minHeight: theme.typography.h5.tripleLineHeight,
   },
   hostInfo: {
     display: "flex",
@@ -64,44 +63,64 @@ function LobbyCard({
   platform,
   usesMic,
   sizeStatus,
+  isLoading,
 }) {
   const classes = useStyles()
   const [showJoinLobby, setShowJoinLobby] = useState(false)
 
+  const cardContent = (
+    <>
+      <CardActionArea
+        classes={{ root: classes.cardActionArea }}
+        onClick={() => setShowJoinLobby(true)}
+      >
+        <Grid container justifyContent="space-between">
+          <div className={classes.topDiv}>
+            <Grid item xs={6} classes={{ root: classes.hostInfo }}>
+              <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+              <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+                {hostUsername}
+              </Typography>
+            </Grid>
+            <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
+              <img
+                width="84"
+                height="24"
+                className={classes.gameLogo}
+                src={gameLogoUrl}
+                alt={gameName}
+              />
+            </Grid>
+          </div>
+          <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
+            <Typography variant="h5">{description}</Typography>
+          </Grid>
+
+          <LobbyCardFooter
+            platform={platform}
+            usesMic={usesMic}
+            sizeStatus={sizeStatus}
+          />
+        </Grid>
+      </CardActionArea>
+    </>
+  )
+  const skeletonCardContent = (
+    <>
+      <Skeleton animation="wave" variant="rectangular" style={{ pointerEvents: "none" }}>
+        {cardContent}
+      </Skeleton>
+    </>
+  )
+
   return (
     <div className={classes.cardContainer}>
       <Card classes={{ root: classes.card }}>
-        <CardActionArea
-          classes={{ root: classes.cardActionArea }}
-          onClick={() => setShowJoinLobby(true)}
-        >
-          <Grid container justifyContent="space-between">
-            <div className={classes.topDiv}>
-              <Grid item xs={6} classes={{ root: classes.hostInfo }}>
-                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-                  {hostUsername}
-                </Typography>
-              </Grid>
-              <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
-                <img className={classes.gameLogo} src={gameLogoUrl} alt={gameName} />
-              </Grid>
-            </div>
-            <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
-              <Typography variant="h5">{description}</Typography>
-            </Grid>
-
-            <LobbyCardFooter
-              platform={platform}
-              usesMic={usesMic}
-              sizeStatus={sizeStatus}
-            />
-          </Grid>
-        </CardActionArea>
+        {isLoading ? skeletonCardContent : cardContent}
       </Card>
 
       <JoinLobbyDialog open={showJoinLobby} onClose={() => setShowJoinLobby(false)} />
-      <LobbyOptionsButton className={classes.optionsButtonContainer} />
+      {!isLoading && <LobbyOptionsButton className={classes.optionsButtonContainer} />}
     </div>
   )
 }
@@ -130,6 +149,8 @@ LobbyCard.propTypes = {
 
   /** The size status of the lobby (ex: 8/10). */
   sizeStatus: PropTypes.string.isRequired,
+
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default LobbyCard
