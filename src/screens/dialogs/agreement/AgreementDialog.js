@@ -51,17 +51,20 @@ function CreateProfileDialog({ open, onClose }) {
 
       <DialogContent>
         <Typography variant="body" classes={{ root: classes.bodyText }}>
+          Our mission is to create a network for gamers to find meaningful teammates.
+          <br />
+          <br />
           We take data privacy seriously and only collect what we need to provide you with
-          the best experience possible.
+          the best gaming experience possible.
           <br />
           <br />
-          Please read our{" "}
+          By clicking &quot;Next&quot;, you agree to our{" "}
           <a
-            href="https://dl.airtable.com/.attachments/818d15b9ea60eaa119b00186a6d5cb3c/144095e9/TeamoCommunityGuidelines.pdf"
+            href="https://dl.airtable.com/.attachments/1292e12b052ee17ea2132a5f86f33ace/2248c84a/TeamoPrivacyPolicy.pdf"
             target="_blank"
             rel="noreferrer"
           >
-            Community Guidelines
+            Privacy Policy
           </a>
           ,{" "}
           <a
@@ -70,20 +73,16 @@ function CreateProfileDialog({ open, onClose }) {
             rel="noreferrer"
           >
             Terms of Service
-          </a>{" "}
-          and{" "}
+          </a>
+          , and{" "}
           <a
-            href="https://dl.airtable.com/.attachments/1292e12b052ee17ea2132a5f86f33ace/2248c84a/TeamoPrivacyPolicy.pdf"
+            href="https://dl.airtable.com/.attachments/818d15b9ea60eaa119b00186a6d5cb3c/144095e9/TeamoCommunityGuidelines.pdf"
             target="_blank"
             rel="noreferrer"
           >
-            Privacy Policy
+            Community Guidelines
           </a>
           .
-          <br />
-          <br />
-          By clicking &quot;Next&quot;, you are agreeing to our Community Guidelines,
-          Terms of Service, and Privacy Policy.
         </Typography>
       </DialogContent>
 
