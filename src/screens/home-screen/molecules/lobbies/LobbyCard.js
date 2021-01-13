@@ -39,9 +39,17 @@ const useStyles = makeStyles((theme) => ({
   gameLogo: {
     objectFit: "cover",
   },
-  cardMiddleSection: {
+  typographyGrid: {
     marginBottom: 16,
-    minHeight: theme.typography.h5.tripleLineHeight,
+    height: `${theme.typography.h5.lineHeight.replace("rem", "") * 3}rem`,
+  },
+  typographyDescription: {
+    overflow: "hidden",
+    overflowWrap: "break-word",
+    // Source: https://css-tricks.com/line-clampin/
+    display: "-webkit-box",
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: "vertical",
   },
   hostInfo: {
     display: "flex",
@@ -84,16 +92,18 @@ function LobbyCard({
             </Grid>
             <Grid item xs={6} classes={{ root: classes.gameImgGrid }}>
               <img
-                width="84"
-                height="24"
+                width="84px"
+                height="24px"
                 className={classes.gameLogo}
                 src={gameLogoUrl}
                 alt={gameName}
               />
             </Grid>
           </div>
-          <Grid item xs={12} classes={{ root: classes.cardMiddleSection }}>
-            <Typography variant="h5">{description}</Typography>
+          <Grid item xs={12} classes={{ root: classes.typographyGrid }}>
+            <Typography variant="h5" classes={{ root: classes.typographyDescription }}>
+              {description}
+            </Typography>
           </Grid>
 
           <LobbyCardFooter

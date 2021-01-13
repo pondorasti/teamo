@@ -95,8 +95,8 @@ const defaultTheme = {
       // headline 1
       fontWeight: "500",
       fontSize: "1.0625rem",
+      // Do not change `lineHeight` unitbase from `rem` unless you update `LobbyCard`
       lineHeight: "1.24375rem",
-      tripleLineHeight: "3.73125rem",
       letterSpacing: "0.009375rem",
     },
     h6: {
