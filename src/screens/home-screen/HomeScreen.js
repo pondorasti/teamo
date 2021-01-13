@@ -10,7 +10,7 @@ import Carousel from "./molecules/carousel/Carousel"
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "calc(100vh - 64px)",
-    overflowY: "auto",
+    overflowY: "scroll",
   },
   gridContainer: {
     backgroundColor: `${theme.palette.grey[800]}`,
@@ -25,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
     padding: 32,
 
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 672, // 336 * 2
+      width: 672, // 336 * 2
     },
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 1008, // 336 * 3
+      width: 1008, // 336 * 3
     },
   },
   image: {
