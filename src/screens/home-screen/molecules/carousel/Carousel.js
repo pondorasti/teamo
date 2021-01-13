@@ -131,6 +131,7 @@ function Carousel() {
             usesMic={lobby.microphone === "Microphone"}
             sizeStatus={`0/${lobby.size}`}
             isContentHidden={index !== currentIndex}
+            isLoading={!!lobby.isLoading}
           />
         </div>
       </div>

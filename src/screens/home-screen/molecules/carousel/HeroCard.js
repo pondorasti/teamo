@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
+import { Grid, Card, CardActionArea, Typography, Fade, Skeleton } from "@material-ui/core"
 import PropTypes from "prop-types"
 
 import LobbyCardFooter from "../LobbyCardFooter"
@@ -79,50 +79,102 @@ function HeroCard({
   usesMic,
   sizeStatus,
   isContentHidden,
+  isLoading,
 }) {
   const classes = useStyles()
   const theme = useTheme()
+
+  const cardActionAreaContent = (
+    <>
+      <CardActionArea style={{ height: "100%" }}>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignContent="space-between"
+          classes={{ root: classes.cardGrid }}
+        >
+          <Grid item xs={12} classes={{ root: classes.hostInfo }}>
+            <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+            <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+              {hostUsername}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h5">{description}</Typography>
+          </Grid>
+
+          <LobbyCardFooter
+            platform={platform}
+            usesMic={usesMic}
+            sizeStatus={sizeStatus}
+            isCompact
+          />
+        </Grid>
+      </CardActionArea>
+    </>
+  )
+
+  const backgroundImage = isLoading ? "" : `url(${gameBannerUrl})`
 
   return (
     <div className={classes.cardContainer} title={gameName}>
       <Card
         classes={{ root: classes.card }}
         style={{
-          backgroundImage: `url(${gameBannerUrl})`,
+          backgroundImage,
           filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
           transition: `all ${theme.transitions.duration.carousel}ms ease`,
         }}
       >
-        <Fade in={!isContentHidden} timeout={theme.transitions.duration.carousel}>
-          <CardActionArea style={{ height: "100%" }}>
-            <Grid
-              container
-              justifyContent="space-between"
-              alignContent="space-between"
-              classes={{ root: classes.cardGrid }}
-            >
-              <Grid item xs={12} classes={{ root: classes.hostInfo }}>
-                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-                  {hostUsername}
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <Typography variant="h5">{description}</Typography>
-              </Grid>
+        {/* {isLoading && (
+          <Skeleton
+            variant="rectangular"
+            style={{ height: "100%", width: "100%", maxWidth: "none" }}
+          ></Skeleton>
+        )} */}
 
-              <LobbyCardFooter
-                platform={platform}
-                usesMic={usesMic}
-                sizeStatus={sizeStatus}
-                isCompact
-              />
-            </Grid>
-          </CardActionArea>
+        <Fade
+          in={!isContentHidden || isLoading}
+          timeout={theme.transitions.duration.carousel}
+        >
+          {isLoading ? (
+            <Skeleton
+              variant="rectangular"
+              style={{ height: "100%", width: "100%", maxWidth: "none" }}
+            >
+              {cardActionAreaContent}
+            </Skeleton>
+          ) : (
+            <CardActionArea style={{ height: "100%" }}>
+              <Grid
+                container
+                justifyContent="space-between"
+                alignContent="space-between"
+                classes={{ root: classes.cardGrid }}
+              >
+                <Grid item xs={12} classes={{ root: classes.hostInfo }}>
+                  <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+                  <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+                    {hostUsername}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="h5">{description}</Typography>
+                </Grid>
+
+                <LobbyCardFooter
+                  platform={platform}
+                  usesMic={usesMic}
+                  sizeStatus={sizeStatus}
+                  isCompact
+                />
+              </Grid>
+            </CardActionArea>
+          )}
         </Fade>
       </Card>
 
-      {!isContentHidden && (
+      {!isContentHidden && !isLoading && (
         <LobbyOptionsButton className={classes.optionsButtonContainer} />
       )}
     </div>
@@ -156,6 +208,9 @@ HeroCard.propTypes = {
 
   /** Hides or shows the lobby content. */
   isContentHidden: PropTypes.bool.isRequired,
+
+  /** If `true` the view will be shown as an animated skeleton. */
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default HeroCard

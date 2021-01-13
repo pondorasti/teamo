@@ -107,7 +107,7 @@ function LobbyCard({
   )
   const skeletonCardContent = (
     <>
-      <Skeleton animation="wave" variant="rectangular" style={{ pointerEvents: "none" }}>
+      <Skeleton variant="rectangular" style={{ pointerEvents: "none" }}>
         {cardContent}
       </Skeleton>
     </>

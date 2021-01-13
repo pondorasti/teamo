@@ -275,6 +275,13 @@ const TMTheme = createMuiTheme({
         },
       },
     },
+
+    // Skeleton
+    MuiSkeleton: {
+      defaultProps: {
+        animation: "wave",
+      },
+    },
   },
 })
 
