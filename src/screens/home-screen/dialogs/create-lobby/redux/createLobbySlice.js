@@ -40,19 +40,15 @@ const createLobbySlice = createSlice({
   name: types.createLobby,
   initialState,
   reducers: {
-    // eslint-disable-next-line no-unused-vars
-    resetStatus(state, action) {
+    resetStatus(state) {
       state.status = "idle"
     },
   },
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [addNewLobby.pending]: (state, action) => {
+    [addNewLobby.pending]: (state) => {
       state.status = "loading"
     },
-    // eslint-disable-next-line no-unused-vars
-    [addNewLobby.fulfilled]: (state, action) => {
-      // TODO: update status after dismiss
+    [addNewLobby.fulfilled]: (state) => {
       state.status = "succeeded"
     },
     [addNewLobby.rejected]: (state, action) => {

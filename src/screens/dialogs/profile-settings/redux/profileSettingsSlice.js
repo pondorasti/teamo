@@ -76,12 +76,10 @@ const profileSettingsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [updateProfile.pending]: (state, action) => {
+    [updateProfile.pending]: (state) => {
       state.updateStatus = "loading"
     },
-    // eslint-disable-next-line no-unused-vars
-    [updateProfile.fulfilled]: (state, action) => {
+    [updateProfile.fulfilled]: (state) => {
       state.updateStatus = "succeeded"
     },
     [updateProfile.rejected]: (state, action) => {

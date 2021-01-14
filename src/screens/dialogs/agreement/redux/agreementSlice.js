@@ -18,12 +18,10 @@ const agreementSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [acceptAgreement.pending]: (state, action) => {
+    [acceptAgreement.pending]: (state) => {
       state.status = "loading"
     },
-    // eslint-disable-next-line no-unused-vars
-    [acceptAgreement.fulfilled]: (state, action) => {
+    [acceptAgreement.fulfilled]: (state) => {
       state.status = "succeeded"
     },
     [acceptAgreement.rejected]: (state, action) => {

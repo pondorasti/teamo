@@ -41,12 +41,10 @@ const currentUserSlice = createSlice({
     },
   },
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [login.pending]: (state, action) => {
+    [login.pending]: (state) => {
       state.signInStatus = "loading"
     },
-    // eslint-disable-next-line no-unused-vars
-    [login.fulfilled]: (state, action) => {
+    [login.fulfilled]: (state) => {
       state.signInStatus = "succeeded"
     },
     [login.rejected]: (state, action) => {
@@ -54,8 +52,7 @@ const currentUserSlice = createSlice({
       state.signInError = action.error.message
     },
 
-    // eslint-disable-next-line no-unused-vars
-    [signOut.fulfilled]: (state, action) => {
+    [signOut.fulfilled]: (state) => {
       // TODO: remove user subscriber
       state.user = null
       state.signInStatus = "idle"

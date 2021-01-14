@@ -25,16 +25,13 @@ const lobbiesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    // eslint-disable-next-line no-unused-vars
-    [fetchLobbies.pending]: (state, action) => {
+    [fetchLobbies.pending]: (state) => {
       state.status = "loading"
     },
-    // eslint-disable-next-line no-unused-vars
     [fetchLobbies.fulfilled]: (state, action) => {
       state.status = "succeeded"
       state.lobbies = action.payload
     },
-    // eslint-disable-next-line no-unused-vars
     [fetchLobbies.rejected]: (state, action) => {
       state.status = "failed"
       state.error = action.error.message
