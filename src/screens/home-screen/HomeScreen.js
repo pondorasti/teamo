@@ -57,8 +57,8 @@ function HomeScreen() {
             <Hidden smDown>
               <Grid item>
                 <img
-                  src="https://dl.airtable.com/.attachments/2e6ab63c02d7e2c77ca986b9de7b5c2f/1ba03024/EasternScene1x.png"
-                  srcSet="https://dl.airtable.com/.attachments/2e6ab63c02d7e2c77ca986b9de7b5c2f/1ba03024/EasternScene1x.png 1x, https://dl.airtable.com/.attachments/497bbd1ee2e86dba72f7369ade31eee5/8f01d66e/EasternScene2x.png 2x"
+                  src="https://dl.airtable.com/.attachments/4bb68409f72cfdd2b0bf627609d098a7/6cc4f847/EasternScene1x.png"
+                  srcSet="https://dl.airtable.com/.attachments/4bb68409f72cfdd2b0bf627609d098a7/6cc4f847/EasternScene1x.png 1x, https://dl.airtable.com/.attachments/c467c7c66ef917127efcc3fb4ec46f2f/9a5bf9f2/EasternScene2x.png 2x"
                   height="504px"
                   width="472px"
                   className={classes.image}
@@ -77,8 +77,8 @@ function HomeScreen() {
             <Hidden smDown>
               <Grid item>
                 <img
-                  src="https://dl.airtable.com/.attachments/0fb20077c48345a76761d4354269eda7/8ee521d7/WesternScene1x.png"
-                  srcSet="https://dl.airtable.com/.attachments/0fb20077c48345a76761d4354269eda7/8ee521d7/WesternScene1x.png 1x, https://dl.airtable.com/.attachments/e03bae454355b14068f7e5bd990b6c6e/3732cf9f/WesternScene2x.png 2x"
+                  src="https://dl.airtable.com/.attachments/b50e36310b290ace23301895758e3828/010022f2/WesternScene1x.png"
+                  srcSet="https://dl.airtable.com/.attachments/b50e36310b290ace23301895758e3828/010022f2/WesternScene1x.png 1x, https://dl.airtable.com/.attachments/7945ef1e7c2897cf57a6fbc12e3a2f6e/8b96adc7/WesternScene2x.png 2x"
                   height="504px"
                   width="472px"
                   className={classes.image}
