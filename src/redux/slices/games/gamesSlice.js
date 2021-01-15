@@ -7,7 +7,7 @@ export const allGame = {
   logoUrl:
     "https://dl.airtable.com/.attachments/3eda9522779e84748dde4adbe1c88297/84a0feb9/AllGames_Logo.png",
   bannerUrl:
-    "https://dl.airtable.com/.attachments/c7d31d5b4929833bd0df3d895a7b3719/f82ae9de/AllGames_Banner.svg",
+    "https://dl.airtable.com/.attachments/3580626a5b2240ea48d6b797edc1d40d/948cefad/AllGames_Banner.png",
 }
 const otherGame = {
   id: "recya1yYthNT4SOef",
@@ -15,7 +15,7 @@ const otherGame = {
   logoUrl:
     "https://dl.airtable.com/.attachments/aa157687a96b18491e2e4a051d2cc040/6705afa9/OtherGames_Logo.png",
   bannerUrl:
-    "https://dl.airtable.com/.attachments/ebdb5a3378fdb65c5ac1eb5fb8034973/be6e48cf/Other_Banner.svg",
+    "https://dl.airtable.com/.attachments/4bb2a52596f4ebc778739cb598cb6216/8807cca1/Other_Banner.png",
 }
 
 const initialState = [allGame, otherGame]
