@@ -83,7 +83,6 @@ const profileSettingsSlice = createSlice({
       state.updateStatus = "succeeded"
     },
     [updateProfile.rejected]: (state, action) => {
-      console.log(action.error.message)
       state.updateStatus = "error"
 
       state.usernameError = null
