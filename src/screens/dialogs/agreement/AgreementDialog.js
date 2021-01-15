@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -9,7 +9,13 @@ import {
   Typography,
 } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
-import { acceptAgreement, selectAgreementStatus } from "./redux/agreementSlice"
+import {
+  fetchAgreements,
+  acceptAgreements,
+  selectFetchAgreementsStatus,
+  selectAcceptAgreementsStatus,
+  // selectAgreements,
+} from "./redux/agreementSlice"
 
 import TMButton from "../../../atoms/TMButton"
 
@@ -33,7 +39,13 @@ function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const agreementStatus = useSelector(selectAgreementStatus)
+  const fetchStatus = useSelector(selectFetchAgreementsStatus)
+  const agreementStatus = useSelector(selectAcceptAgreementsStatus)
+  // const agreements = useSelector(selectAgreements)
+
+  useEffect(() => {
+    dispatch(fetchAgreements())
+  }, [])
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="agree-terms-modal">
@@ -90,8 +102,9 @@ function CreateProfileDialog({ open, onClose }) {
 
       <DialogActions>
         <TMButton
-          onClick={() => dispatch(acceptAgreement())}
+          onClick={() => dispatch(acceptAgreements())}
           pending={agreementStatus === "loading"}
+          disabled={fetchStatus !== "succeeded"}
           color="primary"
         >
           Next

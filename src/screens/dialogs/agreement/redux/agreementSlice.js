@@ -1,36 +1,77 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { usersRef } from "../../../../api/firebase"
+import { agreementsRecordsUrl } from "../../../../api/airtable"
 import * as types from "./types"
 import { selectCurrentUserId } from "../../../../redux/slices/currentUser/currentUserSlice"
 
 const initialState = {
-  status: "idle",
+  agreements: {},
+  fetchStatus: "idle",
+  acceptStatus: "idle",
   error: null,
 }
 
-export const acceptAgreement = createAsyncThunk(types.accept, async (_, { getState }) => {
-  const id = selectCurrentUserId(getState())
-  await usersRef.doc(id).update({ signedAgreement: true })
+export const fetchAgreements = createAsyncThunk(types.fetchAgreements, async () => {
+  const url = agreementsRecordsUrl
+
+  const response = await fetch(url)
+    .then((data) => data.json())
+    .then((data) => data.records)
+    .then((data) =>
+      Object.assign(
+        {},
+        ...data.map((item) => ({ [item.fields.Name]: item.fields.Attachments[0].url })),
+      ),
+    )
+
+  return response
 })
 
-const agreementSlice = createSlice({
-  name: types.agreement,
+export const acceptAgreements = createAsyncThunk(
+  types.acceptAgreements,
+  async (_, { getState }) => {
+    const id = selectCurrentUserId(getState())
+    await usersRef.doc(id).update({ signedAgreement: true })
+  },
+)
+
+const agreementsSlice = createSlice({
+  name: types.agreements,
   initialState,
   reducers: {},
   extraReducers: {
-    [acceptAgreement.pending]: (state) => {
-      state.status = "loading"
+    // Fetch Agreements
+    [fetchAgreements.fulfilled]: (state, action) => {
+      state.fetchStatus = "loading"
+      state.agreements = action.payload
     },
-    [acceptAgreement.fulfilled]: (state) => {
-      state.status = "succeeded"
+    [fetchAgreements.fulfilled]: (state, action) => {
+      state.fetchStatus = "succeeded"
+      state.agreements = action.payload
     },
-    [acceptAgreement.rejected]: (state, action) => {
-      state.status = "failed"
+    [fetchAgreements.rejected]: (state) => {
+      state.fetchStatus = "failed"
+      state.error =
+        "There was a problem retrieving the agreements. Please refresh the page."
+    },
+
+    // Accept Agreements
+    [acceptAgreements.pending]: (state) => {
+      state.acceptStatus = "loading"
+    },
+    [acceptAgreements.fulfilled]: (state) => {
+      state.acceptStatus = "succeeded"
+    },
+    [acceptAgreements.rejected]: (state, action) => {
+      state.acceptStatus = "failed"
       state.error = action.error.message
     },
   },
 })
 
-export const selectAgreementStatus = (state) => state[types.agreement].status
+export const selectFetchAgreementsStatus = (state) => state[types.agreements].fetchStatus
+export const selectAcceptAgreementsStatus = (state) =>
+  state[types.agreements].acceptStatus
+export const selectAgreements = (state) => state[types.agreements].agreements
 
-export default agreementSlice.reducer
+export default agreementsSlice.reducer

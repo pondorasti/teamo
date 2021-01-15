@@ -1,5 +1,6 @@
-const agreement = "agreement"
+const agreements = "agreements"
 
-const accept = `${agreement}/accept`
+const fetchAgreements = `${agreements}/fetch`
+const acceptAgreements = `${agreements}/accept`
 
-export { agreement, accept }
+export { agreements, fetchAgreements, acceptAgreements }
