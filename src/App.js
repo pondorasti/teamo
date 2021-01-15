@@ -34,11 +34,17 @@ function App() {
   }, [user])
 
   const userNeedsAgreement = useSelector(selectUserNeedsAgreement)
+  const [loadAgreement, setLoadAgreement] = useState(false)
   const [showAgreement, setShowAgreement] = useState(false)
+
   const userNeedsProfile = useSelector(selectUserNeedsProfile)
+  const [loadCreateProfile, setLoadCreateProfile] = useState(false)
   const [showCreateProfile, setShowCreateProfile] = useState(false)
 
   // Profile Settings Dialog
+  if (userNeedsProfile && !loadCreateProfile) {
+    setLoadCreateProfile(true)
+  }
   if (!userNeedsAgreement && userNeedsProfile && !showCreateProfile) {
     setShowCreateProfile(true)
     setShowAgreement(false)
@@ -47,6 +53,9 @@ function App() {
   }
 
   // Agreement Dialog (Always have this before the other dialog)
+  if (userNeedsAgreement && !loadAgreement) {
+    setLoadAgreement(true)
+  }
   if (userNeedsAgreement && !showAgreement) {
     setShowAgreement(true)
   } else if (!userNeedsAgreement && showAgreement) {
@@ -61,11 +70,18 @@ function App() {
           {/* <LobbyScreen /> */}
           <HomeScreen />
 
-          <AgreementDialog open={showAgreement} onClose={() => setShowAgreement(false)} />
-          <ProfileSettingsDialog
-            open={showCreateProfile}
-            onClose={() => setShowCreateProfile(false)}
-          />
+          {loadAgreement && (
+            <AgreementDialog
+              open={showAgreement}
+              onClose={() => setShowAgreement(false)}
+            />
+          )}
+          {loadCreateProfile && (
+            <ProfileSettingsDialog
+              open={showCreateProfile}
+              onClose={() => setShowCreateProfile(false)}
+            />
+          )}
         </div>
       </ThemeProvider>
     </StylesProvider>
