@@ -39,7 +39,7 @@ function CreateProfileDialog({ open, onClose }) {
     <Dialog open={open} onClose={onClose} aria-labelledby="agree-terms-modal">
       <DialogTitle id="agree-terms-modal-title">
         <Typography variant="h4" classes={{ root: classes.titleText }}>
-          First things first: we promise <br /> to respect your data.
+          First things first: We promise <br /> to respect your data.
         </Typography>
         <img
           src="https://dl.airtable.com/.attachments/ab3dacaf87a2c16cb6e6a086898a42f7/64544b42/PolicyScene1x.png"
@@ -51,27 +51,38 @@ function CreateProfileDialog({ open, onClose }) {
 
       <DialogContent>
         <Typography variant="body" classes={{ root: classes.bodyText }}>
+          Our mission is to create a network for gamers to find meaningful teammates.
+          <br />
+          <br />
           We take data privacy seriously and only collect what we need to provide you with
-          the best experience possible.
+          the best gaming experience possible.
           <br />
           <br />
-          Please read our{" "}
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Terms of Use
+          By clicking &quot;Next&quot;, you agree to our{" "}
+          <a
+            href="https://dl.airtable.com/.attachments/1292e12b052ee17ea2132a5f86f33ace/2248c84a/TeamoPrivacyPolicy.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Privacy Policy
           </a>
           ,{" "}
-          <a href="https://google.con" target="_blank" rel="noreferrer">
-            Privacy Policy
-          </a>{" "}
-          and{" "}
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Data Processing Agreement
+          <a
+            href="https://dl.airtable.com/.attachments/d618b0837abd0dbba06b9db8c2b61578/7d0cec16/TeamoTermsofService.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Terms of Service
+          </a>
+          , and{" "}
+          <a
+            href="https://dl.airtable.com/.attachments/818d15b9ea60eaa119b00186a6d5cb3c/144095e9/TeamoCommunityGuidelines.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Community Guidelines
           </a>
           .
-          <br />
-          <br />
-          By clicking next you agree to the Terms of Use, Privacy Policy and Data
-          Processing Agreement.
         </Typography>
       </DialogContent>
 
