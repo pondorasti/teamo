@@ -18,7 +18,8 @@ const usernameRegex = new RegExp("^([a-zA-Z0-9_]{0,32}[a-zA-Z]+[0-9]*)$") // all
 const usernameFormatError =
   "Your username must be 32 characters or less containing only letters, numbers, underscores, and at least one letter."
 const descriptionFormatError = "Must be 62 characters or lower."
-const usernameTakenError = "Username has already been taken."
+const usernameTakenError =
+  "Username has already been taken. Seems like great minds really do think alike."
 
 export const updateProfile = createAsyncThunk(
   types.updateProfile,
