@@ -1,7 +1,8 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Grid, Card, CardActionArea, Typography, Fade, Skeleton } from "@material-ui/core"
-import PropTypes from "prop-types"
+import classNames from "classnames"
 
 import LobbyCardFooter from "../LobbyCardFooter"
 import LobbyOptionsButton from "../LobbyOptionsButton"
@@ -10,6 +11,7 @@ import TMAvatar from "../../../../atoms/TMAvatar"
 const height = 200
 const width = 400
 const smallWidth = 300
+const borderRadius = 16
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -25,10 +27,19 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50%",
     transform: "translateX(-50%)",
   },
+  cardContainerSkeleton: {
+    backgroundColor: theme.palette.grey[700],
+    borderRadius,
+  },
+  skeleton: {
+    height,
+    width: "100%",
+    maxWidth: "none",
+    borderRadius,
+  },
   card: {
     height,
-
-    borderRadius: 16,
+    borderRadius,
     overflow: "visible",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -52,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
       left: "40%",
     },
 
-    borderRadius: "16px 0 0 16px",
+    borderRadius: `${borderRadius}px 0 0 ${borderRadius}px`,
     padding: 16,
     backgroundColor: theme.palette.grey[700],
 
@@ -84,40 +95,16 @@ function HeroCard({
   const classes = useStyles()
   const theme = useTheme()
 
-  const cardActionAreaContent = (
-    <>
-      <CardActionArea style={{ height: "100%" }}>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignContent="space-between"
-          classes={{ root: classes.cardGrid }}
-        >
-          <Grid item xs={12} classes={{ root: classes.hostInfo }}>
-            <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-            <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-              {hostUsername}
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h5">{description}</Typography>
-          </Grid>
-
-          <LobbyCardFooter
-            platform={platform}
-            usesMic={usesMic}
-            sizeStatus={sizeStatus}
-            isCompact
-          />
-        </Grid>
-      </CardActionArea>
-    </>
+  const backgroundImage = isLoading ? "" : `url(${gameBannerUrl})`
+  const containerStyles = classNames(
+    {
+      [classes.cardContainerSkeleton]: isLoading,
+    },
+    classes.cardContainer,
   )
 
-  const backgroundImage = isLoading ? "" : `url(${gameBannerUrl})`
-
-  return (
-    <div className={classes.cardContainer} title={gameName}>
+  const card = (
+    <>
       <Card
         classes={{ root: classes.card }}
         style={{
@@ -126,53 +113,46 @@ function HeroCard({
           transition: `all ${theme.transitions.duration.carousel}ms ease`,
         }}
       >
-        {/* {isLoading && (
-          <Skeleton
-            variant="rectangular"
-            style={{ height: "100%", width: "100%", maxWidth: "none" }}
-          ></Skeleton>
-        )} */}
-
-        <Fade
-          in={!isContentHidden || isLoading}
-          timeout={theme.transitions.duration.carousel}
-        >
-          {isLoading ? (
-            <Skeleton
-              variant="rectangular"
-              style={{ height: "100%", width: "100%", maxWidth: "none" }}
+        <Fade in={!isContentHidden} timeout={theme.transitions.duration.carousel}>
+          <CardActionArea style={{ height: "100%" }}>
+            <Grid
+              container
+              justifyContent="space-between"
+              alignContent="space-between"
+              classes={{ root: classes.cardGrid }}
             >
-              {cardActionAreaContent}
-            </Skeleton>
-          ) : (
-            <CardActionArea style={{ height: "100%" }}>
-              <Grid
-                container
-                justifyContent="space-between"
-                alignContent="space-between"
-                classes={{ root: classes.cardGrid }}
-              >
-                <Grid item xs={12} classes={{ root: classes.hostInfo }}>
-                  <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
-                  <Typography variant="body1" classes={{ root: classes.hostUsername }}>
-                    {hostUsername}
-                  </Typography>
-                </Grid>
-                <Grid item xs={12}>
-                  <Typography variant="h5">{description}</Typography>
-                </Grid>
-
-                <LobbyCardFooter
-                  platform={platform}
-                  usesMic={usesMic}
-                  sizeStatus={sizeStatus}
-                  isCompact
-                />
+              <Grid item xs={12} classes={{ root: classes.hostInfo }}>
+                <TMAvatar size="extraSmall" src={hostPicture} alt={hostUsername} />
+                <Typography variant="body1" classes={{ root: classes.hostUsername }}>
+                  {hostUsername}
+                </Typography>
               </Grid>
-            </CardActionArea>
-          )}
+              <Grid item xs={12}>
+                <Typography variant="h5">{description}</Typography>
+              </Grid>
+
+              <LobbyCardFooter
+                platform={platform}
+                usesMic={usesMic}
+                sizeStatus={sizeStatus}
+                isCompact
+              />
+            </Grid>
+          </CardActionArea>
         </Fade>
       </Card>
+    </>
+  )
+
+  return (
+    <div className={containerStyles} title={gameName}>
+      {isLoading ? (
+        <Skeleton variant="rectangular" classes={{ root: classes.skeleton }}>
+          {card}
+        </Skeleton>
+      ) : (
+        card
+      )}
 
       {!isContentHidden && !isLoading && (
         <LobbyOptionsButton className={classes.optionsButtonContainer} />
