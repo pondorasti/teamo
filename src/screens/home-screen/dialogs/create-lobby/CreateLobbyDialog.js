@@ -35,7 +35,6 @@ const useStyles = makeStyles(() => ({
     marginTop: 7, // WARNING: Hard-coded value.
   },
   illustration: {
-    maxWidth: 300,
     marginBottom: 8,
   },
 }))
@@ -70,6 +69,8 @@ function CreateLobbyDialog({ open, onClose }) {
         <img
           src={CouchBuddies}
           alt="Five animals playing video games on a couch"
+          width="300"
+          height="200"
           className={classes.illustration}
         />
         <Typography variant="h4">Create Teamo</Typography>

@@ -45,6 +45,8 @@ function CreateProfileDialog({ open, onClose }) {
           src="https://dl.airtable.com/.attachments/ab3dacaf87a2c16cb6e6a086898a42f7/64544b42/PolicyScene1x.png"
           srcSet="https://dl.airtable.com/.attachments/ab3dacaf87a2c16cb6e6a086898a42f7/64544b42/PolicyScene1x.png 1x, https://dl.airtable.com/.attachments/3f02ef58cad727d5c4ddf24d8322fbdf/2c871c3f/PolicyScene2x.png 2x"
           alt="Tall Shroomie enjoying his privacy in his house during sunrise."
+          width="420"
+          height="216"
           className={classes.illustration}
         />
       </DialogTitle>

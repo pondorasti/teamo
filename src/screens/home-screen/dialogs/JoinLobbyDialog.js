@@ -27,9 +27,6 @@ const useStyles = makeStyles(() => ({
   subtitleSpacing: {
     marginTop: 8,
   },
-  illustration: {
-    maxWidth: 176,
-  },
 }))
 
 const imgArray = [
@@ -81,7 +78,8 @@ function JoinLobbyDialog({ open, onClose }) {
         <img
           src={randomImg}
           alt="Random animal standing"
-          className={classes.illustration}
+          width="224"
+          height="176"
           style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
         />
       </DialogTitle>

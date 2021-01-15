@@ -20,7 +20,6 @@ const useStyles = makeStyles(() => ({
     marginTop: 8,
   },
   illustration: {
-    maxWidth: 300,
     marginBottom: 8,
   },
 }))
@@ -37,6 +36,8 @@ function LoginDialog({ open, onClose }) {
         <img
           src={CouchBuddies}
           alt="Five animals playing video games on a couch"
+          width="300"
+          height="200"
           className={classes.illustration}
         />
         <Typography variant="h4">Teamo</Typography>

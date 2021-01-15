@@ -39,9 +39,6 @@ const useStyles = makeStyles(() => ({
     alignSelf: "flex-start",
     marginTop: 7, // WARNING: Hard-coded value.
   },
-  illustration: {
-    maxWidth: 72,
-  },
   dialogTitle: {
     display: "flex",
     flexDirection: "row",
@@ -102,12 +99,12 @@ function ProfileSettingsDialog({ open, onClose }) {
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title" classes={{ root: classes.dialogTitle }}>
-        <img src={WavingRacoon} alt="Waving raccoon" className={classes.illustration} />
+        <img src={WavingRacoon} alt="Waving raccoon" width="72" height="72" />
         <Typography variant="h4" classes={{ root: classes.titleText }}>
           {/* User Profile */}
           Create profile
         </Typography>
-        <img src={WavingLion} alt="Waving lion" className={classes.illustration} />
+        <img src={WavingLion} alt="Waving lion" width="72" height="72" />
       </DialogTitle>
 
       <DialogContent>
@@ -157,7 +154,7 @@ function ProfileSettingsDialog({ open, onClose }) {
               fullWidth
               error={!!userNameError}
               helperText={userNameError}
-              style={{ maxWidth: 300 }}
+              style={{ maxWidth: 269 }}
             />
           </ListItem>
 
