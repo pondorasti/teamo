@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameImg: {
-    borderRadius: 8,
+    borderRadius: 16,
     objectFit: "cover",
 
     [theme.breakpoints.down("sm")]: {
@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gameInfo: {
-    flexDirection: "column",
     marginLeft: 8,
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
@@ -83,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rightAutocomplete: {
     width: 176,
-    marginLeft: 16,
+    marginLeft: 8,
 
     [theme.breakpoints.down("md")]: {
       width: "100%",
