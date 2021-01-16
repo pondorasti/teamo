@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import {
@@ -7,14 +7,14 @@ import {
   DialogActions,
   DialogTitle,
   Typography,
+  Snackbar,
+  Alert,
 } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
 import {
-  fetchAgreements,
   acceptAgreements,
-  selectFetchAgreementsStatus,
   selectAcceptAgreementsStatus,
-  // selectAgreements,
+  selectAgreementsError,
 } from "./redux/agreementSlice"
 
 import TMButton from "../../../atoms/TMButton"
@@ -39,13 +39,8 @@ function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const fetchStatus = useSelector(selectFetchAgreementsStatus)
   const agreementStatus = useSelector(selectAcceptAgreementsStatus)
-  // const agreements = useSelector(selectAgreements)
-
-  useEffect(() => {
-    dispatch(fetchAgreements())
-  }, [])
+  const errorMessage = useSelector(selectAgreementsError)
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="agree-terms-modal">
@@ -74,7 +69,7 @@ function CreateProfileDialog({ open, onClose }) {
           <br />
           By clicking &quot;Next&quot;, you agree to our{" "}
           <a
-            href="https://dl.airtable.com/.attachments/1292e12b052ee17ea2132a5f86f33ace/2248c84a/TeamoPrivacyPolicy.pdf"
+            href="https://www.notion.so/Teamo-Privacy-Policy-ee9045bf61e34089a8992c13c44127b6"
             target="_blank"
             rel="noreferrer"
           >
@@ -82,7 +77,7 @@ function CreateProfileDialog({ open, onClose }) {
           </a>
           ,{" "}
           <a
-            href="https://dl.airtable.com/.attachments/d618b0837abd0dbba06b9db8c2b61578/7d0cec16/TeamoTermsofService.pdf"
+            href="https://www.notion.so/Teamo-Terms-of-Service-27e13aaedf024e77bde44e7bf094fa43"
             target="_blank"
             rel="noreferrer"
           >
@@ -90,7 +85,7 @@ function CreateProfileDialog({ open, onClose }) {
           </a>
           , and{" "}
           <a
-            href="https://dl.airtable.com/.attachments/818d15b9ea60eaa119b00186a6d5cb3c/144095e9/TeamoCommunityGuidelines.pdf"
+            href="https://www.notion.so/Community-Guidelines-564514ab8eaa423d85dfcca2522038b6"
             target="_blank"
             rel="noreferrer"
           >
@@ -104,12 +99,23 @@ function CreateProfileDialog({ open, onClose }) {
         <TMButton
           onClick={() => dispatch(acceptAgreements())}
           pending={agreementStatus === "loading"}
-          disabled={fetchStatus !== "succeeded"}
           color="primary"
         >
           Next
         </TMButton>
       </DialogActions>
+
+      <Snackbar open={!!errorMessage}>
+        <Alert variant="filled" severity="error">
+          {errorMessage &&
+            errorMessage.split("\n").map((item) => (
+              <span key={item}>
+                {item}
+                <br />
+              </span>
+            ))}
+        </Alert>
+      </Snackbar>
     </Dialog>
   )
 }
