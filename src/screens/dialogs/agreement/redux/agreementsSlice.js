@@ -16,7 +16,7 @@ export const acceptAgreements = createAsyncThunk(
   types.acceptAgreements,
   async (_, { getState }) => {
     const id = selectCurrentUserId(getState())
-    await usersRef.doc(id).update({ signedAgreement: true })
+    await usersRef.doc(id).update({ signedAgreements: true })
   },
 )
 
@@ -30,7 +30,7 @@ const agreementsSlice = createSlice({
       state.status = "loading"
     },
     [acceptAgreements.fulfilled]: (state) => {
-      state.acceptStatus = "succeeded"
+      state.status = "succeeded"
     },
     [acceptAgreements.rejected]: (state) => {
       state.status = "failed"
@@ -39,8 +39,7 @@ const agreementsSlice = createSlice({
   },
 })
 
-export const selectAcceptAgreementsStatus = (state) => state[types.agreements].status
-export const selectAgreements = (state) => state[types.agreements].agreements
-export const selectAgreementsError = (state) => state[types.agreements].error
+export const selectStatus = (state) => state[types.agreements].status
+export const selectError = (state) => state[types.agreements].error
 
 export default agreementsSlice.reducer

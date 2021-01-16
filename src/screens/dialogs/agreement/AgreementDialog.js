@@ -11,11 +11,7 @@ import {
   Alert,
 } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  acceptAgreements,
-  selectAcceptAgreementsStatus,
-  selectAgreementsError,
-} from "./redux/agreementSlice"
+import { acceptAgreements, selectStatus, selectError } from "./redux/agreementsSlice"
 
 import TMButton from "../../../atoms/TMButton"
 
@@ -39,8 +35,8 @@ function CreateProfileDialog({ open, onClose }) {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const agreementStatus = useSelector(selectAcceptAgreementsStatus)
-  const errorMessage = useSelector(selectAgreementsError)
+  const agreementStatus = useSelector(selectStatus)
+  const errorMessage = useSelector(selectError)
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="agree-terms-modal">
