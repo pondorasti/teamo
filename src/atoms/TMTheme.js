@@ -1,4 +1,5 @@
 import React from "react"
+import { Slide } from "@material-ui/core"
 import { createMuiTheme } from "@material-ui/core/styles"
 import { ArrowDown } from "../assets/icons"
 
@@ -146,6 +147,11 @@ const defaultTheme = {
   },
 }
 
+function TransitionLeft(props) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <Slide {...props} direction="left" />
+}
+
 const TMTheme = createMuiTheme({
   ...defaultTheme,
   components: {
@@ -280,6 +286,14 @@ const TMTheme = createMuiTheme({
     MuiSkeleton: {
       defaultProps: {
         animation: "wave",
+      },
+    },
+
+    // Snackbar
+    MuiSnackbar: {
+      defaultProps: {
+        anchorOrigin: { vertical: "top", horizontal: "right" },
+        TransitionComponent: TransitionLeft,
       },
     },
   },
