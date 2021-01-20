@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit"
 import {
   usersRef,
   takenUsernamesRef,
@@ -24,7 +24,7 @@ const usernameTakenError =
 export const updateProfile = createAsyncThunk(
   types.updateProfile,
   // eslint-disable-next-line consistent-return
-  async ({ profilePictureFile, username, description }, { getState }) => {
+  async ({ profilePictureUrl, username, description }, { getState }) => {
     // username form validation
     if (!usernameRegex.test(username)) {
       return Promise.reject(new Error(usernameFormatError))
@@ -47,28 +47,32 @@ export const updateProfile = createAsyncThunk(
         }
       })
 
-    const id = selectCurrentUserId(getState())
-    const fileName = profilePictureFile.name
-    let profilePictureUrl
-
     // upload profile picture image to backend storage
-
-    // const response = await fetch(WavingRacoon)
-    // const blob = await response.blob()
-    // const storageRef = profilePicturesStorageRef.child(id).child("WavingRacoon.png")
-    // await storageRef.put(new File([blob], WavingRacoon, { type: "image/png" }))
-
+    const id = selectCurrentUserId(getState())
+    const fileName = nanoid()
     const storageRef = profilePicturesStorageRef.child(id).child(fileName)
-    await storageRef.put(profilePictureFile)
+
+    const response = await fetch(profilePictureUrl)
+    const imageBlob = await response.blob()
+    const templateProfilePictureFile = new File([imageBlob], fileName, {
+      type: "image/png",
+    })
+    await storageRef.put(templateProfilePictureFile)
+
+    // get profile picture URL
+    let storageProfilePictureUrl
     await storageRef.getDownloadURL().then((url) => {
-      profilePictureUrl = url
+      storageProfilePictureUrl = url
     })
 
     // update user document
     await takenUsernamesRef.doc(lowerCaseUsername).set({})
-    await usersRef
-      .doc(id)
-      .update({ username, description, profilePictureUrl, finishedSignUp: true })
+    await usersRef.doc(id).update({
+      username,
+      description,
+      profilePictureUrl: storageProfilePictureUrl,
+      finishedSignUp: true,
+    })
   },
 )
 
@@ -84,6 +88,7 @@ const profileSettingsSlice = createSlice({
       state.updateStatus = "succeeded"
     },
     [updateProfile.rejected]: (state, action) => {
+      console.log(action.error.message)
       state.updateStatus = "error"
 
       state.usernameError = null

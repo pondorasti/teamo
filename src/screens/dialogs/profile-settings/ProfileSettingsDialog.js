@@ -48,9 +48,12 @@ const useStyles = makeStyles(() => ({
   titleText: {
     margin: "0 16px",
   },
+  textField: {
+    width: 269,
+  },
 }))
 
-const imgArray = [
+const templateProfilePictures = [
   DumplingProfile,
   LionProfile,
   OctopusProfile,
@@ -66,24 +69,30 @@ function ProfileSettingsDialog({ open, onClose }) {
   const [description, setDescription] = useState("")
 
   // Random Button
-  function getRandomImg() {
-    return imgArray[Math.floor(Math.random() * imgArray.length)]
+  function getRandomImgUrl() {
+    return templateProfilePictures[
+      Math.floor(Math.random() * templateProfilePictures.length)
+    ]
   }
-  const [profilePictureFile, setProfilePictureFile] = useState(getRandomImg)
-  // const profilePictureUrl = URL.createObjectURL(profilePictureFile)
+
+  const [profilePictureUrl, setProfilePictureUrl] = useState(getRandomImgUrl)
+
   function handleRandomButton() {
-    let newProfileImg
+    let newProfilePictureUrl
     do {
-      newProfileImg = getRandomImg()
-    } while (newProfileImg === profilePictureFile)
-    setProfilePictureFile(newProfileImg)
+      newProfilePictureUrl = getRandomImgUrl()
+    } while (newProfilePictureUrl === profilePictureUrl)
+    setProfilePictureUrl(newProfilePictureUrl)
   }
 
   // Upload Button
   const inputUploadRef = useRef(null)
   function handleInputUpload() {
     if (inputUploadRef.current.files && inputUploadRef.current.files[0]) {
-      setProfilePictureFile(inputUploadRef.current.files[0])
+      const newProfilePictureFile = inputUploadRef.current.files[0]
+      const newProfilePictureUrl = URL.createObjectURL(newProfilePictureFile)
+
+      setProfilePictureUrl(newProfilePictureUrl)
     }
   }
 
@@ -93,7 +102,7 @@ function ProfileSettingsDialog({ open, onClose }) {
   const userNameError = useSelector(selectUsernameError)
   const descriptionError = useSelector(selectDescriptionError)
   function handleFormButton() {
-    dispatch(updateProfile({ profilePictureFile, username, description }))
+    dispatch(updateProfile({ profilePictureUrl, username, description }))
   }
 
   return (
@@ -113,7 +122,7 @@ function ProfileSettingsDialog({ open, onClose }) {
             <Grid container wrap="nowrap">
               <Grid item>
                 <TMAvatar
-                  // src={profilePictureUrl}
+                  src={profilePictureUrl}
                   alt="Profile Picture"
                   status="none"
                   size="profileSettings"
@@ -154,7 +163,7 @@ function ProfileSettingsDialog({ open, onClose }) {
               fullWidth
               error={!!userNameError}
               helperText={userNameError}
-              style={{ maxWidth: 269 }}
+              classes={{ root: classes.textField }}
             />
           </ListItem>
 
@@ -171,6 +180,7 @@ function ProfileSettingsDialog({ open, onClose }) {
               fullWidth
               error={!!descriptionError}
               helperText={descriptionError}
+              classes={{ root: classes.textField }}
             />
           </ListItem>
         </List>
