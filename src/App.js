@@ -44,6 +44,8 @@ function App() {
   // Profile Settings Dialog
   if (userNeedsProfile && !loadCreateProfile) {
     setLoadCreateProfile(true)
+  } else if (!userNeedsProfile && loadCreateProfile) {
+    setLoadCreateProfile(false)
   }
   if (!userNeedsAgreement && userNeedsProfile && !showCreateProfile) {
     setShowCreateProfile(true)
@@ -55,6 +57,8 @@ function App() {
   // Agreement Dialog (Always have this before the other dialog)
   if (userNeedsAgreement && !loadAgreement) {
     setLoadAgreement(true)
+  } else if (!userNeedsAgreement && loadAgreement) {
+    setLoadAgreement(false)
   }
   if (userNeedsAgreement && !showAgreement) {
     setShowAgreement(true)
