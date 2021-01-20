@@ -6,14 +6,14 @@ import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
 
-import TMButton from "../../../../atoms/TMButton"
-import { Google } from "../../../../assets/icons"
-import { CouchBuddies } from "../../../../assets/images"
+import TMButton from "../../../atoms/TMButton"
+import { Google } from "../../../assets/icons"
+import { CouchBuddies } from "../../../assets/images"
 
 import {
   login,
   selectSignInStatus,
-} from "../../../../redux/slices/currentUser/currentUserSlice"
+} from "../../../redux/slices/currentUser/currentUserSlice"
 
 const useStyles = makeStyles(() => ({
   slogan: {
