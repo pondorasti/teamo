@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { lobbiesRef } from "../../../../../api/firebase"
-import { selectCurrentUser } from "../../../../../redux/slices/currentUser/currentUserSlice"
+import { selectCurrentUser } from "../../../../redux/slices/currentUser/currentUserSlice"
 import * as types from "./types"
 
 export const addNewLobby = createAsyncThunk(

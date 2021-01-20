@@ -8,7 +8,7 @@ import {
   allGame,
   selectAllFilterGames,
   selectGameByName,
-} from "../../../../redux/slices/games/gamesSlice"
+} from "../../../redux/slices/games/gamesSlice"
 
 const useStyles = makeStyles((theme) => ({
   divContainer: {

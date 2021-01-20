@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { gamesRecordsUrl } from "../../../api/airtable"
+import { gamesRecordsUrl } from "../../../../api/airtable"
 import * as types from "./types"
 
 export const allGame = {

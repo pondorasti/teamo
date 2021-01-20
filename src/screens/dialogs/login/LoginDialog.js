@@ -13,7 +13,7 @@ import { CouchBuddies } from "../../../assets/images"
 import {
   login,
   selectSignInStatus,
-} from "../../../redux/slices/currentUser/currentUserSlice"
+} from "../../redux/slices/currentUser/currentUserSlice"
 
 const useStyles = makeStyles(() => ({
   slogan: {

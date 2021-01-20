@@ -13,7 +13,7 @@ import {
   selectSignInStatus,
   selectCurrentUser,
   signOut,
-} from "../redux/slices/currentUser/currentUserSlice"
+} from "./redux/slices/currentUser/currentUserSlice"
 
 // WARNING: ChatWindow uses a hardcoded height value of TMAppBar
 const useStyles = makeStyles((theme) => ({

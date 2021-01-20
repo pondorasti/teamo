@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { usersRef } from "../../../../api/firebase"
 import * as types from "./types"
-import { selectCurrentUserId } from "../../../../redux/slices/currentUser/currentUserSlice"
+import { selectCurrentUserId } from "../../../redux/slices/currentUser/currentUserSlice"
 
 const initialState = {
   agreements: {},

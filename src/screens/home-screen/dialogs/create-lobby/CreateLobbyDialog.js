@@ -22,10 +22,7 @@ import { Platform, Game, Size, Microphone } from "../../../../api/lobby-template
 import { Controller, Dpad, Mic, People, Description } from "../../../../assets/icons"
 import { CouchBuddies } from "../../../../assets/images"
 
-import {
-  selectAllGames,
-  selectGameByName,
-} from "../../../../redux/slices/games/gamesSlice"
+import { selectAllGames, selectGameByName } from "../../../redux/slices/games/gamesSlice"
 import { selectStatus, addNewLobby, resetStatus } from "./redux/createLobbySlice"
 
 const useStyles = makeStyles(() => ({

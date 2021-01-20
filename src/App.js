@@ -10,8 +10,8 @@ import {
   selectUserNeedsAgreement,
   selectUserNeedsProfile,
   subscribeToCurrentUser,
-} from "./redux/slices/currentUser/currentUserSlice"
-import { fetchGames } from "./redux/slices/games/gamesSlice"
+} from "./screens/redux/slices/currentUser/currentUserSlice"
+import { fetchGames } from "./screens/redux/slices/games/gamesSlice"
 import { auth } from "./api/firebase"
 import AgreementDialog from "./screens/dialogs/agreement/AgreementDialog"
 import ProfileSettingsDialog from "./screens/dialogs/profile-settings/ProfileSettingsDialog"
