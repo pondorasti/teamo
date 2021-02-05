@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { gamesRecordsUrl } from "../../../../api/airtable"
 import * as types from "./types"
 
-export const allGame = {
+const allGame = {
   id: "rec13thvcp5VUJgXg",
   name: "All Games",
   logoUrl:
@@ -14,9 +14,7 @@ export const allGame = {
 const initialState = [allGame]
 
 export const fetchGames = createAsyncThunk(types.fetchGames, async () => {
-  const url = gamesRecordsUrl
-
-  const response = await fetch(url)
+  const response = await fetch(gamesRecordsUrl)
     .then((data) => data.json())
     .then((data) => data.records)
     .then((data) =>

@@ -5,7 +5,6 @@ import Autocomplete from "@material-ui/core/Autocomplete"
 import { useSelector } from "react-redux"
 import { Platform, Game } from "../../../../api/lobby-template"
 import {
-  allGame,
   selectAllFilterGames,
   selectGameByName,
 } from "../../../redux/slices/games/gamesSlice"
@@ -101,7 +100,7 @@ function SelectedGameInfo() {
   const gameStats = "150 Players,  43 Lobbies"
 
   const games = useSelector(selectAllFilterGames)
-  const [gameName, setGameName] = useState(allGame.name)
+  const [gameName, setGameName] = useState(games[0].name)
   const game = useSelector((state) => selectGameByName(state, gameName))
 
   return (
