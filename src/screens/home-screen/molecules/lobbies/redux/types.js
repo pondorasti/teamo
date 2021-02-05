@@ -1,5 +1,5 @@
 const lobbies = "lobbies"
 
-const fetchLobbies = `${lobbies}/fetchLobbies`
+const fetchLobbies = `${lobbies}/fetch`
 
 export { lobbies, fetchLobbies }
