@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Dialog, DialogContent, Typography, Grid } from "@material-ui/core"
-import { TMButton, TMAvatar } from "../../atoms"
+import { TMButton, TMAvatar } from "../../../atoms"
 import ProfileGameCard from "./ProfileGameCard"
 
 const useStyles = makeStyles((theme) => ({
@@ -99,10 +99,14 @@ ProfileDialog.propTypes = {
   bio: PropTypes.string.isRequired,
 
   /** The avatar `src` attribute associated with the user. */
-  avatarUrl: PropTypes.string.isRequired,
+  avatarUrl: PropTypes.string,
 
   /** An array of games played. */
   gamesPlayed: PropTypes.any.isRequired,
+}
+
+ProfileDialog.defaultProps = {
+  avatarUrl: undefined,
 }
 
 export default ProfileDialog

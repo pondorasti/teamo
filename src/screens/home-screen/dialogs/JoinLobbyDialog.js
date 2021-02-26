@@ -27,9 +27,6 @@ const useStyles = makeStyles(() => ({
   subtitleSpacing: {
     marginTop: 8,
   },
-  illustration: {
-    maxWidth: 176,
-  },
 }))
 
 const imgArray = [
@@ -48,8 +45,12 @@ function JoinLobbyDialog({ open, onClose }) {
   const [isImgFlipped, setImgFlipped] = useState(false)
   const [isLoaded, setLoaded] = useState(false)
 
+  function getRandomImg() {
+    return imgArray[Math.floor(Math.random() * imgArray.length)]
+  }
+
   function handleImgRefresh() {
-    setRandomImg(imgArray[Math.floor(Math.random() * imgArray.length)])
+    setRandomImg(getRandomImg())
     setImgFlipped(Math.random() < 0.5)
   }
 
@@ -77,7 +78,8 @@ function JoinLobbyDialog({ open, onClose }) {
         <img
           src={randomImg}
           alt="Random animal standing"
-          className={classes.illustration}
+          width="224"
+          height="176"
           style={{ transform: `scaleX(${isImgFlipped ? -1 : 1})` }}
         />
       </DialogTitle>

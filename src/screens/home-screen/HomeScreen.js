@@ -3,16 +3,14 @@ import React from "react"
 import { Grid, Toolbar, Hidden } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
-import lobbies from "../../api/dummy-data/lobbies"
-import LobbyGrid from "./molecules/LobbyGrid"
+import LobbyGrid from "./molecules/lobbies/LobbyGrid"
 import AppBar from "../TMAppBar"
-import Carousel from "./molecules/Carousel"
-import { EasternScene, WesternScene } from "../../assets/images"
+import Carousel from "./molecules/carousel/Carousel"
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "calc(100vh - 64px)",
-    overflowY: "auto",
+    overflowY: "scroll",
   },
   gridContainer: {
     backgroundColor: `${theme.palette.grey[800]}`,
@@ -27,15 +25,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 32,
 
     [theme.breakpoints.up("sm")]: {
-      maxWidth: 672, // 336 * 2
+      width: 672, // 336 * 2
     },
 
     [theme.breakpoints.up("md")]: {
-      maxWidth: 1008, // 336 * 3
+      width: 1008, // 336 * 3
     },
   },
   image: {
-    maxHeight: 504,
     paddingTop: 32,
     opacity: 0.9,
   },
@@ -60,7 +57,10 @@ function HomeScreen() {
             <Hidden smDown>
               <Grid item>
                 <img
-                  src={EasternScene}
+                  src="https://dl.airtable.com/.attachments/2e6ab63c02d7e2c77ca986b9de7b5c2f/1ba03024/EasternScene1x.png"
+                  srcSet="https://dl.airtable.com/.attachments/2e6ab63c02d7e2c77ca986b9de7b5c2f/1ba03024/EasternScene1x.png 1x, https://dl.airtable.com/.attachments/497bbd1ee2e86dba72f7369ade31eee5/8f01d66e/EasternScene2x.png 2x"
+                  height="504px"
+                  width="472px"
                   className={classes.image}
                   alt="Eastern style islands with a raccoon playing VR on the roof."
                 />
@@ -70,14 +70,17 @@ function HomeScreen() {
             <Grid item>
               <div className={classes.contentContainer}>
                 <Carousel />
-                <LobbyGrid lobbies={lobbies} />
+                <LobbyGrid />
               </div>
             </Grid>
 
             <Hidden smDown>
               <Grid item>
                 <img
-                  src={WesternScene}
+                  src="https://dl.airtable.com/.attachments/0fb20077c48345a76761d4354269eda7/8ee521d7/WesternScene1x.png"
+                  srcSet="https://dl.airtable.com/.attachments/0fb20077c48345a76761d4354269eda7/8ee521d7/WesternScene1x.png 1x, https://dl.airtable.com/.attachments/e03bae454355b14068f7e5bd990b6c6e/3732cf9f/WesternScene2x.png 2x"
+                  height="504px"
+                  width="472px"
                   className={classes.image}
                   alt="Western style islands focusing on mushrooms playing video games on a couch."
                 />

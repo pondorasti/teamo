@@ -20,8 +20,6 @@ import TMButton from "../../../atoms/TMButton"
 
 const useStyles = makeStyles({
   gameLogo: {
-    width: 84,
-    height: 24,
     objectFit: "cover",
   },
   descriptionIconItem: {
@@ -58,7 +56,13 @@ function LobbyHeader({
     <>
       <Grid container item alignItems="center" justifyContent="space-between">
         <Typography variant="h5">{`${lobbyHost}"s Teamo`}</Typography>
-        <img src={gameLogo} alt={gameName} className={classes.gameLogo} />
+        <img
+          src={gameLogo}
+          alt={gameName}
+          width="84"
+          height="24"
+          className={classes.gameLogo}
+        />
       </Grid>
 
       <Grid container item classes={{ root: classes.lobbyInfoGridContainer }}>

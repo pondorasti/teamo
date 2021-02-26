@@ -4,10 +4,12 @@ import classNames from "classnames"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { IconButton } from "@material-ui/core"
 import Slider from "react-slick"
-import { ArrowLeft, ArrowRight } from "../../../assets/icons"
+import { useSelector } from "react-redux"
+import { ArrowLeft, ArrowRight } from "../../../../assets/icons"
 import HeroCard from "./HeroCard"
 import "./Carousel.css"
-import heroLobbies from "../../../api/dummy-data/heroLobbies"
+import heroLobbies from "../../../../api/dummy-data/heroLobbies"
+import { selectAllLobbies } from "../lobbies/redux/lobbiesSlice"
 
 const useStyles = makeStyles((theme) => ({
   slider: {
@@ -87,19 +89,18 @@ function NextArrow({ onClick }) {
   )
 }
 
-PrevArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
-NextArrow.propTypes = {
-  onClick: PropTypes.func.isRequired,
-}
+PrevArrow.propTypes = { onClick: PropTypes.func }
+PrevArrow.defaultProps = { onClick: undefined }
+NextArrow.propTypes = { onClick: PropTypes.func }
+NextArrow.defaultProps = { onClick: undefined }
 
 function Carousel() {
   const classes = useStyles()
   const theme = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
+  const lobbies = useSelector(selectAllLobbies)
 
-  const mapCarousel = heroLobbies.map((lobby, index) => {
+  const mapCarousel = lobbies.map((lobby, index) => {
     const className = classNames(
       {
         [classes.centerCard]: index === currentIndex,
@@ -121,15 +122,16 @@ function Carousel() {
       <div key={lobby.id} className={className}>
         <div>
           <HeroCard
-            hostUsername={lobby.username}
-            hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-            gameBannerUrl="https://cdn.mos.cms.futurecdn.net/MbZ8Yv6WNxjJkPaoQDUPLG-1200-80.jpg"
-            gameName="Minecraft"
+            hostUsername={lobby.cache.hostUser.username}
+            hostPicture={lobby.cache.hostUser.profilePictureUrl}
+            gameBannerUrl={lobby.cache.game.bannerUrl}
+            gameName={lobby.cache.game.name}
             description={lobby.description}
-            platform="PS5"
-            usesMic
-            sizeStatus="3/5"
+            platform={lobby.platform}
+            usesMic={lobby.microphone === "Microphone"}
+            sizeStatus={`0/${lobby.size}`}
             isContentHidden={index !== currentIndex}
+            isLoading={!!lobby.isLoading}
           />
         </div>
       </div>
@@ -145,7 +147,7 @@ function Carousel() {
     adaptiveHeight: true,
     centerPadding: 0,
 
-    infinite: true,
+    infinite: false,
 
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,

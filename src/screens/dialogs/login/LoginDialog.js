@@ -4,17 +4,22 @@ import DialogContent from "@material-ui/core/DialogContent"
 import PropTypes from "prop-types"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { DialogTitle, Typography } from "@material-ui/core"
+import { useDispatch, useSelector } from "react-redux"
 
 import TMButton from "../../../atoms/TMButton"
-import { Apple, Google } from "../../../assets/icons"
+import { Google } from "../../../assets/icons"
 import { CouchBuddies } from "../../../assets/images"
+
+import {
+  login,
+  selectSignInStatus,
+} from "../../redux/slices/currentUser/currentUserSlice"
 
 const useStyles = makeStyles(() => ({
   slogan: {
     marginTop: 8,
   },
   illustration: {
-    maxWidth: 300,
     marginBottom: 8,
   },
 }))
@@ -22,6 +27,8 @@ const useStyles = makeStyles(() => ({
 function LoginDialog({ open, onClose }) {
   const classes = useStyles()
   const theme = useTheme()
+  const dispatch = useDispatch()
+  const signInStatus = useSelector(selectSignInStatus) === "loading"
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="login-modal">
@@ -29,6 +36,8 @@ function LoginDialog({ open, onClose }) {
         <img
           src={CouchBuddies}
           alt="Five animals playing video games on a couch"
+          width="300"
+          height="200"
           className={classes.illustration}
         />
         <Typography variant="h4">Teamo</Typography>
@@ -39,7 +48,8 @@ function LoginDialog({ open, onClose }) {
       <DialogContent>
         <TMButton
           leadingIcon={<Google />}
-          onClick={onClose}
+          onClick={() => dispatch(login())}
+          pending={signInStatus}
           fullWidth
           style={{
             marginBottom: 16,
@@ -48,17 +58,6 @@ function LoginDialog({ open, onClose }) {
           }}
         >
           Continue with Google
-        </TMButton>
-        <TMButton
-          leadingIcon={<Apple />}
-          onClick={onClose}
-          fullWidth
-          style={{
-            color: theme.palette.common.black,
-            backgroundColor: theme.palette.text.primary,
-          }}
-        >
-          Continue with Apple
         </TMButton>
       </DialogContent>
     </Dialog>

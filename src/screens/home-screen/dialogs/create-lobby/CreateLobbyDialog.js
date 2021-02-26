@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import Autocomplete from "@material-ui/core/Autocomplete"
@@ -14,12 +14,16 @@ import {
   TextField,
 } from "@material-ui/core"
 
-import TMButton from "../../../atoms/TMButton"
+import { useSelector, useDispatch } from "react-redux"
 
-import { Platform, Game, Size, Microphone } from "../../../api/lobby-template"
+import TMButton from "../../../../atoms/TMButton"
 
-import { Controller, Dpad, Mic, People, Description } from "../../../assets/icons"
-import { CouchBuddies } from "../../../assets/images"
+import { Platform, Game, Size, Microphone } from "../../../../api/lobby-template"
+import { Controller, Dpad, Mic, People, Description } from "../../../../assets/icons"
+import { CouchBuddies } from "../../../../assets/images"
+
+import { selectAllGames, selectGameByName } from "../../../redux/slices/games/gamesSlice"
+import { selectStatus, addNewLobby, resetStatus } from "./redux/createLobbySlice"
 
 const useStyles = makeStyles(() => ({
   descriptionIconItem: {
@@ -28,7 +32,6 @@ const useStyles = makeStyles(() => ({
     marginTop: 7, // WARNING: Hard-coded value.
   },
   illustration: {
-    maxWidth: 300,
     marginBottom: 8,
   },
 }))
@@ -36,12 +39,35 @@ const useStyles = makeStyles(() => ({
 function CreateLobbyDialog({ open, onClose }) {
   const classes = useStyles()
 
+  const games = useSelector(selectAllGames)
+  const [gameName, setGameName] = useState(null)
+  const [platform, setPlatform] = useState(null)
+  const [microphone, setMicrophone] = useState(null)
+  const [size, setSize] = useState(null)
+  const [description, setDescription] = useState("")
+
+  const dispatch = useDispatch()
+  const game = useSelector((state) => selectGameByName(state, gameName))
+  const status = useSelector(selectStatus)
+  const pending = status === "loading"
+  if (status === "succeeded") {
+    dispatch(resetStatus())
+    setGameName(null)
+    setPlatform(null)
+    setMicrophone(null)
+    setSize(null)
+    setDescription("")
+    onClose()
+  }
+
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="create-teamo-modal">
       <DialogTitle id="create-teamo-modal-title">
         <img
           src={CouchBuddies}
           alt="Five animals playing video games on a couch"
+          width="300"
+          height="200"
           className={classes.illustration}
         />
         <Typography variant="h4">Create Teamo</Typography>
@@ -54,9 +80,11 @@ function CreateLobbyDialog({ open, onClose }) {
               <Controller />
             </ListItemIcon>
             <Autocomplete
+              value={gameName}
+              onChange={(_, newValue) => setGameName(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Game.label} />}
-              options={Game.options}
+              options={games.map((item) => item.name)}
               fullWidth
             />
           </ListItem>
@@ -66,6 +94,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Dpad />
             </ListItemIcon>
             <Autocomplete
+              value={platform}
+              onChange={(_, newValue) => setPlatform(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Platform.label} />}
               options={Platform.options}
@@ -78,6 +108,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Mic />
             </ListItemIcon>
             <Autocomplete
+              value={microphone}
+              onChange={(_, newValue) => setMicrophone(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Microphone.label} />}
               options={Microphone.options}
@@ -90,6 +122,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <People />
             </ListItemIcon>
             <Autocomplete
+              value={size}
+              onChange={(_, newValue) => setSize(newValue)}
               // eslint-disable-next-line react/jsx-props-no-spreading
               renderInput={(params) => <TextField {...params} label={Size.label} />}
               options={Size.options}
@@ -102,6 +136,8 @@ function CreateLobbyDialog({ open, onClose }) {
               <Description />
             </ListItemIcon>
             <TextField
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
               label="Description"
               helperText="Max 150 characters"
               rows={3}
@@ -113,7 +149,13 @@ function CreateLobbyDialog({ open, onClose }) {
       </DialogContent>
 
       <DialogActions>
-        <TMButton onClick={onClose} color="primary">
+        <TMButton
+          onClick={() => {
+            dispatch(addNewLobby({ game, platform, microphone, size, description }))
+          }}
+          color="primary"
+          pending={pending}
+        >
           Create
         </TMButton>
       </DialogActions>

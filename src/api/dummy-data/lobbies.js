@@ -1,173 +1,57 @@
 const lobbies = [
   {
-    id: 1,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
-    platform: "PS5",
-    usesMic: false,
-    sizeStatus: "3/5",
+    game: {
+      bannerUrl:
+        "https://dl.airtable.com/.attachments/42a8982c9e6de93dfa3a84698d8a1767/14a1f0a9/Rust_Banner.png",
+      id: "recwKQy5LU25fi6r6",
+      logoUrl:
+        "https://dl.airtable.com/.attachments/98b2cfadd59863fd7d4c87c5fd9cb888/3d7495c3/Rust_Logo.png",
+      name: "Rust",
+    },
+    hostId: 1,
+    id: "0",
+    microphone: true,
+    platform: "XBOX",
+    size: "9",
+    timestamp: "2021-01-07T14:42:39.870Z",
   },
   {
-    id: 2,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
-    platform: "PC",
-    usesMic: true,
-    sizeStatus: "3/10",
+    game: {
+      bannerUrl:
+        "https://dl.airtable.com/.attachments/42a8982c9e6de93dfa3a84698d8a1767/14a1f0a9/Rust_Banner.png",
+      id: "recwKQy5LU25fi6r6",
+      logoUrl:
+        "https://dl.airtable.com/.attachments/98b2cfadd59863fd7d4c87c5fd9cb888/3d7495c3/Rust_Logo.png",
+      name: "Rust",
+    },
+    hostId: 1,
+    id: "1",
+    microphone: true,
+    platform: "XBOX",
+    size: "9",
+    timestamp: "2021-01-07T14:42:39.870Z",
   },
   {
-    id: 3,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 4,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Switch",
-    usesMic: true,
-    sizeStatus: "1/8",
-  },
-  {
-    id: 5,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 6,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 7,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 8,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 9,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 10,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 11,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 12,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 13,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 14,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 15,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 16,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
-  },
-  {
-    id: 17,
-    username: "Pondorasti",
-    gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
-    description:
-      "This is my room decription, this should be no more than three lines long...",
-    platform: "Xbox One",
-    usesMic: false,
-    sizeStatus: "3/5",
+    game: {
+      bannerUrl:
+        "https://dl.airtable.com/.attachments/42a8982c9e6de93dfa3a84698d8a1767/14a1f0a9/Rust_Banner.png",
+      id: "recwKQy5LU25fi6r6",
+      logoUrl:
+        "https://dl.airtable.com/.attachments/98b2cfadd59863fd7d4c87c5fd9cb888/3d7495c3/Rust_Logo.png",
+      name: "Rust",
+    },
+    hostId: 1,
+    id: "2",
+    microphone: true,
+    platform: "XBOX",
+    size: "9",
+    timestamp: "2021-01-07T14:42:39.870Z",
   },
 ]
 

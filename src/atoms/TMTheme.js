@@ -1,4 +1,5 @@
 import React from "react"
+import { Slide } from "@material-ui/core"
 import { createMuiTheme } from "@material-ui/core/styles"
 import { ArrowDown } from "../assets/icons"
 
@@ -15,6 +16,7 @@ const defaultTheme = {
       // secondary
       main: "#AAA3EB",
       dark: "#AAA3EB",
+      contrastText: "#000", // silence WCAG console.error()
     },
     warning: {
       // tertiary
@@ -36,6 +38,7 @@ const defaultTheme = {
       // green
       main: "#23E036",
       dark: "#23E036",
+      contrastText: "#000", // silence WCAG console.error()
     },
 
     text: {
@@ -46,6 +49,7 @@ const defaultTheme = {
     },
 
     grey: {
+      300: "#505050", // silence WCAG console.error()
       500: "#505050", // border color
       600: "#464646", // quaternary background
       700: "#2F2F30", // tertiary background
@@ -92,6 +96,7 @@ const defaultTheme = {
       // headline 1
       fontWeight: "500",
       fontSize: "1.0625rem",
+      // Do not change `lineHeight` unitbase from `rem` unless you update `LobbyCard`
       lineHeight: "1.24375rem",
       letterSpacing: "0.009375rem",
     },
@@ -140,6 +145,11 @@ const defaultTheme = {
       carousel: 750,
     },
   },
+}
+
+function TransitionLeft(props) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <Slide {...props} direction="left" />
 }
 
 const TMTheme = createMuiTheme({
@@ -269,6 +279,21 @@ const TMTheme = createMuiTheme({
         arrow: {
           color: defaultTheme.palette.grey[600],
         },
+      },
+    },
+
+    // Skeleton
+    MuiSkeleton: {
+      defaultProps: {
+        animation: "wave",
+      },
+    },
+
+    // Snackbar
+    MuiSnackbar: {
+      defaultProps: {
+        anchorOrigin: { vertical: "top", horizontal: "right" },
+        TransitionComponent: TransitionLeft,
       },
     },
   },

@@ -12,21 +12,24 @@ const useStyles = makeStyles((theme) => ({
   sizeExtraSmall: {
     width: "24px",
     height: "24px",
-    borderRadius: "13.4%",
   },
   sizeSmall: {
     width: "36px",
     height: "36px",
-    borderRadius: "13.4%",
   },
   sizeMedium: {
     width: "56px",
     height: "56px",
-    borderRadius: "13.4%",
   },
   sizeLarge: {
     width: "120px",
     height: "120px",
+  },
+  sizeProfileSettings: {
+    width: "74px",
+    height: "74px",
+  },
+  borderRadius: {
     borderRadius: "13.4%",
   },
   onlineStatusOverlay: {
@@ -57,12 +60,16 @@ const useStyles = makeStyles((theme) => ({
 
 function TMAvatar({ alt, src, size, status, backgroundColor, style }) {
   const classes = useStyles()
-  const className = classNames({
-    [classes.sizeExtraSmall]: size === "extraSmall",
-    [classes.sizeSmall]: size === "small",
-    [classes.sizeMedium]: size === "medium",
-    [classes.sizeLarge]: size === "large",
-  })
+  const className = classNames(
+    {
+      [classes.sizeExtraSmall]: size === "extraSmall",
+      [classes.sizeSmall]: size === "small",
+      [classes.sizeMedium]: size === "medium",
+      [classes.sizeLarge]: size === "large",
+      [classes.sizeProfileSettings]: size === "profileSettings",
+    },
+    classes.borderRadius,
+  )
 
   if (status === "none") {
     return <Avatar classes={{ root: className }} alt={alt} src={src} style={style} />
@@ -86,10 +93,10 @@ TMAvatar.propTypes = {
   alt: PropTypes.string.isRequired,
 
   /** The `src` attribute for the `img` element. */
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
 
   /** The size of the avatar. */
-  size: PropTypes.oneOf(["extraSmall", "small", "medium", "large"]),
+  size: PropTypes.oneOf(["extraSmall", "small", "medium", "large", "profileSettings"]),
 
   /** An optional badge for the avatar */
   status: PropTypes.oneOf(["none", "online"]),
@@ -102,6 +109,7 @@ TMAvatar.propTypes = {
 }
 
 TMAvatar.defaultProps = {
+  src: undefined,
   size: "medium",
   status: "none",
   backgroundColor: undefined,

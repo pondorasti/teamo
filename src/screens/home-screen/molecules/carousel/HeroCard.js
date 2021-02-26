@@ -1,15 +1,17 @@
 import React from "react"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Grid, Card, CardActionArea, Typography, Fade } from "@material-ui/core"
 import PropTypes from "prop-types"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { Grid, Card, CardActionArea, Typography, Fade, Skeleton } from "@material-ui/core"
+import classNames from "classnames"
 
-import LobbyCardFooter from "./LobbyCardFooter"
-import LobbyOptionsButton from "./LobbyOptionsButton"
-import TMAvatar from "../../../atoms/TMAvatar"
+import LobbyCardFooter from "../LobbyCardFooter"
+import LobbyOptionsButton from "../LobbyOptionsButton"
+import TMAvatar from "../../../../atoms/TMAvatar"
 
 const height = 200
 const width = 400
 const smallWidth = 300
+const borderRadius = 16
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -25,10 +27,19 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "50%",
     transform: "translateX(-50%)",
   },
+  cardContainerSkeleton: {
+    backgroundColor: theme.palette.grey[700],
+    borderRadius,
+  },
+  skeleton: {
+    height,
+    width: "100%",
+    maxWidth: "none",
+    borderRadius,
+  },
   card: {
     height,
-
-    borderRadius: 16,
+    borderRadius,
     overflow: "visible",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -52,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
       left: "40%",
     },
 
-    borderRadius: "16px 0 0 16px",
+    borderRadius: `${borderRadius}px 0 0 ${borderRadius}px`,
     padding: 16,
     backgroundColor: theme.palette.grey[700],
 
@@ -79,16 +90,25 @@ function HeroCard({
   usesMic,
   sizeStatus,
   isContentHidden,
+  isLoading,
 }) {
   const classes = useStyles()
   const theme = useTheme()
 
-  return (
-    <div className={classes.cardContainer} title={gameName}>
+  const backgroundImage = isLoading ? "" : `url(${gameBannerUrl})`
+  const containerStyles = classNames(
+    {
+      [classes.cardContainerSkeleton]: isLoading,
+    },
+    classes.cardContainer,
+  )
+
+  const card = (
+    <>
       <Card
         classes={{ root: classes.card }}
         style={{
-          backgroundImage: `url(${gameBannerUrl})`,
+          backgroundImage,
           filter: `brightness(${!isContentHidden ? "100%" : "35%"})`,
           transition: `all ${theme.transitions.duration.carousel}ms ease`,
         }}
@@ -121,8 +141,20 @@ function HeroCard({
           </CardActionArea>
         </Fade>
       </Card>
+    </>
+  )
 
-      {!isContentHidden && (
+  return (
+    <div className={containerStyles} title={gameName}>
+      {isLoading ? (
+        <Skeleton variant="rectangular" classes={{ root: classes.skeleton }}>
+          {card}
+        </Skeleton>
+      ) : (
+        card
+      )}
+
+      {!isContentHidden && !isLoading && (
         <LobbyOptionsButton className={classes.optionsButtonContainer} />
       )}
     </div>
@@ -156,6 +188,9 @@ HeroCard.propTypes = {
 
   /** Hides or shows the lobby content. */
   isContentHidden: PropTypes.bool.isRequired,
+
+  /** If `true` the view will be shown as an animated skeleton. */
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default HeroCard

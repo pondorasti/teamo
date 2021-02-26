@@ -1,9 +1,10 @@
+import React, { useEffect } from "react"
 import { Grid } from "@material-ui/core"
-import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import PropTypes from "prop-types"
+import { useSelector, useDispatch } from "react-redux"
 import LobbyCard from "./LobbyCard"
 import SelectedGameInfo from "./SelectedGameInfo"
+import { selectAllLobbies, fetchLobbies } from "./redux/lobbiesSlice"
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -17,8 +18,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function LobbyGrid({ lobbies }) {
+function LobbyGrid() {
   const classes = useStyles()
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchLobbies())
+  }, [])
+  const lobbies = useSelector(selectAllLobbies)
 
   return (
     <div>
@@ -37,25 +44,21 @@ function LobbyGrid({ lobbies }) {
             classes={{ root: classes.gridItem }}
           >
             <LobbyCard
-              hostUsername={lobby.username}
-              hostPicture="https://qph.fs.quoracdn.net/main-qimg-3d69658bf00b1e706b75162a50d19d6c"
-              gameLogoUrl={lobby.gameLogoUrl}
-              gameName="Minecraft"
+              hostUsername={lobby.cache.hostUser.username}
+              hostPicture={lobby.cache.hostUser.profilePictureUrl}
+              gameLogoUrl={lobby.cache.game.logoUrl}
+              gameName={lobby.cache.game.name}
               description={lobby.description}
               platform={lobby.platform}
-              usesMic={lobby.usesMic}
-              sizeStatus={lobby.sizeStatus}
+              usesMic={lobby.microphone === "Microphone"}
+              sizeStatus={`0/${lobby.size}`}
+              isLoading={!!lobby.isLoading}
             />
           </Grid>
         ))}
       </Grid>
     </div>
   )
-}
-
-LobbyGrid.propTypes = {
-  /** An array of lobbies */
-  lobbies: PropTypes.array.isRequired,
 }
 
 export default LobbyGrid
