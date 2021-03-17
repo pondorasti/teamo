@@ -4,50 +4,50 @@ const lobbies = [
     username: "Pondorasti",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
-      "This is my room decription, this should be no more than three lines long...",
+      "Looking for a hardcore player to do speedruns to the end and kill the mighty dragon.",
     platform: "PS5",
     usesMic: false,
     sizeStatus: "3/5",
   },
   {
     id: 2,
-    username: "Pondorasti",
+    username: "Numel",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "PC",
     usesMic: true,
-    sizeStatus: "3/10",
+    sizeStatus: "2/10",
   },
   {
     id: 3,
-    username: "Pondorasti",
+    username: "Xila",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "1/5",
   },
   {
     id: 4,
-    username: "Pondorasti",
+    username: "Hypebeast",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Switch",
     usesMic: true,
-    sizeStatus: "1/8",
+    sizeStatus: "6/8",
   },
   {
     id: 5,
-    username: "Pondorasti",
+    username: "Rafikimester",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "4/5",
   },
   {
     id: 6,
@@ -57,21 +57,21 @@ const lobbies = [
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "4/5",
   },
   {
     id: 7,
-    username: "Pondorasti",
+    username: "Numel",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "1/5",
   },
   {
     id: 8,
-    username: "Pondorasti",
+    username: "Rafikimester",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -81,23 +81,23 @@ const lobbies = [
   },
   {
     id: 9,
-    username: "Pondorasti",
+    username: "Xila",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "4/5",
   },
   {
     id: 10,
-    username: "Pondorasti",
+    username: "Hypebeast",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "3/8",
   },
   {
     id: 11,
@@ -107,21 +107,21 @@ const lobbies = [
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "2/7",
   },
   {
     id: 12,
-    username: "Pondorasti",
+    username: "Numel",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "6/7",
   },
   {
     id: 13,
-    username: "Pondorasti",
+    username: "Xila",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
@@ -137,27 +137,27 @@ const lobbies = [
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "1/2",
   },
   {
     id: 15,
-    username: "Pondorasti",
+    username: "Hypebeast",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "1/3",
   },
   {
     id: 16,
-    username: "Pondorasti",
+    username: "Rafikimester",
     gameLogoUrl: "https://logos-world.net/wp-content/uploads/2020/04/Minecraft-Logo.png",
     description:
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "2/5",
   },
   {
     id: 17,
@@ -167,7 +167,7 @@ const lobbies = [
       "This is my room decription, this should be no more than three lines long...",
     platform: "Xbox One",
     usesMic: false,
-    sizeStatus: "3/5",
+    sizeStatus: "4/5",
   },
 ]
 
