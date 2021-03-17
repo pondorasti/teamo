@@ -16,11 +16,15 @@
     "slick-carousel": "^1.8.1",
     "web-vitals": "^0.2.4"
   },
+  "homepage": "./",
+  "main": "src/electron-starter.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "electron": "^11.1.0",
     "eslint": "^7.14.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
@@ -54,7 +59,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,tsx}": [
-      "eslint . --fix",
       "git add"
     ]
   }

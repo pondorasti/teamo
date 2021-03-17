@@ -165,9 +165,9 @@ function Carousel() {
     autoplaySpeed: 5000,
 
     beforeChange: (_, next) => {
-      setPointerEvents(false)
+      // setPointerEvents(false)
       setCurrentIndex(next)
-      setTimeout(() => setPointerEvents(true), theme.transitions.duration.carousel * 0.90)
+      // setTimeout(() => setPointerEvents(true), theme.transitions.duration.carousel * 0.90)
     },
   }
 
