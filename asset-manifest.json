@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Teamo/static/css/main.7176885d.chunk.css",
+    "main.js": "/Teamo/static/js/main.8c2ad390.chunk.js",
+    "main.js.map": "/Teamo/static/js/main.8c2ad390.chunk.js.map",
+    "runtime-main.js": "/Teamo/static/js/runtime-main.d039ea15.js",
+    "runtime-main.js.map": "/Teamo/static/js/runtime-main.d039ea15.js.map",
+    "static/css/2.68f07e50.chunk.css": "/Teamo/static/css/2.68f07e50.chunk.css",
+    "static/js/2.3bed9d0d.chunk.js": "/Teamo/static/js/2.3bed9d0d.chunk.js",
+    "static/js/2.3bed9d0d.chunk.js.map": "/Teamo/static/js/2.3bed9d0d.chunk.js.map",
+    "static/js/3.92b7f4a9.chunk.js": "/Teamo/static/js/3.92b7f4a9.chunk.js",
+    "static/js/3.92b7f4a9.chunk.js.map": "/Teamo/static/js/3.92b7f4a9.chunk.js.map",
+    "index.html": "/Teamo/index.html",
+    "static/css/2.68f07e50.chunk.css.map": "/Teamo/static/css/2.68f07e50.chunk.css.map",
+    "static/css/main.7176885d.chunk.css.map": "/Teamo/static/css/main.7176885d.chunk.css.map",
+    "static/js/2.3bed9d0d.chunk.js.LICENSE.txt": "/Teamo/static/js/2.3bed9d0d.chunk.js.LICENSE.txt",
+    "static/media/CouchBuddies.48878b05.png": "/Teamo/static/media/CouchBuddies.48878b05.png",
+    "static/media/EasternScene.415176ad.png": "/Teamo/static/media/EasternScene.415176ad.png",
+    "static/media/TeamoBanner.bed1488e.svg": "/Teamo/static/media/TeamoBanner.bed1488e.svg",
+    "static/media/WesternScene.4da84c82.png": "/Teamo/static/media/WesternScene.4da84c82.png",
+    "static/media/Carousel.css": "/Teamo/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d039ea15.js",
+    "static/css/2.68f07e50.chunk.css",
+    "static/js/2.3bed9d0d.chunk.js",
+    "static/css/main.7176885d.chunk.css",
+    "static/js/main.8c2ad390.chunk.js"
+  ]
+}
